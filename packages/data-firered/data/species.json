@@ -66,6 +66,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 1,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -163,6 +164,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 2,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -264,6 +266,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 3,
   "tmhm": [
    "roar",
    "toxic",
@@ -351,6 +354,7 @@
     "move": "fire_spin"
    }
   ],
+  "dex": 4,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -443,6 +447,7 @@
     "move": "fire_spin"
    }
   ],
+  "dex": 5,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -548,6 +553,7 @@
     "move": "fire_spin"
    }
   ],
+  "dex": 6,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -645,6 +651,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 7,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -746,6 +753,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 8,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -851,6 +859,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 9,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -911,6 +920,7 @@
     "move": "string_shot"
    }
   ],
+  "dex": 10,
   "tmhm": []
  },
  {
@@ -943,6 +953,7 @@
     "move": "harden"
    }
   ],
+  "dex": 11,
   "tmhm": []
  },
  {
@@ -1012,6 +1023,7 @@
     "move": "silver_wind"
    }
   ],
+  "dex": 12,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1068,6 +1080,7 @@
     "move": "string_shot"
    }
   ],
+  "dex": 13,
   "tmhm": []
  },
  {
@@ -1101,6 +1114,7 @@
     "move": "harden"
    }
   ],
+  "dex": 14,
   "tmhm": []
  },
  {
@@ -1162,6 +1176,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 15,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1244,6 +1259,7 @@
     "move": "mirror_move"
    }
   ],
+  "dex": 16,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1330,6 +1346,7 @@
     "move": "mirror_move"
    }
   ],
+  "dex": 17,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1420,6 +1437,7 @@
     "move": "mirror_move"
    }
   ],
+  "dex": 18,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1495,6 +1513,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 19,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1581,6 +1600,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 20,
   "tmhm": [
    "roar",
    "toxic",
@@ -1670,6 +1690,7 @@
     "move": "agility"
    }
   ],
+  "dex": 21,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1752,6 +1773,7 @@
     "move": "agility"
    }
   ],
+  "dex": 22,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1839,6 +1861,7 @@
     "move": "haze"
    }
   ],
+  "dex": 23,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -1938,6 +1961,7 @@
     "move": "haze"
    }
   ],
+  "dex": 24,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -2029,6 +2053,7 @@
     "move": "light_screen"
    }
   ],
+  "dex": 25,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -2092,6 +2117,7 @@
     "move": "thunderbolt"
    }
   ],
+  "dex": 26,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -2177,6 +2203,7 @@
     "move": "sandstorm"
    }
   ],
+  "dex": 27,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -2269,6 +2296,7 @@
     "move": "sandstorm"
    }
   ],
+  "dex": 28,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -2358,6 +2386,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 29,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -2449,6 +2478,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 30,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -2525,6 +2555,7 @@
     "move": "superpower"
    }
   ],
+  "dex": 31,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -2629,6 +2660,7 @@
     "move": "horn_drill"
    }
   ],
+  "dex": 32,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -2719,6 +2751,7 @@
     "move": "horn_drill"
    }
   ],
+  "dex": 33,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -2794,6 +2827,7 @@
     "move": "megahorn"
    }
   ],
+  "dex": 34,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -2909,6 +2943,7 @@
     "move": "meteor_mash"
    }
   ],
+  "dex": 35,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -2984,6 +3019,7 @@
     "move": "metronome"
    }
   ],
+  "dex": 36,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -3088,6 +3124,7 @@
     "move": "fire_spin"
    }
   ],
+  "dex": 37,
   "tmhm": [
    "roar",
    "toxic",
@@ -3151,6 +3188,7 @@
     "move": "fire_spin"
    }
   ],
+  "dex": 38,
   "tmhm": [
    "roar",
    "toxic",
@@ -3239,6 +3277,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 39,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -3312,6 +3351,7 @@
     "move": "double_slap"
    }
   ],
+  "dex": 40,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -3411,6 +3451,7 @@
     "move": "haze"
    }
   ],
+  "dex": 41,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -3510,6 +3551,7 @@
     "move": "haze"
    }
   ],
+  "dex": 42,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -3590,6 +3632,7 @@
     "move": "petal_dance"
    }
   ],
+  "dex": 43,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -3673,6 +3716,7 @@
     "move": "petal_dance"
    }
   ],
+  "dex": 44,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -3736,6 +3780,7 @@
     "move": "petal_dance"
    }
   ],
+  "dex": 45,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -3816,6 +3861,7 @@
     "move": "aromatherapy"
    }
   ],
+  "dex": 46,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -3907,6 +3953,7 @@
     "move": "aromatherapy"
    }
   ],
+  "dex": 47,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -3999,6 +4046,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 48,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -4099,6 +4147,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 49,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -4185,6 +4234,7 @@
     "move": "fissure"
    }
   ],
+  "dex": 50,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -4290,6 +4340,7 @@
     "move": "fissure"
    }
   ],
+  "dex": 51,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -4375,6 +4426,7 @@
     "move": "swagger"
    }
   ],
+  "dex": 52,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -4470,6 +4522,7 @@
     "move": "swagger"
    }
   ],
+  "dex": 53,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -4560,6 +4613,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 54,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -4657,6 +4711,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 55,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -4754,6 +4809,7 @@
     "move": "thrash"
    }
   ],
+  "dex": 56,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -4862,6 +4918,7 @@
     "move": "thrash"
    }
   ],
+  "dex": 57,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -4956,6 +5013,7 @@
     "move": "flamethrower"
    }
   ],
+  "dex": 58,
   "tmhm": [
    "roar",
    "toxic",
@@ -5023,6 +5081,7 @@
     "move": "extreme_speed"
    }
   ],
+  "dex": 59,
   "tmhm": [
    "roar",
    "toxic",
@@ -5103,6 +5162,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 60,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -5190,6 +5250,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 61,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -5267,6 +5328,7 @@
     "move": "mind_reader"
    }
   ],
+  "dex": 62,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -5326,6 +5388,7 @@
     "move": "teleport"
    }
   ],
+  "dex": 63,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -5427,6 +5490,7 @@
     "move": "trick"
    }
   ],
+  "dex": 64,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -5528,6 +5592,7 @@
     "move": "trick"
    }
   ],
+  "dex": 65,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -5629,6 +5694,7 @@
     "move": "dynamic_punch"
    }
   ],
+  "dex": 66,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -5729,6 +5795,7 @@
     "move": "dynamic_punch"
    }
   ],
+  "dex": 67,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -5829,6 +5896,7 @@
     "move": "dynamic_punch"
    }
   ],
+  "dex": 68,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -5919,6 +5987,7 @@
     "move": "slam"
    }
   ],
+  "dex": 69,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -6011,6 +6080,7 @@
     "move": "slam"
    }
   ],
+  "dex": 70,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -6083,6 +6153,7 @@
     "move": "razor_leaf"
    }
   ],
+  "dex": 71,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -6165,6 +6236,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 72,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -6258,6 +6330,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 73,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -6352,6 +6425,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 74,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -6452,6 +6526,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 75,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -6552,6 +6627,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 76,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -6641,6 +6717,7 @@
     "move": "fire_blast"
    }
   ],
+  "dex": 77,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -6740,6 +6817,7 @@
     "move": "fire_blast"
    }
   ],
+  "dex": 78,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -6829,6 +6907,7 @@
     "move": "psych_up"
    }
   ],
+  "dex": 79,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -6938,6 +7017,7 @@
     "move": "psych_up"
    }
   ],
+  "dex": 80,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -7043,6 +7123,7 @@
     "move": "zap_cannon"
    }
   ],
+  "dex": 81,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -7138,6 +7219,7 @@
     "move": "zap_cannon"
    }
   ],
+  "dex": 82,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -7222,6 +7304,7 @@
     "move": "false_swipe"
    }
   ],
+  "dex": 83,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -7302,6 +7385,7 @@
     "move": "agility"
    }
   ],
+  "dex": 84,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -7388,6 +7472,7 @@
     "move": "agility"
    }
   ],
+  "dex": 85,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -7463,6 +7548,7 @@
     "move": "safeguard"
    }
   ],
+  "dex": 86,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -7561,6 +7647,7 @@
     "move": "safeguard"
    }
   ],
+  "dex": 87,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -7648,6 +7735,7 @@
     "move": "memento"
    }
   ],
+  "dex": 88,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -7742,6 +7830,7 @@
     "move": "memento"
    }
   ],
+  "dex": 89,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -7832,6 +7921,7 @@
     "move": "ice_beam"
    }
   ],
+  "dex": 90,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -7899,6 +7989,7 @@
     "move": "spike_cannon"
    }
   ],
+  "dex": 91,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -7988,6 +8079,7 @@
     "move": "mean_look"
    }
   ],
+  "dex": 92,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -8088,6 +8180,7 @@
     "move": "mean_look"
    }
   ],
+  "dex": 93,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -8188,6 +8281,7 @@
     "move": "mean_look"
    }
   ],
+  "dex": 94,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -8291,6 +8385,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 95,
   "tmhm": [
    "roar",
    "toxic",
@@ -8381,6 +8476,7 @@
     "move": "future_sight"
    }
   ],
+  "dex": 96,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -8488,6 +8584,7 @@
     "move": "future_sight"
    }
   ],
+  "dex": 97,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -8581,6 +8678,7 @@
     "move": "flail"
    }
   ],
+  "dex": 98,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -8686,6 +8784,7 @@
     "move": "flail"
    }
   ],
+  "dex": 99,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -8780,6 +8879,7 @@
     "move": "mirror_coat"
    }
   ],
+  "dex": 100,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -8876,6 +8976,7 @@
     "move": "mirror_coat"
    }
   ],
+  "dex": 101,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -8961,6 +9062,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 102,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -9029,6 +9131,7 @@
     "move": "egg_bomb"
    }
   ],
+  "dex": 103,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -9126,6 +9229,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 104,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -9238,6 +9342,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 105,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -9342,6 +9447,7 @@
     "move": "reversal"
    }
   ],
+  "dex": 106,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -9435,6 +9541,7 @@
     "move": "counter"
    }
   ],
+  "dex": 107,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -9521,6 +9628,7 @@
     "move": "refresh"
    }
   ],
+  "dex": 108,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -9621,6 +9729,7 @@
     "move": "memento"
    }
   ],
+  "dex": 109,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -9717,6 +9826,7 @@
     "move": "memento"
    }
   ],
+  "dex": 110,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -9808,6 +9918,7 @@
     "move": "megahorn"
    }
   ],
+  "dex": 111,
   "tmhm": [
    "roar",
    "toxic",
@@ -9911,6 +10022,7 @@
     "move": "megahorn"
    }
   ],
+  "dex": 112,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -10018,6 +10130,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 113,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -10130,6 +10243,7 @@
     "move": "tickle"
    }
   ],
+  "dex": 114,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -10215,6 +10329,7 @@
     "move": "reversal"
    }
   ],
+  "dex": 115,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -10310,6 +10425,7 @@
     "move": "dragon_dance"
    }
   ],
+  "dex": 116,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -10397,6 +10513,7 @@
     "move": "dragon_dance"
    }
   ],
+  "dex": 117,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -10486,6 +10603,7 @@
     "move": "megahorn"
    }
   ],
+  "dex": 118,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -10578,6 +10696,7 @@
     "move": "megahorn"
    }
   ],
+  "dex": 119,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -10671,6 +10790,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 120,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -10741,6 +10861,7 @@
     "move": "confuse_ray"
    }
   ],
+  "dex": 121,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -10855,6 +10976,7 @@
     "move": "safeguard"
    }
   ],
+  "dex": 122,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -10956,6 +11078,7 @@
     "move": "fury_cutter"
    }
   ],
+  "dex": 123,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -11052,6 +11175,7 @@
     "move": "blizzard"
    }
   ],
+  "dex": 124,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -11141,6 +11265,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 125,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -11238,6 +11363,7 @@
     "move": "fire_blast"
    }
   ],
+  "dex": 126,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -11324,6 +11450,7 @@
     "move": "swords_dance"
    }
   ],
+  "dex": 127,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -11412,6 +11539,7 @@
     "move": "take_down"
    }
   ],
+  "dex": 128,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -11478,6 +11606,7 @@
     "move": "flail"
    }
   ],
+  "dex": 129,
   "tmhm": []
  },
  {
@@ -11539,6 +11668,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 130,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -11644,6 +11774,7 @@
     "move": "sheer_cold"
    }
   ],
+  "dex": 131,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -11701,6 +11832,7 @@
     "move": "transform"
    }
   ],
+  "dex": 132,
   "tmhm": []
  },
  {
@@ -11761,6 +11893,7 @@
     "move": "take_down"
    }
   ],
+  "dex": 133,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -11845,6 +11978,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 134,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -11938,6 +12072,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 135,
   "tmhm": [
    "roar",
    "toxic",
@@ -12028,6 +12163,7 @@
     "move": "flamethrower"
    }
   ],
+  "dex": 136,
   "tmhm": [
    "roar",
    "toxic",
@@ -12117,6 +12253,7 @@
     "move": "zap_cannon"
    }
   ],
+  "dex": 137,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -12208,6 +12345,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 138,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -12309,6 +12447,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 139,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -12399,6 +12538,7 @@
     "move": "ancient_power"
    }
   ],
+  "dex": 140,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -12506,6 +12646,7 @@
     "move": "ancient_power"
    }
   ],
+  "dex": 141,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -12593,6 +12734,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 142,
   "tmhm": [
    "dragon_claw",
    "roar",
@@ -12704,6 +12846,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 143,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -12797,6 +12940,7 @@
     "move": "sheer_cold"
    }
   ],
+  "dex": 144,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -12882,6 +13026,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 145,
   "tmhm": [
    "roar",
    "toxic",
@@ -12967,6 +13112,7 @@
     "move": "sky_attack"
    }
   ],
+  "dex": 146,
   "tmhm": [
    "roar",
    "toxic",
@@ -13054,6 +13200,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 147,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -13153,6 +13300,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 148,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -13257,6 +13405,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 149,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -13366,6 +13515,7 @@
     "move": "amnesia"
    }
   ],
+  "dex": 150,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -13458,6 +13608,7 @@
     "move": "ancient_power"
    }
   ],
+  "dex": 151,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -13581,6 +13732,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 152,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -13674,6 +13826,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 153,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -13769,6 +13922,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 154,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -13850,6 +14004,7 @@
     "move": "flamethrower"
    }
   ],
+  "dex": 155,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -13928,6 +14083,7 @@
     "move": "flamethrower"
    }
   ],
+  "dex": 156,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -14015,6 +14171,7 @@
     "move": "flamethrower"
    }
   ],
+  "dex": 157,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -14100,6 +14257,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 158,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -14189,6 +14347,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 159,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -14285,6 +14444,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 160,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -14377,6 +14537,7 @@
     "move": "amnesia"
    }
   ],
+  "dex": 161,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -14473,6 +14634,7 @@
     "move": "amnesia"
    }
   ],
+  "dex": 162,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -14567,6 +14729,7 @@
     "move": "dream_eater"
    }
   ],
+  "dex": 163,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -14658,6 +14821,7 @@
     "move": "dream_eater"
    }
   ],
+  "dex": 164,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -14746,6 +14910,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 165,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -14839,6 +15004,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 166,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -14929,6 +15095,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 167,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -15022,6 +15189,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 168,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -15119,6 +15287,7 @@
     "move": "haze"
    }
   ],
+  "dex": 169,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -15209,6 +15378,7 @@
     "move": "charge"
    }
   ],
+  "dex": 170,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -15302,6 +15472,7 @@
     "move": "charge"
    }
   ],
+  "dex": 171,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -15370,6 +15541,7 @@
     "move": "sweet_kiss"
    }
   ],
+  "dex": 172,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -15436,6 +15608,7 @@
     "move": "magical_leaf"
    }
   ],
+  "dex": 173,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -15506,6 +15679,7 @@
     "move": "sweet_kiss"
    }
   ],
+  "dex": 174,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -15604,6 +15778,7 @@
     "move": "baton_pass"
    }
   ],
+  "dex": 175,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -15715,6 +15890,7 @@
     "move": "baton_pass"
    }
   ],
+  "dex": 176,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -15804,6 +15980,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 177,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -15887,6 +16064,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 178,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -15966,6 +16144,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 179,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -16040,6 +16219,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 180,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -16126,6 +16306,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 181,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -16197,6 +16378,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 182,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -16278,6 +16460,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 183,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -16376,6 +16559,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 184,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -16463,6 +16647,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 185,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -16535,6 +16720,7 @@
     "move": "swagger"
    }
   ],
+  "dex": 186,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -16628,6 +16814,7 @@
     "move": "mega_drain"
    }
   ],
+  "dex": 187,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -16722,6 +16909,7 @@
     "move": "mega_drain"
    }
   ],
+  "dex": 188,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -16816,6 +17004,7 @@
     "move": "mega_drain"
    }
   ],
+  "dex": 189,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -16899,6 +17088,7 @@
     "move": "agility"
    }
   ],
+  "dex": 190,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -16985,6 +17175,7 @@
     "move": "giga_drain"
    }
   ],
+  "dex": 191,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -17065,6 +17256,7 @@
     "move": "solar_beam"
    }
   ],
+  "dex": 192,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -17156,6 +17348,7 @@
     "move": "screech"
    }
   ],
+  "dex": 193,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -17242,6 +17435,7 @@
     "move": "haze"
    }
   ],
+  "dex": 194,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -17334,6 +17528,7 @@
     "move": "haze"
    }
   ],
+  "dex": 195,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -17433,6 +17628,7 @@
     "move": "morning_sun"
    }
   ],
+  "dex": 196,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -17525,6 +17721,7 @@
     "move": "moonlight"
    }
   ],
+  "dex": 197,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -17605,6 +17802,7 @@
     "move": "mean_look"
    }
   ],
+  "dex": 198,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -17697,6 +17895,7 @@
     "move": "psych_up"
    }
   ],
+  "dex": 199,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -17796,6 +17995,7 @@
     "move": "grudge"
    }
   ],
+  "dex": 200,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -17850,6 +18050,7 @@
     "move": "hidden_power"
    }
   ],
+  "dex": 201,
   "tmhm": []
  },
  {
@@ -17890,6 +18091,7 @@
     "move": "destiny_bond"
    }
   ],
+  "dex": 202,
   "tmhm": []
  },
  {
@@ -17956,6 +18158,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 203,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -18044,6 +18247,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 204,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -18134,6 +18338,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 205,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -18225,6 +18430,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 206,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -18314,6 +18520,7 @@
     "move": "guillotine"
    }
   ],
+  "dex": 207,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -18413,6 +18620,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 208,
   "tmhm": [
    "roar",
    "toxic",
@@ -18502,6 +18710,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 209,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -18600,6 +18809,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 210,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -18707,6 +18917,7 @@
     "move": "destiny_bond"
    }
   ],
+  "dex": 211,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -18798,6 +19009,7 @@
     "move": "fury_cutter"
    }
   ],
+  "dex": 212,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -18872,6 +19084,7 @@
     "move": "rest"
    }
   ],
+  "dex": 213,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -18959,6 +19172,7 @@
     "move": "megahorn"
    }
   ],
+  "dex": 214,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -19057,6 +19271,7 @@
     "move": "metal_claw"
    }
   ],
+  "dex": 215,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -19152,6 +19367,7 @@
     "move": "thrash"
    }
   ],
+  "dex": 216,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -19250,6 +19466,7 @@
     "move": "thrash"
    }
   ],
+  "dex": 217,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -19339,6 +19556,7 @@
     "move": "body_slam"
    }
   ],
+  "dex": 218,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -19427,6 +19645,7 @@
     "move": "body_slam"
    }
   ],
+  "dex": 219,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -19507,6 +19726,7 @@
     "move": "amnesia"
    }
   ],
+  "dex": 220,
   "tmhm": [
    "roar",
    "toxic",
@@ -19600,6 +19820,7 @@
     "move": "amnesia"
    }
   ],
+  "dex": 221,
   "tmhm": [
    "roar",
    "toxic",
@@ -19691,6 +19912,7 @@
     "move": "ancient_power"
    }
   ],
+  "dex": 222,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -19777,6 +19999,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 223,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -19861,6 +20084,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 224,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -19917,6 +20141,7 @@
     "move": "present"
    }
   ],
+  "dex": 225,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -19999,6 +20224,7 @@
     "move": "confuse_ray"
    }
   ],
+  "dex": 226,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -20086,6 +20312,7 @@
     "move": "metal_sound"
    }
   ],
+  "dex": 227,
   "tmhm": [
    "roar",
    "toxic",
@@ -20174,6 +20401,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 228,
   "tmhm": [
    "roar",
    "toxic",
@@ -20269,6 +20497,7 @@
     "move": "crunch"
    }
   ],
+  "dex": 229,
   "tmhm": [
    "roar",
    "toxic",
@@ -20365,6 +20594,7 @@
     "move": "dragon_dance"
    }
   ],
+  "dex": 230,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -20445,6 +20675,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 231,
   "tmhm": [
    "roar",
    "toxic",
@@ -20524,6 +20755,7 @@
     "move": "earthquake"
    }
   ],
+  "dex": 232,
   "tmhm": [
    "roar",
    "toxic",
@@ -20612,6 +20844,7 @@
     "move": "zap_cannon"
    }
   ],
+  "dex": 233,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -20701,6 +20934,7 @@
     "move": "calm_mind"
    }
   ],
+  "dex": 234,
   "tmhm": [
    "calm_mind",
    "roar",
@@ -20793,6 +21027,7 @@
     "move": "sketch"
    }
   ],
+  "dex": 235,
   "tmhm": []
  },
  {
@@ -20821,6 +21056,7 @@
     "move": "tackle"
    }
   ],
+  "dex": 236,
   "tmhm": [
    "toxic",
    "bulk_up",
@@ -20908,6 +21144,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 237,
   "tmhm": [
    "toxic",
    "bulk_up",
@@ -20998,6 +21235,7 @@
     "move": "blizzard"
    }
   ],
+  "dex": 238,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -21078,6 +21316,7 @@
     "move": "thunder"
    }
   ],
+  "dex": 239,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -21160,6 +21399,7 @@
     "move": "fire_blast"
    }
   ],
+  "dex": 240,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -21240,6 +21480,7 @@
     "move": "heal_bell"
    }
   ],
+  "dex": 241,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -21344,6 +21585,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 242,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -21448,6 +21690,7 @@
     "move": "calm_mind"
    }
   ],
+  "dex": 243,
   "tmhm": [
    "calm_mind",
    "roar",
@@ -21538,6 +21781,7 @@
     "move": "calm_mind"
    }
   ],
+  "dex": 244,
   "tmhm": [
    "calm_mind",
    "roar",
@@ -21628,6 +21872,7 @@
     "move": "calm_mind"
    }
   ],
+  "dex": 245,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -21721,6 +21966,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 246,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -21815,6 +22061,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 247,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -21909,6 +22156,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 248,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -22012,6 +22260,7 @@
     "move": "future_sight"
    }
   ],
+  "dex": 249,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -22117,6 +22366,7 @@
     "move": "future_sight"
    }
   ],
+  "dex": 250,
   "tmhm": [
    "calm_mind",
    "roar",
@@ -22214,6 +22464,7 @@
     "move": "perish_song"
    }
   ],
+  "dex": 251,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -22310,6 +22561,7 @@
     "move": "giga_drain"
    }
   ],
+  "dex": 252,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -22416,6 +22668,7 @@
     "move": "false_swipe"
    }
   ],
+  "dex": 253,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -22522,6 +22775,7 @@
     "move": "false_swipe"
    }
   ],
+  "dex": 254,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -22620,6 +22874,7 @@
     "move": "flamethrower"
    }
   ],
+  "dex": 255,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -22722,6 +22977,7 @@
     "move": "sky_uppercut"
    }
   ],
+  "dex": 256,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -22835,6 +23091,7 @@
     "move": "sky_uppercut"
    }
   ],
+  "dex": 257,
   "tmhm": [
    "focus_punch",
    "roar",
@@ -22934,6 +23191,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 258,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -23043,6 +23301,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 259,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -23153,6 +23412,7 @@
     "move": "endeavor"
    }
   ],
+  "dex": 260,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -23254,6 +23514,7 @@
     "move": "thief"
    }
   ],
+  "dex": 261,
   "tmhm": [
    "roar",
    "toxic",
@@ -23360,6 +23621,7 @@
     "move": "thief"
    }
   ],
+  "dex": 262,
   "tmhm": [
    "roar",
    "toxic",
@@ -23456,6 +23718,7 @@
     "move": "belly_drum"
    }
   ],
+  "dex": 263,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -23562,6 +23825,7 @@
     "move": "belly_drum"
    }
   ],
+  "dex": 264,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -23627,6 +23891,7 @@
     "move": "poison_sting"
    }
   ],
+  "dex": 265,
   "tmhm": []
  },
  {
@@ -23659,6 +23924,7 @@
     "move": "harden"
    }
   ],
+  "dex": 266,
   "tmhm": []
  },
  {
@@ -23724,6 +23990,7 @@
     "move": "giga_drain"
    }
   ],
+  "dex": 267,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -23777,6 +24044,7 @@
     "move": "harden"
    }
   ],
+  "dex": 268,
   "tmhm": []
  },
  {
@@ -23842,6 +24110,7 @@
     "move": "toxic"
    }
   ],
+  "dex": 269,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -23918,6 +24187,7 @@
     "move": "mega_drain"
    }
   ],
+  "dex": 270,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -24007,6 +24277,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 271,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -24077,6 +24348,7 @@
     "move": "nature_power"
    }
   ],
+  "dex": 272,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -24160,6 +24432,7 @@
     "move": "explosion"
    }
   ],
+  "dex": 273,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -24245,6 +24518,7 @@
     "move": "extrasensory"
    }
   ],
+  "dex": 274,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -24313,6 +24587,7 @@
     "move": "nature_power"
    }
   ],
+  "dex": 275,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -24405,6 +24680,7 @@
     "move": "dig"
    }
   ],
+  "dex": 290,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -24509,6 +24785,7 @@
     "move": "baton_pass"
    }
   ],
+  "dex": 291,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -24596,6 +24873,7 @@
     "move": "grudge"
    }
   ],
+  "dex": 292,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -24678,6 +24956,7 @@
     "move": "agility"
    }
   ],
+  "dex": 276,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -24764,6 +25043,7 @@
     "move": "agility"
    }
   ],
+  "dex": 277,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -24846,6 +25126,7 @@
     "move": "spore"
    }
   ],
+  "dex": 285,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -24946,6 +25227,7 @@
     "move": "dynamic_punch"
    }
   ],
+  "dex": 286,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -25041,6 +25323,7 @@
     "move": "thrash"
    }
   ],
+  "dex": 327,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -25127,6 +25410,7 @@
     "move": "agility"
    }
   ],
+  "dex": 278,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -25225,6 +25509,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 279,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -25305,6 +25590,7 @@
     "move": "haze"
    }
   ],
+  "dex": 283,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -25399,6 +25685,7 @@
     "move": "whirlwind"
    }
   ],
+  "dex": 284,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -25495,6 +25782,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 320,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -25604,6 +25892,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 321,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -25701,6 +25990,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 300,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -25767,6 +26057,7 @@
     "move": "double_slap"
    }
   ],
+  "dex": 301,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -25872,6 +26163,7 @@
     "move": "ancient_power"
    }
   ],
+  "dex": 352,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -25977,6 +26269,7 @@
     "move": "explosion"
    }
   ],
+  "dex": 343,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -26086,6 +26379,7 @@
     "move": "explosion"
    }
   ],
+  "dex": 344,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -26178,6 +26472,7 @@
     "move": "lock_on"
    }
   ],
+  "dex": 299,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -26272,6 +26567,7 @@
     "move": "heat_wave"
    }
   ],
+  "dex": 324,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -26368,6 +26664,7 @@
     "move": "mean_look"
    }
   ],
+  "dex": 302,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -26467,6 +26764,7 @@
     "move": "fissure"
    }
   ],
+  "dex": 339,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -26570,6 +26868,7 @@
     "move": "fissure"
    }
   ],
+  "dex": 340,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -26655,6 +26954,7 @@
     "move": "safeguard"
    }
   ],
+  "dex": 370,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -26748,6 +27048,7 @@
     "move": "guillotine"
    }
   ],
+  "dex": 341,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -26861,6 +27162,7 @@
     "move": "guillotine"
    }
   ],
+  "dex": 342,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -26926,6 +27228,7 @@
     "move": "flail"
    }
   ],
+  "dex": 349,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -27013,6 +27316,7 @@
     "move": "safeguard"
    }
   ],
+  "dex": 350,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -27100,6 +27404,7 @@
     "move": "agility"
    }
   ],
+  "dex": 318,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -27203,6 +27508,7 @@
     "move": "agility"
    }
   ],
+  "dex": 319,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -27288,6 +27594,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 328,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -27382,6 +27689,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 329,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -27478,6 +27786,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 330,
   "tmhm": [
    "dragon_claw",
    "toxic",
@@ -27582,6 +27891,7 @@
     "move": "reversal"
    }
   ],
+  "dex": 296,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -27689,6 +27999,7 @@
     "move": "reversal"
    }
   ],
+  "dex": 297,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -27781,6 +28092,7 @@
     "move": "charge"
    }
   ],
+  "dex": 309,
   "tmhm": [
    "roar",
    "toxic",
@@ -27882,6 +28194,7 @@
     "move": "charge"
    }
   ],
+  "dex": 310,
   "tmhm": [
    "roar",
    "toxic",
@@ -27968,6 +28281,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 322,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -28066,6 +28380,7 @@
     "move": "fissure"
    }
   ],
+  "dex": 323,
   "tmhm": [
    "roar",
    "toxic",
@@ -28166,6 +28481,7 @@
     "move": "sheer_cold"
    }
   ],
+  "dex": 363,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -28267,6 +28583,7 @@
     "move": "sheer_cold"
    }
   ],
+  "dex": 364,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -28369,6 +28686,7 @@
     "move": "sheer_cold"
    }
   ],
+  "dex": 365,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -28475,6 +28793,7 @@
     "move": "destiny_bond"
    }
   ],
+  "dex": 331,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -28587,6 +28906,7 @@
     "move": "destiny_bond"
    }
   ],
+  "dex": 332,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -28676,6 +28996,7 @@
     "move": "blizzard"
    }
   ],
+  "dex": 361,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -28776,6 +29097,7 @@
     "move": "sheer_cold"
    }
   ],
+  "dex": 362,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -28865,6 +29187,7 @@
     "move": "explosion"
    }
   ],
+  "dex": 337,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -28954,6 +29277,7 @@
     "move": "explosion"
    }
   ],
+  "dex": 338,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -29030,6 +29354,7 @@
     "move": "water_gun"
    }
   ],
+  "dex": 298,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -29118,6 +29443,7 @@
     "move": "bounce"
    }
   ],
+  "dex": 325,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -29225,6 +29551,7 @@
     "move": "bounce"
    }
   ],
+  "dex": 326,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -29321,6 +29648,7 @@
     "move": "agility"
    }
   ],
+  "dex": 311,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -29407,6 +29735,7 @@
     "move": "agility"
    }
   ],
+  "dex": 312,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -29498,6 +29827,7 @@
     "move": "spit_up"
    }
   ],
+  "dex": 303,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -29598,6 +29928,7 @@
     "move": "recover"
    }
   ],
+  "dex": 307,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -29720,6 +30051,7 @@
     "move": "recover"
    }
   ],
+  "dex": 308,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -29815,6 +30147,7 @@
     "move": "perish_song"
    }
   ],
+  "dex": 333,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -29920,6 +30253,7 @@
     "move": "sky_attack"
    }
   ],
+  "dex": 334,
   "tmhm": [
    "dragon_claw",
    "roar",
@@ -30000,6 +30334,7 @@
     "move": "destiny_bond"
    }
   ],
+  "dex": 360,
   "tmhm": []
  },
  {
@@ -30068,6 +30403,7 @@
     "move": "future_sight"
    }
   ],
+  "dex": 355,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -30172,6 +30508,7 @@
     "move": "future_sight"
    }
   ],
+  "dex": 356,
   "tmhm": [
    "focus_punch",
    "calm_mind",
@@ -30288,6 +30625,7 @@
     "move": "synthesis"
    }
   ],
+  "dex": 315,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -30367,6 +30705,7 @@
     "move": "flail"
    }
   ],
+  "dex": 287,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -30469,6 +30808,7 @@
     "move": "reversal"
    }
   ],
+  "dex": 288,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -30574,6 +30914,7 @@
     "move": "flail"
    }
   ],
+  "dex": 289,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -30677,6 +31018,7 @@
     "move": "sludge_bomb"
    }
   ],
+  "dex": 316,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -30786,6 +31128,7 @@
     "move": "sludge_bomb"
    }
   ],
+  "dex": 317,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -30880,6 +31223,7 @@
     "move": "synthesis"
    }
   ],
+  "dex": 357,
   "tmhm": [
    "roar",
    "toxic",
@@ -30974,6 +31318,7 @@
     "move": "hyper_voice"
    }
   ],
+  "dex": 293,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -31076,6 +31421,7 @@
     "move": "hyper_voice"
    }
   ],
+  "dex": 294,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -31189,6 +31535,7 @@
     "move": "hyper_voice"
    }
   ],
+  "dex": 295,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -31259,6 +31606,7 @@
     "move": "iron_defense"
    }
   ],
+  "dex": 366,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -31334,6 +31682,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 367,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -31412,6 +31761,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 368,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -31503,6 +31853,7 @@
     "move": "perish_song"
    }
   ],
+  "dex": 359,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -31603,6 +31954,7 @@
     "move": "grudge"
    }
   ],
+  "dex": 353,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -31704,6 +32056,7 @@
     "move": "grudge"
    }
   ],
+  "dex": 354,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -31794,6 +32147,7 @@
     "move": "haze"
    }
   ],
+  "dex": 336,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -31886,6 +32240,7 @@
     "move": "false_swipe"
    }
   ],
+  "dex": 335,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -31990,6 +32345,7 @@
     "move": "hydro_pump"
    }
   ],
+  "dex": 369,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -32090,6 +32446,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 304,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -32201,6 +32558,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 305,
   "tmhm": [
    "water_pulse",
    "roar",
@@ -32312,6 +32670,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 306,
   "tmhm": [
    "focus_punch",
    "dragon_claw",
@@ -32406,6 +32765,7 @@
     "move": "weather_ball"
    }
   ],
+  "dex": 351,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -32498,6 +32858,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 313,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -32588,6 +32949,7 @@
     "move": "covet"
    }
   ],
+  "dex": 314,
   "tmhm": [
    "focus_punch",
    "water_pulse",
@@ -32679,6 +33041,7 @@
     "move": "swallow"
    }
   ],
+  "dex": 345,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -32773,6 +33136,7 @@
     "move": "swallow"
    }
   ],
+  "dex": 346,
   "tmhm": [
    "toxic",
    "bullet_seed",
@@ -32860,6 +33224,7 @@
     "move": "rock_blast"
    }
   ],
+  "dex": 347,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -32957,6 +33322,7 @@
     "move": "rock_blast"
    }
   ],
+  "dex": 348,
   "tmhm": [
    "water_pulse",
    "toxic",
@@ -33046,6 +33412,7 @@
     "move": "dream_eater"
    }
   ],
+  "dex": 280,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -33154,6 +33521,7 @@
     "move": "dream_eater"
    }
   ],
+  "dex": 281,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -33258,6 +33626,7 @@
     "move": "dream_eater"
    }
   ],
+  "dex": 282,
   "tmhm": [
    "calm_mind",
    "toxic",
@@ -33354,6 +33723,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 371,
   "tmhm": [
    "dragon_claw",
    "roar",
@@ -33461,6 +33831,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 372,
   "tmhm": [
    "dragon_claw",
    "roar",
@@ -33573,6 +33944,7 @@
     "move": "double_edge"
    }
   ],
+  "dex": 373,
   "tmhm": [
    "dragon_claw",
    "roar",
@@ -33630,6 +34002,7 @@
     "move": "take_down"
    }
   ],
+  "dex": 374,
   "tmhm": []
  },
  {
@@ -33695,6 +34068,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 375,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -33799,6 +34173,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 376,
   "tmhm": [
    "toxic",
    "hidden_power",
@@ -33886,6 +34261,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 377,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -33970,6 +34346,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 378,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -34058,6 +34435,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 379,
   "tmhm": [
    "focus_punch",
    "toxic",
@@ -34151,6 +34529,7 @@
     "move": "water_spout"
    }
   ],
+  "dex": 382,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -34249,6 +34628,7 @@
     "move": "eruption"
    }
   ],
+  "dex": 383,
   "tmhm": [
    "dragon_claw",
    "roar",
@@ -34351,6 +34731,7 @@
     "move": "hyper_beam"
    }
   ],
+  "dex": 384,
   "tmhm": [
    "dragon_claw",
    "water_pulse",
@@ -34457,6 +34838,7 @@
     "move": "charm"
    }
   ],
+  "dex": 380,
   "tmhm": [
    "dragon_claw",
    "water_pulse",
@@ -34564,6 +34946,7 @@
     "move": "dragon_dance"
    }
   ],
+  "dex": 381,
   "tmhm": [
    "dragon_claw",
    "water_pulse",
@@ -34675,6 +35058,7 @@
     "move": "doom_desire"
    }
   ],
+  "dex": 385,
   "tmhm": [
    "water_pulse",
    "calm_mind",
@@ -34782,6 +35166,7 @@
     "move": "mirror_coat"
    }
   ],
+  "dex": 386,
   "form": "attack",
   "tmhm": [
    "focus_punch",
@@ -34892,6 +35277,7 @@
     "move": "psychic"
    }
   ],
+  "dex": 358,
   "tmhm": [
    "calm_mind",
    "toxic",

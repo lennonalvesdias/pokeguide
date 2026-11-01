@@ -1,0 +1,7711 @@
+[
+ {
+  "map": "CeladonCity",
+  "slots": [
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 99,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "koffing",
+    "method": "water",
+    "rate": 1,
+    "minLevel": 30,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "super_rod",
+    "rate": 99,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "grimer",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 30,
+    "maxLevel": 40
+   }
+  ]
+ },
+ {
+  "map": "CeruleanCave_1F",
+  "slots": [
+   {
+    "species": "parasect",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 49,
+    "maxLevel": 58
+   },
+   {
+    "species": "magneton",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 49,
+    "maxLevel": 49
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 14,
+    "minLevel": 46,
+    "maxLevel": 55
+   },
+   {
+    "species": "primeape",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 52,
+    "maxLevel": 61
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 52,
+    "maxLevel": 61
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 46,
+    "maxLevel": 46
+   },
+   {
+    "species": "electrode",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 58,
+    "maxLevel": 58
+   },
+   {
+    "species": "wobbuffet",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 55,
+    "maxLevel": 55
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 30,
+    "maxLevel": 50
+   },
+   {
+    "species": "golduck",
+    "method": "water",
+    "rate": 35,
+    "minLevel": 40,
+    "maxLevel": 55
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 30,
+    "maxLevel": 50
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 40,
+    "maxLevel": 55
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "CeruleanCave_2F",
+  "slots": [
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 49,
+    "maxLevel": 58
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 49,
+    "maxLevel": 49
+   },
+   {
+    "species": "parasect",
+    "method": "land",
+    "rate": 14,
+    "minLevel": 52,
+    "maxLevel": 61
+   },
+   {
+    "species": "kadabra",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 55,
+    "maxLevel": 64
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 55,
+    "maxLevel": 64
+   },
+   {
+    "species": "magneton",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 52,
+    "maxLevel": 52
+   },
+   {
+    "species": "wobbuffet",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 58,
+    "maxLevel": 58
+   },
+   {
+    "species": "electrode",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 61,
+    "maxLevel": 61
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 35,
+    "maxLevel": 55
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 45,
+    "maxLevel": 60
+   }
+  ]
+ },
+ {
+  "map": "CeruleanCave_B1F",
+  "slots": [
+   {
+    "species": "kadabra",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 58,
+    "maxLevel": 67
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 58,
+    "maxLevel": 67
+   },
+   {
+    "species": "parasect",
+    "method": "land",
+    "rate": 14,
+    "minLevel": 55,
+    "maxLevel": 64
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 52,
+    "maxLevel": 61
+   },
+   {
+    "species": "magneton",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 55,
+    "maxLevel": 55
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 52,
+    "maxLevel": 52
+   },
+   {
+    "species": "electrode",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 64,
+    "maxLevel": 64
+   },
+   {
+    "species": "wobbuffet",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 61,
+    "maxLevel": 61
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 40,
+    "maxLevel": 60
+   },
+   {
+    "species": "golduck",
+    "method": "water",
+    "rate": 35,
+    "minLevel": 50,
+    "maxLevel": 65
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 40,
+    "maxLevel": 60
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 50,
+    "maxLevel": 65
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 16,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "CeruleanCity",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "CinnabarIsland",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "DiglettsCave_B1F",
+  "slots": [
+   {
+    "species": "diglett",
+    "method": "land",
+    "rate": 95,
+    "minLevel": 15,
+    "maxLevel": 22
+   },
+   {
+    "species": "dugtrio",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 29,
+    "maxLevel": 31
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "hoppip",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room1",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room10",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room11",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 22
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room12",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 22
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room13",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 22
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room14",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 22
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room2",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room3",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room4",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room5",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room6",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room7",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room8",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_LostCave_Room9",
+  "slots": [
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 44,
+    "maxLevel": 52
+   },
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 41,
+    "maxLevel": 43
+   },
+   {
+    "species": "murkrow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_Meadow",
+  "slots": [
+   {
+    "species": "sentret",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 10,
+    "maxLevel": 15
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "pidgeotto",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 48,
+    "maxLevel": 50
+   },
+   {
+    "species": "hoppip",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 10,
+    "maxLevel": 15
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 47,
+    "maxLevel": 50
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "hoppip",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_MemorialPillar",
+  "slots": [
+   {
+    "species": "hoppip",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 6,
+    "maxLevel": 16
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "hoppip",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_ResortGorgeous",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "hoppip",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FiveIsland_WaterLabyrinth",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 65,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "hoppip",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FourIsland",
+  "slots": [
+   {
+    "species": "wooper",
+    "method": "water",
+    "rate": 70,
+    "minLevel": 5,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 35
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FourIsland_IcefallCave_1F",
+  "slots": [
+   {
+    "species": "swinub",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 23,
+    "maxLevel": 31
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 45,
+    "maxLevel": 48
+   },
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 45,
+    "maxLevel": 45
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "delibird",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   }
+  ]
+ },
+ {
+  "map": "FourIsland_IcefallCave_B1F",
+  "slots": [
+   {
+    "species": "swinub",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 23,
+    "maxLevel": 31
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 45,
+    "maxLevel": 48
+   },
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 45,
+    "maxLevel": 45
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "delibird",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   }
+  ]
+ },
+ {
+  "map": "FourIsland_IcefallCave_Back",
+  "slots": [
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 43,
+    "maxLevel": 47
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 45,
+    "maxLevel": 48
+   },
+   {
+    "species": "dewgong",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 49,
+    "maxLevel": 53
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 45
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 4,
+    "minLevel": 35,
+    "maxLevel": 45
+   },
+   {
+    "species": "lapras",
+    "method": "water",
+    "rate": 1,
+    "minLevel": 30,
+    "maxLevel": 45
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FourIsland_IcefallCave_Entrance",
+  "slots": [
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 43,
+    "maxLevel": 47
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 45,
+    "maxLevel": 48
+   },
+   {
+    "species": "dewgong",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 49,
+    "maxLevel": 53
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 40,
+    "maxLevel": 40
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "seel",
+    "method": "water",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 5,
+    "maxLevel": 35
+   },
+   {
+    "species": "dewgong",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "wooper",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "FuchsiaCity",
+  "slots": [
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seaking",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_Exterior",
+  "slots": [
+   {
+    "species": "ponyta",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 36
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 35,
+    "maxLevel": 35
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 33,
+    "maxLevel": 33
+   },
+   {
+    "species": "rapidash",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 39,
+    "maxLevel": 42
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 30
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 40
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_RubyPath_1F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 32,
+    "maxLevel": 40
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 34,
+    "maxLevel": 38
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 40,
+    "maxLevel": 42
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_RubyPath_B1F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 70,
+    "minLevel": 34,
+    "maxLevel": 42
+   },
+   {
+    "species": "slugma",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 24,
+    "maxLevel": 30
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_RubyPath_B1F_Stairs",
+  "slots": [
+   {
+    "species": "slugma",
+    "method": "land",
+    "rate": 60,
+    "minLevel": 22,
+    "maxLevel": 32
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 40,
+    "maxLevel": 44
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_RubyPath_B2F",
+  "slots": [
+   {
+    "species": "slugma",
+    "method": "land",
+    "rate": 60,
+    "minLevel": 22,
+    "maxLevel": 32
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 40,
+    "maxLevel": 44
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_RubyPath_B2F_Stairs",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 70,
+    "minLevel": 34,
+    "maxLevel": 42
+   },
+   {
+    "species": "slugma",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 24,
+    "maxLevel": 30
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_RubyPath_B3F",
+  "slots": [
+   {
+    "species": "slugma",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 18,
+    "maxLevel": 36
+   },
+   {
+    "species": "slugma",
+    "method": "rock_smash",
+    "rate": 90,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "magcargo",
+    "method": "rock_smash",
+    "rate": 10,
+    "minLevel": 25,
+    "maxLevel": 45
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_SummitPath_1F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 29,
+    "maxLevel": 37
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 31,
+    "maxLevel": 39
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_SummitPath_2F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 30,
+    "maxLevel": 34
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 32,
+    "maxLevel": 36
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 38,
+    "maxLevel": 40
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 30
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 40
+   }
+  ]
+ },
+ {
+  "map": "MtEmber_SummitPath_3F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 29,
+    "maxLevel": 37
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 31,
+    "maxLevel": 39
+   }
+  ]
+ },
+ {
+  "map": "MtMoon_1F",
+  "slots": [
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 69,
+    "minLevel": 7,
+    "maxLevel": 10
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 7,
+    "maxLevel": 9
+   },
+   {
+    "species": "paras",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 8,
+    "maxLevel": 8
+   },
+   {
+    "species": "clefairy",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 8,
+    "maxLevel": 8
+   }
+  ]
+ },
+ {
+  "map": "MtMoon_B1F",
+  "slots": [
+   {
+    "species": "paras",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 10
+   }
+  ]
+ },
+ {
+  "map": "MtMoon_B2F",
+  "slots": [
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 49,
+    "minLevel": 8,
+    "maxLevel": 11
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 9,
+    "maxLevel": 10
+   },
+   {
+    "species": "paras",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 10,
+    "maxLevel": 12
+   },
+   {
+    "species": "clefairy",
+    "method": "land",
+    "rate": 6,
+    "minLevel": 10,
+    "maxLevel": 12
+   }
+  ]
+ },
+ {
+  "map": "OneIsland",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "OneIsland_KindleRoad",
+  "slots": [
+   {
+    "species": "ponyta",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 31,
+    "maxLevel": 34
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 36,
+    "maxLevel": 36
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "rapidash",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 30
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "OneIsland_TreasureBeach",
+  "slots": [
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 31,
+    "maxLevel": 32
+   },
+   {
+    "species": "tangela",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 33,
+    "maxLevel": 35
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 36,
+    "maxLevel": 40
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "PalletTown",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 10
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "PokemonMansion_1F",
+  "slots": [
+   {
+    "species": "koffing",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 28,
+    "maxLevel": 30
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 32,
+    "maxLevel": 36
+   },
+   {
+    "species": "growlithe",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 26,
+    "maxLevel": 28
+   },
+   {
+    "species": "grimer",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "weezing",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 32
+   }
+  ]
+ },
+ {
+  "map": "PokemonMansion_2F",
+  "slots": [
+   {
+    "species": "koffing",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 28,
+    "maxLevel": 30
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 32,
+    "maxLevel": 36
+   },
+   {
+    "species": "growlithe",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 26,
+    "maxLevel": 28
+   },
+   {
+    "species": "grimer",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "weezing",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 32
+   }
+  ]
+ },
+ {
+  "map": "PokemonMansion_3F",
+  "slots": [
+   {
+    "species": "koffing",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 28,
+    "maxLevel": 30
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 32,
+    "maxLevel": 36
+   },
+   {
+    "species": "growlithe",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 26,
+    "maxLevel": 28
+   },
+   {
+    "species": "grimer",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "weezing",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 32
+   }
+  ]
+ },
+ {
+  "map": "PokemonMansion_B1F",
+  "slots": [
+   {
+    "species": "koffing",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 28,
+    "maxLevel": 30
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 34,
+    "maxLevel": 38
+   },
+   {
+    "species": "growlithe",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "grimer",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "weezing",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 26,
+    "maxLevel": 26
+   }
+  ]
+ },
+ {
+  "map": "PokemonTower_3F",
+  "slots": [
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 90,
+    "minLevel": 13,
+    "maxLevel": 19
+   },
+   {
+    "species": "cubone",
+    "method": "land",
+    "rate": 9,
+    "minLevel": 15,
+    "maxLevel": 17
+   },
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 20,
+    "maxLevel": 20
+   }
+  ]
+ },
+ {
+  "map": "PokemonTower_4F",
+  "slots": [
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 86,
+    "minLevel": 13,
+    "maxLevel": 19
+   },
+   {
+    "species": "cubone",
+    "method": "land",
+    "rate": 9,
+    "minLevel": 15,
+    "maxLevel": 17
+   },
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 20,
+    "maxLevel": 20
+   }
+  ]
+ },
+ {
+  "map": "PokemonTower_5F",
+  "slots": [
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 86,
+    "minLevel": 13,
+    "maxLevel": 19
+   },
+   {
+    "species": "cubone",
+    "method": "land",
+    "rate": 9,
+    "minLevel": 15,
+    "maxLevel": 17
+   },
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 20,
+    "maxLevel": 20
+   }
+  ]
+ },
+ {
+  "map": "PokemonTower_6F",
+  "slots": [
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 85,
+    "minLevel": 14,
+    "maxLevel": 19
+   },
+   {
+    "species": "cubone",
+    "method": "land",
+    "rate": 9,
+    "minLevel": 17,
+    "maxLevel": 19
+   },
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 6,
+    "minLevel": 21,
+    "maxLevel": 23
+   }
+  ]
+ },
+ {
+  "map": "PokemonTower_7F",
+  "slots": [
+   {
+    "species": "gastly",
+    "method": "land",
+    "rate": 75,
+    "minLevel": 15,
+    "maxLevel": 19
+   },
+   {
+    "species": "haunter",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 23,
+    "maxLevel": 25
+   },
+   {
+    "species": "cubone",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 17,
+    "maxLevel": 19
+   }
+  ]
+ },
+ {
+  "map": "PowerPlant",
+  "slots": [
+   {
+    "species": "voltorb",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 22,
+    "maxLevel": 25
+   },
+   {
+    "species": "magnemite",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 22,
+    "maxLevel": 25
+   },
+   {
+    "species": "pikachu",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "magneton",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 34
+   },
+   {
+    "species": "electabuzz",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "RockTunnel_1F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 15,
+    "maxLevel": 17
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 15,
+    "maxLevel": 16
+   },
+   {
+    "species": "mankey",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 16,
+    "maxLevel": 17
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 16,
+    "maxLevel": 17
+   },
+   {
+    "species": "onix",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 13,
+    "maxLevel": 15
+   }
+  ]
+ },
+ {
+  "map": "RockTunnel_B1F",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 15,
+    "maxLevel": 17
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 15,
+    "maxLevel": 16
+   },
+   {
+    "species": "mankey",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 16,
+    "maxLevel": 17
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 17,
+    "maxLevel": 17
+   },
+   {
+    "species": "onix",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 13,
+    "maxLevel": 17
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 30
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 40
+   }
+  ]
+ },
+ {
+  "map": "Route1",
+  "slots": [
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 2,
+    "maxLevel": 5
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 2,
+    "maxLevel": 4
+   }
+  ]
+ },
+ {
+  "map": "Route10",
+  "slots": [
+   {
+    "species": "voltorb",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 14,
+    "maxLevel": 17
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 13,
+    "maxLevel": 17
+   },
+   {
+    "species": "ekans",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 11,
+    "maxLevel": 17
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route11",
+  "slots": [
+   {
+    "species": "ekans",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 12,
+    "maxLevel": 15
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 13,
+    "maxLevel": 17
+   },
+   {
+    "species": "drowzee",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 11,
+    "maxLevel": 15
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route12",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 24,
+    "maxLevel": 26
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 23,
+    "maxLevel": 27
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 30
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route13",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 24,
+    "maxLevel": 26
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 25,
+    "maxLevel": 27
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "pidgeotto",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 29,
+    "maxLevel": 29
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 30
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route14",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 24,
+    "maxLevel": 26
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 23,
+    "maxLevel": 23
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 27,
+    "maxLevel": 27
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "pidgeotto",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 29,
+    "maxLevel": 29
+   }
+  ]
+ },
+ {
+  "map": "Route15",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 24,
+    "maxLevel": 26
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 25,
+    "maxLevel": 27
+   },
+   {
+    "species": "ditto",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "pidgeotto",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 29,
+    "maxLevel": 29
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 28,
+    "maxLevel": 30
+   }
+  ]
+ },
+ {
+  "map": "Route16",
+  "slots": [
+   {
+    "species": "doduo",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 18,
+    "maxLevel": 22
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 20,
+    "maxLevel": 22
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 18,
+    "maxLevel": 22
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 23,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "Route17",
+  "slots": [
+   {
+    "species": "doduo",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 24,
+    "maxLevel": 28
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 20,
+    "maxLevel": 22
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 25,
+    "maxLevel": 29
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 27
+   }
+  ]
+ },
+ {
+  "map": "Route18",
+  "slots": [
+   {
+    "species": "doduo",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 24,
+    "maxLevel": 28
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 20,
+    "maxLevel": 22
+   },
+   {
+    "species": "raticate",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 25,
+    "maxLevel": 29
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 25,
+    "maxLevel": 29
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 22,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "Route19",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route2",
+  "slots": [
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 45,
+    "minLevel": 2,
+    "maxLevel": 5
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 45,
+    "minLevel": 2,
+    "maxLevel": 5
+   },
+   {
+    "species": "caterpie",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 4,
+    "maxLevel": 5
+   },
+   {
+    "species": "weedle",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 4,
+    "maxLevel": 5
+   }
+  ]
+ },
+ {
+  "map": "Route20",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route21_North",
+  "slots": [
+   {
+    "species": "tangela",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 17,
+    "maxLevel": 28
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route21_South",
+  "slots": [
+   {
+    "species": "tangela",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 17,
+    "maxLevel": 28
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route22",
+  "slots": [
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 45,
+    "minLevel": 2,
+    "maxLevel": 5
+   },
+   {
+    "species": "mankey",
+    "method": "land",
+    "rate": 45,
+    "minLevel": 2,
+    "maxLevel": 5
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 3,
+    "maxLevel": 5
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route23",
+  "slots": [
+   {
+    "species": "mankey",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 32,
+    "maxLevel": 34
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 40,
+    "maxLevel": 44
+   },
+   {
+    "species": "ekans",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 32,
+    "maxLevel": 34
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 32,
+    "maxLevel": 34
+   },
+   {
+    "species": "primeape",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 42,
+    "maxLevel": 42
+   },
+   {
+    "species": "arbok",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route24",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 12,
+    "maxLevel": 14
+   },
+   {
+    "species": "weedle",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 7,
+    "maxLevel": 7
+   },
+   {
+    "species": "caterpie",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 7,
+    "maxLevel": 7
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 11,
+    "maxLevel": 13
+   },
+   {
+    "species": "abra",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 8,
+    "maxLevel": 12
+   },
+   {
+    "species": "kakuna",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 8,
+    "maxLevel": 8
+   },
+   {
+    "species": "metapod",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 8,
+    "maxLevel": 8
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route25",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 12,
+    "maxLevel": 14
+   },
+   {
+    "species": "weedle",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 8,
+    "maxLevel": 8
+   },
+   {
+    "species": "caterpie",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 8,
+    "maxLevel": 8
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 11,
+    "maxLevel": 13
+   },
+   {
+    "species": "abra",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 9,
+    "maxLevel": 13
+   },
+   {
+    "species": "kakuna",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 9,
+    "maxLevel": 9
+   },
+   {
+    "species": "metapod",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 9,
+    "maxLevel": 9
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route3",
+  "slots": [
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 6,
+    "maxLevel": 8
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 6,
+    "maxLevel": 7
+   },
+   {
+    "species": "nidoran_m",
+    "method": "land",
+    "rate": 14,
+    "minLevel": 6,
+    "maxLevel": 7
+   },
+   {
+    "species": "mankey",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 7,
+    "maxLevel": 7
+   },
+   {
+    "species": "jigglypuff",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 3,
+    "maxLevel": 7
+   },
+   {
+    "species": "nidoran_f",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 6,
+    "maxLevel": 6
+   }
+  ]
+ },
+ {
+  "map": "Route4",
+  "slots": [
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 8,
+    "maxLevel": 12
+   },
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 8,
+    "maxLevel": 12
+   },
+   {
+    "species": "ekans",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 6,
+    "maxLevel": 12
+   },
+   {
+    "species": "mankey",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 10,
+    "maxLevel": 12
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 84,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route5",
+  "slots": [
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 13,
+    "maxLevel": 16
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 10,
+    "maxLevel": 16
+   },
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 13,
+    "maxLevel": 16
+   }
+  ]
+ },
+ {
+  "map": "Route6",
+  "slots": [
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 13,
+    "maxLevel": 16
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 10,
+    "maxLevel": 16
+   },
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 13,
+    "maxLevel": 16
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "Route7",
+  "slots": [
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 17,
+    "maxLevel": 20
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 19,
+    "maxLevel": 22
+   },
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 19,
+    "maxLevel": 22
+   },
+   {
+    "species": "growlithe",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 18,
+    "maxLevel": 20
+   }
+  ]
+ },
+ {
+  "map": "Route8",
+  "slots": [
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 18,
+    "maxLevel": 20
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 18,
+    "maxLevel": 20
+   },
+   {
+    "species": "growlithe",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 18
+   },
+   {
+    "species": "ekans",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 17,
+    "maxLevel": 19
+   }
+  ]
+ },
+ {
+  "map": "Route9",
+  "slots": [
+   {
+    "species": "rattata",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 14,
+    "maxLevel": 17
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 35,
+    "minLevel": 13,
+    "maxLevel": 17
+   },
+   {
+    "species": "ekans",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 11,
+    "maxLevel": 17
+   }
+  ]
+ },
+ {
+  "map": "SafariZone_Center",
+  "slots": [
+   {
+    "species": "rhyhorn",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "nidoran_m",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 22,
+    "maxLevel": 22
+   },
+   {
+    "species": "exeggcute",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 24,
+    "maxLevel": 25
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 22,
+    "maxLevel": 22
+   },
+   {
+    "species": "nidorino",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "nidorina",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "parasect",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "scyther",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 23,
+    "maxLevel": 23
+   },
+   {
+    "species": "chansey",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 23,
+    "maxLevel": 23
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seaking",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "dratini",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "dragonair",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SafariZone_East",
+  "slots": [
+   {
+    "species": "nidoran_m",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 24,
+    "maxLevel": 24
+   },
+   {
+    "species": "doduo",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 26,
+    "maxLevel": 26
+   },
+   {
+    "species": "exeggcute",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 23,
+    "maxLevel": 25
+   },
+   {
+    "species": "paras",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 22,
+    "maxLevel": 22
+   },
+   {
+    "species": "nidorino",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 33,
+    "maxLevel": 33
+   },
+   {
+    "species": "nidoran_f",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 24,
+    "maxLevel": 24
+   },
+   {
+    "species": "parasect",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "kangaskhan",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "scyther",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seaking",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "dratini",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "dragonair",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SafariZone_North",
+  "slots": [
+   {
+    "species": "rhyhorn",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 26,
+    "maxLevel": 26
+   },
+   {
+    "species": "nidoran_m",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "exeggcute",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 25,
+    "maxLevel": 27
+   },
+   {
+    "species": "paras",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 23,
+    "maxLevel": 23
+   },
+   {
+    "species": "nidorino",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "nidorina",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "venomoth",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "chansey",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 26,
+    "maxLevel": 26
+   },
+   {
+    "species": "tauros",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seaking",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "dratini",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "dragonair",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SafariZone_West",
+  "slots": [
+   {
+    "species": "doduo",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 26,
+    "maxLevel": 26
+   },
+   {
+    "species": "nidoran_m",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 22,
+    "maxLevel": 22
+   },
+   {
+    "species": "exeggcute",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 25,
+    "maxLevel": 27
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 23,
+    "maxLevel": 23
+   },
+   {
+    "species": "nidorino",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "nidoran_f",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "venomoth",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "tauros",
+    "method": "land",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "kangaskhan",
+    "method": "land",
+    "rate": 1,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seaking",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "dratini",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "dragonair",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SeafoamIslands_1F",
+  "slots": [
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 55,
+    "minLevel": 26,
+    "maxLevel": 33
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 34,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 26,
+    "maxLevel": 30
+   }
+  ]
+ },
+ {
+  "map": "SeafoamIslands_B1F",
+  "slots": [
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 29,
+    "maxLevel": 31
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 34,
+    "minLevel": 22,
+    "maxLevel": 26
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 11,
+    "minLevel": 26,
+    "maxLevel": 30
+   },
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 28,
+    "maxLevel": 28
+   },
+   {
+    "species": "golduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 33,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SeafoamIslands_B2F",
+  "slots": [
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 22,
+    "maxLevel": 24
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 26,
+    "maxLevel": 30
+   },
+   {
+    "species": "golduck",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 32,
+    "maxLevel": 34
+   }
+  ]
+ },
+ {
+  "map": "SeafoamIslands_B3F",
+  "slots": [
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "golduck",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 32,
+    "maxLevel": 34
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 24,
+    "maxLevel": 24
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 26,
+    "maxLevel": 30
+   },
+   {
+    "species": "dewgong",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 32,
+    "maxLevel": 34
+   },
+   {
+    "species": "seel",
+    "method": "water",
+    "rate": 60,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "horsea",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 25,
+    "maxLevel": 30
+   },
+   {
+    "species": "dewgong",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 4,
+    "minLevel": 30,
+    "maxLevel": 40
+   },
+   {
+    "species": "golduck",
+    "method": "water",
+    "rate": 1,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 16,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SeafoamIslands_B4F",
+  "slots": [
+   {
+    "species": "seel",
+    "method": "land",
+    "rate": 50,
+    "minLevel": 30,
+    "maxLevel": 34
+   },
+   {
+    "species": "golduck",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 32,
+    "maxLevel": 34
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 26,
+    "maxLevel": 30
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "dewgong",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 34,
+    "maxLevel": 36
+   },
+   {
+    "species": "seel",
+    "method": "water",
+    "rate": 60,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "horsea",
+    "method": "water",
+    "rate": 30,
+    "minLevel": 25,
+    "maxLevel": 30
+   },
+   {
+    "species": "dewgong",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 4,
+    "minLevel": 30,
+    "maxLevel": 40
+   },
+   {
+    "species": "golduck",
+    "method": "water",
+    "rate": 1,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 16,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 15,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_SevaultCanyon",
+  "slots": [
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 46,
+    "maxLevel": 46
+   },
+   {
+    "species": "phanpy",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 15
+   },
+   {
+    "species": "cubone",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 46,
+    "maxLevel": 46
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 50,
+    "maxLevel": 50
+   },
+   {
+    "species": "marowak",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 52,
+    "maxLevel": 52
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 43,
+    "maxLevel": 43
+   },
+   {
+    "species": "onix",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 54,
+    "maxLevel": 54
+   },
+   {
+    "species": "skarmory",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "larvitar",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 20
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 49,
+    "maxLevel": 52
+   },
+   {
+    "species": "geodude",
+    "method": "rock_smash",
+    "rate": 65,
+    "minLevel": 25,
+    "maxLevel": 40
+   },
+   {
+    "species": "graveler",
+    "method": "rock_smash",
+    "rate": 35,
+    "minLevel": 30,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_SevaultCanyon_Entrance",
+  "slots": [
+   {
+    "species": "sentret",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 10,
+    "maxLevel": 15
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "phanpy",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 10,
+    "maxLevel": 15
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 48,
+    "maxLevel": 50
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 47,
+    "maxLevel": 50
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_DilfordChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_LiptooChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_MoneanChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_RixyChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_ScufibChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_ViapoisChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TanobyRuins_WeepthChamber",
+  "slots": [
+   {
+    "species": "unown",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 25,
+    "maxLevel": 25
+   }
+  ]
+ },
+ {
+  "map": "SevenIsland_TrainerTower",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 6,
+    "maxLevel": 16
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "mareep",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 3,
+    "maxLevel": 13
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "pineco",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 19,
+    "maxLevel": 29
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "houndour",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 12,
+    "maxLevel": 22
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "teddiursa",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 18,
+    "maxLevel": 28
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "aipom",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 18,
+    "maxLevel": 28
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "shuckle",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 18,
+    "maxLevel": 28
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "stantler",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 18,
+    "maxLevel": 28
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_AlteringCave",
+  "slots": [
+   {
+    "species": "smeargle",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 18,
+    "maxLevel": 28
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_GreenPath",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_OutcastIsland",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_PatternBush",
+  "slots": [
+   {
+    "species": "spinarak",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 9,
+    "maxLevel": 14
+   },
+   {
+    "species": "kakuna",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 9,
+    "maxLevel": 9
+   },
+   {
+    "species": "heracross",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 15,
+    "maxLevel": 30
+   },
+   {
+    "species": "caterpie",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 6,
+    "maxLevel": 6
+   },
+   {
+    "species": "weedle",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 6,
+    "maxLevel": 6
+   },
+   {
+    "species": "metapod",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 9,
+    "maxLevel": 9
+   },
+   {
+    "species": "ledyba",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 9,
+    "maxLevel": 14
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_RuinValley",
+  "slots": [
+   {
+    "species": "natu",
+    "method": "land",
+    "rate": 25,
+    "minLevel": 15,
+    "maxLevel": 20
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "yanma",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 18,
+    "maxLevel": 18
+   },
+   {
+    "species": "wooper",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 15,
+    "maxLevel": 15
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 49,
+    "maxLevel": 49
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 43,
+    "maxLevel": 43
+   },
+   {
+    "species": "wobbuffet",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 25,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 49,
+    "maxLevel": 52
+   },
+   {
+    "species": "wooper",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 25
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SixIsland_WaterPath",
+  "slots": [
+   {
+    "species": "sentret",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 10,
+    "maxLevel": 15
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 48,
+    "maxLevel": 50
+   },
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 48,
+    "maxLevel": 48
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 41,
+    "maxLevel": 41
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 47,
+    "maxLevel": 50
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "qwilfish",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "SSAnne_Exterior",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 44,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "ThreeIsland_BerryForest",
+  "slots": [
+   {
+    "species": "pidgeotto",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 37,
+    "maxLevel": 37
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 35,
+    "maxLevel": 35
+   },
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 30,
+    "maxLevel": 30
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "drowzee",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "exeggcute",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "venomoth",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "hypno",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "golduck",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seaking",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "ThreeIsland_BondBridge",
+  "slots": [
+   {
+    "species": "pidgey",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 29,
+    "maxLevel": 32
+   },
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "pidgeotto",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 34,
+    "maxLevel": 40
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 36,
+    "maxLevel": 36
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "venonat",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "tentacruel",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 80,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 80,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "seadra",
+    "method": "super_rod",
+    "rate": 4,
+    "minLevel": 25,
+    "maxLevel": 35
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "ThreeIsland_Port",
+  "slots": [
+   {
+    "species": "dunsparce",
+    "method": "land",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "TwoIsland_CapeBrink",
+  "slots": [
+   {
+    "species": "oddish",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 30,
+    "maxLevel": 32
+   },
+   {
+    "species": "spearow",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "gloom",
+    "method": "land",
+    "rate": 15,
+    "minLevel": 36,
+    "maxLevel": 38
+   },
+   {
+    "species": "fearow",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 36,
+    "maxLevel": 36
+   },
+   {
+    "species": "meowth",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "psyduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 31,
+    "maxLevel": 31
+   },
+   {
+    "species": "golduck",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "persian",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 37,
+    "maxLevel": 40
+   },
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 95,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "golduck",
+    "method": "water",
+    "rate": 5,
+    "minLevel": 35,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "VermilionCity",
+  "slots": [
+   {
+    "species": "tentacool",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "horsea",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "krabby",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "horsea",
+    "method": "super_rod",
+    "rate": 44,
+    "minLevel": 15,
+    "maxLevel": 35
+   },
+   {
+    "species": "shellder",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 1,
+    "minLevel": 25,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "VictoryRoad_1F",
+  "slots": [
+   {
+    "species": "onix",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 40,
+    "maxLevel": 46
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "arbok",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "marowak",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 46
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 46
+   }
+  ]
+ },
+ {
+  "map": "VictoryRoad_2F",
+  "slots": [
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "onix",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 45,
+    "maxLevel": 48
+   },
+   {
+    "species": "primeape",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 42,
+    "maxLevel": 42
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 34,
+    "maxLevel": 34
+   },
+   {
+    "species": "arbok",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 46,
+    "maxLevel": 46
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 46,
+    "maxLevel": 46
+   },
+   {
+    "species": "marowak",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 46,
+    "maxLevel": 48
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 46,
+    "maxLevel": 48
+   }
+  ]
+ },
+ {
+  "map": "VictoryRoad_3F",
+  "slots": [
+   {
+    "species": "onix",
+    "method": "land",
+    "rate": 30,
+    "minLevel": 40,
+    "maxLevel": 46
+   },
+   {
+    "species": "machop",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "geodude",
+    "method": "land",
+    "rate": 20,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "zubat",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 32,
+    "maxLevel": 32
+   },
+   {
+    "species": "arbok",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "golbat",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 44
+   },
+   {
+    "species": "marowak",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 46
+   },
+   {
+    "species": "machoke",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 44,
+    "maxLevel": 46
+   }
+  ]
+ },
+ {
+  "map": "ViridianCity",
+  "slots": [
+   {
+    "species": "psyduck",
+    "method": "water",
+    "rate": 100,
+    "minLevel": 20,
+    "maxLevel": 40
+   },
+   {
+    "species": "magikarp",
+    "method": "old_rod",
+    "rate": 100,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "poliwag",
+    "method": "good_rod",
+    "rate": 60,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "magikarp",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "goldeen",
+    "method": "good_rod",
+    "rate": 20,
+    "minLevel": 5,
+    "maxLevel": 15
+   },
+   {
+    "species": "poliwag",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "poliwhirl",
+    "method": "super_rod",
+    "rate": 40,
+    "minLevel": 20,
+    "maxLevel": 30
+   },
+   {
+    "species": "gyarados",
+    "method": "super_rod",
+    "rate": 15,
+    "minLevel": 15,
+    "maxLevel": 25
+   },
+   {
+    "species": "psyduck",
+    "method": "super_rod",
+    "rate": 5,
+    "minLevel": 15,
+    "maxLevel": 35
+   }
+  ]
+ },
+ {
+  "map": "ViridianForest",
+  "slots": [
+   {
+    "species": "caterpie",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 3,
+    "maxLevel": 5
+   },
+   {
+    "species": "weedle",
+    "method": "land",
+    "rate": 40,
+    "minLevel": 3,
+    "maxLevel": 5
+   },
+   {
+    "species": "kakuna",
+    "method": "land",
+    "rate": 10,
+    "minLevel": 4,
+    "maxLevel": 6
+   },
+   {
+    "species": "metapod",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 5,
+    "maxLevel": 5
+   },
+   {
+    "species": "pikachu",
+    "method": "land",
+    "rate": 5,
+    "minLevel": 3,
+    "maxLevel": 5
+   }
+  ]
+ }
+]

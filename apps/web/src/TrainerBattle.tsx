@@ -4,6 +4,7 @@ import { assessTeam, findOption, type Opponent, type TeamMember, wildMoveset } f
 import type { SaveImportPreview } from '@pokeguide/save-parser';
 import { useEffect, useMemo, useState } from 'react';
 import { ActiveAdviceLine, ActivePicker, chart, CompactRecommendation, mapLabel, NoSafeWinner, Recommendation, ReportLink, Suggestions, TypeTag } from './App.tsx';
+import { Sprite } from './Sprite.tsx';
 import { displayName, readPref, writePref } from './state.ts';
 
 const STARTER_LINES: Record<string, 'bulbasaur' | 'charmander' | 'squirtle'> = {
@@ -15,7 +16,7 @@ const STARTER_LINES: Record<string, 'bulbasaur' | 'charmander' | 'squirtle'> = {
 const RIVAL_OF = { charmander: 'squirtle', squirtle: 'bulbasaur', bulbasaur: 'charmander' } as const;
 const abilityName = new Map(abilities.map((a) => [a.key, a.name]));
 
-function rivalStarterFor(team: TeamMember[]): 'bulbasaur' | 'charmander' | 'squirtle' | null {
+export function rivalStarterFor(team: TeamMember[]): 'bulbasaur' | 'charmander' | 'squirtle' | null {
   for (const m of team) {
     const line = STARTER_LINES[m.species.key];
     if (line) return RIVAL_OF[line];
@@ -159,7 +160,8 @@ function TrainerDetail({ trainer, team, badges, defeated, activeId }: { trainer:
         return (
           <article key={`${p.species}-${i}`} className="card opp-mon">
             <div className="row">
-              <strong>
+              <strong className="with-sprite">
+                <Sprite species={opp.species} size={48} />
                 {i + 1}. {displayName(opp.species.name)} <span className="lvl-tag">Nv {p.level}</span>
               </strong>
               <span className="types">

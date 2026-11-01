@@ -39,5 +39,7 @@ cada issue vira um teste em `packages/data-firered/test/` antes da correção.
 ## Dados e direitos
 
 O dataset contém apenas fatos derivados do jogo (números, nomes, tabelas), extraídos do projeto de
-decompilação `pret/pokefirered`. Nenhum código, sprite ou outro asset é redistribuído.
+decompilação `pret/pokefirered`. Nenhum código, sprite ou outro asset é redistribuído: as imagens dos
+Pokémon são carregadas pelo app, em tempo de execução, do repositório público
+[PokeAPI/sprites](https://github.com/PokeAPI/sprites) e ficam só no cache do aparelho.
 Pokémon é marca da Nintendo / The Pokémon Company; este projeto não tem relação com elas.

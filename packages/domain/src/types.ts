@@ -36,6 +36,8 @@ export interface BaseStats {
 export interface SpeciesDefinition {
   /** Índice interno do jogo (difere da Pokédex Nacional após o #251). */
   id: number;
+  /** Número na Pokédex Nacional. */
+  dex?: number;
   key: string;
   name: string;
   types: [TypeName] | [TypeName, TypeName];

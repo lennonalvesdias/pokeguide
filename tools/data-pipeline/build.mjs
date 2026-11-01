@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const DATASET_VERSION = '0.3.0';
+const DATASET_VERSION = '0.4.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -193,6 +193,16 @@ const species = blocks(read('src/data/pokemon/species_info.h'), 'SPECIES_')
 
 // ---------- regras específicas do FireRed (src/pokemon.c) ----------
 const pokemonC = read('src/pokemon.c');
+// Número da Pokédex Nacional (sSpeciesToNationalPokedexNum): o índice interno difere após o #251.
+const nationalOrder = [...read('include/constants/pokedex.h').matchAll(/^\s*(NATIONAL_DEX_\w+),/gm)].map((m) => m[1]);
+const nationalDex = new Map(nationalOrder.map((n, i) => [n, i]));
+for (const m of pokemonC.matchAll(/SPECIES_TO_NATIONAL\((\w+)\)/g)) {
+  const sp = species.find((x) => x.key === m[1].toLowerCase());
+  const dex = nationalDex.get(`NATIONAL_DEX_${m[1]}`);
+  if (sp && dex) sp.dex = dex;
+}
+for (const sp of species) if (!sp.dex) fail(`dex ausente ${sp.key}`);
+if (species.find((x) => x.key === 'treecko')?.dex !== 252) fail('dex: Treecko deveria ser #252');
 // Golpes de HM: não podem ser esquecidos pelo menu comum (exige Move Deleter).
 const hmBlock = pokemonC.match(/sHMMoves\[\]\s*=\s*\{([\s\S]*?)\};/)?.[1] ?? fail('sHMMoves ausente');
 const hmMoves = [...hmBlock.matchAll(/MOVE_\w+/g)].map((m) => moveKey(m[0]));
@@ -424,6 +434,46 @@ const walkthrough = curated.steps.map((s) => {
   return { ...s, done };
 });
 
+// ---------- encontros selvagens (só FireRed) ----------
+const mapNameById = new Map();
+for (const m of maps) {
+  try {
+    mapNameById.set(JSON.parse(read(`data/maps/${m.key}/map.json`)).id, m.key);
+  } catch {}
+}
+const encounterSrc = JSON.parse(read('src/data/wild_encounters.json')).wild_encounter_groups.find((g) => g.for_maps);
+const fieldRates = Object.fromEntries(encounterSrc.fields.map((f) => [f.type, f]));
+const METHODS = { land_mons: 'land', water_mons: 'water', rock_smash_mons: 'rock_smash' };
+const encounters = [];
+for (const e of encounterSrc.encounters) {
+  if (!e.base_label.endsWith('_FireRed')) continue;
+  const map = mapNameById.get(e.map) ?? fail(`encontros: mapa ${e.map}`);
+  const slots = [];
+  const add = (method, mons, rates) => {
+    const bySpecies = new Map();
+    mons.forEach((mon, i) => {
+      const key = speciesByConst.get(mon.species)?.key ?? fail(`encontros: ${mon.species}`);
+      const cur = bySpecies.get(key) ?? { species: key, method, rate: 0, minLevel: 100, maxLevel: 0 };
+      cur.rate += rates[i];
+      cur.minLevel = Math.min(cur.minLevel, mon.min_level);
+      cur.maxLevel = Math.max(cur.maxLevel, mon.max_level);
+      bySpecies.set(key, cur);
+    });
+    slots.push(...[...bySpecies.values()].sort((a, b) => b.rate - a.rate));
+  };
+  for (const [field, method] of Object.entries(METHODS)) if (e[field]) add(method, e[field].mons, fieldRates[field].encounter_rates);
+  if (e.fishing_mons) {
+    const f = fieldRates.fishing_mons;
+    for (const [rod, idx] of Object.entries(f.groups)) {
+      // Taxas por vara somam 100 dentro do grupo.
+      add(rod, idx.map((i) => e.fishing_mons.mons[i]), idx.map((i) => f.encounter_rates[i]));
+    }
+  }
+  encounters.push({ map, slots });
+}
+encounters.sort((a, b) => a.map.localeCompare(b.map));
+if (!encounters.find((e) => e.map === 'Route1')?.slots.some((s) => s.species === 'pidgey' && s.rate === 50)) fail('encontros: Route1 deveria ter Pidgey 50%');
+
 // ---------- invariantes ----------
 const typeNames = new Set(types.map((t) => t.name));
 for (const mv of moves) if (!typeNames.has(mv.type)) fail(`golpe ${mv.key} com tipo inválido`);
@@ -432,7 +482,7 @@ if (typeChart.length < 100) fail('tabela de tipos incompleta');
 
 // ---------- escrita ----------
 mkdirSync(OUT, { recursive: true });
-const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers, walkthrough, machines };
+const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers, walkthrough, machines, encounters };
 const hashes = {};
 for (const [name, value] of Object.entries(files)) {
   const json = `${JSON.stringify(value, null, 1)}\n`;

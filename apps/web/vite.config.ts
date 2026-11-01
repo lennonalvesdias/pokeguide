@@ -30,6 +30,18 @@ export default defineConfig({
         // O dataset inteiro vai no bundle: tudo precisa estar em cache para funcionar offline.
         globPatterns: ['**/*.{js,css,html,svg,png}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        // Imagens dos Pokémon: baixadas do PokeAPI/sprites na primeira vez e guardadas para uso offline.
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'sprites',
+              expiration: { maxEntries: 450, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
       },
     }),
   ],

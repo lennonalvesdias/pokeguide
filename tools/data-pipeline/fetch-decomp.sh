@@ -38,7 +38,9 @@ git sparse-checkout set \
   '/data/maps/*/scripts.inc' \
   '/data/maps/*/map.json' \
   /data/scripts/trainers.inc \
-  /data/maps/map_groups.json
+  /data/maps/map_groups.json \
+  /include/constants/pokedex.h \
+  /src/data/wild_encounters.json
 git fetch --depth 1 origin "$COMMIT"
 git checkout --quiet "$COMMIT"
 echo "decomp pronto em $DEST @ $COMMIT"

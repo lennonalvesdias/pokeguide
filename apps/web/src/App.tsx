@@ -1,4 +1,4 @@
-import { lookup, moves as allMoves, rules, species as allSpecies, typeChart } from '@pokeguide/data-firered';
+import { encounters, type EncounterMethod, type EncounterSlot, lookup, moves as allMoves, rules, species as allSpecies, typeChart } from '@pokeguide/data-firered';
 import {
   adviseActive,
   assessTeam,
@@ -15,6 +15,7 @@ import {
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Bag } from './Bag.tsx';
 import { Journey } from './Journey.tsx';
+import { Sprite } from './Sprite.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
 import {
   connectDropbox,
@@ -308,20 +309,53 @@ function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: stri
       {mode === 'trainer' ? (
         <TrainerBattle team={team} badges={badges} preview={preview} activeId={active} onActiveChange={setActiveId} />
       ) : (
-        <WildBattle team={team} badges={badges} activeId={active} onActiveChange={setActiveId} />
+        <WildBattle team={team} badges={badges} preview={preview} activeId={active} onActiveChange={setActiveId} />
       )}
     </>
   );
 }
 
+const METHOD_LABEL: Record<EncounterMethod, string> = {
+  land: 'Na grama ou na caverna',
+  water: 'Surfando',
+  rock_smash: 'Quebrando pedras (Rock Smash)',
+  old_rod: 'Old Rod',
+  good_rod: 'Good Rod',
+  super_rod: 'Super Rod',
+};
+const RODS: EncounterMethod[] = ['old_rod', 'good_rod', 'super_rod'];
+
+/** Selvagens do mapa atual; num prédio ou cidade sem encontros, os do mesmo lugar (ex.: a ilha inteira). */
+function localEncounters(mapKey: string, keyItems: Set<string>): Array<[EncounterMethod, EncounterSlot[]]> {
+  const exact = encounters.filter((e) => e.map === mapKey);
+  const prefix = mapKey.split('_')[0] ?? '';
+  const pool = exact.length ? exact : encounters.filter((e) => e.map.split('_')[0] === prefix);
+  const byMethod = new Map<EncounterMethod, Map<string, EncounterSlot>>();
+  for (const e of pool) {
+    for (const slot of e.slots) {
+      // Varas só aparecem se você já tem a vara.
+      if (RODS.includes(slot.method) && !keyItems.has(slot.method)) continue;
+      const m = byMethod.get(slot.method) ?? new Map<string, EncounterSlot>();
+      const cur = m.get(slot.species);
+      m.set(slot.species, cur ? { ...cur, rate: Math.max(cur.rate, slot.rate), minLevel: Math.min(cur.minLevel, slot.minLevel), maxLevel: Math.max(cur.maxLevel, slot.maxLevel) } : slot);
+      byMethod.set(slot.method, m);
+    }
+  }
+  return (Object.keys(METHOD_LABEL) as EncounterMethod[])
+    .filter((k) => byMethod.has(k))
+    .map((k) => [k, [...byMethod.get(k)!.values()].sort((a, b) => b.rate - a.rate)]);
+}
+
 function WildBattle({
   team,
   badges,
+  preview,
   activeId,
   onActiveChange,
 }: {
   team: TeamMember[];
   badges: string[];
+  preview: StoredSave['preview'];
   activeId: string | null;
   onActiveChange: (id: string | null) => void;
 }) {
@@ -343,9 +377,46 @@ function WildBattle({
   const ranking = useMemo(() => (opponent ? assessTeam(chart, team, opponent, badges) : []), [opponent, team, badges]);
   const byId = new Map(team.map((m) => [m.id, m]));
   const top = ranking[0];
+  const mapKey = lookup.map(preview.location.mapGroup, preview.location.mapNum)?.key ?? '';
+  const keyItems = useMemo(() => new Set(preview.bag.keyItems.map((i) => lookup.item(i.itemId)?.key ?? '')), [preview]);
+  const local = useMemo(() => localEncounters(mapKey, keyItems), [mapKey, keyItems]);
+  const pick = (speciesKey: string, lvl?: number) => {
+    setOppText(displayName(lookup.species(speciesKey).name));
+    if (lvl) setLevelText(String(lvl));
+  };
 
   return (
     <section>
+      {local.length > 0 && (
+        <div className="card">
+          <p className="label">Aparecem aqui · {mapLabel(mapKey.split('_')[0] ?? mapKey)}</p>
+          {local.map(([method, slots]) => (
+            <div key={method}>
+              <p className="method-label">{METHOD_LABEL[method]}</p>
+              <div className="mon-grid">
+                {slots.map((sl) => {
+                  const sp = lookup.species(sl.species);
+                  return (
+                    <button
+                      key={sl.species}
+                      type="button"
+                      className={`mon-pick ${opt?.key === sl.species ? 'on' : ''}`}
+                      onClick={() => pick(sl.species, sl.maxLevel)}
+                      aria-pressed={opt?.key === sl.species}
+                    >
+                      <Sprite species={sp} size={56} />
+                      <span className="nm">{displayName(sp.name)}</span>
+                      <span className="lv">
+                        Nv {sl.minLevel === sl.maxLevel ? sl.minLevel : `${sl.minLevel}–${sl.maxLevel}`} · {sl.rate}%
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
       <div className="card form">
         <label>
           Adversário
@@ -379,9 +450,25 @@ function WildBattle({
 
       {opponent && <ActivePicker team={team} activeId={activeId} onChange={onActiveChange} />}
       {!levelOk && <p className="hint warn">O nível precisa ser um número de 1 a 100.</p>}
-      {levelOk && !oppText.trim() && <p className="hint">Digite o nome do Pokémon adversário (pode ser só o começo).</p>}
+      {levelOk && !oppText.trim() && (
+        <p className="hint">{local.length ? 'Toque num Pokémon acima ou digite o nome (pode ser só o começo).' : 'Digite o nome do Pokémon adversário (pode ser só o começo).'}</p>
+      )}
       {oppText.trim() && !opt && (
-        <Suggestions items={search.suggestions} onPick={(label) => setOppText(label)} empty="Nenhum Pokémon com esse nome." />
+        search.suggestions.length ? (
+          <div className="card">
+            <p className="label">Você quis dizer</p>
+            <div className="mon-grid">
+              {search.suggestions.map((o) => (
+                <button key={o.key} type="button" className="mon-pick" onClick={() => pick(o.key)}>
+                  <Sprite species={lookup.species(o.key)} size={56} />
+                  <span className="nm">{o.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <p className="hint warn">Nenhum Pokémon com esse nome.</p>
+        )
       )}
 
       {opponent && top && (
@@ -413,7 +500,10 @@ export function OpponentSummary({ species, moves }: { species: TeamMember['speci
   return (
     <div className="card opp">
       <div className="row">
-        <strong>{displayName(species.name)}</strong>
+        <strong className="with-sprite">
+          <Sprite species={species} size={48} />
+          {displayName(species.name)}
+        </strong>
         <span className="types">
           {species.types.map((t) => (
             <TypeTag key={t} type={t} />
@@ -435,7 +525,8 @@ export function Recommendation({ a, member, primary = false }: { a: MemberAssess
   return (
     <article className={`card rec ${primary ? 'primary' : ''}`}>
       <div className="row">
-        <strong className="who">
+        <strong className="who with-sprite">
+          <Sprite species={member.species} size={36} />
           {member.name} <WinBadge p={a.duel.winProb} />
         </strong>
         {a.best && <MoveLine est={a.best} />}
@@ -521,7 +612,8 @@ export function ActivePicker({ team, activeId, onChange }: { team: TeamMember[];
         {team
           .filter((m) => m.hp.current > 0)
           .map((m) => (
-            <button key={m.id} type="button" className={`chip ${activeId === m.id ? 'on' : ''}`} onClick={() => onChange(m.id)}>
+            <button key={m.id} type="button" className={`chip with-sprite ${activeId === m.id ? 'on' : ''}`} onClick={() => onChange(m.id)} aria-pressed={activeId === m.id}>
+              <Sprite species={m.species} size={28} />
               {m.name}
             </button>
           ))}
@@ -574,7 +666,8 @@ function TeamTab({ team, stored }: { team: TeamMember[]; stored: StoredSave }) {
       {team.map((m) => (
         <article key={m.id} className="card member">
           <div className="row">
-            <strong>
+            <strong className="with-sprite">
+              <Sprite species={m.species} size={48} />
               {m.name} <span className="lvl-tag">Nv {m.level}</span>
             </strong>
             <span className="types">
