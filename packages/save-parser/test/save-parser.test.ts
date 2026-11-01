@@ -2,8 +2,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { lookup } from '@pokeguide/data-firered';
 import fc from 'fast-check';
-import { describe, expect, it } from 'vitest';
-import { parseSave, SaveParseError } from '../src/index.ts';
+import { beforeAll, describe, expect, it } from 'vitest';
+import { parseSave, SaveParseError, type SaveImportPreview } from '../src/index.ts';
 import { syntheticSave } from './synthetic.ts';
 
 describe('save sintético', () => {
@@ -68,7 +68,11 @@ const PRIVATE_SAVE = resolve(import.meta.dirname, '../../../fixtures/private/fir
 
 // Save real do mantenedor; não versionado (ver fixtures/private/README.md).
 describe.skipIf(!existsSync(PRIVATE_SAVE))('save real (fixture privada)', () => {
-  const r = parseSave(readFileSync(PRIVATE_SAVE), { isKnownItem: lookup.isKnownItem });
+  // O corpo de um describe pulado ainda executa: a leitura fica no beforeAll.
+  let r: SaveImportPreview;
+  beforeAll(() => {
+    r = parseSave(readFileSync(PRIVATE_SAVE), { isKnownItem: lookup.isKnownItem });
+  });
   const name = (id: number) => lookup.species(id).key;
 
   it('valida os dois slots e escolhe o mais recente', () => {

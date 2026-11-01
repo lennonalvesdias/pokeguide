@@ -9,9 +9,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
@@ -23,10 +23,12 @@ jobs:
     # Garante que packages/data-firered/data é exatamente o que o pipeline gera do decomp fixado.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
+          # O pipeline usa só Node; sem isso o setup-node@v5 procura pnpm por causa do packageManager.
+          package-manager-cache: false
       - run: bash tools/data-pipeline/fetch-decomp.sh .decomp
       - run: node tools/data-pipeline/build.mjs .decomp
       - run: git diff --exit-code packages/data-firered/data
