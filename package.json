@@ -9,9 +9,11 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc",
+    "typecheck": "tsc && tsc -p apps/web",
     "data:fetch": "bash tools/data-pipeline/fetch-decomp.sh",
     "data:build": "node tools/data-pipeline/build.mjs",
+    "web:dev": "pnpm --filter @pokeguide/web dev",
+    "web:build": "pnpm --filter @pokeguide/web build",
     "save:inspect": "node --experimental-strip-types tools/inspect-save.ts"
   },
   "devDependencies": {
