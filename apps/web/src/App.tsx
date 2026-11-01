@@ -10,7 +10,27 @@ import {
   wildMoveset,
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { appVersions, displayName, importSaveFile, loadStoredSave, readPref, type StoredSave, toTeam, writePref } from './state.ts';
+import {
+  connectDropbox,
+  disconnect as disconnectDropbox,
+  dropboxAvailable,
+  DropboxError,
+  isConnected as isDropboxConnected,
+  startAuthorization,
+} from './dropbox.ts';
+import {
+  appVersions,
+  displayName,
+  importFromDropbox,
+  type ImportOutcome,
+  importSaveFiles,
+  loadStoredSave,
+  persist,
+  readPref,
+  type StoredSave,
+  toTeam,
+  writePref,
+} from './state.ts';
 
 const chart = createTypeChart(typeChart);
 const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
@@ -25,7 +45,11 @@ export function App() {
   const [save, setSave] = useState<StoredSave | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
+  const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
   const [tab, setTab] = useState<Tab>(() => (readPref('tab') as Tab) || 'battle');
+  const [dropbox, setDropbox] = useState(false);
+  const [syncing, setSyncing] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -33,21 +57,94 @@ export function App() {
       setSave(s);
       setLoading(false);
     });
+    if (dropboxAvailable) isDropboxConnected().then(setDropbox);
   }, []);
   useEffect(() => writePref('tab', tab), [tab]);
 
   const team = useMemo(() => (save ? toTeam(save.preview) : []), [save]);
 
   async function onFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
+    const files = [...(e.target.files ?? [])];
     e.target.value = '';
-    if (!file) return;
+    if (!files.length) return;
     setError(null);
-    try {
-      setSave(await importSaveFile(file));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Não foi possível ler o arquivo.');
+    setInfo(null);
+    setPending(null);
+    handleOutcome(await importSaveFiles(files, save?.preview ?? null));
+  }
+
+  const saveRef = useRef(save);
+  saveRef.current = save;
+  const syncingRef = useRef(false);
+
+  /** silent: automático (ao abrir/voltar ao app) — só avisa quando algo mudou ou precisa de ação. */
+  async function syncDropbox(opts: { silent?: boolean } = {}) {
+    if (syncingRef.current) return;
+    syncingRef.current = true;
+    if (!opts.silent) {
+      setError(null);
+      setInfo(null);
+      setPending(null);
     }
+    setSyncing(true);
+    try {
+      const r = await importFromDropbox(saveRef.current);
+      if (r.kind === 'unchanged' || (r.kind === 'imported' && r.message.startsWith('Já está'))) {
+        if (!opts.silent) setInfo(r.message);
+        if (r.kind === 'imported') setSave(r.stored);
+      } else {
+        handleOutcome(r);
+      }
+    } catch (e) {
+      if (e instanceof DropboxError && e.kind === 'unauthorized') {
+        await disconnectDropbox();
+        setDropbox(false);
+        setError(e.message);
+      } else if (!opts.silent || !(e instanceof DropboxError && e.kind === 'offline')) {
+        setError(e instanceof DropboxError ? e.message : 'Não foi possível buscar o save no Dropbox.');
+      }
+    } finally {
+      syncingRef.current = false;
+      setSyncing(false);
+    }
+  }
+
+  // Integração com baixa intervenção: busca sozinho ao abrir e ao voltar para o app (ex.: vindo do Delta).
+  useEffect(() => {
+    if (!dropbox || loading) return;
+    let last = 0;
+    const run = () => {
+      if (document.visibilityState !== 'visible' || !navigator.onLine || Date.now() - last < 15_000) return;
+      last = Date.now();
+      void syncDropbox({ silent: true });
+    };
+    run();
+    document.addEventListener('visibilitychange', run);
+    window.addEventListener('online', run);
+    return () => {
+      document.removeEventListener('visibilitychange', run);
+      window.removeEventListener('online', run);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dropbox, loading]);
+
+  function handleOutcome(r: ImportOutcome) {
+    if (r.kind === 'imported') {
+      setSave(r.stored);
+      setInfo(r.message);
+    } else if (r.kind === 'needs-confirmation') {
+      setPending({ stored: r.stored, message: r.message });
+    } else {
+      setError(r.message);
+    }
+  }
+
+  async function confirmPending() {
+    if (!pending) return;
+    await persist(pending.stored);
+    setSave(pending.stored);
+    setInfo(`Usando ${pending.stored.fileName}.`);
+    setPending(null);
   }
 
   const p = save?.preview;
@@ -65,21 +162,54 @@ export function App() {
             <p className="sub">Copiloto de FireRed</p>
           )}
         </div>
-        <button type="button" className="btn ghost" onClick={() => fileRef.current?.click()}>
-          {p ? 'Trocar save' : 'Importar save'}
-        </button>
+        {dropbox ? (
+          <button type="button" className="btn ghost" onClick={() => syncDropbox()} disabled={syncing}>
+            {syncing ? 'Buscando…' : 'Atualizar'}
+          </button>
+        ) : (
+          <button type="button" className="btn ghost" onClick={() => fileRef.current?.click()}>
+            {p ? 'Trocar save' : 'Importar save'}
+          </button>
+        )}
         <input ref={fileRef} type="file" hidden onChange={onFile} aria-label="Arquivo de save" />
       </header>
 
       {error && <div className="alert">{error}</div>}
+      {pending && (
+        <div className="alert confirm" role="alertdialog">
+          <p>{pending.message}</p>
+          <div className="actions">
+            <button type="button" className="btn ghost" onClick={() => setPending(null)}>
+              Manter o atual
+            </button>
+            <button type="button" className="btn solid" onClick={confirmPending}>
+              Usar mesmo assim
+            </button>
+          </div>
+        </div>
+      )}
+      {info && (
+        <button type="button" className="notice" onClick={() => setInfo(null)} aria-label="Fechar aviso">
+          {info}
+        </button>
+      )}
 
       <main>
         {loading ? null : !p ? (
-          <Onboarding onPick={() => fileRef.current?.click()} />
+          <>
+            <Onboarding onPick={() => fileRef.current?.click()} />
+            <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
+          </>
         ) : tab === 'battle' ? (
           <BattleTab team={team} badges={p.badges} />
         ) : tab === 'team' ? (
-          <TeamTab team={team} stored={save!} />
+          <>
+            <TeamTab team={team} stored={save!} />
+            <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
+            <button type="button" className="btn ghost wide" onClick={() => fileRef.current?.click()}>
+              Importar arquivo de save manualmente
+            </button>
+          </>
         ) : (
           <MovesTab team={team} />
         )}
@@ -420,5 +550,84 @@ function ReportLink({ title, context }: { title: string; context: unknown }) {
     <a className="btn ghost report" href={href} target="_blank" rel="noreferrer">
       Reportar recomendação errada
     </a>
+  );
+}
+
+// ---------------- Dropbox ----------------
+
+function DropboxCard(props: { connected: boolean; onChange: (c: boolean) => void; onSync: () => void; syncing: boolean }) {
+  const [step, setStep] = useState<'idle' | 'code'>('idle');
+  const [code, setCode] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  if (!dropboxAvailable) return null;
+
+  async function open() {
+    setErr(null);
+    const url = await startAuthorization();
+    window.open(url, '_blank', 'noopener');
+    setStep('code');
+  }
+  async function finish() {
+    setBusy(true);
+    setErr(null);
+    try {
+      await connectDropbox(code);
+      props.onChange(true);
+      setStep('idle');
+      setCode('');
+      props.onSync();
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : 'Não foi possível conectar.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  if (props.connected) {
+    return (
+      <section className="card dropbox">
+        <div className="row">
+          <strong>Delta Sync · Dropbox</strong>
+          <span className="tag good">conectado</span>
+        </div>
+        <p className="fine">O app busca o save sozinho ao abrir e ao voltar do Delta. Se acabou de salvar, abra o Delta antes para ele sincronizar.</p>
+        <div className="actions">
+          <button type="button" className="btn ghost" onClick={async () => { await disconnectDropbox(); props.onChange(false); }}>
+            Desconectar
+          </button>
+          <button type="button" className="btn solid" onClick={props.onSync} disabled={props.syncing}>
+            {props.syncing ? 'Buscando…' : 'Atualizar agora'}
+          </button>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section className="card dropbox">
+      <strong>Buscar o save pelo Delta Sync (Dropbox)</strong>
+      {step === 'idle' ? (
+        <>
+          <p className="fine">Lê só os saves da pasta do Delta, nunca as ROMs. O acesso fica guardado neste aparelho.</p>
+          <button type="button" className="btn solid wide" onClick={open}>
+            Conectar Dropbox
+          </button>
+        </>
+      ) : (
+        <>
+          <p className="fine">Autorize na aba que abriu, copie o código que o Dropbox mostrar e cole aqui.</p>
+          <div className="form inline">
+            <input value={code} onChange={(e) => setCode(e.target.value)} placeholder="Código do Dropbox" autoComplete="off" aria-label="Código do Dropbox" />
+            <button type="button" className="btn solid" onClick={finish} disabled={busy || !code.trim()}>
+              {busy ? '…' : 'Conectar'}
+            </button>
+          </div>
+          <button type="button" className="linkish" onClick={open}>
+            Abrir o Dropbox de novo
+          </button>
+        </>
+      )}
+      {err && <p className="notes">{err}</p>}
+    </section>
   );
 }
