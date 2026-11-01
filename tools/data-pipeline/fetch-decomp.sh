@@ -28,6 +28,13 @@ git sparse-checkout set \
   /src/data/pokemon/level_up_learnset_pointers.h \
   /src/battle_main.c \
   /src/pokemon.c \
+  /src/data/trainers.h \
+  /include/constants/opponents.h \
+  /src/data/trainer_parties.h \
+  /src/data/text/trainer_class_names.h \
+  '/data/maps/*/scripts.inc' \
+  '/data/maps/*/map.json' \
+  /data/scripts/trainers.inc \
   /data/maps/map_groups.json
 git fetch --depth 1 origin "$COMMIT"
 git checkout --quiet "$COMMIT"

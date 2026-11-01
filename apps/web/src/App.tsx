@@ -2,6 +2,7 @@ import { lookup, moves as allMoves, rules, species as allSpecies, typeChart } fr
 import {
   assessTeam,
   createTypeChart,
+  findOption,
   forgetRule,
   type MemberAssessment,
   type MoveDefinition,
@@ -10,6 +11,7 @@ import {
   wildMoveset,
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { TrainerBattle } from './TrainerBattle.tsx';
 import {
   connectDropbox,
   disconnect as disconnectDropbox,
@@ -32,14 +34,13 @@ import {
   writePref,
 } from './state.ts';
 
-const chart = createTypeChart(typeChart);
+export const chart = createTypeChart(typeChart);
 const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
 type Tab = 'battle' | 'team' | 'moves';
 
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
 const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
-const findByLabel = <T extends { key: string; label: string }>(list: T[], text: string) =>
-  list.find((o) => o.label.toLowerCase() === text.trim().toLowerCase());
+
 
 export function App() {
   const [save, setSave] = useState<StoredSave | null>(null);
@@ -163,7 +164,7 @@ export function App() {
           {p ? (
             <p className="sub">
               {p.playTime.hours}h{String(p.playTime.minutes).padStart(2, '0')} · {p.badges.length} insígnias ·{' '}
-              {displayName(lookup.map(p.location.mapGroup, p.location.mapNum)?.key.replace(/([a-z])([A-Z0-9])/g, '$1 $2').replace(/_/g, ' ') ?? '')}
+              {mapLabel(lookup.map(p.location.mapGroup, p.location.mapNum)?.key ?? '')}
             </p>
           ) : (
             <p className="sub">Copiloto de FireRed</p>
@@ -218,7 +219,7 @@ export function App() {
             </button>
           </>
         ) : tab === 'battle' ? (
-          <BattleTab team={team} badges={p.badges} />
+          <BattleTab team={team} badges={p.badges} preview={p} />
         ) : tab === 'team' ? (
           <>
             <TeamTab team={team} stored={save!} />
@@ -266,19 +267,40 @@ function Onboarding({ syncing }: { syncing: boolean }) {
 
 // ---------------- Batalha ----------------
 
-function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
+function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: string[]; preview: StoredSave['preview'] }) {
+  const [mode, setMode] = useState<'trainer' | 'wild'>(() => (readPref('battleMode') === 'wild' ? 'wild' : 'trainer'));
+  useEffect(() => writePref('battleMode', mode), [mode]);
+  return (
+    <>
+      <div className="segmented" role="tablist" aria-label="Tipo de batalha">
+        <button type="button" role="tab" aria-selected={mode === 'trainer'} className={mode === 'trainer' ? 'on' : ''} onClick={() => setMode('trainer')}>
+          Treinador
+        </button>
+        <button type="button" role="tab" aria-selected={mode === 'wild'} className={mode === 'wild' ? 'on' : ''} onClick={() => setMode('wild')}>
+          Selvagem
+        </button>
+      </div>
+      {mode === 'trainer' ? <TrainerBattle team={team} badges={badges} preview={preview} /> : <WildBattle team={team} badges={badges} />}
+    </>
+  );
+}
+
+function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
-  const [level, setLevel] = useState(() => Number(readPref('oppLevel')) || maxLevel);
+  const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
   useEffect(() => writePref('opp', oppText), [oppText]);
-  useEffect(() => writePref('oppLevel', String(level)), [level]);
+  useEffect(() => writePref('oppLevel', levelText), [levelText]);
 
-  const opt = findByLabel(speciesOptions, oppText);
+  const level = /^\d+$/.test(levelText.trim()) ? Number(levelText) : NaN;
+  const levelOk = level >= 1 && level <= 100;
+  const search = useMemo(() => findOption(speciesOptions, oppText), [oppText]);
+  const opt = search.match;
   const opponent = useMemo(() => {
-    if (!opt || !(level >= 1 && level <= 100)) return null;
+    if (!opt || !levelOk) return null;
     const species = lookup.species(opt.key);
     return { species, level, moves: wildMoveset(species, level).map((m) => lookup.move(m)) };
-  }, [opt, level]);
+  }, [opt, level, levelOk]);
   const ranking = useMemo(() => (opponent ? assessTeam(chart, team, opponent, badges) : []), [opponent, team, badges]);
   const byId = new Map(team.map((m) => [m.id, m]));
   const top = ranking[0];
@@ -299,7 +321,15 @@ function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
         </label>
         <label className="lvl">
           Nível
-          <input type="number" inputMode="numeric" min={1} max={100} value={level} onChange={(e) => setLevel(Number(e.target.value))} />
+          <input
+            type="number"
+            inputMode="numeric"
+            min={1}
+            max={100}
+            value={levelText}
+            onChange={(e) => setLevelText(e.target.value)}
+            aria-invalid={!levelOk}
+          />
         </label>
         <datalist id="species">
           {speciesOptions.map((o) => (
@@ -308,7 +338,11 @@ function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
         </datalist>
       </div>
 
-      {!opponent && <p className="hint">Digite o nome do Pokémon adversário. Treinadores com time fixo entram na próxima versão.</p>}
+      {!levelOk && <p className="hint warn">O nível precisa ser um número de 1 a 100.</p>}
+      {levelOk && !oppText.trim() && <p className="hint">Digite o nome do Pokémon adversário (pode ser só o começo).</p>}
+      {oppText.trim() && !opt && (
+        <Suggestions items={search.suggestions} onPick={(label) => setOppText(label)} empty="Nenhum Pokémon com esse nome." />
+      )}
 
       {opponent && top && (
         <>
@@ -332,7 +366,7 @@ function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
   );
 }
 
-function OpponentSummary({ species, moves }: { species: TeamMember['species']; moves: MoveDefinition[] }) {
+export function OpponentSummary({ species, moves }: { species: TeamMember['species']; moves: MoveDefinition[] }) {
   return (
     <div className="card opp">
       <div className="row">
@@ -354,7 +388,7 @@ function OpponentSummary({ species, moves }: { species: TeamMember['species']; m
 const KO_LABEL = { guaranteed: 'nocaute garantido', possible: 'pode nocautear', none: '' } as const;
 const SPEED_LABEL = { faster: 'ataca primeiro', slower: 'ataca depois', tie: 'empate de velocidade', unknown: 'velocidade incerta' } as const;
 
-function Recommendation({ a, member, primary = false }: { a: MemberAssessment; member: TeamMember; primary?: boolean }) {
+export function Recommendation({ a, member, primary = false }: { a: MemberAssessment; member: TeamMember; primary?: boolean }) {
   return (
     <article className={`card rec ${primary ? 'primary' : ''}`}>
       <div className="row">
@@ -379,6 +413,31 @@ function Recommendation({ a, member, primary = false }: { a: MemberAssessment; m
       {a.notes.length > 0 && <p className="notes">{a.notes.join(' · ')}</p>}
     </article>
   );
+}
+
+export function CompactRecommendation({ a, member }: { a: MemberAssessment; member: TeamMember }) {
+  return (
+    <p className="alt">
+      ou <strong>{member.name}</strong>
+      {a.best && (
+        <>
+          {' '}
+          · {displayName(lookup.move(a.best.moveKey).name)} {a.best.pctMin}–{a.best.pctMax}%
+        </>
+      )}
+      {a.threat && <> · ameaça {a.threat.pctMax}%</>}
+    </p>
+  );
+}
+
+/** "SSAnne_2F_Corridor" → "SS Anne 2F Corridor"; "MtMoon_B2F" → "Mt Moon B2F". */
+export function mapLabel(key: string): string {
+  return key
+    .replace(/_/g, ' ')
+    .replace(/([a-z])([A-Z0-9])/g, '$1 $2')
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function MoveLine({ est }: { est: MoveEstimate }) {
@@ -459,7 +518,8 @@ function MovesTab({ team }: { team: TeamMember[] }) {
   const [memberId, setMemberId] = useState(team[0]?.id ?? '');
   const [moveText, setMoveText] = useState('');
   const member = team.find((m) => m.id === memberId) ?? team[0];
-  const candidate = findByLabel(moveOptions, moveText);
+  const moveSearch = findOption(moveOptions, moveText);
+  const candidate = moveSearch.match;
   if (!member) return null;
   const current = member.moves.map((x) => x.move);
   const keys = new Set([...current.map((m) => m.key), ...(candidate ? [candidate.key] : [])]);
@@ -487,6 +547,9 @@ function MovesTab({ team }: { team: TeamMember[] }) {
           ))}
         </datalist>
       </div>
+      {moveText.trim() && !candidate && (
+        <Suggestions items={moveSearch.suggestions} onPick={(label) => setMoveText(label)} empty="Nenhum golpe com esse nome." />
+      )}
 
       <div className="card">
         <table className="movetable">
@@ -542,11 +605,25 @@ function MoveRow({ move, member, keys, isNew = false }: { move: MoveDefinition; 
 
 // ---------------- Comum ----------------
 
-function TypeTag({ type }: { type: string }) {
+export function Suggestions({ items, onPick, empty }: { items: Array<{ key: string; label: string }>; onPick: (label: string) => void; empty: string }) {
+  if (!items.length) return <p className="hint warn">{empty}</p>;
+  return (
+    <div className="suggest" role="group" aria-label="Sugestões">
+      <span className="fine">Você quis dizer:</span>
+      {items.map((o) => (
+        <button key={o.key} type="button" className="chip" onClick={() => onPick(o.label)}>
+          {o.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export function TypeTag({ type }: { type: string }) {
   return <span className={`type t-${type === '???' ? 'mystery' : type}`}>{type === '???' ? '???' : displayName(type)}</span>;
 }
 
-function ReportLink({ title, context }: { title: string; context: unknown }) {
+export function ReportLink({ title, context }: { title: string; context: unknown }) {
   const body = [
     '**O que estava errado?**',
     '',

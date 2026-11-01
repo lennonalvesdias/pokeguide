@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { lookup } from '@pokeguide/data-firered';
+import { lookup, trainers } from '@pokeguide/data-firered';
 import fc from 'fast-check';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { parseSave, SaveParseError, type SaveImportPreview } from '../src/index.ts';
@@ -91,6 +91,13 @@ describe.skipIf(!existsSync(PRIVATE_SAVE))('save real (fixture privada)', () => 
     const base = lookup.species('snorlax').baseStats.hp;
     const hp = Math.floor(((2 * base + snorlax.ivs.hp + Math.floor(snorlax.evs.hp / 4)) * snorlax.level) / 100) + snorlax.level + 10;
     expect(snorlax.hp.max).toBe(hp);
+  });
+
+  it('lê os treinadores derrotados: 6 líderes vencidos, Blaine ainda não', () => {
+    const leader = (n: string) => trainers.find((t) => t.key === `leader_${n}`)!.id;
+    for (const n of ['brock', 'misty', 'lt_surge', 'erika', 'koga', 'sabrina']) expect(r.defeatedTrainerIds).toContain(leader(n));
+    expect(r.defeatedTrainerIds).not.toContain(leader('blaine'));
+    expect(r.defeatedTrainerIds).not.toContain(leader('giovanni'));
   });
 
   it('descarta itens com ID inexistente e avisa', () => {
