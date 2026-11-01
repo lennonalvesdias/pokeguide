@@ -575,10 +575,17 @@ function DropboxCard(props: { connected: boolean; onChange: (c: boolean) => void
   const [err, setErr] = useState<string | null>(null);
   if (!dropboxAvailable) return null;
 
-  async function open() {
+  // O link é preparado antes do toque: o Safari bloqueia, sem aviso, janelas abertas
+  // depois de uma operação assíncrona (o toque deixa de contar como gesto do usuário).
+  const [authUrl, setAuthUrl] = useState<string | null>(null);
+  useEffect(() => {
+    if (props.connected || authUrl) return;
+    startAuthorization()
+      .then(setAuthUrl)
+      .catch(() => setErr('Não foi possível preparar a conexão com o Dropbox.'));
+  }, [props.connected, authUrl]);
+  function opened() {
     setErr(null);
-    const url = await startAuthorization();
-    window.open(url, '_blank', 'noopener');
     setStep('code');
   }
   async function finish() {
@@ -625,9 +632,16 @@ function DropboxCard(props: { connected: boolean; onChange: (c: boolean) => void
             Conecte o Dropbox uma vez e o app passa a buscar seu save sozinho sempre que você abrir ou voltar do Delta.
             Lê só os saves, nunca as ROMs; o acesso fica guardado neste aparelho.
           </p>
-          <button type="button" className="btn solid wide" onClick={open}>
+          <a
+            className={`btn solid wide center ${authUrl ? '' : 'disabled'}`}
+            href={authUrl ?? undefined}
+            target="_blank"
+            rel="noopener"
+            onClick={opened}
+            aria-disabled={!authUrl}
+          >
             Conectar Dropbox
-          </button>
+          </a>
         </>
       ) : (
         <>
@@ -638,9 +652,11 @@ function DropboxCard(props: { connected: boolean; onChange: (c: boolean) => void
               {busy ? '…' : 'Conectar'}
             </button>
           </div>
-          <button type="button" className="linkish" onClick={open}>
-            Abrir o Dropbox de novo
-          </button>
+          {authUrl && (
+            <a className="linkish" href={authUrl} target="_blank" rel="noopener">
+              Abrir o Dropbox de novo
+            </a>
+          )}
         </>
       )}
       {err && <p className="notes">{err}</p>}

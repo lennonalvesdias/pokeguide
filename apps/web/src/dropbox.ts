@@ -43,11 +43,21 @@ export async function isConnected(): Promise<boolean> {
   return !!(await safeGet<StoredAuth>(TOKEN_KEY))?.refreshToken;
 }
 
-/** Passo 1: gera o verificador PKCE e devolve a URL de autorização. */
+/**
+ * Passo 1: prepara o verificador PKCE e devolve a URL de autorização.
+ * Reaproveita um verificador pendente, para que um código já gerado no Dropbox continue válido.
+ */
 export async function startAuthorization(): Promise<string> {
-  const verifier = b64url(crypto.getRandomValues(new Uint8Array(48)));
+  let verifier = await safeGet<string>(VERIFIER_KEY);
+  if (!verifier) {
+    verifier = b64url(crypto.getRandomValues(new Uint8Array(48)));
+    try {
+      await set(VERIFIER_KEY, verifier);
+    } catch {
+      // sem armazenamento: o verificador vale só nesta sessão
+    }
+  }
   const challenge = b64url(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier))));
-  await set(VERIFIER_KEY, verifier);
   const q = new URLSearchParams({
     client_id: DROPBOX_APP_KEY,
     response_type: 'code',
