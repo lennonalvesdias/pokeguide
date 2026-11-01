@@ -2,6 +2,7 @@ import { lookup, moves as allMoves, rules, species as allSpecies, typeChart } fr
 import {
   assessTeam,
   createTypeChart,
+  findOption,
   forgetRule,
   type MemberAssessment,
   type MoveDefinition,
@@ -38,8 +39,7 @@ type Tab = 'battle' | 'team' | 'moves';
 
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
 const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
-const findByLabel = <T extends { key: string; label: string }>(list: T[], text: string) =>
-  list.find((o) => o.label.toLowerCase() === text.trim().toLowerCase());
+
 
 export function App() {
   const [save, setSave] = useState<StoredSave | null>(null);
@@ -269,16 +269,19 @@ function Onboarding({ syncing }: { syncing: boolean }) {
 function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
-  const [level, setLevel] = useState(() => Number(readPref('oppLevel')) || maxLevel);
+  const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
   useEffect(() => writePref('opp', oppText), [oppText]);
-  useEffect(() => writePref('oppLevel', String(level)), [level]);
+  useEffect(() => writePref('oppLevel', levelText), [levelText]);
 
-  const opt = findByLabel(speciesOptions, oppText);
+  const level = /^\d+$/.test(levelText.trim()) ? Number(levelText) : NaN;
+  const levelOk = level >= 1 && level <= 100;
+  const search = useMemo(() => findOption(speciesOptions, oppText), [oppText]);
+  const opt = search.match;
   const opponent = useMemo(() => {
-    if (!opt || !(level >= 1 && level <= 100)) return null;
+    if (!opt || !levelOk) return null;
     const species = lookup.species(opt.key);
     return { species, level, moves: wildMoveset(species, level).map((m) => lookup.move(m)) };
-  }, [opt, level]);
+  }, [opt, level, levelOk]);
   const ranking = useMemo(() => (opponent ? assessTeam(chart, team, opponent, badges) : []), [opponent, team, badges]);
   const byId = new Map(team.map((m) => [m.id, m]));
   const top = ranking[0];
@@ -299,7 +302,15 @@ function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
         </label>
         <label className="lvl">
           Nível
-          <input type="number" inputMode="numeric" min={1} max={100} value={level} onChange={(e) => setLevel(Number(e.target.value))} />
+          <input
+            type="number"
+            inputMode="numeric"
+            min={1}
+            max={100}
+            value={levelText}
+            onChange={(e) => setLevelText(e.target.value)}
+            aria-invalid={!levelOk}
+          />
         </label>
         <datalist id="species">
           {speciesOptions.map((o) => (
@@ -308,7 +319,11 @@ function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
         </datalist>
       </div>
 
-      {!opponent && <p className="hint">Digite o nome do Pokémon adversário. Treinadores com time fixo entram na próxima versão.</p>}
+      {!levelOk && <p className="hint warn">O nível precisa ser um número de 1 a 100.</p>}
+      {levelOk && !oppText.trim() && <p className="hint">Digite o nome do Pokémon adversário (pode ser só o começo).</p>}
+      {oppText.trim() && !opt && (
+        <Suggestions items={search.suggestions} onPick={(label) => setOppText(label)} empty="Nenhum Pokémon com esse nome." />
+      )}
 
       {opponent && top && (
         <>
@@ -459,7 +474,8 @@ function MovesTab({ team }: { team: TeamMember[] }) {
   const [memberId, setMemberId] = useState(team[0]?.id ?? '');
   const [moveText, setMoveText] = useState('');
   const member = team.find((m) => m.id === memberId) ?? team[0];
-  const candidate = findByLabel(moveOptions, moveText);
+  const moveSearch = findOption(moveOptions, moveText);
+  const candidate = moveSearch.match;
   if (!member) return null;
   const current = member.moves.map((x) => x.move);
   const keys = new Set([...current.map((m) => m.key), ...(candidate ? [candidate.key] : [])]);
@@ -487,6 +503,9 @@ function MovesTab({ team }: { team: TeamMember[] }) {
           ))}
         </datalist>
       </div>
+      {moveText.trim() && !candidate && (
+        <Suggestions items={moveSearch.suggestions} onPick={(label) => setMoveText(label)} empty="Nenhum golpe com esse nome." />
+      )}
 
       <div className="card">
         <table className="movetable">
@@ -541,6 +560,20 @@ function MoveRow({ move, member, keys, isNew = false }: { move: MoveDefinition; 
 }
 
 // ---------------- Comum ----------------
+
+function Suggestions({ items, onPick, empty }: { items: Array<{ key: string; label: string }>; onPick: (label: string) => void; empty: string }) {
+  if (!items.length) return <p className="hint warn">{empty}</p>;
+  return (
+    <div className="suggest" role="group" aria-label="Sugestões">
+      <span className="fine">Você quis dizer:</span>
+      {items.map((o) => (
+        <button key={o.key} type="button" className="chip" onClick={() => onPick(o.label)}>
+          {o.label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 function TypeTag({ type }: { type: string }) {
   return <span className={`type t-${type === '???' ? 'mystery' : type}`}>{type === '???' ? '???' : displayName(type)}</span>;

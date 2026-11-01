@@ -5,8 +5,8 @@
   --muted: #6b6f78;
   --line: #e2dfd8;
   --accent: #c0392b;
-  --good: #1e8449;
-  --warn: #b9770e;
+  --good: #1a723f;
+  --warn: #a2680c;
   --danger: #c0392b;
   --primary-bg: #fff6e5;
   --primary-line: #f2c14e;
@@ -91,12 +91,12 @@ input, select {
 
 .type { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; color: #fff; text-transform: uppercase; letter-spacing: .02em; }
 .types { display: inline-flex; gap: 4px; }
-.t-normal { background: #8a8a6c; } .t-fighting { background: #b03028; } .t-flying { background: #8c74d6; }
-.t-poison { background: #8e3d8e; } .t-ground { background: #c9a14e; } .t-rock { background: #a08c30; }
-.t-bug { background: #8a9a1a; } .t-ghost { background: #5f4b8b; } .t-steel { background: #8e8ea6; }
-.t-fire { background: #e0632a; } .t-water { background: #4f7fe0; } .t-grass { background: #5aa83a; }
-.t-electric { background: #d9a400; } .t-psychic { background: #e44a7a; } .t-ice { background: #5cb8b8; }
-.t-dragon { background: #5c34d9; } .t-dark { background: #5a463a; } .t-mystery { background: #5f8f86; }
+.t-normal { background: #76765c; } .t-fighting { background: #b03028; } .t-flying { background: #7c67be; }
+.t-poison { background: #8e3d8e; } .t-ground { background: #8c7036; } .t-rock { background: #847427; }
+.t-bug { background: #6e7b14; } .t-ghost { background: #5f4b8b; } .t-steel { background: #737386; }
+.t-fire { background: #be5423; } .t-water { background: #4772c9; } .t-grass { background: #46832d; }
+.t-electric { background: #936f00; } .t-psychic { background: #ca416c; } .t-ice { background: #3f7e7e; }
+.t-dragon { background: #5c34d9; } .t-dark { background: #5a463a; } .t-mystery { background: #537d75; }
 
 .member strong { font-size: 17px; }
 .lvl-tag { color: var(--muted); font-weight: 500; font-size: 14px; }
@@ -161,3 +161,8 @@ input, select {
 .btn.center { text-align: center; }
 .btn.disabled { opacity: .55; pointer-events: none; }
 a.linkish { display: inline-block; }
+
+.hint.warn { color: var(--warn); font-weight: 600; }
+.suggest { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 10px; }
+.chip { appearance: none; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: inherit; font-size: 15px; padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+input[aria-invalid='true'] { border-color: var(--warn); }
