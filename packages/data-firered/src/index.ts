@@ -1,6 +1,6 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import type { JourneyStep, MoveDefinition, SpeciesDefinition, TeachOpponent, TypeChartEntry, Versions } from '@pokeguide/domain';
+import { type AreaOpponent, type JourneyStep, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
@@ -155,4 +155,57 @@ export function upcomingOpponents(
     }
   }
   return out;
+}
+
+const areaOf = (mapKey: string) => mapKey.split('_')[0] ?? mapKey;
+const METHOD_WEIGHT: Record<EncounterMethod, number> = { land: 1, water: 1, rock_smash: 0.3, old_rod: 0.3, good_rod: 0.3, super_rod: 0.3 };
+
+/** Selvagem no nível médio do encontro, com os golpes de level-up. */
+export function wildOpponent(speciesKey: string, level: number): Opponent {
+  const sp = lookup.species(speciesKey);
+  return { species: sp, level, moves: wildMoveset(sp, level).map((m) => lookup.move(m)) };
+}
+
+/** Pokémon de treinador com stats, habilidade e golpes exatos do jogo. */
+export function trainerOpponent(p: TrainerPokemon): Opponent {
+  const sp = lookup.species(p.species);
+  return {
+    species: sp,
+    level: p.level,
+    iv: p.iv,
+    nature: p.nature,
+    ...(p.ability ? { ability: p.ability } : {}),
+    moves: (p.moves ?? wildMoveset(sp, p.level)).map((m) => lookup.move(m)),
+  };
+}
+
+/**
+ * Selvagens das áreas (prefixos de mapa), pesados pela chance de encontro.
+ * Varas só contam se o jogador já tem a vara.
+ */
+export function areaWildOpponents(areas: readonly string[], keyItems: ReadonlySet<string>): AreaOpponent[] {
+  const maps = encounters.filter((e) => areas.includes(areaOf(e.map)));
+  const byKey = new Map<string, { species: string; level: number; weight: number }>();
+  for (const e of maps) {
+    for (const s of e.slots) {
+      if (s.method.endsWith('_rod') && !keyItems.has(s.method)) continue;
+      const level = Math.round((s.minLevel + s.maxLevel) / 2);
+      const k = `${s.species}:${level}`;
+      const cur = byKey.get(k) ?? { species: s.species, level, weight: 0 };
+      cur.weight += (s.rate / 100) * METHOD_WEIGHT[s.method] / maps.length;
+      byKey.set(k, cur);
+    }
+  }
+  return [...byKey.values()].sort((a, b) => b.weight - a.weight).map((x) => ({ opponent: wildOpponent(x.species, x.level), weight: x.weight }));
+}
+
+/** Treinadores ainda não vencidos nas áreas (o rival só na variante do inicial dele). */
+export function areaTrainers(
+  areas: readonly string[],
+  defeatedIds: ReadonlySet<number>,
+  rivalStarter: TrainerDefinition['rivalStarter'] | null = null,
+): TrainerDefinition[] {
+  return trainers.filter(
+    (t) => !defeatedIds.has(t.id) && (!t.rivalStarter || !rivalStarter || t.rivalStarter === rivalStarter) && t.maps.some((m) => areas.includes(areaOf(m))),
+  );
 }

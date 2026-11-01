@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const DATASET_VERSION = '0.4.0';
+const DATASET_VERSION = '0.5.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -430,6 +430,7 @@ const resolveCond = (c, stepId) => {
 };
 const walkthrough = curated.steps.map((s) => {
   if (s.trainer && !trainerRef(s.trainer)) fail(`jornada/${s.id}: treinador ${s.trainer}`);
+  for (const a of s.areas ?? []) if (!maps.some((m) => m.key.split('_')[0] === a)) fail(`jornada/${s.id}: área ${a} não é prefixo de nenhum mapa`);
   const done = s.done.any ? { any: s.done.any.map((c) => resolveCond(c, s.id)) } : { all: s.done.all.map((c) => resolveCond(c, s.id)) };
   return { ...s, done };
 });

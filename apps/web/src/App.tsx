@@ -235,7 +235,7 @@ export function App() {
         ) : tab === 'battle' ? (
           <BattleTab key={battleNonce} team={team} badges={p.badges} preview={p} />
         ) : tab === 'journey' ? (
-          <Journey preview={p} onPrepare={prepareTrainer} />
+          <Journey preview={p} team={team} onPrepare={prepareTrainer} />
         ) : tab === 'bag' ? (
           <Bag preview={p} team={team} />
         ) : tab === 'team' ? (
@@ -644,6 +644,7 @@ export function mapLabel(key: string): string {
     .replace(/([a-z])([A-Z0-9])/g, '$1 $2')
     .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
     .replace(/\s+/g, ' ')
+    .replace(/\bPokemon\b/g, 'Pokémon')
     .trim();
 }
 

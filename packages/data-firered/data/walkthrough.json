@@ -3,6 +3,9 @@
   "id": "starter",
   "title": "Escolher o Pokémon inicial",
   "where": "Pallet Town · laboratório do Prof. Oak",
+  "areas": [
+   "PalletTown"
+  ],
   "how": "Tente sair de Pallet Town pelo norte; o Prof. Oak leva você ao laboratório para escolher Bulbasaur, Charmander ou Squirtle.",
   "required": true,
   "done": {
@@ -18,6 +21,10 @@
   "id": "pokedex",
   "title": "Entregar a encomenda do Oak e receber a Pokédex",
   "where": "Viridian City (loja) → Pallet Town",
+  "areas": [
+   "Route1",
+   "ViridianCity"
+  ],
   "how": "Na loja de Viridian, pegue a encomenda do Oak e leve de volta ao laboratório. Ele entrega a Pokédex e libera a loja para compras.",
   "required": true,
   "done": {
@@ -33,6 +40,11 @@
   "id": "boulder",
   "title": "Insígnia Boulder (Brock)",
   "where": "Pewter City · ginásio",
+  "areas": [
+   "Route2",
+   "ViridianForest",
+   "PewterCity"
+  ],
   "how": "Atravesse a Viridian Forest até Pewter. Brock usa Pokémon de Pedra: golpes de Água, Planta, Lutador ou Terra funcionam bem.",
   "required": true,
   "trainer": "leader_brock",
@@ -48,6 +60,12 @@
   "id": "cascade",
   "title": "Insígnia Cascade (Misty)",
   "where": "Mt. Moon → Cerulean City · ginásio",
+  "areas": [
+   "Route3",
+   "MtMoon",
+   "Route4",
+   "CeruleanCity"
+  ],
   "how": "Pela Route 3 e o Mt. Moon, chegue a Cerulean. Misty usa Pokémon de Água: golpes Elétricos e de Planta.",
   "required": true,
   "trainer": "leader_misty",
@@ -63,6 +81,10 @@
   "id": "bill",
   "title": "Ajudar o Bill e receber o S.S. Ticket",
   "where": "Route 24/25 · Sea Cottage",
+  "areas": [
+   "Route24",
+   "Route25"
+  ],
   "how": "Ao norte de Cerulean, atravesse a Nugget Bridge e siga até a casa do Bill no fim da Route 25. Ajude-o e ele entrega o S.S. Ticket.",
   "required": true,
   "done": {
@@ -78,6 +100,12 @@
   "id": "cut",
   "title": "HM01 Cut no S.S. Anne",
   "where": "Vermilion City · S.S. Anne",
+  "areas": [
+   "Route5",
+   "Route6",
+   "VermilionCity",
+   "SSAnne"
+  ],
   "how": "Em Vermilion, embarque no S.S. Anne com o ticket, vença o rival e fale com o capitão (ele está enjoado) para ganhar o HM01 Cut.",
   "required": true,
   "done": {
@@ -93,6 +121,10 @@
   "id": "thunder",
   "title": "Insígnia Thunder (Lt. Surge)",
   "where": "Vermilion City · ginásio",
+  "areas": [
+   "Route11",
+   "VermilionCity"
+  ],
   "how": "Corte a árvore na entrada com Cut. Para abrir a porta, ache os dois interruptores escondidos nas latas de lixo. Lt. Surge usa Elétricos: Pokémon de Terra são imunes.",
   "required": true,
   "trainer": "leader_lt_surge",
@@ -108,6 +140,15 @@
   "id": "rainbow",
   "title": "Insígnia Rainbow (Erika)",
   "where": "Rock Tunnel → Lavender Town → Celadon City · ginásio",
+  "areas": [
+   "Route9",
+   "Route10",
+   "RockTunnel",
+   "LavenderTown",
+   "Route8",
+   "Route7",
+   "CeladonCity"
+  ],
   "how": "Atravesse o Rock Tunnel (Flash ajuda, mas não é obrigatório), passe por Lavender e use a passagem subterrânea até Celadon. Erika usa Planta (vários com Veneno): Fogo, Gelo, Voador e Psíquico.",
   "required": true,
   "trainer": "leader_erika",
@@ -123,6 +164,10 @@
   "id": "silph_scope",
   "title": "Rocket Hideout: vencer Giovanni e pegar o Silph Scope",
   "where": "Celadon City · Game Corner (subsolo)",
+  "areas": [
+   "CeladonCity",
+   "RocketHideout"
+  ],
   "how": "No Game Corner, o pôster atrás de um Rocket esconde a entrada. Pegue a Lift Key no B4F para usar o elevador e vença Giovanni para receber o Silph Scope.",
   "required": true,
   "trainer": "boss_giovanni",
@@ -142,6 +187,10 @@
   "id": "poke_flute",
   "title": "Pokémon Tower: resgatar o Mr. Fuji e ganhar a Poké Flute",
   "where": "Lavender Town · Pokémon Tower",
+  "areas": [
+   "LavenderTown",
+   "PokemonTower"
+  ],
   "how": "Com o Silph Scope, suba a torre (o fantasma no 6F revela um Marowak), vença os Rockets no topo e resgate o Mr. Fuji. Ele dá a Poké Flute.",
   "required": true,
   "done": {
@@ -157,6 +206,9 @@
   "id": "tea",
   "title": "Pegar o Chá para passar pelos guardas de Saffron",
   "where": "Celadon City · Celadon Mansion (térreo)",
+  "areas": [
+   "CeladonCity"
+  ],
   "how": "Fale com a senhora no térreo da Celadon Mansion. Os guardas das entradas de Saffron deixam você passar em troca do Chá.",
   "required": true,
   "done": {
@@ -172,6 +224,10 @@
   "id": "silph",
   "title": "Silph Co.: libertar o prédio e vencer Giovanni",
   "where": "Saffron City · Silph Co.",
+  "areas": [
+   "SaffronCity",
+   "SilphCo"
+  ],
   "how": "Pegue o Card Key no 5F para abrir as portas, use os teletransportadores, vença o rival no 7F e Giovanni no 11F. O presidente dá a Master Ball.",
   "required": true,
   "trainer": "boss_giovanni_2",
@@ -187,6 +243,9 @@
   "id": "marsh",
   "title": "Insígnia Marsh (Sabrina)",
   "where": "Saffron City · ginásio",
+  "areas": [
+   "SaffronCity"
+  ],
   "how": "O ginásio é um labirinto de teletransportadores. Sabrina usa Psíquicos: golpes de Inseto e Fantasma; em Gen III, golpes Sombrios (Bite) são especiais.",
   "required": true,
   "trainer": "leader_sabrina",
@@ -202,6 +261,10 @@
   "id": "snorlax",
   "title": "Acordar um Snorlax com a Poké Flute",
   "where": "Route 12 (sul de Lavender) ou Route 16 (oeste de Celadon)",
+  "areas": [
+   "Route12",
+   "Route16"
+  ],
   "how": "Um Snorlax bloqueia cada caminho para Fuchsia. Use a Poké Flute para acordá-lo; ele luta (Nv 30) e pode ser capturado.",
   "required": true,
   "done": {
@@ -221,6 +284,14 @@
   "id": "soul",
   "title": "Insígnia Soul (Koga)",
   "where": "Fuchsia City · ginásio",
+  "areas": [
+   "Route13",
+   "Route14",
+   "Route15",
+   "Route17",
+   "Route18",
+   "FuchsiaCity"
+  ],
   "how": "O ginásio tem paredes invisíveis. Koga usa Veneno: golpes Psíquicos funcionam bem; Terra não pega no Weezing, que tem Levitate.",
   "required": true,
   "trainer": "leader_koga",
@@ -236,6 +307,9 @@
   "id": "surf",
   "title": "Safari Zone: HM03 Surf",
   "where": "Fuchsia City · Safari Zone (Área 3, Secret House)",
+  "areas": [
+   "SafariZone"
+  ],
   "how": "Você tem 600 passos por entrada. Siga até a área mais distante e entre na Secret House para ganhar o HM03 Surf.",
   "required": true,
   "done": {
@@ -251,6 +325,10 @@
   "id": "strength",
   "title": "Gold Teeth para o guarda: HM04 Strength",
   "where": "Safari Zone → Fuchsia City · casa do guarda",
+  "areas": [
+   "SafariZone",
+   "FuchsiaCity"
+  ],
   "how": "Os Gold Teeth estão no chão da Safari Zone. Entregue ao guarda da Safari Zone (o Warden, que mora em Fuchsia) para ganhar o HM04 Strength, necessário na Victory Road.",
   "required": true,
   "done": {
@@ -266,6 +344,10 @@
   "id": "secret_key",
   "title": "Pegar a Secret Key na Pokémon Mansion",
   "where": "Cinnabar Island · Pokémon Mansion",
+  "areas": [
+   "Route21",
+   "PokemonMansion"
+  ],
   "how": "Surfe de Pallet Town pela Route 21 até Cinnabar. Na mansão, as estátuas abrem e fecham portas; a Secret Key fica no subsolo (B1F). Ela destranca o ginásio.",
   "required": true,
   "done": {
@@ -284,6 +366,9 @@
   "id": "volcano",
   "title": "Insígnia Volcano (Blaine)",
   "where": "Cinnabar Island · ginásio",
+  "areas": [
+   "CinnabarIsland"
+  ],
   "how": "Responda o quiz das máquinas para pular treinadores. Blaine usa Fogo, com Fire Blast no time todo: Água, Terra e Pedra, de preferência mais rápidos que o Arcanine.",
   "required": true,
   "trainer": "leader_blaine",
@@ -299,6 +384,11 @@
   "id": "sevii",
   "title": "Viagem às Ilhas Sevii com o Bill",
   "where": "Cinnabar Island → One, Two e Three Island",
+  "areas": [
+   "OneIsland",
+   "TwoIsland",
+   "ThreeIsland"
+  ],
   "how": "Depois do Blaine, o Bill leva você à One Island para ajudar o Celio. A viagem faz parte da história, mas não bloqueia o ginásio de Viridian.",
   "required": false,
   "done": {
@@ -314,6 +404,9 @@
   "id": "earth",
   "title": "Insígnia Earth (Giovanni)",
   "where": "Viridian City · ginásio",
+  "areas": [
+   "ViridianCity"
+  ],
   "how": "O ginásio abre com as outras sete insígnias. Giovanni usa Terra: Água, Planta e Gelo; Pokémon Voadores ou com Levitate são imunes aos golpes de Terra.",
   "required": true,
   "trainer": "leader_giovanni",
@@ -329,6 +422,12 @@
   "id": "lorelei",
   "title": "Elite Four: Lorelei",
   "where": "Route 22 → Route 23 → Victory Road → Indigo Plateau",
+  "areas": [
+   "Route22",
+   "Route23",
+   "VictoryRoad",
+   "IndigoPlateau"
+  ],
   "how": "Na Route 23 os guardas conferem as oito insígnias; a Victory Road exige Surf e Strength. Prepare Revives e Full Restores: não dá para sair da Liga entre as lutas. Lorelei usa Água/Gelo.",
   "required": true,
   "trainer": "elite_four_lorelei",
@@ -345,6 +444,9 @@
   "id": "bruno",
   "title": "Elite Four: Bruno",
   "where": "Indigo Plateau",
+  "areas": [
+   "IndigoPlateau"
+  ],
   "how": "Bruno usa Lutadores e Onix: golpes Psíquicos, Voadores e de Água.",
   "required": true,
   "trainer": "elite_four_bruno",
@@ -361,6 +463,9 @@
   "id": "agatha",
   "title": "Elite Four: Agatha",
   "where": "Indigo Plateau",
+  "areas": [
+   "IndigoPlateau"
+  ],
   "how": "Agatha usa Fantasma/Veneno: golpes Psíquicos e de Terra (cuidado: Gengar tem Levitate).",
   "required": true,
   "trainer": "elite_four_agatha",
@@ -377,6 +482,9 @@
   "id": "lance",
   "title": "Elite Four: Lance",
   "where": "Indigo Plateau",
+  "areas": [
+   "IndigoPlateau"
+  ],
   "how": "Lance usa Dragões e Voadores: golpes de Gelo e Elétricos.",
   "required": true,
   "trainer": "elite_four_lance",
@@ -393,6 +501,9 @@
   "id": "champion",
   "title": "Campeão: o rival",
   "where": "Indigo Plateau",
+  "areas": [
+   "IndigoPlateau"
+  ],
   "how": "O time do rival depende do inicial dele. Veja a preparação na aba Batalha.",
   "required": true,
   "trainer": "champion_first",
@@ -413,6 +524,9 @@
   "id": "fly",
   "title": "HM02 Fly",
   "where": "Route 16 · casa escondida (oeste de Celadon)",
+  "areas": [
+   "Route16"
+  ],
   "how": "Corte a árvore ao norte da entrada da Route 16 e entre na casa: a moça dá o HM02 Fly. Permite viajar entre cidades já visitadas.",
   "required": false,
   "done": {
@@ -428,6 +542,9 @@
   "id": "flash",
   "title": "HM05 Flash",
   "where": "Route 2 · casa do assistente do Oak",
+  "areas": [
+   "Route2"
+  ],
   "how": "Com 10 espécies capturadas na Pokédex, o assistente na Route 2 entrega o HM05 Flash, que ilumina o Rock Tunnel.",
   "required": false,
   "done": {
@@ -443,6 +560,10 @@
   "id": "bicycle",
   "title": "Bicicleta",
   "where": "Vermilion City (Fan Club) → Cerulean City (loja de bicicletas)",
+  "areas": [
+   "VermilionCity",
+   "CeruleanCity"
+  ],
   "how": "Ouça o presidente do Pokémon Fan Club em Vermilion para ganhar o Bike Voucher e troque na loja de Cerulean. É obrigatória na Cycling Road.",
   "required": false,
   "done": {
