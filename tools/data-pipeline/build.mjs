@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const DATASET_VERSION = '0.5.0';
+const DATASET_VERSION = '0.6.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -185,6 +185,7 @@ const species = blocks(read('src/data/pokemon/species_info.h'), 'SPECIES_')
         spe: Number(field(body, 'baseSpeed')),
       },
       catchRate: Number(field(body, 'catchRate')),
+      expYield: Number(field(body, 'expYield')),
       growthRate: field(body, 'growthRate')?.replace('GROWTH_', '').toLowerCase(),
       levelUpMoves: learnsetBySpecies.get(key) ?? [],
     };
@@ -221,7 +222,32 @@ deoxys.baseStats = {
   spe: deoxysStat('SPEED'),
 };
 deoxys.form = 'attack';
-const rules = { hmMoves };
+// Tabelas de experiência (gExperienceTables): XP total para estar em cada nível, por ritmo de crescimento.
+const cube = (n) => n * n * n;
+const idiv = (a, b) => Math.trunc(a / b);
+const EXP = {
+  EXP_SLOW: (n) => idiv(5 * cube(n), 4),
+  EXP_FAST: (n) => idiv(4 * cube(n), 5),
+  EXP_MEDIUM_FAST: (n) => cube(n),
+  EXP_MEDIUM_SLOW: (n) => idiv(6 * cube(n), 5) - 15 * n * n + 100 * n - 140,
+  EXP_ERRATIC: (n) =>
+    n <= 50 ? idiv((100 - n) * cube(n), 50) : n <= 68 ? idiv((150 - n) * cube(n), 100) : n <= 98 ? idiv(idiv(1911 - 10 * n, 3) * cube(n), 500) : idiv((160 - n) * cube(n), 100),
+  EXP_FLUCTUATING: (n) =>
+    n <= 15 ? idiv((idiv(n + 1, 3) + 24) * cube(n), 50) : n <= 36 ? idiv((n + 14) * cube(n), 50) : idiv((idiv(n, 2) + 32) * cube(n), 50),
+};
+const growthConsts = constants('include/constants/pokemon.h', 'GROWTH_');
+const expSrc = read('src/data/pokemon/experience_tables.h').split('gExperienceTables')[1] ?? fail('gExperienceTables ausente');
+const expBlocks = [...expSrc.matchAll(/\{\s*\/\/[^\n]*\n([\s\S]*?)\}/g)].map((m) =>
+  [...m[1].matchAll(/^\s*(?:(\d+)|(EXP_\w+)\((\d+)\)),/gm)].map((e) => (e[1] !== undefined ? Number(e[1]) : (EXP[e[2]] ?? fail(`macro ${e[2]}`))(Number(e[3])))),
+);
+const expTables = {};
+for (const [name, id] of growthConsts) {
+  const table = expBlocks[id] ?? fail(`tabela de XP ${name}`);
+  if (table.length !== 101) fail(`tabela de XP ${name} com ${table.length} níveis`);
+  expTables[name.replace('GROWTH_', '').toLowerCase()] = table;
+}
+if (expTables.medium_fast[50] !== 125000 || expTables.slow[100] !== 1250000 || expTables.erratic[100] !== 600000) fail('tabelas de XP inesperadas');
+const rules = { hmMoves, expTables };
 
 // ---------- itens ----------
 const itemConsts = constants('include/constants/items.h', 'ITEM_');

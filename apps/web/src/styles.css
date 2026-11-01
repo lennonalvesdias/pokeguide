@@ -264,3 +264,14 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .warn-text { color: var(--warn); }
 .copilot .btn.wide { margin-top: 6px; }
 .copilot > .advice { margin: 0 0 12px; }
+
+/* Detalhes do membro */
+.member-detail { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin: 0 0 10px; font-size: 14px; }
+.facts dt { color: var(--muted); font-weight: 600; }
+.facts dd { margin: 0; }
+.weak p { margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.member-detail .label { margin-top: 12px; }
+.copilot-box { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: var(--bg); }
+.copilot-box .label:first-child { margin-top: 0; }
+.spots { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }

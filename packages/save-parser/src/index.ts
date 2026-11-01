@@ -2,7 +2,7 @@
 // Puro: sem APIs de Node ou DOM, roda em Web Worker. Nunca altera o buffer recebido.
 // Offsets conferidos contra pret/pokefirered include/global.h.
 
-export const SAVE_PARSER_VERSION = '0.3.0';
+export const SAVE_PARSER_VERSION = '0.4.0';
 
 const SECTION_SIZE = 0x1000;
 const SLOT_SIZE = 14 * SECTION_SIZE;
@@ -54,6 +54,8 @@ export interface SavedPokemon {
   evs: { hp: number; atk: number; def: number; spe: number; spa: number; spd: number };
   status: string | null;
   friendship: number;
+  /** XP total acumulada (subestrutura Growth). */
+  experience: number;
   isEgg: boolean;
   checksumValid: boolean;
 }
@@ -226,6 +228,7 @@ function decodePokemon(raw: Uint8Array): SavedPokemon | null {
     },
     status: statusText(v.getUint32(80, true)),
     friendship: g.getUint8(9),
+    experience: g.getUint32(4, true),
     isEgg: ((ivWord >>> 30) & 1) === 1,
     checksumValid: sum === v.getUint16(28, true),
   };

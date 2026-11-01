@@ -1,6 +1,6 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import { type AreaOpponent, type JourneyStep, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
+import { type AreaOpponent, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
@@ -90,7 +90,7 @@ export const typeChart = typeChartJson as unknown as TypeChartEntry[];
 export const items = itemsJson as ItemDefinition[];
 export const maps = mapsJson as MapDefinition[];
 export const abilities = abilitiesJson as Array<{ id: number; key: string; name: string }>;
-export const rules = rulesJson as { hmMoves: string[] };
+export const rules = rulesJson as { hmMoves: string[]; expTables: Record<string, number[]> };
 export const trainers = trainersJson as TrainerDefinition[];
 /** TM/HM → golpe (sTMHMMoves). */
 export const machines = machinesJson as MachineDefinition[];
@@ -208,4 +208,29 @@ export function areaTrainers(
   return trainers.filter(
     (t) => !defeatedIds.has(t.id) && (!t.rivalStarter || !rivalStarter || t.rivalStarter === rivalStarter) && t.maps.some((m) => areas.includes(areaOf(m))),
   );
+}
+
+/** Lugares de treino: um por área + método (grama/caverna, surfando, cada vara), com os encontros no nível médio. */
+export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlySet<string>): TrainingSpotInput[] {
+  const groups = new Map<string, { maps: Set<string>; slots: Map<string, { species: string; level: number; rate: number }> }>();
+  for (const e of encounters) {
+    const area = areaOf(e.map);
+    if (!areas.includes(area)) continue;
+    for (const s of e.slots) {
+      if (s.method === 'rock_smash' || (s.method.endsWith('_rod') && !keyItems.has(s.method))) continue;
+      const key = `${area}|${s.method}`;
+      const g = groups.get(key) ?? { maps: new Set(), slots: new Map() };
+      g.maps.add(e.map);
+      const level = Math.round((s.minLevel + s.maxLevel) / 2);
+      const k = `${s.species}:${level}`;
+      const cur = g.slots.get(k) ?? { species: s.species, level, rate: 0 };
+      cur.rate += s.rate;
+      g.slots.set(k, cur);
+      groups.set(key, g);
+    }
+  }
+  return [...groups.entries()].map(([key, g]) => ({
+    key,
+    slots: [...g.slots.values()].map((x) => ({ opponent: wildOpponent(x.species, x.level), rate: x.rate / g.maps.size })),
+  }));
 }
