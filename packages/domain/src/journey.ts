@@ -13,6 +13,8 @@ export interface JourneyStep {
   how: string;
   required: boolean;
   trainer?: string;
+  /** Prefixos de mapa por onde o passo passa (ex.: "PokemonMansion"). */
+  areas?: string[];
   done: { any: JourneyCondition[] } | { all: JourneyCondition[] };
 }
 

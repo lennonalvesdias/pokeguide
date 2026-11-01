@@ -1,7 +1,7 @@
 {
   "rulesetId": "firered-gen3",
   "contentPackId": "firered",
-  "datasetVersion": "0.4.0",
+  "datasetVersion": "0.5.0",
   "source": {
     "repo": "https://github.com/pret/pokefirered",
     "commit": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -31,7 +31,7 @@
     "maps.json": "6aa67a5aaca5e1b5b308ed014e4461a8b833b8d05af45025ff18b50f75d7d780",
     "rules.json": "24e826c4bc112e8335c9e1fe5bb26782661baa145649adbe8fd57e275e30eb37",
     "trainers.json": "91824d5d10a094a5972a2e07fdd76ff9cafa01cff08b7d51e7d6eccbd83968ae",
-    "walkthrough.json": "bc150aa24092dbe22bb31e55478a791597350e0922d8924fac1816e18923b3fe",
+    "walkthrough.json": "9904740be8c20a31e4506acd2f4d05caf71a8887cb38a977f2a18d32134c3cb0",
     "machines.json": "a9992f63568b9b3c7ff905453a3340f68997172ab62dd2ece4a89ca329bd3799",
     "encounters.json": "e291bd75b148053c4c9454c65f6f6794ad148e21575920b9c67320006f3e9239"
   }

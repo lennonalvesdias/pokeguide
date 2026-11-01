@@ -1,12 +1,13 @@
 // Jornada: próximo passo da história, calculado a partir do save.
 import { lookup, trainers, walkthrough } from '@pokeguide/data-firered';
-import { evaluateJourney } from '@pokeguide/domain';
+import { evaluateJourney, type TeamMember } from '@pokeguide/domain';
 import { isFlagSet, type SaveImportPreview } from '@pokeguide/save-parser';
 import { useMemo, useState } from 'react';
+import { Copilot } from './Copilot.tsx';
 
 const trainerKeyById = new Map(trainers.map((t) => [t.id, t.key]));
 
-export function Journey({ preview, onPrepare }: { preview: SaveImportPreview; onPrepare: (trainerKey: string) => void }) {
+export function Journey({ preview, team, onPrepare }: { preview: SaveImportPreview; team: TeamMember[]; onPrepare: (trainerKey: string) => void }) {
   const state = useMemo(
     () =>
       evaluateJourney(walkthrough, {
@@ -62,6 +63,8 @@ export function Journey({ preview, onPrepare }: { preview: SaveImportPreview; on
           <p>Você venceu a Liga. O pós-jogo continua nas Ilhas Sevii 4 a 7.</p>
         </article>
       )}
+
+      <Copilot preview={preview} team={team} step={current} onPrepare={onPrepare} />
 
       {optional.length > 0 && (
         <>

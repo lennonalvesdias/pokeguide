@@ -254,3 +254,13 @@ input[aria-invalid='true'] { border-color: var(--warn); }
   }
   .app { padding-bottom: calc(76px + max(20px, env(safe-area-inset-bottom))); }
 }
+
+/* Copiloto */
+.copilot-area { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px; }
+.copilot-area:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.copilot-title { font-size: 15px; margin: 0 0 6px; }
+.lead { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.lead p { margin: 0; font-size: 14px; }
+.warn-text { color: var(--warn); }
+.copilot .btn.wide { margin-top: 6px; }
+.copilot > .advice { margin: 0 0 12px; }
