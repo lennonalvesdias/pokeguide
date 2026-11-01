@@ -15,6 +15,7 @@ import {
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Bag } from './Bag.tsx';
 import { Journey } from './Journey.tsx';
+import { MemberDetail } from './Member.tsx';
 import { Sprite } from './Sprite.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
 import {
@@ -662,6 +663,7 @@ function MoveLine({ est }: { est: MoveEstimate }) {
 
 function TeamTab({ team, stored }: { team: TeamMember[]; stored: StoredSave }) {
   const p = stored.preview;
+  const [openId, setOpenId] = useState<string | null>(null);
   return (
     <section>
       {team.map((m) => (
@@ -694,6 +696,10 @@ function TeamTab({ team, stored }: { team: TeamMember[]; stored: StoredSave }) {
               </li>
             ))}
           </ul>
+          <button type="button" className="linkish" aria-expanded={openId === m.id} onClick={() => setOpenId((o) => (o === m.id ? null : m.id))}>
+            {openId === m.id ? 'Esconder detalhes' : 'Detalhes, onde treinar e melhores golpes'}
+          </button>
+          {openId === m.id && <MemberDetail member={m} team={team} preview={p} />}
         </article>
       ))}
       <p className="fine center">

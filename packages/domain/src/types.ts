@@ -44,6 +44,8 @@ export interface SpeciesDefinition {
   abilities: string[];
   baseStats: BaseStats;
   catchRate: number;
+  /** XP base que o Pokémon dá ao ser derrotado. */
+  expYield?: number;
   growthRate?: string;
   levelUpMoves: Array<{ level: number; move: string }>;
   /** Golpes de TM/HM que a espécie aprende. */

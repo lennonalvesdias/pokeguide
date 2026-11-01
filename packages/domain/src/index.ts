@@ -8,3 +8,4 @@ export * from './duel.ts';
 export * from './journey.ts';
 export * from './teach.ts';
 export * from './copilot.ts';
+export * from './training.ts';

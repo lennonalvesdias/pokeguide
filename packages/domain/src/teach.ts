@@ -221,3 +221,96 @@ export function teachAdvice(
   if (g.gain < (hm ? TEACH_MIN_GAIN_HM : TEACH_MIN_GAIN)) return { kind: 'keep', bestReplace: replace.key, ...g };
   return { kind: 'replace', replace: replace.key, replaceIsStatus: replace.category === 'status', ...g };
 }
+
+/** Golpes de status fracos: podem sair para dar lugar a dano. Os demais de status ficam (Recover, Reflect, Toxic...). */
+const WEAK_STATUS = new Set([
+  'growl', 'leer', 'tail_whip', 'sand_attack', 'smokescreen', 'kinesis', 'string_shot', 'harden', 'defense_curl',
+  'withdraw', 'focus_energy', 'tickle', 'charm', 'scary_face', 'sweet_scent', 'splash', 'teleport', 'supersonic',
+  'odor_sleuth', 'foresight', 'mud_sport', 'water_sport', 'howl', 'sharpen', 'meditate', 'poison_gas', 'tail_glow',
+]);
+
+export interface MovesetCandidate {
+  move: MoveDefinition;
+  /** De onde vem um golpe novo (ex.: 'TM26'); ausente para os que já conhece. */
+  source?: string;
+}
+
+export interface MovesetAdvice {
+  /** Os 4 golpes sugeridos, na ordem atual (novos no lugar dos que saem). */
+  moves: string[];
+  learn: Array<{ move: string; source: string; replaces: string | null }>;
+  /** Ganho relativo do dano esperado ponderado. */
+  gain: number;
+  /** Golpes que ficam de qualquer jeito (HM, par Rest + Sleep Talk, status útil). */
+  locked: string[];
+}
+
+function combinations<T>(items: readonly T[], k: number): T[][] {
+  if (k === 0) return [[]];
+  if (items.length < k) return [];
+  const [head, ...rest] = items;
+  return [...combinations(rest, k - 1).map((c) => [head!, ...c]), ...combinations(rest, k)];
+}
+
+/**
+ * Melhor conjunto de 4 golpes com o que o membro já conhece e os TMs/HMs da bolsa que ele aprende.
+ * HMs, o par Rest + Sleep Talk e golpes de status úteis ficam travados. Ensinar um HM novo só entra
+ * se render 15% a mais que a melhor opção sem ele.
+ */
+export function bestMoveset(
+  chart: TypeChart,
+  member: TeamMember,
+  candidates: readonly MovesetCandidate[],
+  opponents: readonly TeachOpponent[],
+  badges: readonly string[],
+  hmMoves: readonly string[],
+  opts: TeachOptions = {},
+): MovesetAdvice {
+  const current = member.moves.map((m) => m.move);
+  const lockedMoves = current.filter(
+    (m) => hmMoves.includes(m.key) || isCombo(m.key, current) || (m.category === 'status' && !FIXED_DAMAGE[m.effect] && !WEAK_STATUS.has(m.key)),
+  );
+  const pool: MovesetCandidate[] = [];
+  for (const m of current) if (!lockedMoves.includes(m) && (m.category !== 'status' || FIXED_DAMAGE[m.effect])) pool.push({ move: m });
+  for (const c of candidates) {
+    const usable = c.move.category !== 'status' && (c.move.power !== 1 || FIXED_DAMAGE[c.move.effect]);
+    if (usable && member.species.tmhm?.includes(c.move.key) && !pool.some((p) => p.move.key === c.move.key) && !lockedMoves.some((l) => l.key === c.move.key)) pool.push(c);
+  }
+  const slots = Math.max(0, 4 - lockedMoves.length);
+  const all = [...lockedMoves.map((move) => ({ move }) as MovesetCandidate), ...pool];
+  const matrix = opponents.map((o) => all.map((c) => expectedDamage(chart, member, c.move, o, badges)));
+  const weights = opponents.map((_, i) => 1 - 0.7 * Math.min(1, opts.teamBest?.[i] ?? 0));
+  const value = (cols: number[]) => weighted(bestPerRow(matrix, cols), weights);
+  const lockedCols = lockedMoves.map((_, i) => i);
+  const now = value(current.map((m) => all.findIndex((c) => c.move.key === m.key)).filter((i) => i >= 0));
+  const poolIdx = pool.map((_, i) => lockedMoves.length + i);
+  const isNewHm = (i: number) => !!all[i]!.source && hmMoves.includes(all[i]!.move.key);
+  let best: { cols: number[]; v: number } | null = null;
+  let bestNoHm: { cols: number[]; v: number } | null = null;
+  for (const combo of combinations(poolIdx, Math.min(slots, poolIdx.length))) {
+    const changes = combo.filter((i) => all[i]!.source).length;
+    // Desempate: menos golpes novos (TM é de uso único).
+    const v = value([...lockedCols, ...combo]) - changes * 1e-6;
+    if (!best || v > best.v) best = { cols: combo, v };
+    if (!combo.some(isNewHm) && (!bestNoHm || v > bestNoHm.v)) bestNoHm = { cols: combo, v };
+  }
+  let pick = best;
+  if (best && bestNoHm && best !== bestNoHm && best.cols.some(isNewHm) && best.v < bestNoHm.v * (1 + TEACH_MIN_GAIN_HM)) pick = bestNoHm;
+  const chosen = new Set((pick?.cols ?? []).map((i) => all[i]!.move.key));
+  for (const m of lockedMoves) chosen.add(m.key);
+  const learnList = (pick?.cols ?? []).filter((i) => all[i]!.source).map((i) => all[i]!);
+  const leaving = current.filter((m) => !chosen.has(m.key));
+  const moves = current.map((m) => m.key);
+  const learn: MovesetAdvice['learn'] = [];
+  learnList.forEach((c, k) => {
+    const out = leaving[k] ?? null;
+    if (out) moves[moves.indexOf(out.key)] = c.move.key;
+    else moves.push(c.move.key);
+    learn.push({ move: c.move.key, source: c.source!, replaces: out?.key ?? null });
+  });
+  const v = pick ? pick.v : now;
+  const gain = now > 0 ? (v - now) / now : v > 0 ? 1 : 0;
+  // Ganho pequeno não vale gastar TM: mantém o conjunto atual.
+  if (gain < TEACH_MIN_GAIN) return { moves: current.map((m) => m.key), learn: [], gain: Math.max(0, gain), locked: lockedMoves.map((m) => m.key) };
+  return { moves: moves.slice(0, 4), learn, gain, locked: lockedMoves.map((m) => m.key) };
+}
