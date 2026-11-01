@@ -41,8 +41,8 @@ body {
 .top {
   position: sticky; top: 0; z-index: 2;
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  /* Encosta logo abaixo da barra de status: a área segura já inclui a folga da Dynamic Island. */
-  padding: max(env(safe-area-inset-top), 10px) max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
+  /* No iOS 26 a barra de status desfoca o que fica logo abaixo dela: o título precisa de folga além da área segura. */
+  padding: calc(env(safe-area-inset-top) + 12px) max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
   background: var(--bg); border-bottom: 1px solid var(--line);
 }
 .top > div { min-width: 0; }
@@ -127,8 +127,7 @@ input, select {
 .tabs {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 3;
   display: flex; justify-content: center; gap: 4px;
-  /* A barra do gesto de início pode sobrepor parte do respiro inferior, como nas abas nativas do iOS. */
-  padding: 6px 16px max(6px, calc(env(safe-area-inset-bottom) - 12px));
+  padding: 6px 16px max(8px, env(safe-area-inset-bottom));
   background: var(--card); border-top: 1px solid var(--line);
 }
 .tabs button {
@@ -237,3 +236,21 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .mon-pick .nm { font-size: 13px; font-weight: 600; text-align: center; line-height: 1.2; }
 .mon-pick .lv { font-size: 11px; color: var(--muted); }
 .method-label { margin: 12px 0 0; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+
+/*
+ * Modo app (tela de início) no iOS 26: o viewport termina ~62pt antes do fim da tela, então
+ * `bottom: 0` deixa um vão sob as abas (WebKit bug 301994). `lvh` ainda chega ao fim físico da tela,
+ * então as abas são ancoradas por ele. Se mesmo assim sobrar vão, o fundo do html tem a cor das
+ * abas e o vão parece parte da barra.
+ */
+@media (display-mode: standalone) {
+  html { background: var(--card); }
+  body { background: var(--bg); min-height: 100lvh; }
+  .tabs {
+    bottom: auto;
+    top: 100lvh;
+    transform: translateY(-100%);
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+  .app { padding-bottom: calc(76px + max(20px, env(safe-area-inset-bottom))); }
+}
