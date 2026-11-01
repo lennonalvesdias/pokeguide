@@ -1,6 +1,6 @@
 // Bolsa: o que você tem, o que cada item faz e quem da equipe aprende cada TM/HM.
 import { items, lookup, machines, rules, upcomingOpponents } from '@pokeguide/data-firered';
-import { type TeachAdvice, teachAdvice, type TeachOpponent, type TeamMember } from '@pokeguide/domain';
+import { type TeachAdvice, teachAdvice, type TeachOpponent, type TeamMember, teamCoverage } from '@pokeguide/domain';
 import type { ItemStack, SaveImportPreview } from '@pokeguide/save-parser';
 import { useMemo, useState } from 'react';
 import { chart, TypeTag } from './App.tsx';
@@ -49,6 +49,8 @@ export function Bag({ preview, team }: { preview: SaveImportPreview; team: TeamM
     () => upcomingOpponents(new Set(preview.defeatedTrainerIds ?? []), Math.max(...team.map((m) => m.level), 5), rivalStarterFor(team)),
     [preview, team],
   );
+  // Quanto o resto da equipe já derruba cada adversário: o que outro membro cobre conta menos.
+  const coverage = useMemo(() => teamCoverage(chart, team, opponents, preview.badges), [team, opponents, preview]);
   const learnable = machines.filter((m) => preview.bag.tmhm.some((s) => itemById.get(s.itemId)?.key === m.item) && team.some((t) => canLearn(t, m.move)));
   return (
     <section>
@@ -58,8 +60,9 @@ export function Bag({ preview, team }: { preview: SaveImportPreview; team: TeamM
           uso único; HMs são reutilizáveis, mas só o Move Deleter apaga o golpe depois.
         </p>
         <p className="fine">
-          “Vale ensinar” compara o dano esperado dos golpes atuais com o do TM contra os {opponents.length} Pokémon dos treinadores que ainda
-          faltam. HMs e o par Rest + Sleep Talk nunca são sugeridos para esquecer.
+          “Vale ensinar” calcula o dano esperado (stats do seu Pokémon, STAB, tipos, precisão, crítico e efeito secundário) contra os{' '}
+          {opponents.length} Pokémon dos treinadores que ainda faltam. Adversários que outro membro da equipe já derruba contam menos. HMs
+          precisam de ganho maior, e golpes de HM e o par Rest + Sleep Talk nunca são sugeridos para esquecer.
         </p>
       </div>
       {POCKETS.map(([pocket, title]) => {
@@ -72,7 +75,7 @@ export function Bag({ preview, team }: { preview: SaveImportPreview; team: TeamM
             </h3>
             <div className="card bag-list">
               {sortStacks(pocket, stacks).map((s) => (
-                <BagRow key={`${pocket}-${s.itemId}`} stack={s} team={team} opponents={opponents} badges={preview.badges} open={open === `${pocket}-${s.itemId}`} onToggle={() => setOpen((o) => (o === `${pocket}-${s.itemId}` ? null : `${pocket}-${s.itemId}`))} />
+                <BagRow key={`${pocket}-${s.itemId}`} stack={s} team={team} opponents={opponents} coverage={coverage} badges={preview.badges} open={open === `${pocket}-${s.itemId}`} onToggle={() => setOpen((o) => (o === `${pocket}-${s.itemId}` ? null : `${pocket}-${s.itemId}`))} />
               ))}
             </div>
           </div>
@@ -96,6 +99,7 @@ function BagRow({
   stack,
   team,
   opponents,
+  coverage,
   badges,
   open,
   onToggle,
@@ -103,6 +107,7 @@ function BagRow({
   stack: ItemStack;
   team: TeamMember[];
   opponents: TeachOpponent[];
+  coverage: Map<string, number[]>;
   badges: string[];
   open: boolean;
   onToggle: () => void;
@@ -115,8 +120,8 @@ function BagRow({
   const learners = machine ? team.filter((t) => canLearn(t, machine.move) && !knows(t)) : [];
   const knowers = machine ? team.filter(knows) : [];
   const advice = useMemo(
-    () => (move ? new Map(team.map((t) => [t.id, teachAdvice(chart, t, move, opponents, badges, rules.hmMoves)])) : new Map<string, TeachAdvice>()),
-    [move, team, opponents, badges],
+    () => (move ? new Map(team.map((t) => [t.id, teachAdvice(chart, t, move, opponents, badges, rules.hmMoves, { teamBest: coverage.get(t.id) })])) : new Map<string, TeachAdvice>()),
+    [move, team, opponents, coverage, badges],
   );
   const verdict = machine ? bestVerdict(team, advice) : null;
   return (
@@ -167,8 +172,9 @@ function BagRow({
   );
 }
 
-const pctGain = (g: number) => `+${Math.max(0, Math.round(g * 100))}%`;
+const pctGain = (g: number) => `${g >= 0 ? '+' : '−'}${Math.abs(Math.round(g * 100))}%`;
 const moveName = (k: string) => displayName(lookup.move(k).name);
+const where = (a: { improves: string[] }) => (a.improves.length ? `; melhora mais contra ${a.improves.map(displayName).join(', ')}` : '');
 
 /** Frase por membro na lista expandida. */
 function memberLine(a: TeachAdvice, stab: boolean): string {
@@ -180,12 +186,12 @@ function memberLine(a: TeachAdvice, stab: boolean): string {
     case 'not-comparable':
       return a.reason === 'status' ? 'pode aprender · golpe de status: decida pelo seu estilo de jogo' : 'pode aprender · poder variável: não dá para comparar';
     case 'free-slot':
-      return `vale ensinar: tem espaço livre (${pctGain(a.gain)} de dano esperado)`;
+      return `vale ensinar: tem espaço livre · ${pctGain(a.gain)} de dano esperado${where(a)}`;
     case 'replace':
-      return `vale ensinar no lugar de ${moveName(a.replace)}${a.replaceIsStatus ? ' (golpe de status: só se não usar)' : ''} · ${pctGain(a.gain)} de dano esperado${stab ? ' · STAB' : ''}`;
+      return `vale ensinar no lugar de ${moveName(a.replace)}${a.replaceIsStatus ? ' (golpe de status: só se não usar)' : ''} · ${pctGain(a.gain)} de dano esperado${stab ? ' · STAB' : ''}${where(a)}${a.worsens ? `; piora um pouco contra ${a.worsens}` : ''}${a.hm ? ' · HM: só sai com o Move Deleter' : ''}`;
     case 'keep':
       return a.bestReplace
-        ? `não compensa: no melhor caso (no lugar de ${moveName(a.bestReplace)}) melhora ${pctGain(a.gain)}`
+        ? `não compensa: no melhor caso (no lugar de ${moveName(a.bestReplace)}) ${pctGain(a.gain)} de dano esperado${a.hm ? ', e HM exige ganho de 15%' : ''}`
         : 'não compensa: só esqueceria um HM';
   }
 }
@@ -194,19 +200,20 @@ function memberLine(a: TeachAdvice, stab: boolean): string {
 function bestVerdict(team: TeamMember[], advice: Map<string, TeachAdvice>): { kind: 'yes' | 'no' | 'status'; text: string } | null {
   let best: { t: TeamMember; a: Extract<TeachAdvice, { kind: 'replace' | 'free-slot' }> } | null = null;
   let anyLearner = false;
-  let status = false;
+  let status: 'status' | 'variable-power' | null = null;
   for (const t of team) {
     const a = advice.get(t.id);
     if (!a || a.kind === 'cannot' || a.kind === 'knows') continue;
     anyLearner = true;
-    if (a.kind === 'not-comparable') status = true;
+    if (a.kind === 'not-comparable') status = a.reason;
     if ((a.kind === 'replace' || a.kind === 'free-slot') && (!best || a.gain > best.a.gain)) best = { t, a };
   }
   if (best) {
-    const where = best.a.kind === 'replace' ? ` no lugar de ${moveName(best.a.replace)}` : ' (espaço livre)';
-    return { kind: 'yes', text: `Vale ensinar a ${best.t.name}${where} · ${pctGain(best.a.gain)} de dano` };
+    const slot = best.a.kind === 'replace' ? ` no lugar de ${moveName(best.a.replace)}` : ' (espaço livre)';
+    const vs = best.a.improves.length ? ` · melhora contra ${best.a.improves.slice(0, 2).map(displayName).join(', ')}` : '';
+    return { kind: 'yes', text: `Vale ensinar a ${best.t.name}${slot} · ${pctGain(best.a.gain)} de dano esperado${vs}` };
   }
-  if (status) return { kind: 'status', text: 'Golpe de status: não dá para comparar por dano' };
-  if (anyLearner) return { kind: 'no', text: 'Não compensa agora: os golpes atuais já cobrem' };
+  if (status) return { kind: 'status', text: status === 'status' ? 'Golpe de status: não dá para comparar por dano' : 'Poder variável (amizade, HP etc.): não dá para comparar por dano' };
+  if (anyLearner) return { kind: 'no', text: 'Não compensa agora: os golpes atuais e a equipe já cobrem' };
   return null;
 }
