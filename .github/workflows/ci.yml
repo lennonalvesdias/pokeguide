@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          # O pipeline usa só Node; sem isso o setup-node@v5 procura pnpm por causa do packageManager.
+          package-manager-cache: false
       - run: bash tools/data-pipeline/fetch-decomp.sh .decomp
       - run: node tools/data-pipeline/build.mjs .decomp
       - run: git diff --exit-code packages/data-firered/data
