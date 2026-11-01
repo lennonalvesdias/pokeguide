@@ -11,6 +11,7 @@ import {
   wildMoveset,
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { TrainerBattle } from './TrainerBattle.tsx';
 import {
   connectDropbox,
   disconnect as disconnectDropbox,
@@ -33,7 +34,7 @@ import {
   writePref,
 } from './state.ts';
 
-const chart = createTypeChart(typeChart);
+export const chart = createTypeChart(typeChart);
 const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
 type Tab = 'battle' | 'team' | 'moves';
 
@@ -163,7 +164,7 @@ export function App() {
           {p ? (
             <p className="sub">
               {p.playTime.hours}h{String(p.playTime.minutes).padStart(2, '0')} · {p.badges.length} insígnias ·{' '}
-              {displayName(lookup.map(p.location.mapGroup, p.location.mapNum)?.key.replace(/([a-z])([A-Z0-9])/g, '$1 $2').replace(/_/g, ' ') ?? '')}
+              {mapLabel(lookup.map(p.location.mapGroup, p.location.mapNum)?.key ?? '')}
             </p>
           ) : (
             <p className="sub">Copiloto de FireRed</p>
@@ -218,7 +219,7 @@ export function App() {
             </button>
           </>
         ) : tab === 'battle' ? (
-          <BattleTab team={team} badges={p.badges} />
+          <BattleTab team={team} badges={p.badges} preview={p} />
         ) : tab === 'team' ? (
           <>
             <TeamTab team={team} stored={save!} />
@@ -266,7 +267,25 @@ function Onboarding({ syncing }: { syncing: boolean }) {
 
 // ---------------- Batalha ----------------
 
-function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
+function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: string[]; preview: StoredSave['preview'] }) {
+  const [mode, setMode] = useState<'trainer' | 'wild'>(() => (readPref('battleMode') === 'wild' ? 'wild' : 'trainer'));
+  useEffect(() => writePref('battleMode', mode), [mode]);
+  return (
+    <>
+      <div className="segmented" role="tablist" aria-label="Tipo de batalha">
+        <button type="button" role="tab" aria-selected={mode === 'trainer'} className={mode === 'trainer' ? 'on' : ''} onClick={() => setMode('trainer')}>
+          Treinador
+        </button>
+        <button type="button" role="tab" aria-selected={mode === 'wild'} className={mode === 'wild' ? 'on' : ''} onClick={() => setMode('wild')}>
+          Selvagem
+        </button>
+      </div>
+      {mode === 'trainer' ? <TrainerBattle team={team} badges={badges} preview={preview} /> : <WildBattle team={team} badges={badges} />}
+    </>
+  );
+}
+
+function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
   const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
@@ -347,7 +366,7 @@ function BattleTab({ team, badges }: { team: TeamMember[]; badges: string[] }) {
   );
 }
 
-function OpponentSummary({ species, moves }: { species: TeamMember['species']; moves: MoveDefinition[] }) {
+export function OpponentSummary({ species, moves }: { species: TeamMember['species']; moves: MoveDefinition[] }) {
   return (
     <div className="card opp">
       <div className="row">
@@ -369,7 +388,7 @@ function OpponentSummary({ species, moves }: { species: TeamMember['species']; m
 const KO_LABEL = { guaranteed: 'nocaute garantido', possible: 'pode nocautear', none: '' } as const;
 const SPEED_LABEL = { faster: 'ataca primeiro', slower: 'ataca depois', tie: 'empate de velocidade', unknown: 'velocidade incerta' } as const;
 
-function Recommendation({ a, member, primary = false }: { a: MemberAssessment; member: TeamMember; primary?: boolean }) {
+export function Recommendation({ a, member, primary = false }: { a: MemberAssessment; member: TeamMember; primary?: boolean }) {
   return (
     <article className={`card rec ${primary ? 'primary' : ''}`}>
       <div className="row">
@@ -394,6 +413,31 @@ function Recommendation({ a, member, primary = false }: { a: MemberAssessment; m
       {a.notes.length > 0 && <p className="notes">{a.notes.join(' · ')}</p>}
     </article>
   );
+}
+
+export function CompactRecommendation({ a, member }: { a: MemberAssessment; member: TeamMember }) {
+  return (
+    <p className="alt">
+      ou <strong>{member.name}</strong>
+      {a.best && (
+        <>
+          {' '}
+          · {displayName(lookup.move(a.best.moveKey).name)} {a.best.pctMin}–{a.best.pctMax}%
+        </>
+      )}
+      {a.threat && <> · ameaça {a.threat.pctMax}%</>}
+    </p>
+  );
+}
+
+/** "SSAnne_2F_Corridor" → "SS Anne 2F Corridor"; "MtMoon_B2F" → "Mt Moon B2F". */
+export function mapLabel(key: string): string {
+  return key
+    .replace(/_/g, ' ')
+    .replace(/([a-z])([A-Z0-9])/g, '$1 $2')
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function MoveLine({ est }: { est: MoveEstimate }) {
@@ -561,7 +605,7 @@ function MoveRow({ move, member, keys, isNew = false }: { move: MoveDefinition; 
 
 // ---------------- Comum ----------------
 
-function Suggestions({ items, onPick, empty }: { items: Array<{ key: string; label: string }>; onPick: (label: string) => void; empty: string }) {
+export function Suggestions({ items, onPick, empty }: { items: Array<{ key: string; label: string }>; onPick: (label: string) => void; empty: string }) {
   if (!items.length) return <p className="hint warn">{empty}</p>;
   return (
     <div className="suggest" role="group" aria-label="Sugestões">
@@ -575,11 +619,11 @@ function Suggestions({ items, onPick, empty }: { items: Array<{ key: string; lab
   );
 }
 
-function TypeTag({ type }: { type: string }) {
+export function TypeTag({ type }: { type: string }) {
   return <span className={`type t-${type === '???' ? 'mystery' : type}`}>{type === '???' ? '???' : displayName(type)}</span>;
 }
 
-function ReportLink({ title, context }: { title: string; context: unknown }) {
+export function ReportLink({ title, context }: { title: string; context: unknown }) {
   const body = [
     '**O que estava errado?**',
     '',

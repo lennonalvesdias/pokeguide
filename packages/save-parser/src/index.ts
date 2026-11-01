@@ -2,7 +2,7 @@
 // Puro: sem APIs de Node ou DOM, roda em Web Worker. Nunca altera o buffer recebido.
 // Offsets conferidos contra pret/pokefirered include/global.h.
 
-export const SAVE_PARSER_VERSION = '0.1.0';
+export const SAVE_PARSER_VERSION = '0.2.0';
 
 const SECTION_SIZE = 0x1000;
 const SLOT_SIZE = 14 * SECTION_SIZE;
@@ -75,6 +75,8 @@ export interface SaveImportPreview {
   money: number;
   badges: Array<(typeof BADGES)[number]>;
   pokedex: { owned: number; seen: number };
+  /** IDs dos treinadores já derrotados (flag 0x500 + id). */
+  defeatedTrainerIds: number[];
   party: SavedPokemon[];
   bag: {
     items: ItemStack[];
@@ -285,7 +287,12 @@ export function parseSave(input: ArrayBuffer | Uint8Array, opts: ParseOptions = 
     party.push(mon);
   }
 
-  const badgeByte = sb1[0xee0 + 0x820 / 8]!;
+  const FLAGS = 0xee0;
+  const flag = (n: number) => ((sb1[FLAGS + (n >> 3)]! >> (n & 7)) & 1) === 1;
+  const badgeByte = sb1[FLAGS + 0x820 / 8]!;
+  // TRAINER_FLAGS_START = 0x500 .. TRAINER_FLAGS_END = 0x7FF (include/constants/flags.h).
+  const defeatedTrainerIds: number[] = [];
+  for (let id = 1; id <= 0x7ff - 0x500; id++) if (flag(0x500 + id)) defeatedTrainerIds.push(id);
   const publicId = v0.getUint16(0x0a, true);
   const secretId = v0.getUint16(0x0c, true);
   return {
@@ -302,6 +309,7 @@ export function parseSave(input: ArrayBuffer | Uint8Array, opts: ParseOptions = 
     money: (v1.getUint32(0x290, true) ^ key) >>> 0,
     badges: BADGES.filter((_, i) => (badgeByte >> i) & 1),
     pokedex: { owned: countBits(0x28, 52), seen: countBits(0x5c, 52) },
+    defeatedTrainerIds,
     party,
     bag: {
       items: pocket(0x310, 42, true),

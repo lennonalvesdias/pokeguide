@@ -10,9 +10,37 @@ export function badgeBoost(stat: 'atk' | 'def' | 'spa' | 'spd' | 'spe', value: n
   return badges.includes(badge) ? Math.floor((value * 110) / 100) : value;
 }
 
-/** Stat de Gen III sem nature. */
-export function gen3Stat(base: number, level: number, iv: number, ev = 0): number {
-  return Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100) + 5;
+const NATURE_ORDER = [
+  'hardy', 'lonely', 'brave', 'adamant', 'naughty', 'bold', 'docile', 'relaxed', 'impish', 'lax',
+  'timid', 'hasty', 'serious', 'jolly', 'naive', 'modest', 'mild', 'quiet', 'bashful', 'rash',
+  'calm', 'gentle', 'sassy', 'careful', 'quirky',
+];
+const NATURE_STATS = ['atk', 'def', 'spe', 'spa', 'spd'] as const;
+export type NonHpStat = (typeof NATURE_STATS)[number];
+
+/** Multiplicador da natureza (Gen III): índice/5 sobe, índice%5 desce; iguais = neutra. */
+export function natureModifier(nature: string | null | undefined, stat: NonHpStat): number {
+  const i = nature ? NATURE_ORDER.indexOf(nature) : -1;
+  if (i < 0) return 1;
+  const up = NATURE_STATS[Math.floor(i / 5)];
+  const down = NATURE_STATS[i % 5];
+  if (up === down) return 1;
+  return stat === up ? 1.1 : stat === down ? 0.9 : 1;
+}
+
+/** Stat de Gen III: floor((floor((2B + IV + EV/4) × L / 100) + 5) × natureza). */
+export function gen3Stat(base: number, level: number, iv: number, ev = 0, nature?: string | null, stat?: NonHpStat): number {
+  const raw = Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100) + 5;
+  if (!stat) return raw;
+  // Aritmética inteira, como ModifyStatByNature (src/pokemon.c): n × 110 / 100 ou n × 90 / 100.
+  const mod = natureModifier(nature, stat);
+  return mod > 1 ? Math.floor((raw * 110) / 100) : mod < 1 ? Math.floor((raw * 90) / 100) : raw;
+}
+
+/** Estágio de stat em Gen III (-6..+6): -1 = 10/15. */
+export function applyStage(value: number, stage: number): number {
+  const s = Math.max(-6, Math.min(6, stage));
+  return s >= 0 ? Math.floor((value * (10 + 5 * s)) / 10) : Math.floor((value * 10) / (10 - 5 * s));
 }
 
 export function gen3Hp(base: number, level: number, iv: number, ev = 0): number {

@@ -138,7 +138,9 @@ export async function importFromDropbox(current: StoredSave | null): Promise<Dro
   const saves = await findDeltaSaves();
   if (!saves.length) return { kind: 'rejected', message: 'Nenhum save de GBA na pasta do Delta no Dropbox.' };
   const upToDate = { kind: 'unchanged' as const, message: `Já está no save mais recente do Dropbox (save nº ${current?.preview.saveCounter}).` };
-  if (current?.sourceHash && saves.some((s) => s.contentHash === current.sourceHash) && saves.length === 1) return upToDate;
+  // Mesmo arquivo e mesmo leitor: nada a fazer. Leitor novo: reprocessa para extrair os campos novos.
+  const sameParser = current?.preview.parserVersion === SAVE_PARSER_VERSION;
+  if (sameParser && current?.sourceHash && saves.length === 1 && saves[0]!.contentHash === current.sourceHash) return upToDate;
   const files: File[] = [];
   for (const s of saves) files.push(new File([await downloadFile(s.path)], 'Dropbox'));
   const outcome = await importSaveFiles(files, current?.preview ?? null, { persist: false });

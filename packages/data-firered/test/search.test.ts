@@ -29,6 +29,17 @@ describe('busca tolerante', () => {
     expect(findOption(mv, 'Thunder Punch').match?.key).toBe('thunder_punch');
     expect(findOption(mv, 'sleep talk').match?.key).toBe('sleep_talk');
   });
+  it('começo de qualquer palavra: "blaine" acha "Leader Blaine"; "janice" acha "Lass Janice"', () => {
+    const opts = [
+      { key: 'leader_blaine', label: 'Leader Blaine' },
+      { key: 'lass_janice', label: 'Lass Janice' },
+      { key: 'grunt_1', label: 'Team Rocket Grunt · Mt Moon' },
+      { key: 'grunt_2', label: 'Team Rocket Grunt · Rocket Hideout' },
+    ];
+    expect(findOption(opts, 'blaine').match?.key).toBe('leader_blaine');
+    expect(findOption(opts, 'janice').match?.key).toBe('lass_janice');
+    expect(findOption(opts, 'grunt').suggestions.map((o) => o.key)).toEqual(['grunt_1', 'grunt_2']);
+  });
   it('texto sem correspondência não casa nem sugere', () => {
     expect(findOption(sp, 'zzzz')).toEqual({ match: null, suggestions: [] });
   });

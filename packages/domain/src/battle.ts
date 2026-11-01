@@ -1,5 +1,5 @@
 // Ranking da equipe contra um adversário (ADR-004, modo rápido com estimativa de dano).
-import { badgeBoost, effectiveSpeed, gen3Damage, gen3Hp, gen3Stat } from './damage.ts';
+import { applyStage, badgeBoost, effectiveSpeed, gen3Damage, gen3Hp, gen3Stat } from './damage.ts';
 import { matchup, type TypeChart } from './matchup.ts';
 import type { MoveDefinition, SpeciesDefinition, StatBlock } from './types.ts';
 
@@ -21,6 +21,8 @@ export interface Opponent {
   ability?: string;
   /** IV fixo (treinadores). Sem valor, considera a faixa 0–31. */
   iv?: number;
+  /** Natureza conhecida (treinadores): stats exatos. */
+  nature?: string | null;
 }
 
 export type KoChance = 'guaranteed' | 'possible' | 'none';
@@ -63,13 +65,14 @@ const pct = (dmg: number, hp: number) => Math.round((dmg / Math.max(hp, 1)) * 10
 function opponentStats(o: Opponent) {
   const ivs = o.iv === undefined ? [0, 31] : [o.iv, o.iv];
   const b = o.species.baseStats;
+  const n = o.nature ?? null;
   const at = (iv: number) => ({
     hp: gen3Hp(b.hp, o.level, iv),
-    atk: gen3Stat(b.atk, o.level, iv),
-    def: gen3Stat(b.def, o.level, iv),
-    spa: gen3Stat(b.spa, o.level, iv),
-    spd: gen3Stat(b.spd, o.level, iv),
-    spe: gen3Stat(b.spe, o.level, iv),
+    atk: gen3Stat(b.atk, o.level, iv, 0, n, 'atk'),
+    def: gen3Stat(b.def, o.level, iv, 0, n, 'def'),
+    spa: gen3Stat(b.spa, o.level, iv, 0, n, 'spa'),
+    spd: gen3Stat(b.spd, o.level, iv, 0, n, 'spd'),
+    spe: gen3Stat(b.spe, o.level, iv, 0, n, 'spe'),
   });
   return { low: at(ivs[0]!), high: at(ivs[1]!) };
 }
@@ -117,7 +120,9 @@ export function assessTeam(
         dMin = dMax = mult === 0 ? 0 : fixed(member.level);
       } else {
         const physical = move.category === 'physical';
-        const atk = badgeBoost(physical ? 'atk' : 'spa', physical ? member.stats.atk : member.stats.spa, badges);
+        let atk = badgeBoost(physical ? 'atk' : 'spa', physical ? member.stats.atk : member.stats.spa, badges);
+        // Intimidate do oponente baixa um estágio do Ataque ao entrar em campo.
+        if (physical && opponent.ability === 'intimidate') atk = applyStage(atk, -1);
         const typeMults = opponent.species.types.map((t) => chart.multiplier(move.type, t));
         const eff = mult === 0 ? [0] : typeMults;
         const thick = mu.damageModifier < 1 ? mu.damageModifier : 1;
@@ -186,6 +191,7 @@ export function assessTeam(
     if (member.status === 'sleep') notes.push('dormindo');
     if (member.status === 'paralysis') notes.push('paralisado');
     if (best?.abilityDependent) notes.push('efetividade depende da habilidade do oponente');
+    if (opponent.ability === 'intimidate' && best && lookupCategory(member, best.moveKey) === 'physical') notes.push('Intimidate reduz seu Ataque');
     if (!best) notes.push('sem golpe de dano utilizável');
 
     // Dormindo ou congelado: não age neste turno, então ser mais rápido não ajuda.
@@ -201,4 +207,8 @@ export function assessTeam(
     return { memberId: member.id, best, threat, speed, score: Math.round(score), notes };
   });
   return results.sort((a, b) => b.score - a.score);
+}
+
+function lookupCategory(member: TeamMember, moveKey: string) {
+  return member.moves.find((m) => m.move.key === moveKey)?.move.category;
 }

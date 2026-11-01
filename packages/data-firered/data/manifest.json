@@ -1,7 +1,7 @@
 {
   "rulesetId": "firered-gen3",
   "contentPackId": "firered",
-  "datasetVersion": "0.1.0",
+  "datasetVersion": "0.2.0",
   "source": {
     "repo": "https://github.com/pret/pokefirered",
     "commit": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -15,7 +15,8 @@
     "species": 386,
     "items": 307,
     "maps": 425,
-    "rules": 1
+    "rules": 1,
+    "trainers": 474
   },
   "sha256": {
     "types.json": "1e07185b45ec2cdcffd6d2d2459063f2fc7d0053a3009c04f7ac7768c4c4db27",
@@ -25,6 +26,7 @@
     "species.json": "a47473ba5430208d271d37f9a1e173c234f841e99790faa60065394d41dd5fa7",
     "items.json": "31f3eb786ff6fb12c7801c94eba1db172907d30de21a6fdedc5d1e09e1e76dcc",
     "maps.json": "6aa67a5aaca5e1b5b308ed014e4461a8b833b8d05af45025ff18b50f75d7d780",
-    "rules.json": "24e826c4bc112e8335c9e1fe5bb26782661baa145649adbe8fd57e275e30eb37"
+    "rules.json": "24e826c4bc112e8335c9e1fe5bb26782661baa145649adbe8fd57e275e30eb37",
+    "trainers.json": "91824d5d10a094a5972a2e07fdd76ff9cafa01cff08b7d51e7d6eccbd83968ae"
   }
 }

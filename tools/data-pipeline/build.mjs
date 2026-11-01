@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const DATASET_VERSION = '0.1.0';
+const DATASET_VERSION = '0.2.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -230,6 +230,139 @@ const maps = mapGroups.group_order.flatMap((g, group) =>
   mapGroups[g].map((name, num) => ({ group, num, key: name })),
 );
 
+// ---------- treinadores ----------
+// Fonte: src/data/trainers.h, src/data/trainer_parties.h e os scripts de mapa (trainerbattle_*).
+// Só entram treinadores usados por algum mapa do FireRed (descarta sobras de Ruby/Sapphire).
+const trainerConsts = constants('include/constants/opponents.h', 'TRAINER_');
+const classNames = names('src/data/text/trainer_class_names.h');
+const itemKey = (c) => c.replace('ITEM_', '').toLowerCase();
+
+// Codificação de texto do jogo, para reproduzir o hash de nome que define personality/nature.
+const GAME_CHARS = { ' ': 0x00, 'é': 0x1b, '!': 0xab, '?': 0xac, '.': 0xad, '-': 0xae, "'": 0xb4, '♂': 0xb5, '♀': 0xb6, ',': 0xb8, '/': 0xba };
+for (let i = 0; i < 10; i++) GAME_CHARS[String(i)] = 0xa1 + i;
+for (let i = 0; i < 26; i++) {
+  GAME_CHARS[String.fromCharCode(65 + i)] = 0xbb + i;
+  GAME_CHARS[String.fromCharCode(97 + i)] = 0xd5 + i;
+}
+const gameBytesSum = (s) => {
+  let sum = 0;
+  for (const ch of s) {
+    if (!(ch in GAME_CHARS)) return null;
+    sum += GAME_CHARS[ch];
+  }
+  return sum;
+};
+const NATURES = ['hardy', 'lonely', 'brave', 'adamant', 'naughty', 'bold', 'docile', 'relaxed', 'impish', 'lax', 'timid', 'hasty', 'serious', 'jolly', 'naive', 'modest', 'mild', 'quiet', 'bashful', 'rash', 'calm', 'gentle', 'sassy', 'careful', 'quirky'];
+
+const partiesSrc = read('src/data/trainer_parties.h');
+const parties = new Map();
+for (const m of partiesSrc.matchAll(/static const struct (TrainerMon\w+) (sParty_\w+)\[\]\s*=\s*\{([\s\S]*?)\};/g)) {
+  const mons = [];
+  for (const b of m[3].matchAll(/\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g)) {
+    const body = b[1];
+    const speciesC = field(body, 'species');
+    if (!speciesC) continue;
+    const movesM = body.match(/\.moves\s*=\s*\{([^}]*)\}/);
+    const held = field(body, 'heldItem');
+    mons.push({
+      iv: Number(field(body, 'iv') ?? 0),
+      level: Number(field(body, 'lvl')),
+      speciesC,
+      ...(movesM ? { moves: movesM[1].split(',').map((x) => x.trim()).filter((x) => x && x !== 'MOVE_NONE').map(moveKey) } : {}),
+      ...(held && held !== 'ITEM_NONE' ? { heldItem: itemKey(held) } : {}),
+    });
+  }
+  parties.set(m[2], mons);
+}
+
+// Rótulo de script → treinadores que ele enfrenta.
+function scriptTrainers(src) {
+  const out = new Map();
+  let label = null;
+  for (const line of src.split('\n')) {
+    const l = line.match(/^(\w+)::/);
+    if (l) {
+      label = l[1];
+      continue;
+    }
+    const t = line.match(/trainerbattle\w*\s+(TRAINER_\w+)/);
+    if (t && label) {
+      if (!out.has(label)) out.set(label, new Set());
+      out.get(label).add(t[1]);
+    }
+  }
+  return out;
+}
+const sharedScripts = scriptTrainers(read('data/scripts/trainers.inc'));
+const trainerMaps = new Map();
+const addTrainerMap = (t, mapName) => {
+  if (!trainerMaps.has(t)) trainerMaps.set(t, new Set());
+  trainerMaps.get(t).add(mapName);
+};
+for (const mapName of maps.map((m) => m.key)) {
+  // Batalhas no script do próprio mapa (líderes, rival, eventos).
+  try {
+    for (const ts of scriptTrainers(read(`data/maps/${mapName}/scripts.inc`)).values()) for (const t of ts) addTrainerMap(t, mapName);
+  } catch {}
+  // Treinadores de rota: o objeto do mapa aponta para um script em data/scripts/trainers.inc.
+  try {
+    const mapJson = JSON.parse(read(`data/maps/${mapName}/map.json`));
+    for (const ev of mapJson.object_events ?? []) {
+      for (const t of sharedScripts.get(ev.script) ?? []) addTrainerMap(t, mapName);
+    }
+  } catch {}
+}
+
+const speciesByConst = new Map(species.map((s) => [`SPECIES_${s.key.toUpperCase()}`, s]));
+const trainers = blocks(read('src/data/trainers.h'), 'TRAINER_')
+  .filter(({ key }) => trainerMaps.has(key))
+  .map(({ key, body }) => {
+    const id = trainerConsts.get(key) ?? fail(`id de treinador desconhecido ${key}`);
+    const name = body.match(/\.trainerName\s*=\s*_\("([^"]*)"\)/)?.[1] ?? '';
+    const classC = field(body, 'trainerClass');
+    const female = /F_TRAINER_FEMALE/.test(field(body, 'encounterMusic_gender') ?? '');
+    const double = field(body, 'doubleBattle') === 'TRUE';
+    const partySym = body.match(/\.party\s*=\s*\w+\((sParty_\w+)\)/)?.[1] ?? fail(`party ausente ${key}`);
+    const partyRaw = parties.get(partySym) ?? fail(`party ${partySym} não encontrada`);
+    const items = (body.match(/\.items\s*=\s*\{([^}]*)\}/)?.[1] ?? '')
+      .split(',').map((x) => x.trim()).filter((x) => x && x !== 'ITEM_NONE').map(itemKey);
+    // Reproduz CreateNPCTrainerParty (src/battle_main.c): o hash de nome acumula entre os Pokémon.
+    const base = double ? 0x80 : female ? 0x78 : 0x88;
+    let hash = 0;
+    let hashOk = true;
+    const party = partyRaw.map((mon) => {
+      const sp = speciesByConst.get(mon.speciesC) ?? fail(`espécie ${mon.speciesC} em ${key}`);
+      const tSum = gameBytesSum(name);
+      const sSum = gameBytesSum(speciesNames.get(mon.speciesC) ?? '');
+      if (tSum === null || sSum === null) hashOk = false;
+      hash += (tSum ?? 0) + (sSum ?? 0);
+      const personality = (base + hash * 256) >>> 0;
+      return {
+        species: sp.key,
+        level: mon.level,
+        iv: Math.floor((mon.iv * 31) / 255),
+        // personality é sempre par: em Gen III, o bit 0 escolhe a habilidade, então é sempre a primeira.
+        ability: sp.abilities[0] ?? null,
+        nature: hashOk ? NATURES[personality % 25] : null,
+        ...(mon.moves ? { moves: mon.moves } : {}),
+        ...(mon.heldItem ? { heldItem: mon.heldItem } : {}),
+      };
+    });
+    const variant = key.match(/_(BULBASAUR|CHARMANDER|SQUIRTLE)$/)?.[1]?.toLowerCase();
+    return {
+      id,
+      key: key.replace('TRAINER_', '').toLowerCase(),
+      name,
+      trainerClass: classNames.get(classC) ?? classC,
+      double,
+      items,
+      maps: [...trainerMaps.get(key)].sort(),
+      ...(variant ? { rivalStarter: variant } : {}),
+      party,
+    };
+  })
+  .sort((a, b) => a.id - b.id);
+
 // ---------- invariantes ----------
 const typeNames = new Set(types.map((t) => t.name));
 for (const mv of moves) if (!typeNames.has(mv.type)) fail(`golpe ${mv.key} com tipo inválido`);
@@ -238,7 +371,7 @@ if (typeChart.length < 100) fail('tabela de tipos incompleta');
 
 // ---------- escrita ----------
 mkdirSync(OUT, { recursive: true });
-const files = { types, typeChart, abilities, moves, species, items, maps, rules };
+const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers };
 const hashes = {};
 for (const [name, value] of Object.entries(files)) {
   const json = `${JSON.stringify(value, null, 1)}\n`;
