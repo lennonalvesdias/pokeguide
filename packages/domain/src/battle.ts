@@ -275,12 +275,14 @@ export function assessMember(
 
 export type ActiveAdvice =
   | { kind: 'stay'; stay: MemberAssessment; alternative: MemberAssessment | null }
-  | { kind: 'switch'; stay: MemberAssessment; to: MemberAssessment };
+  | { kind: 'switch'; stay: MemberAssessment; to: MemberAssessment }
+  /** Nem ficar nem trocar vence sozinho (< 50%): melhor curar, desgastar ou fugir/trocar estrategicamente. */
+  | { kind: 'none'; stay: MemberAssessment; bestSwitch: MemberAssessment | null };
 
 /**
  * Com um Pokémon em campo: ficar e atacar, ou trocar? Quem entra por troca leva um ataque livre.
- * Troca só quando melhora a chance de vencer em pelo menos 15 pontos e fica acima de 50%,
- * ou quando ficar é quase certamente perder (< 25%) e a troca é melhor.
+ * Troca só para uma opção que vence (≥ 50%) e que melhora pelo menos 15 pontos, ou quando ficar
+ * é quase certamente perder (< 25%). Se nada vence, diz isso em vez de indicar uma troca ruim.
  */
 export function adviseActive(
   chart: TypeChart,
@@ -298,9 +300,9 @@ export function adviseActive(
     .sort((a, b) => b.score - a.score);
   const to = switches[0] ?? null;
   const a = stay.duel.winProb;
-  if (to && ((to.duel.winProb >= a + 0.15 && to.duel.winProb >= 0.5) || (a < 0.25 && to.duel.winProb > a))) {
-    return { kind: 'switch', stay, to };
-  }
+  const b = to?.duel.winProb ?? 0;
+  if (to && b >= 0.5 && (b >= a + 0.15 || a < 0.25)) return { kind: 'switch', stay, to };
+  if (a < 0.5 && b < 0.5) return { kind: 'none', stay, bestSwitch: to };
   return { kind: 'stay', stay, alternative: to };
 }
 

@@ -95,6 +95,9 @@ describe('duelo contra o Blaine', () => {
     const adv = adviseActive(chart, TEAM, 'dugtrio', blaine(0), BADGES)!;
     expect(adv.kind).toBe('switch');
   });
+  it('Dugtrio em campo contra o Arcanine: nada vence sozinho, então não indica troca', () => {
+    expect(adviseActive(chart, TEAM, 'dugtrio', blaine(3), BADGES)!.kind).toBe('none');
+  });
   it('Jolteon em campo contra o Growlithe: o conselho é ficar e usar Thunderbolt', () => {
     const adv = adviseActive(chart, TEAM, 'jolteon', blaine(0), BADGES)!;
     expect(adv.kind).toBe('stay');

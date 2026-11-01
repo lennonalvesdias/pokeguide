@@ -13,6 +13,8 @@ import {
   wildMoveset,
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Bag } from './Bag.tsx';
+import { Journey } from './Journey.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
 import {
   connectDropbox,
@@ -38,7 +40,7 @@ import {
 
 export const chart = createTypeChart(typeChart);
 const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
-type Tab = 'battle' | 'team' | 'moves';
+type Tab = 'battle' | 'journey' | 'team' | 'bag' | 'moves';
 
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
 const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
@@ -51,6 +53,15 @@ export function App() {
   const [info, setInfo] = useState<string | null>(null);
   const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
   const [tab, setTab] = useState<Tab>(() => (readPref('tab') as Tab) || 'battle');
+  const [battleNonce, setBattleNonce] = useState(0);
+  /** Da Jornada para a Batalha: abre o modo Treinador já com o treinador escolhido. */
+  function prepareTrainer(key: string) {
+    writePref('battleMode', 'trainer');
+    writePref('pendingTrainer', key);
+    setBattleNonce((n) => n + 1);
+    setTab('battle');
+    window.scrollTo({ top: 0 });
+  }
   const [dropbox, setDropbox] = useState(false);
   const [lastSync, setLastSync] = useState<string | null>(null);
   const [syncing, setSyncing] = useState(false);
@@ -221,7 +232,11 @@ export function App() {
             </button>
           </>
         ) : tab === 'battle' ? (
-          <BattleTab team={team} badges={p.badges} preview={p} />
+          <BattleTab key={battleNonce} team={team} badges={p.badges} preview={p} />
+        ) : tab === 'journey' ? (
+          <Journey preview={p} onPrepare={prepareTrainer} />
+        ) : tab === 'bag' ? (
+          <Bag preview={p} team={team} />
         ) : tab === 'team' ? (
           <>
             <TeamTab team={team} stored={save!} />
@@ -240,7 +255,9 @@ export function App() {
           {(
             [
               ['battle', 'Batalha'],
+              ['journey', 'Jornada'],
               ['team', 'Equipe'],
+              ['bag', 'Bolsa'],
               ['moves', 'Golpes'],
             ] as const
           ).map(([id, label]) => (
@@ -288,17 +305,26 @@ function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: stri
           Selvagem
         </button>
       </div>
-      <ActivePicker team={team} activeId={active} onChange={setActiveId} />
       {mode === 'trainer' ? (
-        <TrainerBattle team={team} badges={badges} preview={preview} activeId={active} />
+        <TrainerBattle team={team} badges={badges} preview={preview} activeId={active} onActiveChange={setActiveId} />
       ) : (
-        <WildBattle team={team} badges={badges} activeId={active} />
+        <WildBattle team={team} badges={badges} activeId={active} onActiveChange={setActiveId} />
       )}
     </>
   );
 }
 
-function WildBattle({ team, badges, activeId }: { team: TeamMember[]; badges: string[]; activeId: string | null }) {
+function WildBattle({
+  team,
+  badges,
+  activeId,
+  onActiveChange,
+}: {
+  team: TeamMember[];
+  badges: string[];
+  activeId: string | null;
+  onActiveChange: (id: string | null) => void;
+}) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
   const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
@@ -351,6 +377,7 @@ function WildBattle({ team, badges, activeId }: { team: TeamMember[]; badges: st
         </datalist>
       </div>
 
+      {opponent && <ActivePicker team={team} activeId={activeId} onChange={onActiveChange} />}
       {!levelOk && <p className="hint warn">O nível precisa ser um número de 1 a 100.</p>}
       {levelOk && !oppText.trim() && <p className="hint">Digite o nome do Pokémon adversário (pode ser só o começo).</p>}
       {oppText.trim() && !opt && (
@@ -458,6 +485,15 @@ export function ActiveAdviceLine({ team, activeId, opponent, badges }: { team: T
   const name = (id: string) => team.find((m) => m.id === id)?.name ?? '';
   const move = (k: string | null) => (k ? displayName(lookup.move(k).name) : 'nenhum golpe');
   const pct = (p: number) => `${Math.round(p * 100)}%`;
+  if (adv.kind === 'none') {
+    return (
+      <p className="advice none">
+        <strong>Nem ficar nem trocar vence sozinho.</strong> {name(adv.stay.memberId)} fica com {pct(adv.stay.duel.winProb)}
+        {adv.bestSwitch && <>; a melhor troca, {name(adv.bestSwitch.memberId)}, com {pct(adv.bestSwitch.duel.winProb)}</>}. Cure, desgaste com
+        outro Pokémon ou use itens.
+      </p>
+    );
+  }
   if (adv.kind === 'stay') {
     return (
       <p className="advice stay">
@@ -547,7 +583,7 @@ function TeamTab({ team, stored }: { team: TeamMember[]; stored: StoredSave }) {
               ))}
             </span>
           </div>
-          <div className={`hpbar ${hpClass(m.hp)}`} aria-label={`HP ${m.hp.current} de ${m.hp.max}`}>
+          <div className={`hpbar ${hpClass(m.hp)}`} role="progressbar" aria-label="HP" aria-valuemin={0} aria-valuemax={m.hp.max} aria-valuenow={m.hp.current}>
             <span style={{ width: `${(m.hp.current / Math.max(m.hp.max, 1)) * 100}%` }} />
           </div>
           <p className="fine">

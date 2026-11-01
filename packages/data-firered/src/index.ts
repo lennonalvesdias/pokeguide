@@ -1,8 +1,9 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import type { MoveDefinition, SpeciesDefinition, TypeChartEntry, Versions } from '@pokeguide/domain';
+import type { JourneyStep, MoveDefinition, SpeciesDefinition, TypeChartEntry, Versions } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
+import machinesJson from '../data/machines.json' with { type: 'json' };
 import manifestJson from '../data/manifest.json' with { type: 'json' };
 import mapsJson from '../data/maps.json' with { type: 'json' };
 import movesJson from '../data/moves.json' with { type: 'json' };
@@ -10,6 +11,7 @@ import rulesJson from '../data/rules.json' with { type: 'json' };
 import speciesJson from '../data/species.json' with { type: 'json' };
 import trainersJson from '../data/trainers.json' with { type: 'json' };
 import typeChartJson from '../data/typeChart.json' with { type: 'json' };
+import walkthroughJson from '../data/walkthrough.json' with { type: 'json' };
 
 export interface ItemDefinition {
   id: number;
@@ -19,6 +21,16 @@ export interface ItemDefinition {
   price: number;
   holdEffect: string | null;
   keyItem: boolean;
+  /** Descrição do jogo (em inglês, como no cartucho). */
+  description: string;
+}
+
+export interface MachineDefinition {
+  /** Chave do item (ex.: 'tm26', 'hm03'). */
+  item: string;
+  label: string;
+  move: string;
+  hm: boolean;
 }
 
 export interface TrainerPokemon {
@@ -62,6 +74,10 @@ export const maps = mapsJson as MapDefinition[];
 export const abilities = abilitiesJson as Array<{ id: number; key: string; name: string }>;
 export const rules = rulesJson as { hmMoves: string[] };
 export const trainers = trainersJson as TrainerDefinition[];
+/** TM/HM → golpe (sTMHMMoves). */
+export const machines = machinesJson as MachineDefinition[];
+/** Roteiro da história (curado em curated/walkthrough.json, validado pelo pipeline). */
+export const walkthrough = walkthroughJson as unknown as JourneyStep[];
 export const manifest = manifestJson;
 
 export const versions: Versions = {

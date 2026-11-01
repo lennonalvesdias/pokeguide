@@ -3,7 +3,7 @@ import { abilities, lookup, type TrainerDefinition, trainers } from '@pokeguide/
 import { assessTeam, findOption, type Opponent, type TeamMember, wildMoveset } from '@pokeguide/domain';
 import type { SaveImportPreview } from '@pokeguide/save-parser';
 import { useEffect, useMemo, useState } from 'react';
-import { ActiveAdviceLine, chart, CompactRecommendation, mapLabel, NoSafeWinner, Recommendation, ReportLink, Suggestions, TypeTag } from './App.tsx';
+import { ActiveAdviceLine, ActivePicker, chart, CompactRecommendation, mapLabel, NoSafeWinner, Recommendation, ReportLink, Suggestions, TypeTag } from './App.tsx';
 import { displayName, readPref, writePref } from './state.ts';
 
 const STARTER_LINES: Record<string, 'bulbasaur' | 'charmander' | 'squirtle'> = {
@@ -41,7 +41,19 @@ function toOpponent(p: TrainerDefinition['party'][number]): Opponent {
   };
 }
 
-export function TrainerBattle({ team, badges, preview, activeId }: { team: TeamMember[]; badges: string[]; preview: SaveImportPreview; activeId: string | null }) {
+export function TrainerBattle({
+  team,
+  badges,
+  preview,
+  activeId,
+  onActiveChange,
+}: {
+  team: TeamMember[];
+  badges: string[];
+  preview: SaveImportPreview;
+  activeId: string | null;
+  onActiveChange: (id: string | null) => void;
+}) {
   const rival = rivalStarterFor(team);
   const defeated = useMemo(() => new Set(preview.defeatedTrainerIds ?? []), [preview]);
   const visible = useMemo(() => trainers.filter((t) => !t.rivalStarter || !rival || t.rivalStarter === rival), [rival]);
@@ -76,6 +88,14 @@ export function TrainerBattle({ team, badges, preview, activeId }: { team: TeamM
 
   const [text, setText] = useState(() => readPref('trainerText') ?? '');
   useEffect(() => writePref('trainerText', text), [text]);
+  // Vindo da Jornada: seleciona o treinador pedido (para o rival, a variante do seu inicial).
+  useEffect(() => {
+    const pending = readPref('pendingTrainer');
+    if (!pending) return;
+    writePref('pendingTrainer', '');
+    const o = options.find((x) => x.key === pending) ?? options.find((x) => x.key.startsWith(`${pending}_`));
+    if (o) setText(o.label);
+  }, [options]);
   const search = useMemo(() => findOption(options, text), [options, text]);
   const selected = search.match?.t ?? null;
 
@@ -108,6 +128,7 @@ export function TrainerBattle({ team, badges, preview, activeId }: { team: TeamM
       </div>
       {!text.trim() && <p className="hint">Toque num treinador acima ou busque pelo nome.</p>}
       {text.trim() && !selected && <Suggestions items={search.suggestions} onPick={setText} empty="Nenhum treinador com esse nome." />}
+      {selected && <ActivePicker team={team} activeId={activeId} onChange={onActiveChange} />}
       {selected && <TrainerDetail trainer={selected} team={team} badges={badges} defeated={defeated.has(selected.id)} activeId={activeId} />}
     </section>
   );

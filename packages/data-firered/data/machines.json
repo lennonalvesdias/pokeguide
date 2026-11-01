@@ -1,0 +1,350 @@
+[
+ {
+  "item": "tm01",
+  "label": "TM01",
+  "move": "focus_punch",
+  "hm": false
+ },
+ {
+  "item": "tm02",
+  "label": "TM02",
+  "move": "dragon_claw",
+  "hm": false
+ },
+ {
+  "item": "tm03",
+  "label": "TM03",
+  "move": "water_pulse",
+  "hm": false
+ },
+ {
+  "item": "tm04",
+  "label": "TM04",
+  "move": "calm_mind",
+  "hm": false
+ },
+ {
+  "item": "tm05",
+  "label": "TM05",
+  "move": "roar",
+  "hm": false
+ },
+ {
+  "item": "tm06",
+  "label": "TM06",
+  "move": "toxic",
+  "hm": false
+ },
+ {
+  "item": "tm07",
+  "label": "TM07",
+  "move": "hail",
+  "hm": false
+ },
+ {
+  "item": "tm08",
+  "label": "TM08",
+  "move": "bulk_up",
+  "hm": false
+ },
+ {
+  "item": "tm09",
+  "label": "TM09",
+  "move": "bullet_seed",
+  "hm": false
+ },
+ {
+  "item": "tm10",
+  "label": "TM10",
+  "move": "hidden_power",
+  "hm": false
+ },
+ {
+  "item": "tm11",
+  "label": "TM11",
+  "move": "sunny_day",
+  "hm": false
+ },
+ {
+  "item": "tm12",
+  "label": "TM12",
+  "move": "taunt",
+  "hm": false
+ },
+ {
+  "item": "tm13",
+  "label": "TM13",
+  "move": "ice_beam",
+  "hm": false
+ },
+ {
+  "item": "tm14",
+  "label": "TM14",
+  "move": "blizzard",
+  "hm": false
+ },
+ {
+  "item": "tm15",
+  "label": "TM15",
+  "move": "hyper_beam",
+  "hm": false
+ },
+ {
+  "item": "tm16",
+  "label": "TM16",
+  "move": "light_screen",
+  "hm": false
+ },
+ {
+  "item": "tm17",
+  "label": "TM17",
+  "move": "protect",
+  "hm": false
+ },
+ {
+  "item": "tm18",
+  "label": "TM18",
+  "move": "rain_dance",
+  "hm": false
+ },
+ {
+  "item": "tm19",
+  "label": "TM19",
+  "move": "giga_drain",
+  "hm": false
+ },
+ {
+  "item": "tm20",
+  "label": "TM20",
+  "move": "safeguard",
+  "hm": false
+ },
+ {
+  "item": "tm21",
+  "label": "TM21",
+  "move": "frustration",
+  "hm": false
+ },
+ {
+  "item": "tm22",
+  "label": "TM22",
+  "move": "solar_beam",
+  "hm": false
+ },
+ {
+  "item": "tm23",
+  "label": "TM23",
+  "move": "iron_tail",
+  "hm": false
+ },
+ {
+  "item": "tm24",
+  "label": "TM24",
+  "move": "thunderbolt",
+  "hm": false
+ },
+ {
+  "item": "tm25",
+  "label": "TM25",
+  "move": "thunder",
+  "hm": false
+ },
+ {
+  "item": "tm26",
+  "label": "TM26",
+  "move": "earthquake",
+  "hm": false
+ },
+ {
+  "item": "tm27",
+  "label": "TM27",
+  "move": "return",
+  "hm": false
+ },
+ {
+  "item": "tm28",
+  "label": "TM28",
+  "move": "dig",
+  "hm": false
+ },
+ {
+  "item": "tm29",
+  "label": "TM29",
+  "move": "psychic",
+  "hm": false
+ },
+ {
+  "item": "tm30",
+  "label": "TM30",
+  "move": "shadow_ball",
+  "hm": false
+ },
+ {
+  "item": "tm31",
+  "label": "TM31",
+  "move": "brick_break",
+  "hm": false
+ },
+ {
+  "item": "tm32",
+  "label": "TM32",
+  "move": "double_team",
+  "hm": false
+ },
+ {
+  "item": "tm33",
+  "label": "TM33",
+  "move": "reflect",
+  "hm": false
+ },
+ {
+  "item": "tm34",
+  "label": "TM34",
+  "move": "shock_wave",
+  "hm": false
+ },
+ {
+  "item": "tm35",
+  "label": "TM35",
+  "move": "flamethrower",
+  "hm": false
+ },
+ {
+  "item": "tm36",
+  "label": "TM36",
+  "move": "sludge_bomb",
+  "hm": false
+ },
+ {
+  "item": "tm37",
+  "label": "TM37",
+  "move": "sandstorm",
+  "hm": false
+ },
+ {
+  "item": "tm38",
+  "label": "TM38",
+  "move": "fire_blast",
+  "hm": false
+ },
+ {
+  "item": "tm39",
+  "label": "TM39",
+  "move": "rock_tomb",
+  "hm": false
+ },
+ {
+  "item": "tm40",
+  "label": "TM40",
+  "move": "aerial_ace",
+  "hm": false
+ },
+ {
+  "item": "tm41",
+  "label": "TM41",
+  "move": "torment",
+  "hm": false
+ },
+ {
+  "item": "tm42",
+  "label": "TM42",
+  "move": "facade",
+  "hm": false
+ },
+ {
+  "item": "tm43",
+  "label": "TM43",
+  "move": "secret_power",
+  "hm": false
+ },
+ {
+  "item": "tm44",
+  "label": "TM44",
+  "move": "rest",
+  "hm": false
+ },
+ {
+  "item": "tm45",
+  "label": "TM45",
+  "move": "attract",
+  "hm": false
+ },
+ {
+  "item": "tm46",
+  "label": "TM46",
+  "move": "thief",
+  "hm": false
+ },
+ {
+  "item": "tm47",
+  "label": "TM47",
+  "move": "steel_wing",
+  "hm": false
+ },
+ {
+  "item": "tm48",
+  "label": "TM48",
+  "move": "skill_swap",
+  "hm": false
+ },
+ {
+  "item": "tm49",
+  "label": "TM49",
+  "move": "snatch",
+  "hm": false
+ },
+ {
+  "item": "tm50",
+  "label": "TM50",
+  "move": "overheat",
+  "hm": false
+ },
+ {
+  "item": "hm01",
+  "label": "HM01",
+  "move": "cut",
+  "hm": true
+ },
+ {
+  "item": "hm02",
+  "label": "HM02",
+  "move": "fly",
+  "hm": true
+ },
+ {
+  "item": "hm03",
+  "label": "HM03",
+  "move": "surf",
+  "hm": true
+ },
+ {
+  "item": "hm04",
+  "label": "HM04",
+  "move": "strength",
+  "hm": true
+ },
+ {
+  "item": "hm05",
+  "label": "HM05",
+  "move": "flash",
+  "hm": true
+ },
+ {
+  "item": "hm06",
+  "label": "HM06",
+  "move": "rock_smash",
+  "hm": true
+ },
+ {
+  "item": "hm07",
+  "label": "HM07",
+  "move": "waterfall",
+  "hm": true
+ },
+ {
+  "item": "hm08",
+  "label": "HM08",
+  "move": "dive",
+  "hm": true
+ }
+]

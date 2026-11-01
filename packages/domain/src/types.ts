@@ -44,6 +44,8 @@ export interface SpeciesDefinition {
   catchRate: number;
   growthRate?: string;
   levelUpMoves: Array<{ level: number; move: string }>;
+  /** Golpes de TM/HM que a espécie aprende. */
+  tmhm?: string[];
   form?: string;
 }
 

@@ -2,7 +2,7 @@
 // Puro: sem APIs de Node ou DOM, roda em Web Worker. Nunca altera o buffer recebido.
 // Offsets conferidos contra pret/pokefirered include/global.h.
 
-export const SAVE_PARSER_VERSION = '0.2.0';
+export const SAVE_PARSER_VERSION = '0.3.0';
 
 const SECTION_SIZE = 0x1000;
 const SLOT_SIZE = 14 * SECTION_SIZE;
@@ -77,6 +77,8 @@ export interface SaveImportPreview {
   pokedex: { owned: number; seen: number };
   /** IDs dos treinadores já derrotados (flag 0x500 + id). */
   defeatedTrainerIds: number[];
+  /** Todas as flags de evento (0x000–0x8FF) em hexadecimal, 1 bit por flag. Use `isFlagSet`. */
+  flagsHex: string;
   party: SavedPokemon[];
   bag: {
     items: ItemStack[];
@@ -310,6 +312,7 @@ export function parseSave(input: ArrayBuffer | Uint8Array, opts: ParseOptions = 
     badges: BADGES.filter((_, i) => (badgeByte >> i) & 1),
     pokedex: { owned: countBits(0x28, 52), seen: countBits(0x5c, 52) },
     defeatedTrainerIds,
+    flagsHex: Array.from(sb1.subarray(FLAGS, FLAGS + 0x120), (b) => b.toString(16).padStart(2, '0')).join(''),
     party,
     bag: {
       items: pocket(0x310, 42, true),
@@ -324,3 +327,10 @@ export function parseSave(input: ArrayBuffer | Uint8Array, opts: ParseOptions = 
 }
 export * from './pick.ts';
 export * from './delta.ts';
+
+/** Lê uma flag de evento a partir de `flagsHex` (ex.: FLAG_GOT_HM03 = 0x239). */
+export function isFlagSet(flagsHex: string | undefined, flag: number): boolean {
+  if (!flagsHex) return false;
+  const byte = parseInt(flagsHex.substr((flag >> 3) * 2, 2), 16);
+  return Number.isFinite(byte) && ((byte >> (flag & 7)) & 1) === 1;
+}

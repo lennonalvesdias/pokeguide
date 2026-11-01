@@ -28,8 +28,11 @@ git sparse-checkout set \
   /src/data/pokemon/level_up_learnset_pointers.h \
   /src/battle_main.c \
   /src/pokemon.c \
+  /src/data/party_menu.h \
+  /src/data/pokemon/tmhm_learnsets.h \
   /src/data/trainers.h \
   /include/constants/opponents.h \
+  /include/constants/flags.h \
   /src/data/trainer_parties.h \
   /src/data/text/trainer_class_names.h \
   '/data/maps/*/scripts.inc' \

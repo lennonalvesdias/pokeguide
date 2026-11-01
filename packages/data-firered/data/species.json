@@ -65,6 +65,27 @@
     "level": 46,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -141,6 +162,27 @@
     "level": 56,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -221,6 +263,30 @@
     "level": 65,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -284,6 +350,31 @@
     "level": 49,
     "move": "fire_spin"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -351,6 +442,31 @@
     "level": 55,
     "move": "fire_spin"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -431,6 +547,36 @@
     "level": 64,
     "move": "fire_spin"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "overheat",
+   "cut",
+   "fly",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -498,6 +644,32 @@
     "level": 47,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -573,6 +745,32 @@
     "level": 53,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -652,6 +850,35 @@
     "level": 68,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -683,7 +910,8 @@
     "level": 1,
     "move": "string_shot"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 11,
@@ -714,7 +942,8 @@
     "level": 7,
     "move": "harden"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 12,
@@ -782,6 +1011,30 @@
     "level": 47,
     "move": "silver_wind"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -814,7 +1067,8 @@
     "level": 1,
     "move": "string_shot"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 14,
@@ -846,7 +1100,8 @@
     "level": 7,
     "move": "harden"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 15,
@@ -906,6 +1161,28 @@
     "level": 45,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "brick_break",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "rock_smash"
   ]
  },
  {
@@ -966,6 +1243,24 @@
     "level": 47,
     "move": "mirror_move"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -1034,6 +1329,24 @@
     "level": 52,
     "move": "mirror_move"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -1106,6 +1419,25 @@
     "level": 62,
     "move": "mirror_move"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -1162,6 +1494,32 @@
     "level": 41,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "rock_smash"
   ]
  },
  {
@@ -1222,6 +1580,35 @@
     "level": 50,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -1282,6 +1669,24 @@
     "level": 43,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -1346,6 +1751,25 @@
     "level": 47,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -1414,6 +1838,29 @@
     "level": 44,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "strength"
   ]
  },
  {
@@ -1490,6 +1937,30 @@
     "level": 56,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "strength"
   ]
  },
  {
@@ -1557,6 +2028,30 @@
     "level": 50,
     "move": "light_screen"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -1596,6 +2091,32 @@
     "level": 1,
     "move": "thunderbolt"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -1655,6 +2176,31 @@
     "level": 53,
     "move": "sandstorm"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -1722,6 +2268,32 @@
     "level": 62,
     "move": "sandstorm"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -1785,6 +2357,34 @@
     "level": 47,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -1848,6 +2448,34 @@
     "level": 53,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -1896,6 +2524,47 @@
     "level": 43,
     "move": "superpower"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -1959,6 +2628,33 @@
     "level": 47,
     "move": "horn_drill"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -2022,6 +2718,33 @@
     "level": 53,
     "move": "horn_drill"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -2070,6 +2793,46 @@
     "level": 43,
     "move": "megahorn"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -2145,6 +2908,42 @@
     "level": 45,
     "move": "meteor_mash"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -2184,6 +2983,43 @@
     "level": 1,
     "move": "metronome"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -2251,6 +3087,26 @@
     "level": 41,
     "move": "fire_spin"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat"
   ]
  },
  {
@@ -2294,6 +3150,27 @@
     "level": 45,
     "move": "fire_spin"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat"
   ]
  },
  {
@@ -2361,6 +3238,40 @@
     "level": 49,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -2400,6 +3311,41 @@
     "level": 1,
     "move": "double_slap"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -2464,6 +3410,29 @@
     "level": 46,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "snatch"
   ]
  },
  {
@@ -2540,6 +3509,30 @@
     "level": 56,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "snatch"
   ]
  },
  {
@@ -2596,6 +3589,25 @@
     "level": 39,
     "move": "petal_dance"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -2660,6 +3672,25 @@
     "level": 44,
     "move": "petal_dance"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -2704,6 +3735,26 @@
     "level": 44,
     "move": "petal_dance"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -2764,6 +3815,29 @@
     "level": 49,
     "move": "aromatherapy"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -2832,6 +3906,30 @@
     "level": 59,
     "move": "aromatherapy"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -2900,6 +3998,26 @@
     "level": 41,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -2980,6 +4098,28 @@
     "level": 52,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -3044,6 +4184,27 @@
     "level": 49,
     "move": "fissure"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "rock_smash"
   ]
  },
  {
@@ -3128,6 +4289,28 @@
     "level": 64,
     "move": "fissure"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "rock_smash"
   ]
  },
  {
@@ -3191,6 +4374,34 @@
     "level": 45,
     "move": "swagger"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -3258,6 +4469,36 @@
     "level": 61,
     "move": "swagger"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -3318,6 +4559,35 @@
     "level": 50,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -3386,6 +4656,36 @@
     "level": 58,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -3453,6 +4753,35 @@
     "level": 46,
     "move": "thrash"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -3532,6 +4861,36 @@
     "level": 62,
     "move": "thrash"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -3596,6 +4955,29 @@
     "level": 49,
     "move": "flamethrower"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -3640,6 +5022,30 @@
     "level": 49,
     "move": "extreme_speed"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -3696,6 +5102,29 @@
     "level": 43,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "dig",
+   "psychic",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -3760,6 +5189,34 @@
     "level": 51,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -3809,6 +5266,37 @@
     "level": 51,
     "move": "mind_reader"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "bulk_up",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -3837,6 +5325,35 @@
     "level": 1,
     "move": "teleport"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -3909,6 +5426,35 @@
     "level": 43,
     "move": "trick"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -3981,6 +5527,36 @@
     "level": 43,
     "move": "trick"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -4052,6 +5628,31 @@
     "level": 49,
     "move": "dynamic_punch"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -4127,6 +5728,31 @@
     "level": 59,
     "move": "dynamic_punch"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -4202,6 +5828,32 @@
     "level": 59,
     "move": "dynamic_punch"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -4266,6 +5918,26 @@
     "level": 45,
     "move": "slam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -4338,6 +6010,26 @@
     "level": 54,
     "move": "slam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -4390,6 +6082,27 @@
     "level": 1,
     "move": "razor_leaf"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -4451,6 +6164,30 @@
     "level": 49,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -4520,6 +6257,31 @@
     "level": 55,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -4589,6 +6351,29 @@
     "level": 46,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -4666,6 +6451,29 @@
     "level": 62,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -4743,6 +6551,31 @@
     "level": 62,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -4807,6 +6640,25 @@
     "level": 53,
     "move": "fire_blast"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength"
   ]
  },
  {
@@ -4887,6 +6739,26 @@
     "level": 63,
     "move": "fire_blast"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength"
   ]
  },
  {
@@ -4956,6 +6828,38 @@
     "level": 47,
     "move": "psych_up"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "surf",
+   "strength",
+   "flash",
+   "dive"
   ]
  },
  {
@@ -5033,6 +6937,42 @@
     "level": 55,
     "move": "psych_up"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "dive"
   ]
  },
  {
@@ -5102,6 +7042,24 @@
     "level": 50,
     "move": "zap_cannon"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "flash"
   ]
  },
  {
@@ -5179,6 +7137,25 @@
     "level": 62,
     "move": "zap_cannon"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "flash"
   ]
  },
  {
@@ -5244,6 +7221,25 @@
     "level": 46,
     "move": "false_swipe"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "cut",
+   "fly"
   ]
  },
  {
@@ -5305,6 +7301,23 @@
     "level": 45,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -5374,6 +7387,26 @@
     "level": 60,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -5429,6 +7462,28 @@
     "level": 49,
     "move": "safeguard"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -5505,6 +7560,29 @@
     "level": 64,
     "move": "safeguard"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -5569,6 +7647,32 @@
     "level": 53,
     "move": "memento"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief"
   ]
  },
  {
@@ -5637,6 +7741,37 @@
     "level": 61,
     "move": "memento"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -5696,6 +7831,25 @@
     "level": 50,
     "move": "ice_beam"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "dive"
   ]
  },
  {
@@ -5744,6 +7898,27 @@
     "level": 43,
     "move": "spike_cannon"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "dive"
   ]
  },
  {
@@ -5812,6 +7987,30 @@
     "level": 48,
     "move": "mean_look"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "thunderbolt",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch"
   ]
  },
  {
@@ -5888,6 +8087,30 @@
     "level": 64,
     "move": "mean_look"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "thunderbolt",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch"
   ]
  },
  {
@@ -5964,6 +8187,36 @@
     "level": 64,
     "move": "mean_look"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "sludge_bomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -6037,6 +8290,29 @@
     "level": 56,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -6104,6 +8380,34 @@
     "level": 47,
     "move": "future_sight"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -6183,6 +8487,35 @@
     "level": 57,
     "move": "future_sight"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -6247,6 +8580,31 @@
     "level": 49,
     "move": "flail"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "dig",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash",
+   "dive"
   ]
  },
  {
@@ -6327,6 +8685,32 @@
     "level": 65,
     "move": "flail"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "dig",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash",
+   "dive"
   ]
  },
  {
@@ -6395,6 +8779,26 @@
     "level": 49,
     "move": "mirror_coat"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -6471,6 +8875,27 @@
     "level": 59,
     "move": "mirror_coat"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "taunt",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -6535,6 +8960,30 @@
     "level": 43,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "double_team",
+   "reflect",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -6579,6 +9028,31 @@
     "level": 31,
     "move": "egg_bomb"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "double_team",
+   "reflect",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -6651,6 +9125,34 @@
     "level": 45,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -6735,6 +9237,35 @@
     "level": 61,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -6810,6 +9341,28 @@
     "level": 51,
     "move": "reversal"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -6881,6 +9434,28 @@
     "level": 50,
     "move": "counter"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -6945,6 +9520,43 @@
     "level": 51,
     "move": "refresh"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -7008,6 +9620,31 @@
     "level": 49,
     "move": "memento"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -7079,6 +9716,32 @@
     "level": 58,
     "move": "memento"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -7144,6 +9807,36 @@
     "level": 57,
     "move": "megahorn"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -7217,6 +9910,41 @@
     "level": 66,
     "move": "megahorn"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -7289,6 +10017,47 @@
     "level": 57,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "snatch",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -7360,6 +10129,28 @@
     "level": 46,
     "move": "tickle"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -7423,6 +10214,46 @@
     "level": 49,
     "move": "reversal"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -7478,6 +10309,26 @@
     "level": 50,
     "move": "dragon_dance"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -7545,6 +10396,27 @@
     "level": 62,
     "move": "dragon_dance"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -7613,6 +10485,26 @@
     "level": 57,
     "move": "megahorn"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -7685,6 +10577,27 @@
     "level": 69,
     "move": "megahorn"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -7757,6 +10670,31 @@
     "level": 46,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "surf",
+   "flash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -7802,6 +10740,33 @@
     "level": 33,
     "move": "confuse_ray"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "surf",
+   "flash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -7889,6 +10854,39 @@
     "level": 50,
     "move": "safeguard"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -7957,6 +10955,26 @@
     "level": 46,
     "move": "fury_cutter"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "cut",
+   "rock_smash"
   ]
  },
  {
@@ -8033,6 +11051,36 @@
     "level": 67,
     "move": "blizzard"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -8092,6 +11140,32 @@
     "level": 58,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -8163,6 +11237,29 @@
     "level": 57,
     "move": "fire_blast"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -8226,6 +11323,31 @@
     "level": 49,
     "move": "swords_dance"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -8289,6 +11411,37 @@
     "level": 53,
     "move": "take_down"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -8324,7 +11477,8 @@
     "level": 30,
     "move": "flail"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 130,
@@ -8384,6 +11538,38 @@
     "level": 55,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -8457,6 +11643,36 @@
     "level": 55,
     "move": "sheer_cold"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -8484,7 +11700,8 @@
     "level": 1,
     "move": "transform"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 133,
@@ -8543,6 +11760,23 @@
     "level": 42,
     "move": "take_down"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract"
   ]
  },
  {
@@ -8610,6 +11844,32 @@
     "level": 52,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -8677,6 +11937,29 @@
     "level": 52,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -8744,6 +12027,28 @@
     "level": 52,
     "move": "flamethrower"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat"
   ]
  },
  {
@@ -8811,6 +12116,32 @@
     "level": 48,
     "move": "zap_cannon"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -8876,6 +12207,30 @@
     "level": 55,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -8953,6 +12308,31 @@
     "level": 65,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -9018,6 +12398,32 @@
     "level": 55,
     "move": "ancient_power"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "dig",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "rock_smash",
+   "waterfall"
   ]
  },
  {
@@ -9099,6 +12505,36 @@
     "level": 65,
     "move": "ancient_power"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -9156,6 +12592,37 @@
     "level": 50,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -9236,6 +12703,39 @@
     "level": 53,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength"
   ]
  },
  {
@@ -9296,6 +12796,31 @@
     "level": 85,
     "move": "sheer_cold"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "steel_wing",
+   "fly",
+   "rock_smash"
   ]
  },
  {
@@ -9356,6 +12881,31 @@
     "level": 85,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "steel_wing",
+   "fly",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -9416,6 +12966,30 @@
     "level": 85,
     "move": "sky_attack"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "steel_wing",
+   "overheat",
+   "fly",
+   "rock_smash"
   ]
  },
  {
@@ -9479,6 +13053,34 @@
     "level": 57,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall"
   ]
  },
  {
@@ -9550,6 +13152,34 @@
     "level": 65,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall"
   ]
  },
  {
@@ -9626,6 +13256,48 @@
     "level": 75,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "cut",
+   "fly",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -9693,6 +13365,51 @@
     "level": 99,
     "move": "amnesia"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "snatch",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -9740,6 +13457,66 @@
     "level": 50,
     "move": "ancient_power"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "water_pulse",
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hail",
+   "bulk_up",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "skill_swap",
+   "snatch",
+   "overheat",
+   "cut",
+   "fly",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -9803,6 +13580,28 @@
     "level": 50,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -9874,6 +13673,30 @@
     "level": 55,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -9945,6 +13768,32 @@
     "level": 61,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -10000,6 +13849,25 @@
     "level": 46,
     "move": "flamethrower"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut"
   ]
  },
  {
@@ -10059,6 +13927,30 @@
     "level": 54,
     "move": "flamethrower"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -10122,6 +14014,32 @@
     "level": 60,
     "move": "flamethrower"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -10181,6 +14099,32 @@
     "level": 52,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -10244,6 +14188,35 @@
     "level": 55,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -10311,6 +14284,38 @@
     "level": 58,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -10371,6 +14376,34 @@
     "level": 49,
     "move": "amnesia"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf"
   ]
  },
  {
@@ -10439,6 +14472,39 @@
     "level": 59,
     "move": "amnesia"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -10500,6 +14566,28 @@
     "level": 48,
     "move": "dream_eater"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly",
+   "flash"
   ]
  },
  {
@@ -10569,6 +14657,29 @@
     "level": 57,
     "move": "dream_eater"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly",
+   "flash"
   ]
  },
  {
@@ -10634,6 +14745,30 @@
     "level": 50,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -10703,6 +14838,31 @@
     "level": 60,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -10768,6 +14928,26 @@
     "level": 53,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "psychic",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -10841,6 +15021,27 @@
     "level": 63,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "psychic",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -10917,6 +15118,31 @@
     "level": 56,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "snatch",
+   "fly"
   ]
  },
  {
@@ -10982,6 +15208,30 @@
     "level": 49,
     "move": "charge"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "flash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -11051,6 +15301,31 @@
     "level": 61,
     "move": "charge"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "flash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -11094,6 +15369,25 @@
     "level": 11,
     "move": "sweet_kiss"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -11141,6 +15435,33 @@
     "level": 17,
     "move": "magical_leaf"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -11184,6 +15505,32 @@
     "level": 14,
     "move": "sweet_kiss"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -11256,6 +15603,32 @@
     "level": 41,
     "move": "baton_pass"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -11341,6 +15714,38 @@
     "level": 41,
     "move": "baton_pass"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "fly",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -11398,6 +15803,32 @@
     "level": 50,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -11455,6 +15886,34 @@
     "level": 65,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "skill_swap",
+   "fly",
+   "flash"
   ]
  },
  {
@@ -11506,6 +15965,25 @@
     "level": 37,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -11561,6 +16039,29 @@
     "level": 45,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -11624,6 +16125,30 @@
     "level": 57,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -11671,6 +16196,27 @@
     "level": 55,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -11731,6 +16277,32 @@
     "level": 45,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -11803,6 +16375,33 @@
     "level": 57,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -11863,6 +16462,30 @@
     "level": 57,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -11911,6 +16534,35 @@
     "level": 51,
     "move": "swagger"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -11975,6 +16627,24 @@
     "level": 30,
     "move": "mega_drain"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -12051,6 +16721,24 @@
     "level": 36,
     "move": "mega_drain"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -12127,6 +16815,25 @@
     "level": 44,
     "move": "mega_drain"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -12191,6 +16898,37 @@
     "level": 50,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -12246,6 +16984,27 @@
     "level": 42,
     "move": "giga_drain"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -12305,6 +17064,28 @@
     "level": 42,
     "move": "solar_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -12374,6 +17155,27 @@
     "level": 50,
     "move": "screech"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "flash"
   ]
  },
  {
@@ -12439,6 +17241,33 @@
     "level": 51,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -12504,6 +17333,38 @@
     "level": 61,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sludge_bomb",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -12571,6 +17432,31 @@
     "level": 52,
     "move": "morning_sun"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -12638,6 +17524,30 @@
     "level": 52,
     "move": "moonlight"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -12694,6 +17604,29 @@
     "level": 48,
     "move": "mean_look"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "snatch",
+   "fly"
   ]
  },
  {
@@ -12763,6 +17696,42 @@
     "level": 47,
     "move": "psych_up"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "dive"
   ]
  },
  {
@@ -12826,6 +17795,33 @@
     "level": 53,
     "move": "grudge"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -12853,7 +17849,8 @@
     "level": 1,
     "move": "hidden_power"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 202,
@@ -12892,7 +17889,8 @@
     "level": 1,
     "move": "destiny_bond"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 203,
@@ -12957,6 +17955,35 @@
     "level": 49,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -13016,6 +18043,28 @@
     "level": 50,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13084,6 +18133,29 @@
     "level": 59,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13152,6 +18224,38 @@
     "level": 51,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13209,6 +18313,32 @@
     "level": 52,
     "move": "guillotine"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13282,6 +18412,31 @@
     "level": 56,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13346,6 +18501,41 @@
     "level": 53,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13409,6 +18599,44 @@
     "level": 61,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13478,6 +18706,29 @@
     "level": 45,
     "move": "destiny_bond"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -13546,6 +18797,28 @@
     "level": 46,
     "move": "fury_cutter"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13598,6 +18871,28 @@
     "level": 37,
     "move": "rest"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "safeguard",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sludge_bomb",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -13663,6 +18958,31 @@
     "level": 53,
     "move": "megahorn"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13736,6 +19056,38 @@
     "level": 64,
     "move": "metal_claw"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13799,6 +19151,33 @@
     "level": 49,
     "move": "thrash"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13870,6 +19249,35 @@
     "level": 49,
     "move": "thrash"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -13930,6 +19338,25 @@
     "level": 50,
     "move": "body_slam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "frustration",
+   "return",
+   "double_team",
+   "reflect",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "rock_smash"
   ]
  },
  {
@@ -13999,6 +19426,30 @@
     "level": 60,
     "move": "body_slam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "reflect",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14055,6 +19506,31 @@
     "level": 55,
     "move": "amnesia"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14123,6 +19599,32 @@
     "level": 70,
     "move": "amnesia"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14188,6 +19690,37 @@
     "level": 45,
     "move": "ancient_power"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14243,6 +19776,31 @@
     "level": 55,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -14302,6 +19860,33 @@
     "level": 70,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "double_team",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -14331,6 +19916,27 @@
     "level": 1,
     "move": "present"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "fly"
   ]
  },
  {
@@ -14392,6 +19998,28 @@
     "level": 50,
     "move": "confuse_ray"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -14457,6 +20085,29 @@
     "level": 45,
     "move": "metal_sound"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "frustration",
+   "return",
+   "double_team",
+   "sandstorm",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "cut",
+   "fly",
+   "rock_smash"
   ]
  },
  {
@@ -14522,6 +20173,32 @@
     "level": 49,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "overheat",
+   "rock_smash"
   ]
  },
  {
@@ -14591,6 +20268,34 @@
     "level": 59,
     "move": "crunch"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14659,6 +20364,27 @@
     "level": 62,
     "move": "dragon_dance"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -14718,6 +20444,26 @@
     "level": 49,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14777,6 +20523,27 @@
     "level": 49,
     "move": "earthquake"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -14844,6 +20611,32 @@
     "level": 48,
     "move": "zap_cannon"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -14907,6 +20700,35 @@
     "level": 47,
     "move": "calm_mind"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -14970,7 +20792,8 @@
     "level": 91,
     "move": "sketch"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 236,
@@ -14997,6 +20820,26 @@
     "level": 1,
     "move": "tackle"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -15064,6 +20907,28 @@
     "level": 49,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -15132,6 +20997,31 @@
     "level": 57,
     "move": "blizzard"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -15187,6 +21077,29 @@
     "level": 49,
     "move": "thunder"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -15246,6 +21159,27 @@
     "level": 49,
     "move": "fire_blast"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "rock_smash"
   ]
  },
  {
@@ -15305,6 +21239,38 @@
     "level": 53,
     "move": "heal_bell"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -15377,6 +21343,47 @@
     "level": 47,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "snatch",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -15440,6 +21447,33 @@
     "level": 81,
     "move": "calm_mind"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -15503,6 +21537,33 @@
     "level": 81,
     "move": "calm_mind"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -15566,6 +21627,35 @@
     "level": 81,
     "move": "calm_mind"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "cut",
+   "surf",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -15630,6 +21720,28 @@
     "level": 57,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "rock_smash"
   ]
  },
  {
@@ -15702,6 +21814,28 @@
     "level": 65,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "rock_smash"
   ]
  },
  {
@@ -15774,6 +21908,45 @@
     "level": 75,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -15838,6 +22011,47 @@
     "level": 99,
     "move": "future_sight"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "steel_wing",
+   "skill_swap",
+   "fly",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -15902,6 +22116,43 @@
     "level": 99,
     "move": "future_sight"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "steel_wing",
+   "overheat",
+   "fly",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -15962,6 +22213,35 @@
     "level": 50,
     "move": "perish_song"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -16029,6 +22309,33 @@
     "level": 46,
     "move": "giga_drain"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -16108,6 +22415,33 @@
     "level": 53,
     "move": "false_swipe"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -16187,6 +22521,37 @@
     "level": 59,
     "move": "false_swipe"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -16254,6 +22619,28 @@
     "level": 43,
     "move": "flamethrower"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -16334,6 +22721,31 @@
     "level": 50,
     "move": "sky_uppercut"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -16422,6 +22834,34 @@
     "level": 59,
     "move": "sky_uppercut"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -16493,6 +22933,31 @@
     "level": 46,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -16577,6 +23042,32 @@
     "level": 53,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -16661,6 +23152,36 @@
     "level": 61,
     "move": "endeavor"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -16732,6 +23253,29 @@
     "level": 45,
     "move": "thief"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "rock_smash"
   ]
  },
  {
@@ -16815,6 +23359,31 @@
     "level": 52,
     "move": "thief"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -16886,6 +23455,33 @@
     "level": 41,
     "move": "belly_drum"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "rock_smash"
   ]
  },
  {
@@ -16965,6 +23561,36 @@
     "level": 53,
     "move": "belly_drum"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -17000,7 +23626,8 @@
     "level": 5,
     "move": "poison_sting"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 291,
@@ -17031,7 +23658,8 @@
     "level": 7,
     "move": "harden"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 292,
@@ -17095,6 +23723,28 @@
     "level": 38,
     "move": "giga_drain"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -17126,7 +23776,8 @@
     "level": 7,
     "move": "harden"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 294,
@@ -17190,6 +23841,29 @@
     "level": 38,
     "move": "toxic"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -17243,6 +23917,30 @@
     "level": 43,
     "move": "mega_drain"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "flash"
   ]
  },
  {
@@ -17308,6 +24006,35 @@
     "level": 49,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -17349,6 +24076,37 @@
     "level": 1,
     "move": "nature_power"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hail",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "brick_break",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "strength",
+   "flash",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -17401,6 +24159,26 @@
     "level": 43,
     "move": "explosion"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -17466,6 +24244,33 @@
     "level": 49,
     "move": "extrasensory"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -17507,6 +24312,34 @@
     "level": 1,
     "move": "nature_power"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -17571,6 +24404,26 @@
     "level": 45,
     "move": "dig"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -17655,6 +24508,29 @@
     "level": 45,
     "move": "baton_pass"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -17719,6 +24595,28 @@
     "level": 45,
     "move": "grudge"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "thief",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -17779,6 +24677,24 @@
     "level": 43,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -17847,6 +24763,25 @@
     "level": 49,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -17910,6 +24845,26 @@
     "level": 54,
     "move": "spore"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -17990,6 +24945,34 @@
     "level": 54,
     "move": "dynamic_punch"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "return",
+   "brick_break",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -18057,6 +25040,36 @@
     "level": 56,
     "move": "thrash"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -18113,6 +25126,28 @@
     "level": 55,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -18189,6 +25224,30 @@
     "level": 61,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly",
+   "surf"
   ]
  },
  {
@@ -18245,6 +25304,28 @@
     "level": 37,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -18317,6 +25398,30 @@
     "level": 53,
     "move": "whirlwind"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -18389,6 +25494,31 @@
     "level": 50,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -18473,6 +25603,32 @@
     "level": 59,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -18544,6 +25700,33 @@
     "level": 39,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -18583,6 +25766,36 @@
     "level": 1,
     "move": "double_slap"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -18658,6 +25871,43 @@
     "level": 49,
     "move": "ancient_power"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -18726,6 +25976,31 @@
     "level": 45,
     "move": "explosion"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -18810,6 +26085,34 @@
     "level": 55,
     "move": "explosion"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -18874,6 +26177,29 @@
     "level": 46,
     "move": "lock_on"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -18945,6 +26271,26 @@
     "level": 46,
     "move": "heat_wave"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "return",
+   "double_team",
+   "flamethrower",
+   "sludge_bomb",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -19021,6 +26367,37 @@
     "level": 45,
     "move": "mean_look"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "dig",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "cut",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -19089,6 +26466,29 @@
     "level": 41,
     "move": "fissure"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19169,6 +26569,32 @@
     "level": 56,
     "move": "fissure"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19228,6 +26654,27 @@
     "level": 48,
     "move": "safeguard"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19300,6 +26747,34 @@
     "level": 46,
     "move": "guillotine"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sludge_bomb",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall"
   ]
  },
  {
@@ -19385,6 +26860,36 @@
     "level": 56,
     "move": "guillotine"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sludge_bomb",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19420,6 +26925,26 @@
     "level": 30,
     "move": "flail"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19487,6 +27012,29 @@
     "level": 50,
     "move": "safeguard"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "iron_tail",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19551,6 +27099,29 @@
     "level": 43,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19631,6 +27202,35 @@
     "level": 53,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -19687,6 +27287,28 @@
     "level": 57,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -19759,6 +27381,30 @@
     "level": 57,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "fly",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -19831,6 +27477,34 @@
     "level": 65,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "fly",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -19907,6 +27581,29 @@
     "level": 49,
     "move": "reversal"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -19991,6 +27688,30 @@
     "level": 55,
     "move": "reversal"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -20059,6 +27780,27 @@
     "level": 41,
     "move": "charge"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -20139,6 +27881,28 @@
     "level": 53,
     "move": "charge"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -20203,6 +27967,28 @@
     "level": 49,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -20279,6 +28065,30 @@
     "level": 55,
     "move": "fissure"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -20355,6 +28165,31 @@
     "level": 49,
     "move": "sheer_cold"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -20431,6 +28266,32 @@
     "level": 55,
     "move": "sheer_cold"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -20507,6 +28368,33 @@
     "level": 61,
     "move": "sheer_cold"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -20586,6 +28474,26 @@
     "level": 49,
     "move": "destiny_bond"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -20678,6 +28586,28 @@
     "level": 59,
     "move": "destiny_bond"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "flash"
   ]
  },
  {
@@ -20745,6 +28675,27 @@
     "level": 43,
     "move": "blizzard"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -20824,6 +28775,31 @@
     "level": 61,
     "move": "sheer_cold"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "earthquake",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -20888,6 +28864,31 @@
     "level": 49,
     "move": "explosion"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "ice_beam",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -20952,6 +28953,34 @@
     "level": 49,
     "move": "explosion"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "overheat",
+   "flash"
   ]
  },
  {
@@ -21000,6 +29029,26 @@
     "level": 21,
     "move": "water_gun"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall"
   ]
  },
  {
@@ -21068,6 +29117,33 @@
     "level": 43,
     "move": "bounce"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -21148,6 +29224,35 @@
     "level": 55,
     "move": "bounce"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -21215,6 +29320,25 @@
     "level": 47,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -21282,6 +29406,25 @@
     "level": 47,
     "move": "agility"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "flash"
   ]
  },
  {
@@ -21354,6 +29497,34 @@
     "level": 46,
     "move": "spit_up"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "return",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "sludge_bomb",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -21426,6 +29597,32 @@
     "level": 44,
     "move": "recover"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -21522,6 +29719,33 @@
     "level": 56,
     "move": "recover"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -21590,6 +29814,27 @@
     "level": 48,
     "move": "perish_song"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly"
   ]
  },
  {
@@ -21674,6 +29919,35 @@
     "level": 59,
     "move": "sky_attack"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "steel_wing",
+   "fly",
+   "rock_smash"
   ]
  },
  {
@@ -21725,7 +29999,8 @@
     "level": 15,
     "move": "destiny_bond"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 361,
@@ -21792,6 +30067,31 @@
     "level": 49,
     "move": "future_sight"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -21871,6 +30171,37 @@
     "level": 58,
     "move": "future_sight"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "rock_tomb",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -21956,6 +30287,26 @@
     "level": 57,
     "move": "synthesis"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "flash"
   ]
  },
  {
@@ -22015,6 +30366,37 @@
     "level": 43,
     "move": "flail"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22086,6 +30468,40 @@
     "level": 49,
     "move": "reversal"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22157,6 +30573,41 @@
     "level": 43,
     "move": "flail"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22225,6 +30676,31 @@
     "level": 39,
     "move": "sludge_bomb"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22309,6 +30785,32 @@
     "level": 48,
     "move": "sludge_bomb"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22377,6 +30879,33 @@
     "level": 47,
     "move": "synthesis"
    }
+  ],
+  "tmhm": [
+   "roar",
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "double_team",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "cut",
+   "fly",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -22444,6 +30973,29 @@
     "level": 45,
     "move": "hyper_voice"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract"
   ]
  },
  {
@@ -22523,6 +31075,36 @@
     "level": 57,
     "move": "hyper_voice"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22606,6 +31188,37 @@
     "level": 63,
     "move": "hyper_voice"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "overheat",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -22645,6 +31258,26 @@
     "level": 1,
     "move": "iron_defense"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -22700,6 +31333,29 @@
     "level": 50,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "double_team",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "snatch",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -22755,6 +31411,30 @@
     "level": 50,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -22822,6 +31502,43 @@
     "level": 46,
     "move": "perish_song"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -22885,6 +31602,32 @@
     "level": 56,
     "move": "grudge"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -22960,6 +31703,33 @@
     "level": 64,
     "move": "grudge"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -23023,6 +31793,31 @@
     "level": 43,
     "move": "haze"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "flamethrower",
+   "sludge_bomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "snatch",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23090,6 +31885,41 @@
     "level": 55,
     "move": "false_swipe"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "dig",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23159,6 +31989,33 @@
     "level": 64,
     "move": "hydro_pump"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "earthquake",
+   "return",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "surf",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -23232,6 +32089,32 @@
     "level": 44,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23317,6 +32200,32 @@
     "level": 53,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23402,6 +32311,45 @@
     "level": 63,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "dragon_claw",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "surf",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23457,6 +32405,34 @@
     "level": 30,
     "move": "weather_ball"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -23521,6 +32497,33 @@
     "level": 37,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -23584,6 +32587,33 @@
     "level": 37,
     "move": "covet"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "flash"
   ]
  },
  {
@@ -23648,6 +32678,24 @@
     "level": 50,
     "move": "swallow"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "sandstorm",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract"
   ]
  },
  {
@@ -23724,6 +32772,29 @@
     "level": 60,
     "move": "swallow"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "bullet_seed",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "giga_drain",
+   "frustration",
+   "solar_beam",
+   "earthquake",
+   "return",
+   "double_team",
+   "sludge_bomb",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23788,6 +32859,27 @@
     "level": 55,
     "move": "rock_blast"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "frustration",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "rock_smash"
   ]
  },
  {
@@ -23864,6 +32956,31 @@
     "level": 64,
     "move": "rock_blast"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -23928,6 +33045,34 @@
     "level": 46,
     "move": "dream_eater"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -24008,6 +33153,34 @@
     "level": 54,
     "move": "dream_eater"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -24084,6 +33257,35 @@
     "level": 60,
     "move": "dream_eater"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "thief",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  },
  {
@@ -24151,6 +33353,30 @@
     "level": 53,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24234,6 +33460,30 @@
     "level": 78,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "return",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24322,6 +33572,35 @@
     "level": 93,
     "move": "double_edge"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "iron_tail",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "flamethrower",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "cut",
+   "fly",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24350,7 +33629,8 @@
     "level": 1,
     "move": "take_down"
    }
-  ]
+  ],
+  "tmhm": []
  },
  {
   "id": 399,
@@ -24414,6 +33694,34 @@
     "level": 62,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "sludge_bomb",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -24490,6 +33798,34 @@
     "level": 77,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "sludge_bomb",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
   ]
  },
  {
@@ -24549,6 +33885,31 @@
     "level": 65,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24608,6 +33969,31 @@
     "level": 65,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "facade",
+   "secret_power",
+   "rest",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24671,6 +34057,32 @@
     "level": 65,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "focus_punch",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "sandstorm",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24738,6 +34150,37 @@
     "level": 75,
     "move": "water_spout"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hail",
+   "hidden_power",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "rock_tomb",
+   "facade",
+   "secret_power",
+   "rest",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -24805,6 +34248,40 @@
     "level": 75,
     "move": "eruption"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "protect",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "dig",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "rock_tomb",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "overheat",
+   "cut",
+   "strength",
+   "rock_smash"
   ]
  },
  {
@@ -24873,6 +34350,44 @@
     "level": 75,
     "move": "hyper_beam"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "water_pulse",
+   "roar",
+   "toxic",
+   "bulk_up",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "blizzard",
+   "hyper_beam",
+   "protect",
+   "rain_dance",
+   "frustration",
+   "solar_beam",
+   "iron_tail",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "brick_break",
+   "double_team",
+   "shock_wave",
+   "flamethrower",
+   "sandstorm",
+   "fire_blast",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "overheat",
+   "fly",
+   "surf",
+   "strength",
+   "rock_smash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -24941,6 +34456,45 @@
     "level": 50,
     "move": "charm"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "water_pulse",
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "cut",
+   "fly",
+   "surf",
+   "flash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -25009,6 +34563,45 @@
     "level": 50,
     "move": "dragon_dance"
    }
+  ],
+  "tmhm": [
+   "dragon_claw",
+   "water_pulse",
+   "calm_mind",
+   "roar",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "ice_beam",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "earthquake",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "steel_wing",
+   "cut",
+   "fly",
+   "surf",
+   "flash",
+   "waterfall",
+   "dive"
   ]
  },
  {
@@ -25081,6 +34674,34 @@
     "level": 50,
     "move": "doom_desire"
    }
+  ],
+  "tmhm": [
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "sandstorm",
+   "aerial_ace",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "flash"
   ]
  },
  {
@@ -25161,7 +34782,45 @@
     "move": "mirror_coat"
    }
   ],
-  "form": "attack"
+  "form": "attack",
+  "tmhm": [
+   "focus_punch",
+   "water_pulse",
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "ice_beam",
+   "hyper_beam",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "solar_beam",
+   "thunderbolt",
+   "thunder",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "brick_break",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "rock_tomb",
+   "aerial_ace",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "skill_swap",
+   "snatch",
+   "cut",
+   "strength",
+   "flash",
+   "rock_smash"
+  ]
  },
  {
   "id": 411,
@@ -25232,6 +34891,32 @@
     "level": 46,
     "move": "psychic"
    }
+  ],
+  "tmhm": [
+   "calm_mind",
+   "toxic",
+   "hidden_power",
+   "sunny_day",
+   "taunt",
+   "light_screen",
+   "protect",
+   "rain_dance",
+   "safeguard",
+   "frustration",
+   "return",
+   "psychic",
+   "shadow_ball",
+   "double_team",
+   "reflect",
+   "shock_wave",
+   "torment",
+   "facade",
+   "secret_power",
+   "rest",
+   "attract",
+   "skill_swap",
+   "snatch",
+   "flash"
   ]
  }
 ]

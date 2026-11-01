@@ -66,6 +66,10 @@ importers:
       '@pokeguide/domain':
         specifier: workspace:*
         version: link:../domain
+    devDependencies:
+      '@pokeguide/save-parser':
+        specifier: workspace:*
+        version: link:../save-parser
 
   packages/domain: {}
 

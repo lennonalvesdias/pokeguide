@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const DATASET_VERSION = '0.2.0';
+const DATASET_VERSION = '0.3.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -17,22 +17,26 @@ const fail = (msg) => {
   throw new Error(`[data-pipeline] ${msg}`);
 };
 
-/** Lê #defines numéricos, resolvendo referências simples (A + 1, (A + 0x20)). */
-function constants(file, prefix) {
+/** Avalia expressões aritméticas simples de #define (números, nomes conhecidos, + - * / e parênteses). */
+function evalExpr(expr, known) {
+  const replaced = expr.replace(/\b[A-Za-z_]\w*\b/g, (id) => (known.has(id) ? String(known.get(id)) : `#${id}`));
+  if (replaced.includes('#') || !/^[\s\d+\-*/()xa-fA-F]+$/.test(replaced)) return NaN;
+  // Só números e operadores chegam aqui.
+  return Number(Function(`"use strict"; return (${replaced});`)());
+}
+
+/** Lê #defines numéricos, resolvendo expressões com nomes já conhecidos (inclusive de `seed`). */
+function constants(file, prefix, seed = new Map()) {
   const byName = new Map();
+  const known = new Map(seed);
   for (const line of read(file).split('\n')) {
-    const m = line.match(new RegExp(`^#define\\s+(${prefix}\\w+)\\s+(.+?)\\s*(//.*)?$`));
+    const m = line.match(new RegExp(`^#define\\s+(${prefix}\\w*)\\s+(.+?)\\s*(//.*)?$`));
     if (!m) continue;
     const [, name, raw] = m;
-    const expr = raw.replace(/[()]/g, '').trim();
-    let value = Number(expr);
-    if (Number.isNaN(value)) {
-      const ref = expr.match(/^(\w+)\s*\+\s*(\w+)$/);
-      if (ref && byName.has(ref[1])) value = byName.get(ref[1]) + Number(ref[2]);
-      else if (byName.has(expr)) value = byName.get(expr);
-      else continue;
-    }
+    const value = evalExpr(raw.trim(), known);
+    if (Number.isNaN(value)) continue;
     byName.set(name, value);
+    known.set(name, value);
   }
   return byName;
 }
@@ -221,6 +225,7 @@ const items = JSON.parse(read('src/data/items.json'))
     price: it.price,
     holdEffect: it.holdEffect === 'HOLD_EFFECT_NONE' ? null : it.holdEffect.replace('HOLD_EFFECT_', '').toLowerCase(),
     keyItem: it.importance > 0,
+    description: (it.description_english ?? '').replace(/\s*(\\n|\n)\s*/g, ' ').trim(),
   }))
   .sort((a, b) => a.id - b.id);
 
@@ -363,6 +368,62 @@ const trainers = blocks(read('src/data/trainers.h'), 'TRAINER_')
   })
   .sort((a, b) => a.id - b.id);
 
+// ---------- TMs e HMs (src/data/party_menu.h: sTMHMMoves; tmhm_learnsets.h) ----------
+const tmBlock = read('src/data/party_menu.h').match(/sTMHMMoves\[\]\s*=\s*\{([\s\S]*?)\};/)?.[1] ?? fail('sTMHMMoves ausente');
+const tmMoves = [...tmBlock.matchAll(/MOVE_\w+/g)].map((m) => moveKey(m[0]));
+if (tmMoves.length !== 58) fail(`esperava 58 TMs/HMs, achei ${tmMoves.length}`);
+const pad2 = (n) => String(n).padStart(2, '0');
+const machines = tmMoves.map((move, i) => {
+  const hm = i >= 50;
+  const label = hm ? `HM${pad2(i - 49)}` : `TM${pad2(i + 1)}`;
+  const item = label.toLowerCase();
+  if (!items.some((it) => it.key === item)) fail(`item ${item} ausente`);
+  if (!moves.some((m) => m.key === move)) fail(`golpe ${move} ausente`);
+  return { item, label, move, hm };
+});
+const learnSrc = read('src/data/pokemon/tmhm_learnsets.h');
+for (const m of learnSrc.matchAll(/\[(SPECIES_\w+)\]\s*=\s*TMHM_LEARNSET\(([\s\S]*?)\),?\s*\n(?=\s*\[|\s*\};)/g)) {
+  const sp = speciesByConst.get(m[1]);
+  if (!sp) continue;
+  sp.tmhm = [...m[2].matchAll(/TMHM\((TM|HM)(\d\d)_\w+\)/g)].map(([, kind, num]) => machines[kind === 'TM' ? Number(num) - 1 : 49 + Number(num)].move);
+}
+if (!species.find((x) => x.key === 'snorlax')?.tmhm?.includes('earthquake')) fail('tmhm: Snorlax deveria aprender Earthquake');
+
+// ---------- jornada (roteiro curado, validado contra o jogo) ----------
+const maxTrainers = constants('include/constants/opponents.h', 'MAX_TRAINERS_COUNT');
+const flagConsts = constants('include/constants/flags.h', '(?:FLAG_|SYS_FLAGS|TRAINER_FLAGS_|NUM_)', maxTrainers);
+if (flagConsts.get('SYS_FLAGS') !== 0x800) fail(`SYS_FLAGS inesperado: ${flagConsts.get('SYS_FLAGS')}`);
+const curated = JSON.parse(readFileSync(join(ROOT, 'packages/data-firered/curated/walkthrough.json'), 'utf8'));
+const BADGE_KEYS = ['boulder', 'cascade', 'thunder', 'rainbow', 'soul', 'marsh', 'volcano', 'earth'];
+const itemKeys = new Set(items.map((i) => i.key));
+const trainerKeys = new Set(trainers.map((t) => t.key));
+const trainerRef = (k) => trainerKeys.has(k) || ['bulbasaur', 'charmander', 'squirtle'].some((v) => trainerKeys.has(`${k}_${v}`));
+const resolveCond = (c, stepId) => {
+  if ('flag' in c) {
+    const id = flagConsts.get(c.flag);
+    if (id === undefined) fail(`jornada/${stepId}: flag ${c.flag} não existe`);
+    return { flag: id, name: c.flag };
+  }
+  if ('badge' in c) {
+    if (!BADGE_KEYS.includes(c.badge)) fail(`jornada/${stepId}: insígnia ${c.badge}`);
+    return c;
+  }
+  if ('item' in c) {
+    if (!itemKeys.has(c.item)) fail(`jornada/${stepId}: item ${c.item}`);
+    return c;
+  }
+  if ('trainer' in c) {
+    if (!trainerRef(c.trainer)) fail(`jornada/${stepId}: treinador ${c.trainer}`);
+    return c;
+  }
+  fail(`jornada/${stepId}: condição inválida ${JSON.stringify(c)}`);
+};
+const walkthrough = curated.steps.map((s) => {
+  if (s.trainer && !trainerRef(s.trainer)) fail(`jornada/${s.id}: treinador ${s.trainer}`);
+  const done = s.done.any ? { any: s.done.any.map((c) => resolveCond(c, s.id)) } : { all: s.done.all.map((c) => resolveCond(c, s.id)) };
+  return { ...s, done };
+});
+
 // ---------- invariantes ----------
 const typeNames = new Set(types.map((t) => t.name));
 for (const mv of moves) if (!typeNames.has(mv.type)) fail(`golpe ${mv.key} com tipo inválido`);
@@ -371,7 +432,7 @@ if (typeChart.length < 100) fail('tabela de tipos incompleta');
 
 // ---------- escrita ----------
 mkdirSync(OUT, { recursive: true });
-const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers };
+const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers, walkthrough, machines };
 const hashes = {};
 for (const [name, value] of Object.entries(files)) {
   const json = `${JSON.stringify(value, null, 1)}\n`;
