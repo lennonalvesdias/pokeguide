@@ -10,7 +10,17 @@ import {
   wildMoveset,
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { appVersions, displayName, importSaveFile, loadStoredSave, readPref, type StoredSave, toTeam, writePref } from './state.ts';
+import {
+  appVersions,
+  displayName,
+  importSaveFiles,
+  loadStoredSave,
+  persist,
+  readPref,
+  type StoredSave,
+  toTeam,
+  writePref,
+} from './state.ts';
 
 const chart = createTypeChart(typeChart);
 const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
@@ -25,6 +35,8 @@ export function App() {
   const [save, setSave] = useState<StoredSave | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
+  const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
   const [tab, setTab] = useState<Tab>(() => (readPref('tab') as Tab) || 'battle');
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -39,15 +51,29 @@ export function App() {
   const team = useMemo(() => (save ? toTeam(save.preview) : []), [save]);
 
   async function onFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
+    const files = [...(e.target.files ?? [])];
     e.target.value = '';
-    if (!file) return;
+    if (!files.length) return;
     setError(null);
-    try {
-      setSave(await importSaveFile(file));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Não foi possível ler o arquivo.');
+    setInfo(null);
+    setPending(null);
+    const r = await importSaveFiles(files, save?.preview ?? null);
+    if (r.kind === 'imported') {
+      setSave(r.stored);
+      setInfo(r.message);
+    } else if (r.kind === 'needs-confirmation') {
+      setPending({ stored: r.stored, message: r.message });
+    } else {
+      setError(r.message);
     }
+  }
+
+  async function confirmPending() {
+    if (!pending) return;
+    await persist(pending.stored);
+    setSave(pending.stored);
+    setInfo(`Usando ${pending.stored.fileName}.`);
+    setPending(null);
   }
 
   const p = save?.preview;
@@ -68,10 +94,28 @@ export function App() {
         <button type="button" className="btn ghost" onClick={() => fileRef.current?.click()}>
           {p ? 'Trocar save' : 'Importar save'}
         </button>
-        <input ref={fileRef} type="file" hidden onChange={onFile} aria-label="Arquivo de save" />
+        <input ref={fileRef} type="file" multiple hidden onChange={onFile} aria-label="Arquivos de save" />
       </header>
 
       {error && <div className="alert">{error}</div>}
+      {pending && (
+        <div className="alert confirm" role="alertdialog">
+          <p>{pending.message}</p>
+          <div className="actions">
+            <button type="button" className="btn ghost" onClick={() => setPending(null)}>
+              Manter o atual
+            </button>
+            <button type="button" className="btn solid" onClick={confirmPending}>
+              Usar mesmo assim
+            </button>
+          </div>
+        </div>
+      )}
+      {info && (
+        <button type="button" className="notice" onClick={() => setInfo(null)} aria-label="Fechar aviso">
+          {info}
+        </button>
+      )}
 
       <main>
         {loading ? null : !p ? (
@@ -111,7 +155,7 @@ function Onboarding({ onPick }: { onPick: () => void }) {
       <ol>
         <li>No Delta, segure o jogo na biblioteca e toque em <b>Manage Save File → Export</b>.</li>
         <li>Salve o arquivo em Arquivos (iCloud Drive ou No meu iPhone).</li>
-        <li>Toque abaixo e escolha o arquivo.</li>
+        <li>Toque abaixo e escolha o arquivo. Pode selecionar vários: o app usa o save mais recente pelo contador do jogo.</li>
       </ol>
       <button type="button" className="btn primary" onClick={onPick}>
         Importar save

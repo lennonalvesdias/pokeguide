@@ -15,8 +15,15 @@
 - Regras específicas do FireRed extraídas do código do jogo: Deoxys Forma Attack e lista de HMs.
 - Save: slot escolhido pelo contador de save; `gameFingerprint` = Trainer ID + Secret ID.
 
+## Descobertas em campo
+
+- **Pasta de saves no iOS:** um app web no iPhone não guarda acesso a pastas nem lê arquivos sozinho; cada
+  importação passa pelo seletor. O app aceita vários arquivos e usa o mais recente pelo contador do jogo.
+- **Delta Sync com Google Drive:** os arquivos ficam ocultos no Drive (área privada do app), inacessíveis a
+  outro app. Busca automática só seria viável com Dropbox, e ainda depende de um spike sobre o formato.
+
 ## Pendentes para a v1.1
 
 - [ ] ADR de uso de LLM (onde entra, provedor, comportamento offline, validação de saída).
 - [ ] ADR de distribuição de dados (service worker, atualização de dataset, migrações de IndexedDB).
-- [ ] Confirmar versão da ROM (FireRed ou LeafGreen, revisão 1.0/1.1).
+- [x] Versão do jogo: FireRed (revisão ainda não confirmada).
