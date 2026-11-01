@@ -6,7 +6,8 @@
   "pocket": "poke_balls",
   "price": 0,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The best BALL with the ultimate performance. It will catch any wild POKéMON without fail."
  },
  {
   "id": 2,
@@ -15,7 +16,8 @@
   "pocket": "poke_balls",
   "price": 1200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A very high-grade BALL that offers a higher POKéMON catch rate than a GREAT BALL."
  },
  {
   "id": 3,
@@ -24,7 +26,8 @@
   "pocket": "poke_balls",
   "price": 600,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A good, quality BALL that offers a higher POKéMON catch rate than a standard POKé BALL."
  },
  {
   "id": 4,
@@ -33,7 +36,8 @@
   "pocket": "poke_balls",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A BALL thrown to catch a wild POKéMON. It is designed in a capsule style."
  },
  {
   "id": 5,
@@ -42,7 +46,8 @@
   "pocket": "poke_balls",
   "price": 0,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A special BALL that is used only in the SAFARI ZONE. It is finished in a camouflage pattern."
  },
  {
   "id": 6,
@@ -51,7 +56,8 @@
   "pocket": "poke_balls",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A somewhat different BALL that works especially well on WATER- and BUG-type POKéMON."
  },
  {
   "id": 7,
@@ -60,7 +66,8 @@
   "pocket": "poke_balls",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A somewhat different BALL that works especially well on POKéMON deep in the sea."
  },
  {
   "id": 8,
@@ -69,7 +76,8 @@
   "pocket": "poke_balls",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A somewhat different BALL that works especially well on weaker POKéMON."
  },
  {
   "id": 9,
@@ -78,7 +86,8 @@
   "pocket": "poke_balls",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A somewhat different BALL that works especially well on POKéMON caught before."
  },
  {
   "id": 10,
@@ -87,7 +96,8 @@
   "pocket": "poke_balls",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A somewhat different BALL that becomes progressively better the more turns there are in a battle."
  },
  {
   "id": 11,
@@ -96,7 +106,8 @@
   "pocket": "poke_balls",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A comfortable BALL that makes a captured wild POKéMON quickly grow friendly."
  },
  {
   "id": 12,
@@ -105,7 +116,8 @@
   "pocket": "poke_balls",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A rare BALL that has been specially made to commemorate an event of some sort."
  },
  {
   "id": 13,
@@ -114,7 +126,8 @@
   "pocket": "items",
   "price": 300,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type wound medicine. It restores the HP of one POKéMON by 20 points."
  },
  {
   "id": 14,
@@ -123,7 +136,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type medicine. It heals one POKéMON from a poisoning."
  },
  {
   "id": 15,
@@ -132,7 +146,8 @@
   "pocket": "items",
   "price": 250,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type medicine. It heals one POKéMON of a burn."
  },
  {
   "id": 16,
@@ -141,7 +156,8 @@
   "pocket": "items",
   "price": 250,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type medicine. It defrosts a frozen POKéMON."
  },
  {
   "id": 17,
@@ -150,7 +166,8 @@
   "pocket": "items",
   "price": 250,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type medicine. It awakens a sleeping POKéMON."
  },
  {
   "id": 18,
@@ -159,7 +176,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type medicine. It heals one POKéMON from paralysis."
  },
  {
   "id": 19,
@@ -168,7 +186,8 @@
   "pocket": "items",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A medicine that fully restores the HP and heals any status problems of one POKéMON."
  },
  {
   "id": 20,
@@ -177,7 +196,8 @@
   "pocket": "items",
   "price": 2500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type wound medicine. It fully restores the HP of one POKéMON."
  },
  {
   "id": 21,
@@ -186,7 +206,8 @@
   "pocket": "items",
   "price": 1200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type wound medicine. It restores the HP of one POKéMON by 200 points."
  },
  {
   "id": 22,
@@ -195,7 +216,8 @@
   "pocket": "items",
   "price": 700,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type wound medicine. It restores the HP of one POKéMON by 50 points."
  },
  {
   "id": 23,
@@ -204,7 +226,8 @@
   "pocket": "items",
   "price": 600,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A spray-type medicine. It heals all the status problems of one POKéMON."
  },
  {
   "id": 24,
@@ -213,7 +236,8 @@
   "pocket": "items",
   "price": 1500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A medicine that revives a fainted POKéMON, restoring HP by half the maximum amount."
  },
  {
   "id": 25,
@@ -222,7 +246,8 @@
   "pocket": "items",
   "price": 4000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A medicine that revives a fainted POKéMON, restoring HP fully."
  },
  {
   "id": 26,
@@ -231,7 +256,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Water with a high mineral content. It restores the HP of one POKéMON by 50 points."
  },
  {
   "id": 27,
@@ -240,7 +266,8 @@
   "pocket": "items",
   "price": 300,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A fizzy soda drink. It restores the HP of one POKéMON by 60 points."
  },
  {
   "id": 28,
@@ -249,7 +276,8 @@
   "pocket": "items",
   "price": 350,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A very sweet drink. It restores the HP of one POKéMON by 80 points."
  },
  {
   "id": 29,
@@ -258,7 +286,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Highly nutritious milk. It restores the HP of one POKéMON by 100 points."
  },
  {
   "id": 30,
@@ -267,7 +296,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A very bitter medicine powder. It restores the HP of one POKéMON by 50 points."
  },
  {
   "id": 31,
@@ -276,7 +306,8 @@
   "pocket": "items",
   "price": 800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A very bitter root. It restores the HP of one POKéMON by 200 points."
  },
  {
   "id": 32,
@@ -285,7 +316,8 @@
   "pocket": "items",
   "price": 450,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A very bitter medicine powder. It heals all the status problems of one POKéMON."
  },
  {
   "id": 33,
@@ -294,7 +326,8 @@
   "pocket": "items",
   "price": 2800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A very bitter medicinal herb. It revives a fainted POKéMON, restoring HP fully."
  },
  {
   "id": 34,
@@ -303,7 +336,8 @@
   "pocket": "items",
   "price": 1200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Restores a selected move's PP by 10 points for one POKéMON."
  },
  {
   "id": 35,
@@ -312,7 +346,8 @@
   "pocket": "items",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Fully restores a selected move's PP for one POKéMON."
  },
  {
   "id": 36,
@@ -321,7 +356,8 @@
   "pocket": "items",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Restores the PP of all moves for one POKéMON by 10 points each."
  },
  {
   "id": 37,
@@ -330,7 +366,8 @@
   "pocket": "items",
   "price": 4500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Fully restores the PP of all moves for one POKéMON."
  },
  {
   "id": 38,
@@ -339,7 +376,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "LAVARIDGE TOWN's local specialty. It heals all the status problems of one POKéMON."
  },
  {
   "id": 39,
@@ -348,7 +386,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A blue glass flute that awakens a sleeping POKéMON."
  },
  {
   "id": 40,
@@ -357,7 +396,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A yellow glass flute that snaps one POKéMON out of confusion."
  },
  {
   "id": 41,
@@ -366,7 +406,8 @@
   "pocket": "items",
   "price": 300,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A red glass flute that snaps one POKéMON out of infatuation."
  },
  {
   "id": 42,
@@ -375,7 +416,8 @@
   "pocket": "items",
   "price": 400,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A black glass flute. When blown, it makes wild POKéMON less likely to appear."
  },
  {
   "id": 43,
@@ -384,7 +426,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A white glass flute. When blown, it makes wild POKéMON more likely to appear."
  },
  {
   "id": 44,
@@ -393,7 +436,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "restore_hp",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A 100% pure juice. It restores the HP of one POKéMON by 20 points."
  },
  {
   "id": 45,
@@ -402,7 +446,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Revives all fainted POKéMON, restoring HP fully."
  },
  {
   "id": 46,
@@ -411,7 +456,8 @@
   "pocket": "items",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Pure salt obtained from deep inside the SHOAL CAVE. It is extremely salty."
  },
  {
   "id": 47,
@@ -420,7 +466,8 @@
   "pocket": "items",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A pretty seashell found deep inside the SHOAL CAVE. It is striped in blue and white."
  },
  {
   "id": 48,
@@ -429,7 +476,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A small red shard. It appears to be from some sort of a tool made long ago."
  },
  {
   "id": 49,
@@ -438,7 +486,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A small blue shard. It appears to be from some sort of a tool made long ago."
  },
  {
   "id": 50,
@@ -447,7 +496,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A small yellow shard. It appears to be from some sort of a tool made long ago."
  },
  {
   "id": 51,
@@ -456,7 +506,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A small green shard. It appears to be from some sort of a tool made long ago."
  },
  {
   "id": 63,
@@ -465,7 +516,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nutritious drink for POKéMON. It raises the base HP of one POKéMON."
  },
  {
   "id": 64,
@@ -474,7 +526,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nutritious drink for POKéMON. It raises the base ATTACK stat of one POKéMON."
  },
  {
   "id": 65,
@@ -483,7 +536,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nutritious drink for POKéMON. It raises the base DEFENSE stat of one POKéMON."
  },
  {
   "id": 66,
@@ -492,7 +546,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nutritious drink for POKéMON. It raises the base SPEED stat of one POKéMON."
  },
  {
   "id": 67,
@@ -501,7 +556,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nutritious drink for POKéMON. It raises the base SP. ATK stat of one POKéMON."
  },
  {
   "id": 68,
@@ -510,7 +566,8 @@
   "pocket": "items",
   "price": 4800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A candy that is packed with energy. It raises the level of a POKéMON by one."
  },
  {
   "id": 69,
@@ -519,7 +576,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Slightly raises the maximum PP of a selected move for one POKéMON."
  },
  {
   "id": 70,
@@ -528,7 +586,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nutritious drink for POKéMON. It raises the base SP. DEF stat of one POKéMON."
  },
  {
   "id": 71,
@@ -537,7 +596,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the PP of a selected move to its maximum level for one POKéMON."
  },
  {
   "id": 73,
@@ -546,7 +606,8 @@
   "pocket": "items",
   "price": 700,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item that prevents stat reduction among party POKéMON for five turns after use."
  },
  {
   "id": 74,
@@ -555,7 +616,8 @@
   "pocket": "items",
   "price": 650,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the critical-hit ratio of POKéMON in battle. Wears off if the POKéMON is withdrawn."
  },
  {
   "id": 75,
@@ -564,7 +626,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the ATTACK stat of POKéMON in battle. Wears off if the POKéMON is withdrawn."
  },
  {
   "id": 76,
@@ -573,7 +636,8 @@
   "pocket": "items",
   "price": 550,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the DEFENSE stat of POKéMON in battle. Wears off if the POKéMON is withdrawn."
  },
  {
   "id": 77,
@@ -582,7 +646,8 @@
   "pocket": "items",
   "price": 350,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the SPEED stat of POKéMON in battle. Wears off if the POKéMON is withdrawn."
  },
  {
   "id": 78,
@@ -591,7 +656,8 @@
   "pocket": "items",
   "price": 950,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the accuracy stat of POKéMON in battle. Wears off if the POKéMON is withdrawn."
  },
  {
   "id": 79,
@@ -600,7 +666,8 @@
   "pocket": "items",
   "price": 350,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Raises the SP. ATK stat of POKéMON in battle. Wears off if the POKéMON is withdrawn."
  },
  {
   "id": 80,
@@ -609,7 +676,8 @@
   "pocket": "items",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An attractive doll. Use it to flee from any battle with a wild POKéMON."
  },
  {
   "id": 81,
@@ -618,7 +686,8 @@
   "pocket": "items",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An attractive item. Use it to flee from any battle with a wild POKéMON."
  },
  {
   "id": 83,
@@ -627,7 +696,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Prevents weak wild POKéMON from appearing for 200 steps."
  },
  {
   "id": 84,
@@ -636,7 +706,8 @@
   "pocket": "items",
   "price": 700,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Prevents weak wild POKéMON from appearing for 250 steps."
  },
  {
   "id": 85,
@@ -645,7 +716,8 @@
   "pocket": "items",
   "price": 550,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A long, durable rope. Use it to escape instantly from a cave or a dungeon."
  },
  {
   "id": 86,
@@ -654,7 +726,8 @@
   "pocket": "items",
   "price": 350,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Prevents weak wild POKéMON from appearing for 100 steps."
  },
  {
   "id": 93,
@@ -663,7 +736,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A peculiar stone that makes certain species of POKéMON evolve. It is as red as the sun."
  },
  {
   "id": 94,
@@ -672,7 +746,8 @@
   "pocket": "items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A peculiar stone that makes certain species of POKéMON evolve. It is as black as the night sky."
  },
  {
   "id": 95,
@@ -681,7 +756,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A peculiar stone that makes certain species of POKéMON evolve. It is colored orange."
  },
  {
   "id": 96,
@@ -690,7 +766,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A peculiar stone that makes certain species of POKéMON evolve. It has a thunderbolt pattern."
  },
  {
   "id": 97,
@@ -699,7 +776,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A peculiar stone that makes certain species of POKéMON evolve. It is a clear light blue."
  },
  {
   "id": 98,
@@ -708,7 +786,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A peculiar stone that makes certain species of POKéMON evolve. It has a leaf pattern."
  },
  {
   "id": 103,
@@ -717,7 +796,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A small and rare mushroom. It is quite popular among certain people."
  },
  {
   "id": 104,
@@ -726,7 +806,8 @@
   "pocket": "items",
   "price": 5000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A large and rare mushroom. It is very popular among certain people."
  },
  {
   "id": 106,
@@ -735,7 +816,8 @@
   "pocket": "items",
   "price": 1400,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A relatively small pearl that sparkles in a pretty silver color. It can be sold cheaply."
  },
  {
   "id": 107,
@@ -744,7 +826,8 @@
   "pocket": "items",
   "price": 7500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A quite-large pearl that sparkles in a pretty silver color. It can be sold at a high price."
  },
  {
   "id": 108,
@@ -753,7 +836,8 @@
   "pocket": "items",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A pretty red sand with a loose, silky feel. It can be sold at a high price."
  },
  {
   "id": 109,
@@ -762,7 +846,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A shard of a pretty gem that sparkles in a red color. It can be sold at a high price."
  },
  {
   "id": 110,
@@ -771,7 +856,8 @@
   "pocket": "items",
   "price": 10000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A nugget of pure gold that gives off a lustrous gleam. It can be sold at a high price."
  },
  {
   "id": 111,
@@ -780,7 +866,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A pretty, heart-shaped scale that is extremely rare. It glows faintly in the colors of a rainbow."
  },
  {
   "id": 121,
@@ -789,7 +876,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute ZIGZAGOON print. It is to be held by a POKéMON."
  },
  {
   "id": 122,
@@ -798,7 +886,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute WINGULL print. It is to be held by a POKéMON."
  },
  {
   "id": 123,
@@ -807,7 +896,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute PIKACHU print. It is to be held by a POKéMON."
  },
  {
   "id": 124,
@@ -816,7 +906,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute MAGNEMITE print. It is to be held by a POKéMON."
  },
  {
   "id": 125,
@@ -825,7 +916,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute SLAKOTH print. It is to be held by a POKéMON."
  },
  {
   "id": 126,
@@ -834,7 +926,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute WAILMER print. It is to be held by a POKéMON."
  },
  {
   "id": 127,
@@ -843,7 +936,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL to be held by a POKéMON. It will bear the print of the POKéMON holding it."
  },
  {
   "id": 128,
@@ -852,7 +946,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute DUSKULL print. It is to be held by a POKéMON."
  },
  {
   "id": 129,
@@ -861,7 +956,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a cute BELLOSSOM print. It is to be held by a POKéMON."
  },
  {
   "id": 130,
@@ -870,7 +966,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL to be held by a POKéMON. It will bear the print of the POKéMON holding it."
  },
  {
   "id": 131,
@@ -879,7 +976,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a gorgeous, extravagant print. It is to be held by a POKéMON."
  },
  {
   "id": 132,
@@ -888,7 +986,8 @@
   "pocket": "items",
   "price": 50,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A piece of MAIL featuring a print of three cute POKéMON. It is to be held by a POKéMON."
  },
  {
   "id": 133,
@@ -897,7 +996,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_par",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to heal paralysis."
  },
  {
   "id": 134,
@@ -906,7 +1006,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_slp",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to wake up."
  },
  {
   "id": 135,
@@ -915,7 +1016,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_psn",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to cure poison."
  },
  {
   "id": 136,
@@ -924,7 +1026,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_brn",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to heal a burn."
  },
  {
   "id": 137,
@@ -933,7 +1036,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_frz",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle for defrosting."
  },
  {
   "id": 138,
@@ -942,7 +1046,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "restore_pp",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to restore 10 PP."
  },
  {
   "id": 139,
@@ -951,7 +1056,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "restore_hp",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to restore 10 HP."
  },
  {
   "id": 140,
@@ -960,7 +1066,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_confusion",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to lift confusion."
  },
  {
   "id": 141,
@@ -969,7 +1076,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "cure_status",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to heal any problem."
  },
  {
   "id": 142,
@@ -978,7 +1086,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "restore_hp",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it will be used in battle to restore 30 HP."
  },
  {
   "id": 143,
@@ -987,7 +1096,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "confuse_spicy",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A hold item that restores HP but may cause confusion when used."
  },
  {
   "id": 144,
@@ -996,7 +1106,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "confuse_dry",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A hold item that restores HP but may cause confusion when used."
  },
  {
   "id": 145,
@@ -1005,7 +1116,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "confuse_sweet",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A hold item that restores HP but may cause confusion when used."
  },
  {
   "id": 146,
@@ -1014,7 +1126,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "confuse_bitter",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A hold item that restores HP but may cause confusion when used."
  },
  {
   "id": 147,
@@ -1023,7 +1136,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "confuse_sour",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A hold item that restores HP but may cause confusion when used."
  },
  {
   "id": 148,
@@ -1032,7 +1146,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 149,
@@ -1041,7 +1156,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 150,
@@ -1050,7 +1166,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 151,
@@ -1059,7 +1176,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 152,
@@ -1068,7 +1186,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 153,
@@ -1077,7 +1196,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 154,
@@ -1086,7 +1206,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 155,
@@ -1095,7 +1216,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 156,
@@ -1104,7 +1226,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 157,
@@ -1113,7 +1236,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 158,
@@ -1122,7 +1246,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 159,
@@ -1131,7 +1256,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 160,
@@ -1140,7 +1266,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 161,
@@ -1149,7 +1276,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 162,
@@ -1158,7 +1286,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 163,
@@ -1167,7 +1296,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 164,
@@ -1176,7 +1306,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 165,
@@ -1185,7 +1316,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 166,
@@ -1194,7 +1326,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 167,
@@ -1203,7 +1336,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 168,
@@ -1212,7 +1346,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "attack_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it raises the ATTACK stat in a pinch."
  },
  {
   "id": 169,
@@ -1221,7 +1356,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "defense_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it raises the DEFENSE stat in a pinch."
  },
  {
   "id": 170,
@@ -1230,7 +1366,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "speed_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it raises the SPEED stat in a pinch."
  },
  {
   "id": 171,
@@ -1239,7 +1376,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "sp_attack_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it raises the SP. ATK stat in a pinch."
  },
  {
   "id": 172,
@@ -1248,7 +1386,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "sp_defense_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it raises the SP. DEF stat in a pinch."
  },
  {
   "id": 173,
@@ -1257,7 +1396,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "critical_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it raises the critical-hit ratio in a pinch."
  },
  {
   "id": 174,
@@ -1266,7 +1406,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": "random_stat_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "When held by a POKéMON, it sharply raises one stat in a pinch."
  },
  {
   "id": 175,
@@ -1275,7 +1416,8 @@
   "pocket": "berry_pouch",
   "price": 20,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Can be ground up into a powder as an ingredient for medicine."
  },
  {
   "id": 179,
@@ -1284,7 +1426,8 @@
   "pocket": "items",
   "price": 10,
   "holdEffect": "evasion_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It casts a tricky glare that lowers the opponent's accuracy."
  },
  {
   "id": 180,
@@ -1293,7 +1436,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "restore_stats",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It restores any lowered stat in battle. It can be used only once."
  },
  {
   "id": 181,
@@ -1302,7 +1446,8 @@
   "pocket": "items",
   "price": 3000,
   "holdEffect": "macho_brace",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It promotes strong growth but lowers SPEED while it is held."
  },
  {
   "id": 182,
@@ -1311,7 +1456,8 @@
   "pocket": "items",
   "price": 3000,
   "holdEffect": "exp_share",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. The holder gets a share of EXP. points without having to battle."
  },
  {
   "id": 183,
@@ -1320,7 +1466,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "quick_claw",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A light and sharp claw. The holder may be able to strike first."
  },
  {
   "id": 184,
@@ -1329,7 +1476,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "friendship_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A bell with a comforting chime that makes the holder calm and friendly."
  },
  {
   "id": 185,
@@ -1338,7 +1486,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "cure_attract",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It snaps the holder out of infatuation. It can be used once."
  },
  {
   "id": 186,
@@ -1347,7 +1496,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "choice_band",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It powers up one move, which becomes the only usable one."
  },
  {
   "id": 187,
@@ -1356,7 +1506,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "flinch",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It may cause the foe to flinch upon taking damage."
  },
  {
   "id": 188,
@@ -1365,7 +1516,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "bug_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A shiny silver powder that boosts the power of BUG-type moves."
  },
  {
   "id": 189,
@@ -1374,7 +1526,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "double_prize",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It doubles the battle money if the holding POKéMON takes part."
  },
  {
   "id": 190,
@@ -1383,7 +1536,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "repel",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It repels wild POKéMON if the holder is first in the party."
  },
  {
   "id": 191,
@@ -1392,7 +1546,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "soul_dew",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An orb to be held by a LATIOS or LATIAS. It raises the SP. ATK and SP. DEF stats."
  },
  {
   "id": 192,
@@ -1401,7 +1556,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "deep_sea_tooth",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A fang that gleams a sharp silver. It raises the SP. ATK stat."
  },
  {
   "id": 193,
@@ -1410,7 +1566,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "deep_sea_scale",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A scale that shines a faint pink. It raises the SP. DEF stat."
  },
  {
   "id": 194,
@@ -1419,7 +1576,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "can_always_run",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. The holding POKéMON can flee from any wild POKéMON for sure."
  },
  {
   "id": 195,
@@ -1428,7 +1586,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "prevent_evolve",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. The holding POKéMON is prevented from evolving."
  },
  {
   "id": 196,
@@ -1437,7 +1596,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "focus_band",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. The holding POKéMON may endure an attack, leaving just 1 HP."
  },
  {
   "id": 197,
@@ -1446,7 +1606,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "lucky_egg",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. An egg filled with happiness that earns extra EXP. points in battle."
  },
  {
   "id": 198,
@@ -1455,7 +1616,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "scope_lens",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A lens that boosts the critical-hit ratio of the holding POKéMON."
  },
  {
   "id": 199,
@@ -1464,7 +1626,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "steel_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A special metallic film that boosts the power of STEEL-type moves."
  },
  {
   "id": 200,
@@ -1473,7 +1636,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "leftovers",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. The holding POKéMON gradually regains HP during battle."
  },
  {
   "id": 201,
@@ -1482,7 +1646,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": "dragon_scale",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A thick and tough scale. A DRAGON-type POKéMON may be holding it."
  },
  {
   "id": 202,
@@ -1491,7 +1656,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "light_ball",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An orb to be held by a PIKACHU that raises the SP. ATK stat. Touching it may cause a shock."
  },
  {
   "id": 203,
@@ -1500,7 +1666,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "ground_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A loose, silky sand that boosts the power of GROUND-type moves."
  },
  {
   "id": 204,
@@ -1509,7 +1676,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "rock_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. An unbreakable stone that boosts the power of ROCK-type moves."
  },
  {
   "id": 205,
@@ -1518,7 +1686,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "grass_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A seed imbued with life that boosts the power of GRASS-type moves."
  },
  {
   "id": 206,
@@ -1527,7 +1696,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "dark_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A shady-looking pair of glasses that boosts DARK-type moves."
  },
  {
   "id": 207,
@@ -1536,7 +1706,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "fighting_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A belt that boosts determination and FIGHTING-type moves."
  },
  {
   "id": 208,
@@ -1545,7 +1716,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "electric_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A powerful magnet that boosts the power of ELECTRIC-type moves."
  },
  {
   "id": 209,
@@ -1554,7 +1726,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "water_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A teardrop-shaped gem that boosts the power of WATER-type moves."
  },
  {
   "id": 210,
@@ -1563,7 +1736,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "flying_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A long, sharp beak that boosts the power of FLYING-type moves."
  },
  {
   "id": 211,
@@ -1572,7 +1746,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "poison_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A small, poisonous barb that boosts the power of POISON-type moves."
  },
  {
   "id": 212,
@@ -1581,7 +1756,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "ice_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A piece of ice that repels heat and boosts ICE-type moves."
  },
  {
   "id": 213,
@@ -1590,7 +1766,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "ghost_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A sinister, eerie tag that boosts GHOST-type moves."
  },
  {
   "id": 214,
@@ -1599,7 +1776,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "psychic_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A spoon imbued with telekinetic power boosts PSYCHIC-type moves."
  },
  {
   "id": 215,
@@ -1608,7 +1786,8 @@
   "pocket": "items",
   "price": 9800,
   "holdEffect": "fire_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A combustible fuel that boosts the power of FIRE-type moves."
  },
  {
   "id": 216,
@@ -1617,7 +1796,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "dragon_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A hard and sharp fang that boosts the power of DRAGON-type moves."
  },
  {
   "id": 217,
@@ -1626,7 +1806,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": "normal_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. A sumptuous scarf that boosts the power of NORMAL-type moves."
  },
  {
   "id": 218,
@@ -1635,7 +1816,8 @@
   "pocket": "items",
   "price": 2100,
   "holdEffect": "up_grade",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A transparent device filled with all sorts of data. It is made by SILPH CO."
  },
  {
   "id": 219,
@@ -1644,7 +1826,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "shell_bell",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. The holding POKéMON regains some HP upon striking the foe."
  },
  {
   "id": 220,
@@ -1653,7 +1836,8 @@
   "pocket": "items",
   "price": 9600,
   "holdEffect": "water_power",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It slightly boosts the power of WATER-type moves."
  },
  {
   "id": 221,
@@ -1662,7 +1846,8 @@
   "pocket": "items",
   "price": 9600,
   "holdEffect": "evasion_up",
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. Its tricky aroma slightly reduces the foe's accuracy."
  },
  {
   "id": 222,
@@ -1671,7 +1856,8 @@
   "pocket": "items",
   "price": 10,
   "holdEffect": "lucky_punch",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A glove to be held by a CHANSEY. It raises CHANSEY's critical-hit ratio."
  },
  {
   "id": 223,
@@ -1680,7 +1866,8 @@
   "pocket": "items",
   "price": 10,
   "holdEffect": "metal_powder",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A fine, hard powder to be held by a DITTO. It raises DITTO's DEFENSE stat."
  },
  {
   "id": 224,
@@ -1689,7 +1876,8 @@
   "pocket": "items",
   "price": 500,
   "holdEffect": "thick_club",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A hard bone of some sort to be held by a CUBONE or MAROWAK. It raises the ATTACK stat."
  },
  {
   "id": 225,
@@ -1698,7 +1886,8 @@
   "pocket": "items",
   "price": 200,
   "holdEffect": "stick",
-  "keyItem": false
+  "keyItem": false,
+  "description": "A stick of leek to be held by a FARFETCH'D. It raises FARFETCH'D's critical-hit ratio."
  },
  {
   "id": 254,
@@ -1707,7 +1896,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It boosts the holding POKéMON's COOL condition in CONTESTS."
  },
  {
   "id": 255,
@@ -1716,7 +1906,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It boosts the holding POKéMON's BEAUTY condition in CONTESTS."
  },
  {
   "id": 256,
@@ -1725,7 +1916,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It boosts the holding POKéMON's CUTE condition in CONTESTS."
  },
  {
   "id": 257,
@@ -1734,7 +1926,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It boosts the holding POKéMON's SMART condition in CONTESTS."
  },
  {
   "id": 258,
@@ -1743,7 +1936,8 @@
   "pocket": "items",
   "price": 100,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An item to be held by a POKéMON. It boosts the holding POKéMON's TOUGH condition in CONTESTS."
  },
  {
   "id": 259,
@@ -1752,7 +1946,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A folding bicycle that is at least twice as fast as walking."
  },
  {
   "id": 260,
@@ -1761,7 +1956,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A case for holding COINS obtained at the GAME CORNER. It holds up to 9,999 COINS."
  },
  {
   "id": 261,
@@ -1770,7 +1966,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A device used for finding items. If there is a hidden item nearby when it is used, it emits a signal."
  },
  {
   "id": 262,
@@ -1779,7 +1976,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An old and beat-up fishing rod. Use it by any body of water to fish for wild POKéMON."
  },
  {
   "id": 263,
@@ -1788,7 +1986,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A new, good-quality fishing rod. Use it by any body of water to fish for wild POKéMON."
  },
  {
   "id": 264,
@@ -1797,7 +1996,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An awesome, high-tech fishing rod. Use it by any body of water to fish for wild POKéMON."
  },
  {
   "id": 265,
@@ -1806,7 +2006,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The ticket required for sailing on the ferry S.S. ANNE. It has a drawing of a ship on it."
  },
  {
   "id": 266,
@@ -1815,7 +2016,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The pass required for entering POKéMON CONTESTS. It has a drawing of an award ribbon on it."
  },
  {
   "id": 268,
@@ -1824,7 +2026,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A nifty watering pail. Use it to promote strong growth in BERRIES planted in soft soil."
  },
  {
   "id": 269,
@@ -1833,7 +2036,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A package that contains mechanical parts of some sort made by the DEVON CORPORATION."
  },
  {
   "id": 270,
@@ -1842,7 +2046,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A sack used to collect volcanic ash automatically during walks over deep ash."
  },
  {
   "id": 271,
@@ -1851,7 +2056,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The key to NEW MAUVILLE, which was constructed beneath MAUVILLE CITY."
  },
  {
   "id": 272,
@@ -1860,7 +2066,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A folding bicycle that is capable of stunts like jumps and wheelies."
  },
  {
   "id": 273,
@@ -1869,7 +2076,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A case for holding {POKEBLOCK}S made with a BERRY BLENDER. It releases one {POKEBLOCK} when shaken."
  },
  {
   "id": 274,
@@ -1878,7 +2086,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An extremely important letter to STEVEN from the PRESIDENT of the DEVON CORPORATION."
  },
  {
   "id": 275,
@@ -1887,7 +2096,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The ticket required for sailing on a ferry to a distant southern island. It features a drawing of an island."
  },
  {
   "id": 276,
@@ -1896,7 +2106,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An orb that glows red. It is said to contain an incredible power from ancient times."
  },
  {
   "id": 277,
@@ -1905,7 +2116,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An orb that glows blue. It is said to contain an incredible power from ancient times."
  },
  {
   "id": 278,
@@ -1914,7 +2126,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A device used to search for life-forms in water. It looks too difficult to use."
  },
  {
   "id": 279,
@@ -1923,7 +2136,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A pair of protective goggles. They enable a TRAINER to travel through even desert sandstorms."
  },
  {
   "id": 280,
@@ -1932,7 +2146,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A meteorite that fell from space onto MT. MOON long ago. It is very lumpy and hard."
  },
  {
   "id": 281,
@@ -1941,7 +2156,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A key that opens the door to Room 1 inside the ABANDONED SHIP. It is old and looks easily broken."
  },
  {
   "id": 282,
@@ -1950,7 +2166,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A key that opens the door to Room 2 inside the ABANDONED SHIP. It is old and looks easily broken."
  },
  {
   "id": 283,
@@ -1959,7 +2176,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A key that opens the door to Room 4 inside the ABANDONED SHIP. It is old and looks easily broken."
  },
  {
   "id": 284,
@@ -1968,7 +2186,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A key that opens the door to Room 6 inside the ABANDONED SHIP. It is old and looks easily broken."
  },
  {
   "id": 285,
@@ -1977,7 +2196,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A key that opens the storage hold inside the ABANDONED SHIP. It is old and looks easily broken."
  },
  {
   "id": 286,
@@ -1986,7 +2206,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A fossil of an ancient, seafloor- dwelling POKéMON. It appears to be part of a plant root."
  },
  {
   "id": 287,
@@ -1995,7 +2216,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A fossil of an ancient, seafloor- dwelling POKéMON. It appears to be part of a claw."
  },
  {
   "id": 288,
@@ -2004,7 +2226,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A scope that signals the presence of any unseeable POKéMON. It is made by the DEVON CORP."
  },
  {
   "id": 289,
@@ -2013,7 +2236,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An extremely powerful attack. However, if the user is hit before using the move, they will flinch."
  },
  {
   "id": 290,
@@ -2022,7 +2246,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Sharp, huge claws hook and slash the foe quickly and with great power."
  },
  {
   "id": 291,
@@ -2031,7 +2256,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe is hit with a pulsing blast of water. It may also confuse the target."
  },
  {
   "id": 292,
@@ -2040,7 +2266,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The user calms its spirit and focuses its mind to raise its SP. ATK and SP. DEF stats."
  },
  {
   "id": 293,
@@ -2049,7 +2276,8 @@
   "pocket": "tm_case",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A savage roar that causes the foe to switch out of battle. In the wild, ROAR ends the battle."
  },
  {
   "id": 294,
@@ -2058,7 +2286,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A move that leaves the foe badly poisoned. Its poison damage worsens every turn."
  },
  {
   "id": 295,
@@ -2067,7 +2296,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Summons a hailstorm that lasts for five turns. The hailstorm damages all types except the ICE type."
  },
  {
   "id": 296,
@@ -2076,7 +2306,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The user tightens all its muscles and bulks up, boosting both its ATTACK and DEFENSE stats."
  },
  {
   "id": 297,
@@ -2085,7 +2316,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The user shoots seeds at the foe in rapid succession. Two to five seeds are shot at once."
  },
  {
   "id": 298,
@@ -2094,7 +2326,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A variable move that changes type and power depending on the POKéMON using it."
  },
  {
   "id": 299,
@@ -2103,7 +2336,8 @@
   "pocket": "tm_case",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The weather is turned sunny for five turns. Over that time, FIRE- type moves are powered up."
  },
  {
   "id": 300,
@@ -2112,7 +2346,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A taunted foe may become enraged. It will then only be able to use attack moves."
  },
  {
   "id": 301,
@@ -2121,7 +2356,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An icy-cold beam is shot at the foe. It may leave the target frozen."
  },
  {
   "id": 302,
@@ -2130,7 +2366,8 @@
   "pocket": "tm_case",
   "price": 5500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A vicious snow-and-wind attack that strikes all foes in battle. It may cause freezing."
  },
  {
   "id": 303,
@@ -2139,7 +2376,8 @@
   "pocket": "tm_case",
   "price": 7500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A harsh attack that inflicts severe damage on the foe. However, the user must rest the next turn."
  },
  {
   "id": 304,
@@ -2148,7 +2386,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A wall of light is created over five turns. It reduces damage from SP. ATK attacks."
  },
  {
   "id": 305,
@@ -2157,7 +2396,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The user is completely protected from attack in the turn it is used. It may fail if used in succession."
  },
  {
   "id": 306,
@@ -2166,7 +2406,8 @@
   "pocket": "tm_case",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A heavy rain is summoned for five turns. Over that time, WATER-type moves are powered up."
  },
  {
   "id": 307,
@@ -2175,7 +2416,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The user strikes the foe with tentacles or roots, stealing the target's HP and healing itself."
  },
  {
   "id": 308,
@@ -2184,7 +2426,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Protects the party with a shield against all status problems over five turns."
  },
  {
   "id": 309,
@@ -2193,7 +2436,8 @@
   "pocket": "tm_case",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "This attack move grows more powerful the more the POKéMON dislikes its TRAINER."
  },
  {
   "id": 310,
@@ -2202,7 +2446,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A 2-turn attack that uses the first turn for absorbing sunlight, then blasting the foe in the next turn."
  },
  {
   "id": 311,
@@ -2211,7 +2456,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe is slammed with a sturdy tail of steel. It may lower the target's DEFENSE stat."
  },
  {
   "id": 312,
@@ -2220,7 +2466,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A massive jolt of electricity is launched at the foe. It may cause paralysis."
  },
  {
   "id": 313,
@@ -2229,7 +2476,8 @@
   "pocket": "tm_case",
   "price": 5500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Strikes the foe with a huge thunderbolt. It may cause paralysis."
  },
  {
   "id": 314,
@@ -2238,7 +2486,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Causes an earthquake that strikes all POKéMON in battle, excluding the user."
  },
  {
   "id": 315,
@@ -2247,7 +2496,8 @@
   "pocket": "tm_case",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "This attack move grows more powerful the more the POKéMON likes its TRAINER."
  },
  {
   "id": 316,
@@ -2256,7 +2506,8 @@
   "pocket": "tm_case",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A 2-turn attack in which the user digs underground, then strikes. It can be used to exit dungeons."
  },
  {
   "id": 317,
@@ -2265,7 +2516,8 @@
   "pocket": "tm_case",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A powerful blast of telekinetic energy strikes the foe. It may lower the target's SP. DEF stat."
  },
  {
   "id": 318,
@@ -2274,7 +2526,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe is attacked with a shadowy lump. It may lower the target's SP. DEF stat."
  },
  {
   "id": 319,
@@ -2283,7 +2536,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Strikes the foe with a rock-hard fist, etc. It shatters barriers such as REFLECT and LIGHT SCREEN."
  },
  {
   "id": 320,
@@ -2292,7 +2546,8 @@
   "pocket": "tm_case",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The user begins moving so quickly that it creates illusory copies to raise its evasiveness."
  },
  {
   "id": 321,
@@ -2301,7 +2556,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A tough barrier is put up over five turns. It reduces damage from physical attacks over that time."
  },
  {
   "id": 322,
@@ -2310,7 +2566,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A rapid jolt of electricity strikes the foe. This attack is impossible to evade."
  },
  {
   "id": 323,
@@ -2319,7 +2576,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe is roasted with a heavy blast of fire. It may leave the target with a burn."
  },
  {
   "id": 324,
@@ -2328,7 +2586,8 @@
   "pocket": "tm_case",
   "price": 1000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Toxic sludge is hurled at the foe with great force. It may also poison the target."
  },
  {
   "id": 325,
@@ -2337,7 +2596,8 @@
   "pocket": "tm_case",
   "price": 2000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Summons a sandstorm that lasts for five turns. It damages all types except ROCK, GROUND, and STEEL."
  },
  {
   "id": 326,
@@ -2346,7 +2606,8 @@
   "pocket": "tm_case",
   "price": 5500,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe is incinerated with an intense flame. It may leave the target with a burn."
  },
  {
   "id": 327,
@@ -2355,7 +2616,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "Boulders are hurled at the foe. It also lowers the target's SPEED stat if it hits."
  },
  {
   "id": 328,
@@ -2364,7 +2626,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An extremely fast attack against one target. It is impossible to evade."
  },
  {
   "id": 329,
@@ -2373,7 +2636,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "If enraged by this move, the target becomes incapable of using the same move twice in a row."
  },
  {
   "id": 330,
@@ -2382,7 +2646,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An attack move that becomes very powerful if the user is poisoned, burned, or paralyzed."
  },
  {
   "id": 331,
@@ -2391,7 +2656,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An attack move that may have an additional effect depending on the battle terrain."
  },
  {
   "id": 332,
@@ -2400,7 +2666,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A move that makes the user fall asleep over two turns to restore HP and heal any status problems."
  },
  {
   "id": 333,
@@ -2409,7 +2676,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe, if it is the opposite gender as the user, becomes infatuated and may not attack."
  },
  {
   "id": 334,
@@ -2418,7 +2686,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "An attack that gives the user an opportunity to steal the foe's hold item."
  },
  {
   "id": 335,
@@ -2427,7 +2696,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "The foe is struck with steel-hard wings. It may also raise the user's DEFENSE stat."
  },
  {
   "id": 336,
@@ -2436,7 +2706,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A special power is transmitted to the foe, causing it to switch abilities with the user."
  },
  {
   "id": 337,
@@ -2445,7 +2716,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A move that steals the effects of any status-changing or healing move that the foe tries to use."
  },
  {
   "id": 338,
@@ -2454,7 +2726,8 @@
   "pocket": "tm_case",
   "price": 3000,
   "holdEffect": null,
-  "keyItem": false
+  "keyItem": false,
+  "description": "A maximum-power attack of great ferocity, but one that also sharply reduces the user's SP. ATK stat."
  },
  {
   "id": 339,
@@ -2463,7 +2736,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "Attacks the foe with sharp blades or claws. It can also cut down thin trees and grass outside of battle."
  },
  {
   "id": 340,
@@ -2472,7 +2746,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The user flies up on the first turn, then attacks next turn. It can be used to fly to any known town."
  },
  {
   "id": 341,
@@ -2481,7 +2756,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "Creates a huge wave, then crashes it down on the foe. It can be used for traveling on water."
  },
  {
   "id": 342,
@@ -2490,7 +2766,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The user builds enormous power, then slams the foe. It can be used for moving large, round boulders."
  },
  {
   "id": 343,
@@ -2499,7 +2776,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "Looses a powerful blast of light that reduces the foe's accuracy. It also lights up dark caves."
  },
  {
   "id": 344,
@@ -2508,7 +2786,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "Hits the foe with a rock-crushingly tough attack. It can smash cracked boulders."
  },
  {
   "id": 345,
@@ -2517,7 +2796,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A powerful charge attack. It can be used for climbing a torrential waterfall."
  },
  {
   "id": 346,
@@ -2526,7 +2806,8 @@
   "pocket": "tm_case",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A 2-turn attack in which the user dives underwater on the first turn, then strikes in the next turn."
  },
  {
   "id": 349,
@@ -2535,7 +2816,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A parcel to be delivered to PROF. OAK from VIRIDIAN CITY's POKéMON MART."
  },
  {
   "id": 350,
@@ -2544,7 +2826,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A flute that is said to instantly awaken any POKéMON. It has a lovely tone."
  },
  {
   "id": 351,
@@ -2553,7 +2836,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "The key to CINNABAR ISLAND GYM's front door. It is colored red and decorated."
  },
  {
   "id": 352,
@@ -2562,7 +2846,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "Take this voucher to the BIKE SHOP in CERULEAN CITY and exchange it for a bicycle."
  },
  {
   "id": 353,
@@ -2571,7 +2856,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A set of false teeth lost by the SAFARI ZONE'S WARDEN. It makes his smile sparkle."
  },
  {
   "id": 354,
@@ -2580,7 +2866,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A piece of amber that contains the genes of an ancient POKéMON. It is clear with a reddish tint."
  },
  {
   "id": 355,
@@ -2589,7 +2876,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A card-type key that unlocks doors in SILPH CO.'s HEAD OFFICE in SAFFRON CITY."
  },
  {
   "id": 356,
@@ -2598,7 +2886,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A key that operates the elevator in TEAM ROCKET's HIDEOUT. It bears the TEAM ROCKET logo."
  },
  {
   "id": 357,
@@ -2607,7 +2896,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A fossil of an ancient, seafloor- dwelling POKéMON. It appears to be part of a seashell."
  },
  {
   "id": 358,
@@ -2616,7 +2906,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A fossil of an ancient, seafloor- dwelling POKéMON. It appears to be part of a shell."
  },
  {
   "id": 359,
@@ -2625,7 +2916,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A scope that makes unseeable POKéMON visible. It is made by SILPH CO."
  },
  {
   "id": 360,
@@ -2634,7 +2926,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A folding bicycle that allows faster movement than the RUNNING SHOES."
  },
  {
   "id": 361,
@@ -2643,7 +2936,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A very convenient map that can be viewed anytime. It even shows your present location."
  },
  {
   "id": 362,
@@ -2652,7 +2946,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A device that indicates TRAINERS who want to battle. The battery charges while traveling."
  },
  {
   "id": 363,
@@ -2661,7 +2956,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A device that enables you to recall what you've heard and seen about famous people."
  },
  {
   "id": 364,
@@ -2670,7 +2966,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A case that holds TMs and HMs. It is attached to the BAG's compartment for important items."
  },
  {
   "id": 365,
@@ -2679,7 +2976,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A pouch for carrying BERRIES. It is attached to the BAG's compartment for important items."
  },
  {
   "id": 366,
@@ -2688,7 +2986,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A television set that is tuned to a program with useful tips for novice TRAINERS."
  },
  {
   "id": 367,
@@ -2697,7 +2996,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A pass for ferries between ONE, TWO, and THREE ISLAND. It has a drawing of three islands."
  },
  {
   "id": 368,
@@ -2706,7 +3006,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A pass for ferries between VERMILION and the SEVII ISLANDS. It features a drawing of a rainbow."
  },
  {
   "id": 369,
@@ -2715,7 +3016,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An aromatic tea prepared by an old lady. It will slake even the worst thirst."
  },
  {
   "id": 370,
@@ -2724,7 +3026,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A ticket required to board the ship to NAVEL ROCK. It glows with a mystic light."
  },
  {
   "id": 371,
@@ -2733,7 +3036,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A ticket required to board the ship to BIRTH ISLAND. It glows beautifully."
  },
  {
   "id": 372,
@@ -2742,7 +3046,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "A jar for storing BERRY POWDER made using a BERRY CRUSHER."
  },
  {
   "id": 373,
@@ -2751,7 +3056,8 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An exquisitely beautiful gem that has a red glow. It symbolizes passion."
  },
  {
   "id": 374,
@@ -2760,6 +3066,7 @@
   "pocket": "key_items",
   "price": 0,
   "holdEffect": null,
-  "keyItem": true
+  "keyItem": true,
+  "description": "An exquisitely beautiful gem that has a blue glow. It symbolizes honesty."
  }
 ]

@@ -1,6 +1,8 @@
 import { lookup, moves as allMoves, rules, species as allSpecies, typeChart } from '@pokeguide/data-firered';
 import {
+  adviseActive,
   assessTeam,
+  type Opponent,
   createTypeChart,
   findOption,
   forgetRule,
@@ -11,6 +13,8 @@ import {
   wildMoveset,
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Bag } from './Bag.tsx';
+import { Journey } from './Journey.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
 import {
   connectDropbox,
@@ -36,7 +40,7 @@ import {
 
 export const chart = createTypeChart(typeChart);
 const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
-type Tab = 'battle' | 'team' | 'moves';
+type Tab = 'battle' | 'journey' | 'team' | 'bag' | 'moves';
 
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
 const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
@@ -49,6 +53,15 @@ export function App() {
   const [info, setInfo] = useState<string | null>(null);
   const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
   const [tab, setTab] = useState<Tab>(() => (readPref('tab') as Tab) || 'battle');
+  const [battleNonce, setBattleNonce] = useState(0);
+  /** Da Jornada para a Batalha: abre o modo Treinador já com o treinador escolhido. */
+  function prepareTrainer(key: string) {
+    writePref('battleMode', 'trainer');
+    writePref('pendingTrainer', key);
+    setBattleNonce((n) => n + 1);
+    setTab('battle');
+    window.scrollTo({ top: 0 });
+  }
   const [dropbox, setDropbox] = useState(false);
   const [lastSync, setLastSync] = useState<string | null>(null);
   const [syncing, setSyncing] = useState(false);
@@ -219,7 +232,11 @@ export function App() {
             </button>
           </>
         ) : tab === 'battle' ? (
-          <BattleTab team={team} badges={p.badges} preview={p} />
+          <BattleTab key={battleNonce} team={team} badges={p.badges} preview={p} />
+        ) : tab === 'journey' ? (
+          <Journey preview={p} onPrepare={prepareTrainer} />
+        ) : tab === 'bag' ? (
+          <Bag preview={p} team={team} />
         ) : tab === 'team' ? (
           <>
             <TeamTab team={team} stored={save!} />
@@ -238,7 +255,9 @@ export function App() {
           {(
             [
               ['battle', 'Batalha'],
+              ['journey', 'Jornada'],
               ['team', 'Equipe'],
+              ['bag', 'Bolsa'],
               ['moves', 'Golpes'],
             ] as const
           ).map(([id, label]) => (
@@ -270,6 +289,12 @@ function Onboarding({ syncing }: { syncing: boolean }) {
 function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: string[]; preview: StoredSave['preview'] }) {
   const [mode, setMode] = useState<'trainer' | 'wild'>(() => (readPref('battleMode') === 'wild' ? 'wild' : 'trainer'));
   useEffect(() => writePref('battleMode', mode), [mode]);
+  const [activeId, setActiveIdRaw] = useState<string | null>(() => readPref('activeId') || null);
+  const active = team.some((m) => m.id === activeId) ? activeId : null;
+  const setActiveId = (id: string | null) => {
+    setActiveIdRaw(id);
+    writePref('activeId', id ?? '');
+  };
   return (
     <>
       <div className="segmented" role="tablist" aria-label="Tipo de batalha">
@@ -280,12 +305,26 @@ function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: stri
           Selvagem
         </button>
       </div>
-      {mode === 'trainer' ? <TrainerBattle team={team} badges={badges} preview={preview} /> : <WildBattle team={team} badges={badges} />}
+      {mode === 'trainer' ? (
+        <TrainerBattle team={team} badges={badges} preview={preview} activeId={active} onActiveChange={setActiveId} />
+      ) : (
+        <WildBattle team={team} badges={badges} activeId={active} onActiveChange={setActiveId} />
+      )}
     </>
   );
 }
 
-function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) {
+function WildBattle({
+  team,
+  badges,
+  activeId,
+  onActiveChange,
+}: {
+  team: TeamMember[];
+  badges: string[];
+  activeId: string | null;
+  onActiveChange: (id: string | null) => void;
+}) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
   const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
@@ -338,6 +377,7 @@ function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) 
         </datalist>
       </div>
 
+      {opponent && <ActivePicker team={team} activeId={activeId} onChange={onActiveChange} />}
       {!levelOk && <p className="hint warn">O nível precisa ser um número de 1 a 100.</p>}
       {levelOk && !oppText.trim() && <p className="hint">Digite o nome do Pokémon adversário (pode ser só o começo).</p>}
       {oppText.trim() && !opt && (
@@ -347,6 +387,8 @@ function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) 
       {opponent && top && (
         <>
           <OpponentSummary species={opponent.species} moves={opponent.moves} />
+          <ActiveAdviceLine team={team} activeId={activeId} opponent={opponent} badges={badges} />
+          <NoSafeWinner best={top} member={byId.get(top.memberId)!} />
           <Recommendation a={top} member={byId.get(top.memberId)!} primary />
           <h3 className="section">Outras opções</h3>
           {ranking.slice(1).map((a) => (
@@ -357,7 +399,8 @@ function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) 
             context={{
               opponent: { species: opponent.species.key, level, moves: opponent.moves.map((m) => m.key) },
               badges,
-              ranking: ranking.map((a) => ({ member: byId.get(a.memberId)?.species.key, score: a.score, best: a.best, threat: a.threat, speed: a.speed })),
+              activeId,
+              ranking: ranking.map((a) => ({ member: byId.get(a.memberId)?.species.key, win: Math.round(a.duel.winProb * 1000) / 10, best: a.best, threat: a.threat, speed: a.speed })),
             }}
           />
         </>
@@ -392,7 +435,9 @@ export function Recommendation({ a, member, primary = false }: { a: MemberAssess
   return (
     <article className={`card rec ${primary ? 'primary' : ''}`}>
       <div className="row">
-        <strong className="who">{member.name}</strong>
+        <strong className="who">
+          {member.name} <WinBadge p={a.duel.winProb} />
+        </strong>
         {a.best && <MoveLine est={a.best} />}
       </div>
       {a.best && (
@@ -415,10 +460,80 @@ export function Recommendation({ a, member, primary = false }: { a: MemberAssess
   );
 }
 
+export function WinBadge({ p }: { p: number }) {
+  const pct = Math.round(p * 100);
+  const band = pct >= 80 ? 'good' : pct >= 50 ? 'mid' : 'bad';
+  return <span className={`win ${band}`} title="Chance de vencer o duelo (rolagens, precisão e crítico)">vence {pct}%</span>;
+}
+
+/** Aviso quando ninguém vence o duelo sozinho com segurança. */
+export function NoSafeWinner({ best, member }: { best: MemberAssessment; member: TeamMember }) {
+  if (best.duel.winProb >= 0.5) return null;
+  return (
+    <p className="alert soft">
+      Ninguém da equipe vence esse duelo sozinho com segurança. A melhor chance é {member.name} ({Math.round(best.duel.winProb * 100)}%).
+      Considere curar no meio da luta, desgastar com outro Pokémon antes ou subir o nível da equipe.
+    </p>
+  );
+}
+
+/** Conselho com um Pokémon em campo: ficar e atacar ou trocar. */
+export function ActiveAdviceLine({ team, activeId, opponent, badges }: { team: TeamMember[]; activeId: string | null; opponent: Opponent; badges: string[] }) {
+  if (!activeId) return null;
+  const adv = adviseActive(chart, team, activeId, opponent, badges);
+  if (!adv) return null;
+  const name = (id: string) => team.find((m) => m.id === id)?.name ?? '';
+  const move = (k: string | null) => (k ? displayName(lookup.move(k).name) : 'nenhum golpe');
+  const pct = (p: number) => `${Math.round(p * 100)}%`;
+  if (adv.kind === 'none') {
+    return (
+      <p className="advice none">
+        <strong>Nem ficar nem trocar vence sozinho.</strong> {name(adv.stay.memberId)} fica com {pct(adv.stay.duel.winProb)}
+        {adv.bestSwitch && <>; a melhor troca, {name(adv.bestSwitch.memberId)}, com {pct(adv.bestSwitch.duel.winProb)}</>}. Cure, desgaste com
+        outro Pokémon ou use itens.
+      </p>
+    );
+  }
+  if (adv.kind === 'stay') {
+    return (
+      <p className="advice stay">
+        <strong>Fique com {name(adv.stay.memberId)}</strong> e use {move(adv.stay.duel.moveKey)} (vence {pct(adv.stay.duel.winProb)}).
+      </p>
+    );
+  }
+  return (
+    <p className="advice switch">
+      <strong>Troque para {name(adv.to.memberId)}</strong>: vence {pct(adv.to.duel.winProb)} mesmo levando um golpe ao entrar, contra{' '}
+      {pct(adv.stay.duel.winProb)} se {name(adv.stay.memberId)} ficar.
+    </p>
+  );
+}
+
+/** Seletor do Pokémon em campo (opcional). */
+export function ActivePicker({ team, activeId, onChange }: { team: TeamMember[]; activeId: string | null; onChange: (id: string | null) => void }) {
+  return (
+    <div className="card active-picker">
+      <p className="label">Em campo agora (opcional): para saber se troca ou fica</p>
+      <div className="suggest">
+        <button type="button" className={`chip ${!activeId ? 'on' : ''}`} onClick={() => onChange(null)}>
+          Nenhum
+        </button>
+        {team
+          .filter((m) => m.hp.current > 0)
+          .map((m) => (
+            <button key={m.id} type="button" className={`chip ${activeId === m.id ? 'on' : ''}`} onClick={() => onChange(m.id)}>
+              {m.name}
+            </button>
+          ))}
+      </div>
+    </div>
+  );
+}
+
 export function CompactRecommendation({ a, member }: { a: MemberAssessment; member: TeamMember }) {
   return (
     <p className="alt">
-      ou <strong>{member.name}</strong>
+      ou <strong>{member.name}</strong> · vence {Math.round(a.duel.winProb * 100)}%
       {a.best && (
         <>
           {' '}
@@ -468,7 +583,7 @@ function TeamTab({ team, stored }: { team: TeamMember[]; stored: StoredSave }) {
               ))}
             </span>
           </div>
-          <div className={`hpbar ${hpClass(m.hp)}`} aria-label={`HP ${m.hp.current} de ${m.hp.max}`}>
+          <div className={`hpbar ${hpClass(m.hp)}`} role="progressbar" aria-label="HP" aria-valuemin={0} aria-valuemax={m.hp.max} aria-valuenow={m.hp.current}>
             <span style={{ width: `${(m.hp.current / Math.max(m.hp.max, 1)) * 100}%` }} />
           </div>
           <p className="fine">
