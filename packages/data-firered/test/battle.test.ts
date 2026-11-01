@@ -91,6 +91,14 @@ describe('ranking da equipe contra um adversário', () => {
     expect(lookup.move(charizard.threat!.moveKey).type).not.toBe('ground');
     expect(ranking.indexOf(charizard)).toBeLessThan(ranking.findIndex((a) => a.memberId === 'snorlax'));
   });
+  it('Gyarados dormindo com 60 HP não é recomendado contra Rhyhorn: Rock Blast nocauteia antes de ele acordar', () => {
+    // Caso encontrado no save real: o ranking punha o Gyarados no topo por "atacar primeiro".
+    const team = TEAM.map((m) => (m.id === 'gyarados' ? { ...m, hp: { current: 60, max: 107 }, status: 'sleep' } : m));
+    const ranking = assessTeam(chart, team, opponent('rhyhorn', 45), BADGES);
+    const gyarados = ranking.find((a) => a.memberId === 'gyarados')!;
+    expect(gyarados.threat).toMatchObject({ moveKey: 'rock_blast', ko: 'guaranteed' });
+    expect(ranking[0]!.memberId).not.toBe('gyarados');
+  });
   it('Pokémon desmaiado vai para o fim', () => {
     const team = TEAM.map((m) => (m.id === 'gyarados' ? { ...m, hp: { current: 0, max: 107 } } : m));
     const ranking = assessTeam(chart, team, opponent('rhyhorn', 45), BADGES);

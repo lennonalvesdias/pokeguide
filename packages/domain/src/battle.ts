@@ -188,13 +188,16 @@ export function assessTeam(
     if (best?.abilityDependent) notes.push('efetividade depende da habilidade do oponente');
     if (!best) notes.push('sem golpe de dano utilizável');
 
+    // Dormindo ou congelado: não age neste turno, então ser mais rápido não ajuda.
+    const canAct = member.status !== 'sleep' && member.status !== 'freeze';
+    const actsFirst = canAct && speed === 'faster';
     const off = Math.min(best?.pctMin ?? 0, 100);
     const def = Math.min(threat?.pctMax ?? 0, 100);
     let score = off - 0.6 * def;
-    if (speed === 'faster') score += 15;
-    if (best?.ko === 'guaranteed' && speed === 'faster') score += 25;
-    if (threat?.ko === 'guaranteed' && speed !== 'faster') score -= 25;
-    if (member.status === 'sleep' || member.status === 'freeze') score -= 40;
+    if (actsFirst) score += 15;
+    if (best?.ko === 'guaranteed' && actsFirst) score += 25;
+    if (threat?.ko === 'guaranteed' && !actsFirst) score -= 60;
+    if (!canAct) score -= 40;
     return { memberId: member.id, best, threat, speed, score: Math.round(score), notes };
   });
   return results.sort((a, b) => b.score - a.score);

@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  // GitHub Pages serve em /pokeguide/; localmente e em outros hosts, na raiz.
+  base: process.env.BASE_PATH ?? '/',
   // O dataset (~600 KB) vai inteiro no bundle de propósito, para funcionar offline.
   build: { chunkSizeWarningLimit: 1000 },
   plugins: [

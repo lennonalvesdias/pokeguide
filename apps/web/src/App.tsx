@@ -224,7 +224,7 @@ function Recommendation({ a, member, primary = false }: { a: MemberAssessment; m
         </p>
       )}
       <p className="meta">
-        {SPEED_LABEL[a.speed]}
+        {member.status === 'sleep' || member.status === 'freeze' ? 'não age neste turno' : SPEED_LABEL[a.speed]}
         {a.threat && (
           <>
             {' '}
