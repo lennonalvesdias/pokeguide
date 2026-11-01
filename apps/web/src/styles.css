@@ -145,3 +145,6 @@ input, select {
 .form.inline { margin-top: 8px; align-items: stretch; }
 .form.inline input { flex: 1; }
 .linkish { appearance: none; background: none; border: 0; color: var(--muted); text-decoration: underline; font: inherit; font-size: 13px; padding: 8px 0 0; cursor: pointer; }
+.linkish.center-block { display: block; width: 100%; text-align: center; padding: 12px 0; }
+.onboarding .fine { font-size: 14px; }
+.card-title { font-size: 18px; margin: 4px 0 6px; }
