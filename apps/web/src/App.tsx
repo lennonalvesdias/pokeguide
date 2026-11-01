@@ -166,11 +166,11 @@ export function App() {
           <button type="button" className="btn ghost" onClick={() => syncDropbox()} disabled={syncing}>
             {syncing ? 'Buscando…' : 'Atualizar'}
           </button>
-        ) : (
+        ) : p ? (
           <button type="button" className="btn ghost" onClick={() => fileRef.current?.click()}>
-            {p ? 'Trocar save' : 'Importar save'}
+            Trocar save
           </button>
-        )}
+        ) : null}
         <input ref={fileRef} type="file" hidden onChange={onFile} aria-label="Arquivo de save" />
       </header>
 
@@ -197,8 +197,11 @@ export function App() {
       <main>
         {loading ? null : !p ? (
           <>
-            <Onboarding onPick={() => fileRef.current?.click()} />
+            {dropbox && <Onboarding syncing={syncing} />}
             <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
+            <button type="button" className="linkish center-block" onClick={() => fileRef.current?.click()}>
+              Sem Dropbox? Importar um arquivo de save exportado do Delta
+            </button>
           </>
         ) : tab === 'battle' ? (
           <BattleTab team={team} badges={p.badges} />
@@ -234,19 +237,15 @@ export function App() {
   );
 }
 
-function Onboarding({ onPick }: { onPick: () => void }) {
+function Onboarding({ syncing }: { syncing: boolean }) {
   return (
     <section className="card onboarding">
-      <h2>Comece pelo seu save</h2>
-      <ol>
-        <li>No Delta, segure o jogo na biblioteca e toque em <b>Manage Save File → Export</b>.</li>
-        <li>Salve o arquivo em Arquivos (iCloud Drive ou No meu iPhone).</li>
-        <li>Toque abaixo e escolha o arquivo.</li>
-      </ol>
-      <button type="button" className="btn primary" onClick={onPick}>
-        Importar save
-      </button>
-      <p className="fine">O save é lido só neste aparelho e nunca é enviado a lugar nenhum.</p>
+      <h2>{syncing ? 'Buscando seu save no Dropbox…' : 'Nenhum save encontrado ainda'}</h2>
+      {!syncing && (
+        <p className="fine">
+          Confira se o Delta Sync está ativo com este Dropbox e se você já salvou no jogo. Depois toque em Atualizar.
+        </p>
+      )}
     </section>
   );
 }
@@ -605,10 +604,13 @@ function DropboxCard(props: { connected: boolean; onChange: (c: boolean) => void
   }
   return (
     <section className="card dropbox">
-      <strong>Buscar o save pelo Delta Sync (Dropbox)</strong>
+      <h2 className="card-title">Conecte o Delta Sync</h2>
       {step === 'idle' ? (
         <>
-          <p className="fine">Lê só os saves da pasta do Delta, nunca as ROMs. O acesso fica guardado neste aparelho.</p>
+          <p className="fine">
+            Conecte o Dropbox uma vez e o app passa a buscar seu save sozinho sempre que você abrir ou voltar do Delta.
+            Lê só os saves, nunca as ROMs; o acesso fica guardado neste aparelho.
+          </p>
           <button type="button" className="btn solid wide" onClick={open}>
             Conectar Dropbox
           </button>
