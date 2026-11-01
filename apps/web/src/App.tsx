@@ -49,6 +49,7 @@ export function App() {
   const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
   const [tab, setTab] = useState<Tab>(() => (readPref('tab') as Tab) || 'battle');
   const [dropbox, setDropbox] = useState(false);
+  const [lastSync, setLastSync] = useState<string | null>(null);
   const [syncing, setSyncing] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -89,6 +90,7 @@ export function App() {
     setSyncing(true);
     try {
       const r = await importFromDropbox(saveRef.current);
+      setLastSync(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
       if (r.kind === 'unchanged' || (r.kind === 'imported' && r.message.startsWith('Já está'))) {
         if (!opts.silent) setInfo(r.message);
         if (r.kind === 'imported') setSave(r.stored);
@@ -128,6 +130,11 @@ export function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dropbox, loading]);
 
+  function goConnect() {
+    setTab('team');
+    requestAnimationFrame(() => document.querySelector('.dropbox')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+  }
+
   function handleOutcome(r: ImportOutcome) {
     if (r.kind === 'imported') {
       setSave(r.stored);
@@ -163,12 +170,19 @@ export function App() {
           )}
         </div>
         {dropbox ? (
-          <button type="button" className="btn ghost" onClick={() => syncDropbox()} disabled={syncing}>
-            {syncing ? 'Buscando…' : 'Atualizar'}
+          <button
+            type="button"
+            className="sync-pill"
+            onClick={() => syncDropbox()}
+            disabled={syncing}
+            aria-label="Verificar o Dropbox agora"
+          >
+            <span className={`dot ${syncing ? 'busy' : 'ok'}`} />
+            {syncing ? 'Sincronizando…' : lastSync ? `Dropbox · ${lastSync}` : 'Dropbox'}
           </button>
         ) : p ? (
-          <button type="button" className="btn ghost" onClick={() => fileRef.current?.click()}>
-            Trocar save
+          <button type="button" className="btn ghost" onClick={goConnect}>
+            Conectar Dropbox
           </button>
         ) : null}
         <input ref={fileRef} type="file" hidden onChange={onFile} aria-label="Arquivo de save" />

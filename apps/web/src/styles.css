@@ -148,3 +148,13 @@ input, select {
 .linkish.center-block { display: block; width: 100%; text-align: center; padding: 12px 0; }
 .onboarding .fine { font-size: 14px; }
 .card-title { font-size: 18px; margin: 4px 0 6px; }
+
+.sync-pill {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  appearance: none; border: 1px solid var(--line); background: var(--card); color: var(--muted);
+  font: inherit; font-size: 13px; font-weight: 600; padding: 8px 12px; border-radius: 999px; cursor: pointer;
+}
+.sync-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); }
+.sync-pill .dot.busy { background: var(--warn); animation: pulse 1s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .sync-pill .dot.busy { animation: none; } }
