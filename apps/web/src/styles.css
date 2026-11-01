@@ -175,3 +175,13 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .opp-mon .rec { margin: 10px 0 0; }
 .alt { margin: 8px 2px 0; font-size: 14px; color: var(--muted); }
 .alt strong { color: var(--ink); }
+
+.win { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+.win.good { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.win.mid { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+.win.bad { background: color-mix(in srgb, var(--danger) 14%, transparent); color: var(--danger); }
+.alert.soft { margin: 10px 0 0; font-size: 14px; }
+.advice { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; font-size: 14px; border: 1px solid var(--line); }
+.advice.stay { background: color-mix(in srgb, var(--good) 10%, var(--card)); }
+.advice.switch { background: color-mix(in srgb, var(--warn) 12%, var(--card)); }
+.active-picker .suggest { margin-bottom: 0; }

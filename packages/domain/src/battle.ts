@@ -1,5 +1,6 @@
 // Ranking da equipe contra um adversário (ADR-004, modo rápido com estimativa de dano).
 import { applyStage, badgeBoost, effectiveSpeed, gen3Damage, gen3Hp, gen3Stat } from './damage.ts';
+import { type AttackModel, attackDistribution, type Cadence, cadenceOf, duelWinProbability, isOneShot, koCdf } from './duel.ts';
 import { matchup, type TypeChart } from './matchup.ts';
 import type { MoveDefinition, SpeciesDefinition, StatBlock } from './types.ts';
 
@@ -38,14 +39,29 @@ export interface MoveEstimate {
   ko: KoChance;
 }
 
+export interface DuelResult {
+  /** Probabilidade de nocautear antes de ser nocauteado (0–1), com rolagens, precisão e crítico. */
+  winProb: number;
+  /** Golpe que maximiza a chance de vencer. */
+  moveKey: string | null;
+  /** Golpe do oponente que mais reduz essa chance (pior caso). */
+  theirMoveKey: string | null;
+}
+
 export interface MemberAssessment {
   memberId: string;
   best: MoveEstimate | null;
   threat: MoveEstimate | null;
   speed: 'faster' | 'slower' | 'tie' | 'unknown';
+  duel: DuelResult;
+  /** 0–100: chance de vencer o duelo, com desempate pelo dano garantido. */
   score: number;
   notes: string[];
 }
+
+/** Turnos assumidos sem agir: em Gen III o sono dura 2–5 turnos; congelado é aleatório. */
+const SLEEP_DELAY = 2;
+const FREEZE_DELAY = 3;
 
 const FIXED_DAMAGE: Record<string, (level: number) => number> = {
   dragon_rage: () => 40,
@@ -74,7 +90,8 @@ function opponentStats(o: Opponent) {
     spd: gen3Stat(b.spd, o.level, iv, 0, n, 'spd'),
     spe: gen3Stat(b.spe, o.level, iv, 0, n, 'spe'),
   });
-  return { low: at(ivs[0]!), high: at(ivs[1]!) };
+  // Para o duelo: IV fixo do treinador ou o meio da faixa (15) para selvagens.
+  return { low: at(ivs[0]!), high: at(ivs[1]!), mid: at(o.iv ?? 15) };
 }
 
 /** Golpes que um Pokémon selvagem conhece: os 4 últimos golpes de level-up até o nível (Gen III). */
@@ -88,18 +105,37 @@ export function wildMoveset(species: SpeciesDefinition, level: number): string[]
   return known;
 }
 
+export interface AssessOptions {
+  /** Ataques livres do oponente antes do 1º turno (o membro acabou de entrar por troca). */
+  theirFreeAttacks?: number;
+}
+
 export function assessTeam(
   chart: TypeChart,
   team: readonly TeamMember[],
   opponent: Opponent,
   badges: readonly string[],
+  opts: AssessOptions = {},
 ): MemberAssessment[] {
-  const opp = opponentStats(opponent);
-  const results = team.map((member): MemberAssessment => {
+  return team.map((m) => assessMember(chart, m, opponent, badges, opts)).sort((a, b) => b.score - a.score);
+}
+
+export function assessMember(
+  chart: TypeChart,
+  member: TeamMember,
+  opponent: Opponent,
+  badges: readonly string[],
+  opts: AssessOptions = {},
+): MemberAssessment {
+    const opp = opponentStats(opponent);
     const notes: string[] = [];
     if (member.hp.current === 0) {
-      return { memberId: member.id, best: null, threat: null, speed: 'unknown', score: -1000, notes: ['desmaiado'] };
+      return { memberId: member.id, best: null, threat: null, speed: 'unknown', duel: { winProb: 0, moveKey: null, theirMoveKey: null }, score: -1000, notes: ['desmaiado'] };
     }
+    type Modeled = { key: string; model: AttackModel; cadence: Cadence; oneShot: boolean };
+    const myModels: Modeled[] = [];
+    const theirModels: Modeled[] = [];
+    const estimates: MoveEstimate[] = [];
 
     // Ataque: menor dano garantido contra o oponente com IVs altos, maior contra IVs baixos.
     let best: MoveEstimate | null = null;
@@ -116,8 +152,10 @@ export function assessTeam(
       const [hMin, hMax] = hitsOf(move);
       let dMin: number;
       let dMax: number;
+      const hitsKind: AttackModel['hits'] = hMax === 2 ? 'double' : hMax === 5 ? 'multi' : 'single';
       if (fixed) {
         dMin = dMax = mult === 0 ? 0 : fixed(member.level);
+        myModels.push({ key: move.key, model: { rolls: [], fixed: dMin, accuracy: move.accuracy, hits: hitsKind }, cadence: cadenceOf(move.effect), oneShot: isOneShot(move.effect) });
       } else {
         const physical = move.category === 'physical';
         let atk = badgeBoost(physical ? 'atk' : 'spa', physical ? member.stats.atk : member.stats.spa, badges);
@@ -136,6 +174,11 @@ export function assessTeam(
         });
         dMin = lowRoll.min;
         dMax = highRoll.max;
+        const midRoll = gen3Damage({
+          level: member.level, power: move.power!, attack: Math.floor(atk * thick),
+          defense: physical ? opp.mid.def : opp.mid.spd, stab: !!mu.stab, typeMultipliers: eff,
+        });
+        myModels.push({ key: move.key, model: { rolls: midRoll.rolls, accuracy: move.accuracy, hits: hitsKind }, cadence: cadenceOf(move.effect), oneShot: isOneShot(move.effect) });
       }
       const est: MoveEstimate = {
         moveKey: move.key,
@@ -147,6 +190,7 @@ export function assessTeam(
         ko: 'none',
       };
       est.ko = koChance(est.pctMin, est.pctMax);
+      estimates.push(est);
       if (!best || est.pctMin > best.pctMin || (est.pctMin === best.pctMin && est.pctMax > best.pctMax)) best = est;
     }
 
@@ -160,8 +204,10 @@ export function assessTeam(
       const [hMin, hMax] = hitsOf(move);
       let dMin: number;
       let dMax: number;
+      const theirHits: AttackModel['hits'] = hMax === 2 ? 'double' : hMax === 5 ? 'multi' : 'single';
       if (fixed) {
         dMin = dMax = mu.multiplier === 0 ? 0 : fixed(opponent.level);
+        theirModels.push({ key: move.key, model: { rolls: [], fixed: dMin, accuracy: move.accuracy, hits: theirHits }, cadence: cadenceOf(move.effect), oneShot: isOneShot(move.effect) });
       } else {
         const physical = move.category === 'physical';
         const def = badgeBoost(physical ? 'def' : 'spd', physical ? member.stats.def : member.stats.spd, badges);
@@ -170,6 +216,8 @@ export function assessTeam(
         const hi = gen3Damage({ level: opponent.level, power: move.power!, attack: physical ? opp.high.atk : opp.high.spa, defense: def, stab: !!mu.stab, typeMultipliers: mu.multiplier === 0 ? [0] : eff });
         dMin = lo.min;
         dMax = hi.max;
+        const mid = gen3Damage({ level: opponent.level, power: move.power!, attack: physical ? opp.mid.atk : opp.mid.spa, defense: def, stab: !!mu.stab, typeMultipliers: mu.multiplier === 0 ? [0] : eff });
+        theirModels.push({ key: move.key, model: { rolls: mid.rolls, accuracy: move.accuracy, hits: theirHits }, cadence: cadenceOf(move.effect), oneShot: isOneShot(move.effect) });
       }
       const est: MoveEstimate = {
         moveKey: move.key,
@@ -194,19 +242,66 @@ export function assessTeam(
     if (opponent.ability === 'intimidate' && best && lookupCategory(member, best.moveKey) === 'physical') notes.push('Intimidate reduz seu Ataque');
     if (!best) notes.push('sem golpe de dano utilizável');
 
-    // Dormindo ou congelado: não age neste turno, então ser mais rápido não ajuda.
-    const canAct = member.status !== 'sleep' && member.status !== 'freeze';
-    const actsFirst = canAct && speed === 'faster';
-    const off = Math.min(best?.pctMin ?? 0, 100);
-    const def = Math.min(threat?.pctMax ?? 0, 100);
-    let score = off - 0.6 * def;
-    if (actsFirst) score += 15;
-    if (best?.ko === 'guaranteed' && actsFirst) score += 25;
-    if (threat?.ko === 'guaranteed' && !actsFirst) score -= 60;
-    if (!canAct) score -= 40;
-    return { memberId: member.id, best, threat, speed, score: Math.round(score), notes };
-  });
-  return results.sort((a, b) => b.score - a.score);
+    // Duelo: meu golpe que maximiza a chance de vencer contra o pior golpe do oponente.
+    const order = speed === 'faster' ? 'me' : speed === 'slower' ? 'them' : 'unknown';
+    const myDelay = member.status === 'sleep' ? SLEEP_DELAY : member.status === 'freeze' ? FREEZE_DELAY : 0;
+    const timing = { order, myDelay, theirFreeAttacks: opts.theirFreeAttacks ?? 0 } as const;
+    // Explosion do oponente: se não me nocautear, ele desmaia (conta como chance dele, não ameaça contínua).
+    const theirCdfs = theirModels.map((t) => ({
+      key: t.key,
+      cadence: t.cadence,
+      cdf: koCdf(attackDistribution(t.model, member.hp.current), member.hp.current, 10, t.oneShot),
+    }));
+    if (!theirCdfs.length) theirCdfs.push({ key: '', cadence: 'normal', cdf: new Array(11).fill(0) });
+    let duel: DuelResult = { winProb: 0, moveKey: null, theirMoveKey: null };
+    for (const mine of myModels) {
+      const cdf = koCdf(attackDistribution(mine.model, opp.mid.hp), opp.mid.hp, 10, mine.oneShot);
+      let worst = { p: 1, key: '' };
+      for (const t of theirCdfs) {
+        const p = duelWinProbability(cdf, t.cdf, { ...timing, myCadence: mine.cadence, theirCadence: t.cadence, myOneShot: mine.oneShot });
+        if (p < worst.p) worst = { p, key: t.key };
+      }
+      // Empate na chance de vencer: fica o golpe com mais dano garantido.
+      const dmg = (k: string | null) => estimates.find((e) => e.moveKey === k)?.pctMin ?? 0;
+      const better = worst.p > duel.winProb + 1e-9 || (Math.abs(worst.p - duel.winProb) <= 1e-9 && dmg(mine.key) > dmg(duel.moveKey));
+      if (better || !duel.moveKey) duel = { winProb: worst.p, moveKey: mine.key, theirMoveKey: worst.key || null };
+    }
+    // O golpe exibido é o que maximiza a chance de vencer, não só o de maior dano.
+    best = estimates.find((e) => e.moveKey === duel.moveKey) ?? best;
+    if (myDelay) notes.push(`considera ${myDelay} turnos sem agir`);
+    const score = Math.round(duel.winProb * 100 * 100) / 100 + Math.min(best?.pctMin ?? 0, 100) / 1000;
+    return { memberId: member.id, best, threat, speed, duel, score, notes };
+}
+
+export type ActiveAdvice =
+  | { kind: 'stay'; stay: MemberAssessment; alternative: MemberAssessment | null }
+  | { kind: 'switch'; stay: MemberAssessment; to: MemberAssessment };
+
+/**
+ * Com um Pokémon em campo: ficar e atacar, ou trocar? Quem entra por troca leva um ataque livre.
+ * Troca só quando melhora a chance de vencer em pelo menos 15 pontos e fica acima de 50%,
+ * ou quando ficar é quase certamente perder (< 25%) e a troca é melhor.
+ */
+export function adviseActive(
+  chart: TypeChart,
+  team: readonly TeamMember[],
+  activeId: string,
+  opponent: Opponent,
+  badges: readonly string[],
+): ActiveAdvice | null {
+  const active = team.find((m) => m.id === activeId);
+  if (!active) return null;
+  const stay = assessMember(chart, active, opponent, badges);
+  const switches = team
+    .filter((m) => m.id !== activeId && m.hp.current > 0)
+    .map((m) => assessMember(chart, m, opponent, badges, { theirFreeAttacks: 1 }))
+    .sort((a, b) => b.score - a.score);
+  const to = switches[0] ?? null;
+  const a = stay.duel.winProb;
+  if (to && ((to.duel.winProb >= a + 0.15 && to.duel.winProb >= 0.5) || (a < 0.25 && to.duel.winProb > a))) {
+    return { kind: 'switch', stay, to };
+  }
+  return { kind: 'stay', stay, alternative: to };
 }
 
 function lookupCategory(member: TeamMember, moveKey: string) {

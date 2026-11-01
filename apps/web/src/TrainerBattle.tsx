@@ -3,7 +3,7 @@ import { abilities, lookup, type TrainerDefinition, trainers } from '@pokeguide/
 import { assessTeam, findOption, type Opponent, type TeamMember, wildMoveset } from '@pokeguide/domain';
 import type { SaveImportPreview } from '@pokeguide/save-parser';
 import { useEffect, useMemo, useState } from 'react';
-import { chart, CompactRecommendation, mapLabel, Recommendation, ReportLink, Suggestions, TypeTag } from './App.tsx';
+import { ActiveAdviceLine, chart, CompactRecommendation, mapLabel, NoSafeWinner, Recommendation, ReportLink, Suggestions, TypeTag } from './App.tsx';
 import { displayName, readPref, writePref } from './state.ts';
 
 const STARTER_LINES: Record<string, 'bulbasaur' | 'charmander' | 'squirtle'> = {
@@ -41,7 +41,7 @@ function toOpponent(p: TrainerDefinition['party'][number]): Opponent {
   };
 }
 
-export function TrainerBattle({ team, badges, preview }: { team: TeamMember[]; badges: string[]; preview: SaveImportPreview }) {
+export function TrainerBattle({ team, badges, preview, activeId }: { team: TeamMember[]; badges: string[]; preview: SaveImportPreview; activeId: string | null }) {
   const rival = rivalStarterFor(team);
   const defeated = useMemo(() => new Set(preview.defeatedTrainerIds ?? []), [preview]);
   const visible = useMemo(() => trainers.filter((t) => !t.rivalStarter || !rival || t.rivalStarter === rival), [rival]);
@@ -108,12 +108,12 @@ export function TrainerBattle({ team, badges, preview }: { team: TeamMember[]; b
       </div>
       {!text.trim() && <p className="hint">Toque num treinador acima ou busque pelo nome.</p>}
       {text.trim() && !selected && <Suggestions items={search.suggestions} onPick={setText} empty="Nenhum treinador com esse nome." />}
-      {selected && <TrainerDetail trainer={selected} team={team} badges={badges} defeated={defeated.has(selected.id)} />}
+      {selected && <TrainerDetail trainer={selected} team={team} badges={badges} defeated={defeated.has(selected.id)} activeId={activeId} />}
     </section>
   );
 }
 
-function TrainerDetail({ trainer, team, badges, defeated }: { trainer: TrainerDefinition; team: TeamMember[]; badges: string[]; defeated: boolean }) {
+function TrainerDetail({ trainer, team, badges, defeated, activeId }: { trainer: TrainerDefinition; team: TeamMember[]; badges: string[]; defeated: boolean; activeId: string | null }) {
   const byId = new Map(team.map((m) => [m.id, m]));
   const rows = useMemo(
     () => trainer.party.map((p) => ({ p, opp: toOpponent(p), ranking: assessTeam(chart, team, toOpponent(p), badges) })),
@@ -153,6 +153,8 @@ function TrainerDetail({ trainer, team, badges, defeated }: { trainer: TrainerDe
               {opp.moves.map((m) => displayName(m.name)).join(', ')}
               {!p.moves && ' (golpes padrão)'}
             </p>
+            <ActiveAdviceLine team={team} activeId={activeId} opponent={opp} badges={badges} />
+            {top && byId.get(top.memberId) && <NoSafeWinner best={top} member={byId.get(top.memberId)!} />}
             {top && byId.get(top.memberId) && <Recommendation a={top} member={byId.get(top.memberId)!} primary />}
             {second && byId.get(second.memberId) && <CompactRecommendation a={second} member={byId.get(second.memberId)!} />}
           </article>
@@ -166,7 +168,7 @@ function TrainerDetail({ trainer, team, badges, defeated }: { trainer: TrainerDe
           party: rows.map(({ p, ranking }) => ({
             species: p.species,
             level: p.level,
-            top: ranking.slice(0, 2).map((a) => ({ member: byId.get(a.memberId)?.species.key, best: a.best, threat: a.threat, speed: a.speed })),
+            top: ranking.slice(0, 2).map((a) => ({ member: byId.get(a.memberId)?.species.key, win: Math.round(a.duel.winProb * 1000) / 10, best: a.best, threat: a.threat, speed: a.speed })),
           })),
         }}
       />

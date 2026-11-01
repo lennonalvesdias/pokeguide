@@ -1,6 +1,8 @@
 import { lookup, moves as allMoves, rules, species as allSpecies, typeChart } from '@pokeguide/data-firered';
 import {
+  adviseActive,
   assessTeam,
+  type Opponent,
   createTypeChart,
   findOption,
   forgetRule,
@@ -270,6 +272,12 @@ function Onboarding({ syncing }: { syncing: boolean }) {
 function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: string[]; preview: StoredSave['preview'] }) {
   const [mode, setMode] = useState<'trainer' | 'wild'>(() => (readPref('battleMode') === 'wild' ? 'wild' : 'trainer'));
   useEffect(() => writePref('battleMode', mode), [mode]);
+  const [activeId, setActiveIdRaw] = useState<string | null>(() => readPref('activeId') || null);
+  const active = team.some((m) => m.id === activeId) ? activeId : null;
+  const setActiveId = (id: string | null) => {
+    setActiveIdRaw(id);
+    writePref('activeId', id ?? '');
+  };
   return (
     <>
       <div className="segmented" role="tablist" aria-label="Tipo de batalha">
@@ -280,12 +288,17 @@ function BattleTab({ team, badges, preview }: { team: TeamMember[]; badges: stri
           Selvagem
         </button>
       </div>
-      {mode === 'trainer' ? <TrainerBattle team={team} badges={badges} preview={preview} /> : <WildBattle team={team} badges={badges} />}
+      <ActivePicker team={team} activeId={active} onChange={setActiveId} />
+      {mode === 'trainer' ? (
+        <TrainerBattle team={team} badges={badges} preview={preview} activeId={active} />
+      ) : (
+        <WildBattle team={team} badges={badges} activeId={active} />
+      )}
     </>
   );
 }
 
-function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) {
+function WildBattle({ team, badges, activeId }: { team: TeamMember[]; badges: string[]; activeId: string | null }) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
   const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
@@ -347,6 +360,8 @@ function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) 
       {opponent && top && (
         <>
           <OpponentSummary species={opponent.species} moves={opponent.moves} />
+          <ActiveAdviceLine team={team} activeId={activeId} opponent={opponent} badges={badges} />
+          <NoSafeWinner best={top} member={byId.get(top.memberId)!} />
           <Recommendation a={top} member={byId.get(top.memberId)!} primary />
           <h3 className="section">Outras opções</h3>
           {ranking.slice(1).map((a) => (
@@ -357,7 +372,8 @@ function WildBattle({ team, badges }: { team: TeamMember[]; badges: string[] }) 
             context={{
               opponent: { species: opponent.species.key, level, moves: opponent.moves.map((m) => m.key) },
               badges,
-              ranking: ranking.map((a) => ({ member: byId.get(a.memberId)?.species.key, score: a.score, best: a.best, threat: a.threat, speed: a.speed })),
+              activeId,
+              ranking: ranking.map((a) => ({ member: byId.get(a.memberId)?.species.key, win: Math.round(a.duel.winProb * 1000) / 10, best: a.best, threat: a.threat, speed: a.speed })),
             }}
           />
         </>
@@ -392,7 +408,9 @@ export function Recommendation({ a, member, primary = false }: { a: MemberAssess
   return (
     <article className={`card rec ${primary ? 'primary' : ''}`}>
       <div className="row">
-        <strong className="who">{member.name}</strong>
+        <strong className="who">
+          {member.name} <WinBadge p={a.duel.winProb} />
+        </strong>
         {a.best && <MoveLine est={a.best} />}
       </div>
       {a.best && (
@@ -415,10 +433,71 @@ export function Recommendation({ a, member, primary = false }: { a: MemberAssess
   );
 }
 
+export function WinBadge({ p }: { p: number }) {
+  const pct = Math.round(p * 100);
+  const band = pct >= 80 ? 'good' : pct >= 50 ? 'mid' : 'bad';
+  return <span className={`win ${band}`} title="Chance de vencer o duelo (rolagens, precisão e crítico)">vence {pct}%</span>;
+}
+
+/** Aviso quando ninguém vence o duelo sozinho com segurança. */
+export function NoSafeWinner({ best, member }: { best: MemberAssessment; member: TeamMember }) {
+  if (best.duel.winProb >= 0.5) return null;
+  return (
+    <p className="alert soft">
+      Ninguém da equipe vence esse duelo sozinho com segurança. A melhor chance é {member.name} ({Math.round(best.duel.winProb * 100)}%).
+      Considere curar no meio da luta, desgastar com outro Pokémon antes ou subir o nível da equipe.
+    </p>
+  );
+}
+
+/** Conselho com um Pokémon em campo: ficar e atacar ou trocar. */
+export function ActiveAdviceLine({ team, activeId, opponent, badges }: { team: TeamMember[]; activeId: string | null; opponent: Opponent; badges: string[] }) {
+  if (!activeId) return null;
+  const adv = adviseActive(chart, team, activeId, opponent, badges);
+  if (!adv) return null;
+  const name = (id: string) => team.find((m) => m.id === id)?.name ?? '';
+  const move = (k: string | null) => (k ? displayName(lookup.move(k).name) : 'nenhum golpe');
+  const pct = (p: number) => `${Math.round(p * 100)}%`;
+  if (adv.kind === 'stay') {
+    return (
+      <p className="advice stay">
+        <strong>Fique com {name(adv.stay.memberId)}</strong> e use {move(adv.stay.duel.moveKey)} (vence {pct(adv.stay.duel.winProb)}).
+      </p>
+    );
+  }
+  return (
+    <p className="advice switch">
+      <strong>Troque para {name(adv.to.memberId)}</strong>: vence {pct(adv.to.duel.winProb)} mesmo levando um golpe ao entrar, contra{' '}
+      {pct(adv.stay.duel.winProb)} se {name(adv.stay.memberId)} ficar.
+    </p>
+  );
+}
+
+/** Seletor do Pokémon em campo (opcional). */
+export function ActivePicker({ team, activeId, onChange }: { team: TeamMember[]; activeId: string | null; onChange: (id: string | null) => void }) {
+  return (
+    <div className="card active-picker">
+      <p className="label">Em campo agora (opcional): para saber se troca ou fica</p>
+      <div className="suggest">
+        <button type="button" className={`chip ${!activeId ? 'on' : ''}`} onClick={() => onChange(null)}>
+          Nenhum
+        </button>
+        {team
+          .filter((m) => m.hp.current > 0)
+          .map((m) => (
+            <button key={m.id} type="button" className={`chip ${activeId === m.id ? 'on' : ''}`} onClick={() => onChange(m.id)}>
+              {m.name}
+            </button>
+          ))}
+      </div>
+    </div>
+  );
+}
+
 export function CompactRecommendation({ a, member }: { a: MemberAssessment; member: TeamMember }) {
   return (
     <p className="alt">
-      ou <strong>{member.name}</strong>
+      ou <strong>{member.name}</strong> · vence {Math.round(a.duel.winProb * 100)}%
       {a.best && (
         <>
           {' '}
