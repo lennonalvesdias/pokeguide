@@ -158,3 +158,6 @@ input, select {
 .sync-pill .dot.busy { background: var(--warn); animation: pulse 1s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: .3; } }
 @media (prefers-reduced-motion: reduce) { .sync-pill .dot.busy { animation: none; } }
+.btn.center { text-align: center; }
+.btn.disabled { opacity: .55; pointer-events: none; }
+a.linkish { display: inline-block; }
