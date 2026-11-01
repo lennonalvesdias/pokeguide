@@ -1,7 +1,8 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import type { JourneyStep, MoveDefinition, SpeciesDefinition, TypeChartEntry, Versions } from '@pokeguide/domain';
+import type { JourneyStep, MoveDefinition, SpeciesDefinition, TeachOpponent, TypeChartEntry, Versions } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
+import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
 import machinesJson from '../data/machines.json' with { type: 'json' };
 import manifestJson from '../data/manifest.json' with { type: 'json' };
@@ -60,6 +61,23 @@ export interface TrainerDefinition {
   party: TrainerPokemon[];
 }
 
+export type EncounterMethod = 'land' | 'water' | 'rock_smash' | 'old_rod' | 'good_rod' | 'super_rod';
+
+export interface EncounterSlot {
+  species: string;
+  method: EncounterMethod;
+  /** Chance (%) dentro do método. */
+  rate: number;
+  minLevel: number;
+  maxLevel: number;
+}
+
+export interface MapEncounters {
+  /** Chave do mapa (mesma de `maps`). */
+  map: string;
+  slots: EncounterSlot[];
+}
+
 export interface MapDefinition {
   group: number;
   num: number;
@@ -78,6 +96,8 @@ export const trainers = trainersJson as TrainerDefinition[];
 export const machines = machinesJson as MachineDefinition[];
 /** Roteiro da história (curado em curated/walkthrough.json, validado pelo pipeline). */
 export const walkthrough = walkthroughJson as unknown as JourneyStep[];
+/** Pokémon selvagens por mapa (versão FireRed). */
+export const encounters = encountersJson as MapEncounters[];
 export const manifest = manifestJson;
 
 export const versions: Versions = {
@@ -110,3 +130,29 @@ export const lookup = {
   map: (group: number, num: number) => mapsByCoord.get(`${group}.${num}`),
   isKnownItem: (id: number) => itemsById.has(id),
 };
+
+/**
+ * Adversários de referência para avaliar golpes: o time dos treinadores ainda não vencidos
+ * com nível próximo ou acima do da equipe (sem nenhum, todos os treinadores nessa faixa).
+ */
+export function upcomingOpponents(
+  defeatedIds: ReadonlySet<number>,
+  teamLevel: number,
+  rivalStarter: TrainerDefinition['rivalStarter'] | null = null,
+): TeachOpponent[] {
+  const inRange = trainers.filter(
+    (t) => (!t.rivalStarter || !rivalStarter || t.rivalStarter === rivalStarter) && Math.max(...t.party.map((p) => p.level)) >= teamLevel - 10,
+  );
+  const pending = inRange.filter((t) => !defeatedIds.has(t.id));
+  const seen = new Set<string>();
+  const out: TeachOpponent[] = [];
+  for (const t of pending.length ? pending : inRange) {
+    for (const p of t.party) {
+      const k = `${p.species}:${p.level}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.push({ species: lookup.species(p.species), level: p.level, ability: p.ability });
+    }
+  }
+  return out;
+}

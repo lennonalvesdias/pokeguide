@@ -6,3 +6,4 @@ export * from './battle.ts';
 export * from './search.ts';
 export * from './duel.ts';
 export * from './journey.ts';
+export * from './teach.ts';
