@@ -314,3 +314,5 @@ export function parseSave(input: ArrayBuffer | Uint8Array, opts: ParseOptions = 
     warnings,
   };
 }
+export * from './pick.ts';
+export * from './delta.ts';
