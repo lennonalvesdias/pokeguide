@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.decomp/
+coverage/
+.DS_Store
+
+# Saves reais contêm nome e ID do treinador: nunca versionar.
+fixtures/private/*
+!fixtures/private/README.md

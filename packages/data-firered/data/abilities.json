@@ -1,0 +1,387 @@
+[
+ {
+  "id": 1,
+  "key": "stench",
+  "name": "STENCH"
+ },
+ {
+  "id": 2,
+  "key": "drizzle",
+  "name": "DRIZZLE"
+ },
+ {
+  "id": 3,
+  "key": "speed_boost",
+  "name": "SPEED BOOST"
+ },
+ {
+  "id": 4,
+  "key": "battle_armor",
+  "name": "BATTLE ARMOR"
+ },
+ {
+  "id": 5,
+  "key": "sturdy",
+  "name": "STURDY"
+ },
+ {
+  "id": 6,
+  "key": "damp",
+  "name": "DAMP"
+ },
+ {
+  "id": 7,
+  "key": "limber",
+  "name": "LIMBER"
+ },
+ {
+  "id": 8,
+  "key": "sand_veil",
+  "name": "SAND VEIL"
+ },
+ {
+  "id": 9,
+  "key": "static",
+  "name": "STATIC"
+ },
+ {
+  "id": 10,
+  "key": "volt_absorb",
+  "name": "VOLT ABSORB"
+ },
+ {
+  "id": 11,
+  "key": "water_absorb",
+  "name": "WATER ABSORB"
+ },
+ {
+  "id": 12,
+  "key": "oblivious",
+  "name": "OBLIVIOUS"
+ },
+ {
+  "id": 13,
+  "key": "cloud_nine",
+  "name": "CLOUD NINE"
+ },
+ {
+  "id": 14,
+  "key": "compound_eyes",
+  "name": "COMPOUNDEYES"
+ },
+ {
+  "id": 15,
+  "key": "insomnia",
+  "name": "INSOMNIA"
+ },
+ {
+  "id": 16,
+  "key": "color_change",
+  "name": "COLOR CHANGE"
+ },
+ {
+  "id": 17,
+  "key": "immunity",
+  "name": "IMMUNITY"
+ },
+ {
+  "id": 18,
+  "key": "flash_fire",
+  "name": "FLASH FIRE"
+ },
+ {
+  "id": 19,
+  "key": "shield_dust",
+  "name": "SHIELD DUST"
+ },
+ {
+  "id": 20,
+  "key": "own_tempo",
+  "name": "OWN TEMPO"
+ },
+ {
+  "id": 21,
+  "key": "suction_cups",
+  "name": "SUCTION CUPS"
+ },
+ {
+  "id": 22,
+  "key": "intimidate",
+  "name": "INTIMIDATE"
+ },
+ {
+  "id": 23,
+  "key": "shadow_tag",
+  "name": "SHADOW TAG"
+ },
+ {
+  "id": 24,
+  "key": "rough_skin",
+  "name": "ROUGH SKIN"
+ },
+ {
+  "id": 25,
+  "key": "wonder_guard",
+  "name": "WONDER GUARD"
+ },
+ {
+  "id": 26,
+  "key": "levitate",
+  "name": "LEVITATE"
+ },
+ {
+  "id": 27,
+  "key": "effect_spore",
+  "name": "EFFECT SPORE"
+ },
+ {
+  "id": 28,
+  "key": "synchronize",
+  "name": "SYNCHRONIZE"
+ },
+ {
+  "id": 29,
+  "key": "clear_body",
+  "name": "CLEAR BODY"
+ },
+ {
+  "id": 30,
+  "key": "natural_cure",
+  "name": "NATURAL CURE"
+ },
+ {
+  "id": 31,
+  "key": "lightning_rod",
+  "name": "LIGHTNINGROD"
+ },
+ {
+  "id": 32,
+  "key": "serene_grace",
+  "name": "SERENE GRACE"
+ },
+ {
+  "id": 33,
+  "key": "swift_swim",
+  "name": "SWIFT SWIM"
+ },
+ {
+  "id": 34,
+  "key": "chlorophyll",
+  "name": "CHLOROPHYLL"
+ },
+ {
+  "id": 35,
+  "key": "illuminate",
+  "name": "ILLUMINATE"
+ },
+ {
+  "id": 36,
+  "key": "trace",
+  "name": "TRACE"
+ },
+ {
+  "id": 37,
+  "key": "huge_power",
+  "name": "HUGE POWER"
+ },
+ {
+  "id": 38,
+  "key": "poison_point",
+  "name": "POISON POINT"
+ },
+ {
+  "id": 39,
+  "key": "inner_focus",
+  "name": "INNER FOCUS"
+ },
+ {
+  "id": 40,
+  "key": "magma_armor",
+  "name": "MAGMA ARMOR"
+ },
+ {
+  "id": 41,
+  "key": "water_veil",
+  "name": "WATER VEIL"
+ },
+ {
+  "id": 42,
+  "key": "magnet_pull",
+  "name": "MAGNET PULL"
+ },
+ {
+  "id": 43,
+  "key": "soundproof",
+  "name": "SOUNDPROOF"
+ },
+ {
+  "id": 44,
+  "key": "rain_dish",
+  "name": "RAIN DISH"
+ },
+ {
+  "id": 45,
+  "key": "sand_stream",
+  "name": "SAND STREAM"
+ },
+ {
+  "id": 46,
+  "key": "pressure",
+  "name": "PRESSURE"
+ },
+ {
+  "id": 47,
+  "key": "thick_fat",
+  "name": "THICK FAT"
+ },
+ {
+  "id": 48,
+  "key": "early_bird",
+  "name": "EARLY BIRD"
+ },
+ {
+  "id": 49,
+  "key": "flame_body",
+  "name": "FLAME BODY"
+ },
+ {
+  "id": 50,
+  "key": "run_away",
+  "name": "RUN AWAY"
+ },
+ {
+  "id": 51,
+  "key": "keen_eye",
+  "name": "KEEN EYE"
+ },
+ {
+  "id": 52,
+  "key": "hyper_cutter",
+  "name": "HYPER CUTTER"
+ },
+ {
+  "id": 53,
+  "key": "pickup",
+  "name": "PICKUP"
+ },
+ {
+  "id": 54,
+  "key": "truant",
+  "name": "TRUANT"
+ },
+ {
+  "id": 55,
+  "key": "hustle",
+  "name": "HUSTLE"
+ },
+ {
+  "id": 56,
+  "key": "cute_charm",
+  "name": "CUTE CHARM"
+ },
+ {
+  "id": 57,
+  "key": "plus",
+  "name": "PLUS"
+ },
+ {
+  "id": 58,
+  "key": "minus",
+  "name": "MINUS"
+ },
+ {
+  "id": 59,
+  "key": "forecast",
+  "name": "FORECAST"
+ },
+ {
+  "id": 60,
+  "key": "sticky_hold",
+  "name": "STICKY HOLD"
+ },
+ {
+  "id": 61,
+  "key": "shed_skin",
+  "name": "SHED SKIN"
+ },
+ {
+  "id": 62,
+  "key": "guts",
+  "name": "GUTS"
+ },
+ {
+  "id": 63,
+  "key": "marvel_scale",
+  "name": "MARVEL SCALE"
+ },
+ {
+  "id": 64,
+  "key": "liquid_ooze",
+  "name": "LIQUID OOZE"
+ },
+ {
+  "id": 65,
+  "key": "overgrow",
+  "name": "OVERGROW"
+ },
+ {
+  "id": 66,
+  "key": "blaze",
+  "name": "BLAZE"
+ },
+ {
+  "id": 67,
+  "key": "torrent",
+  "name": "TORRENT"
+ },
+ {
+  "id": 68,
+  "key": "swarm",
+  "name": "SWARM"
+ },
+ {
+  "id": 69,
+  "key": "rock_head",
+  "name": "ROCK HEAD"
+ },
+ {
+  "id": 70,
+  "key": "drought",
+  "name": "DROUGHT"
+ },
+ {
+  "id": 71,
+  "key": "arena_trap",
+  "name": "ARENA TRAP"
+ },
+ {
+  "id": 72,
+  "key": "vital_spirit",
+  "name": "VITAL SPIRIT"
+ },
+ {
+  "id": 73,
+  "key": "white_smoke",
+  "name": "WHITE SMOKE"
+ },
+ {
+  "id": 74,
+  "key": "pure_power",
+  "name": "PURE POWER"
+ },
+ {
+  "id": 75,
+  "key": "shell_armor",
+  "name": "SHELL ARMOR"
+ },
+ {
+  "id": 76,
+  "key": "cacophony",
+  "name": "CACOPHONY"
+ },
+ {
+  "id": 77,
+  "key": "air_lock",
+  "name": "AIR LOCK"
+ }
+]

@@ -1,0 +1,2765 @@
+[
+ {
+  "id": 1,
+  "key": "master_ball",
+  "name": "MASTER BALL",
+  "pocket": "poke_balls",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 2,
+  "key": "ultra_ball",
+  "name": "ULTRA BALL",
+  "pocket": "poke_balls",
+  "price": 1200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 3,
+  "key": "great_ball",
+  "name": "GREAT BALL",
+  "pocket": "poke_balls",
+  "price": 600,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 4,
+  "key": "poke_ball",
+  "name": "POKé BALL",
+  "pocket": "poke_balls",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 5,
+  "key": "safari_ball",
+  "name": "SAFARI BALL",
+  "pocket": "poke_balls",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 6,
+  "key": "net_ball",
+  "name": "NET BALL",
+  "pocket": "poke_balls",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 7,
+  "key": "dive_ball",
+  "name": "DIVE BALL",
+  "pocket": "poke_balls",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 8,
+  "key": "nest_ball",
+  "name": "NEST BALL",
+  "pocket": "poke_balls",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 9,
+  "key": "repeat_ball",
+  "name": "REPEAT BALL",
+  "pocket": "poke_balls",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 10,
+  "key": "timer_ball",
+  "name": "TIMER BALL",
+  "pocket": "poke_balls",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 11,
+  "key": "luxury_ball",
+  "name": "LUXURY BALL",
+  "pocket": "poke_balls",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 12,
+  "key": "premier_ball",
+  "name": "PREMIER BALL",
+  "pocket": "poke_balls",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 13,
+  "key": "potion",
+  "name": "POTION",
+  "pocket": "items",
+  "price": 300,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 14,
+  "key": "antidote",
+  "name": "ANTIDOTE",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 15,
+  "key": "burn_heal",
+  "name": "BURN HEAL",
+  "pocket": "items",
+  "price": 250,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 16,
+  "key": "ice_heal",
+  "name": "ICE HEAL",
+  "pocket": "items",
+  "price": 250,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 17,
+  "key": "awakening",
+  "name": "AWAKENING",
+  "pocket": "items",
+  "price": 250,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 18,
+  "key": "paralyze_heal",
+  "name": "PARLYZ HEAL",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 19,
+  "key": "full_restore",
+  "name": "FULL RESTORE",
+  "pocket": "items",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 20,
+  "key": "max_potion",
+  "name": "MAX POTION",
+  "pocket": "items",
+  "price": 2500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 21,
+  "key": "hyper_potion",
+  "name": "HYPER POTION",
+  "pocket": "items",
+  "price": 1200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 22,
+  "key": "super_potion",
+  "name": "SUPER POTION",
+  "pocket": "items",
+  "price": 700,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 23,
+  "key": "full_heal",
+  "name": "FULL HEAL",
+  "pocket": "items",
+  "price": 600,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 24,
+  "key": "revive",
+  "name": "REVIVE",
+  "pocket": "items",
+  "price": 1500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 25,
+  "key": "max_revive",
+  "name": "MAX REVIVE",
+  "pocket": "items",
+  "price": 4000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 26,
+  "key": "fresh_water",
+  "name": "FRESH WATER",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 27,
+  "key": "soda_pop",
+  "name": "SODA POP",
+  "pocket": "items",
+  "price": 300,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 28,
+  "key": "lemonade",
+  "name": "LEMONADE",
+  "pocket": "items",
+  "price": 350,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 29,
+  "key": "moomoo_milk",
+  "name": "MOOMOO MILK",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 30,
+  "key": "energy_powder",
+  "name": "ENERGYPOWDER",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 31,
+  "key": "energy_root",
+  "name": "ENERGY ROOT",
+  "pocket": "items",
+  "price": 800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 32,
+  "key": "heal_powder",
+  "name": "HEAL POWDER",
+  "pocket": "items",
+  "price": 450,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 33,
+  "key": "revival_herb",
+  "name": "REVIVAL HERB",
+  "pocket": "items",
+  "price": 2800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 34,
+  "key": "ether",
+  "name": "ETHER",
+  "pocket": "items",
+  "price": 1200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 35,
+  "key": "max_ether",
+  "name": "MAX ETHER",
+  "pocket": "items",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 36,
+  "key": "elixir",
+  "name": "ELIXIR",
+  "pocket": "items",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 37,
+  "key": "max_elixir",
+  "name": "MAX ELIXIR",
+  "pocket": "items",
+  "price": 4500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 38,
+  "key": "lava_cookie",
+  "name": "LAVA COOKIE",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 39,
+  "key": "blue_flute",
+  "name": "BLUE FLUTE",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 40,
+  "key": "yellow_flute",
+  "name": "YELLOW FLUTE",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 41,
+  "key": "red_flute",
+  "name": "RED FLUTE",
+  "pocket": "items",
+  "price": 300,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 42,
+  "key": "black_flute",
+  "name": "BLACK FLUTE",
+  "pocket": "items",
+  "price": 400,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 43,
+  "key": "white_flute",
+  "name": "WHITE FLUTE",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 44,
+  "key": "berry_juice",
+  "name": "BERRY JUICE",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "restore_hp",
+  "keyItem": false
+ },
+ {
+  "id": 45,
+  "key": "sacred_ash",
+  "name": "SACRED ASH",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 46,
+  "key": "shoal_salt",
+  "name": "SHOAL SALT",
+  "pocket": "items",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 47,
+  "key": "shoal_shell",
+  "name": "SHOAL SHELL",
+  "pocket": "items",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 48,
+  "key": "red_shard",
+  "name": "RED SHARD",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 49,
+  "key": "blue_shard",
+  "name": "BLUE SHARD",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 50,
+  "key": "yellow_shard",
+  "name": "YELLOW SHARD",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 51,
+  "key": "green_shard",
+  "name": "GREEN SHARD",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 63,
+  "key": "hp_up",
+  "name": "HP UP",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 64,
+  "key": "protein",
+  "name": "PROTEIN",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 65,
+  "key": "iron",
+  "name": "IRON",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 66,
+  "key": "carbos",
+  "name": "CARBOS",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 67,
+  "key": "calcium",
+  "name": "CALCIUM",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 68,
+  "key": "rare_candy",
+  "name": "RARE CANDY",
+  "pocket": "items",
+  "price": 4800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 69,
+  "key": "pp_up",
+  "name": "PP UP",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 70,
+  "key": "zinc",
+  "name": "ZINC",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 71,
+  "key": "pp_max",
+  "name": "PP MAX",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 73,
+  "key": "guard_spec",
+  "name": "GUARD SPEC.",
+  "pocket": "items",
+  "price": 700,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 74,
+  "key": "dire_hit",
+  "name": "DIRE HIT",
+  "pocket": "items",
+  "price": 650,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 75,
+  "key": "x_attack",
+  "name": "X ATTACK",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 76,
+  "key": "x_defend",
+  "name": "X DEFEND",
+  "pocket": "items",
+  "price": 550,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 77,
+  "key": "x_speed",
+  "name": "X SPEED",
+  "pocket": "items",
+  "price": 350,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 78,
+  "key": "x_accuracy",
+  "name": "X ACCURACY",
+  "pocket": "items",
+  "price": 950,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 79,
+  "key": "x_special",
+  "name": "X SPECIAL",
+  "pocket": "items",
+  "price": 350,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 80,
+  "key": "poke_doll",
+  "name": "POKé DOLL",
+  "pocket": "items",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 81,
+  "key": "fluffy_tail",
+  "name": "FLUFFY TAIL",
+  "pocket": "items",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 83,
+  "key": "super_repel",
+  "name": "SUPER REPEL",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 84,
+  "key": "max_repel",
+  "name": "MAX REPEL",
+  "pocket": "items",
+  "price": 700,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 85,
+  "key": "escape_rope",
+  "name": "ESCAPE ROPE",
+  "pocket": "items",
+  "price": 550,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 86,
+  "key": "repel",
+  "name": "REPEL",
+  "pocket": "items",
+  "price": 350,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 93,
+  "key": "sun_stone",
+  "name": "SUN STONE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 94,
+  "key": "moon_stone",
+  "name": "MOON STONE",
+  "pocket": "items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 95,
+  "key": "fire_stone",
+  "name": "FIRE STONE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 96,
+  "key": "thunder_stone",
+  "name": "THUNDERSTONE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 97,
+  "key": "water_stone",
+  "name": "WATER STONE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 98,
+  "key": "leaf_stone",
+  "name": "LEAF STONE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 103,
+  "key": "tiny_mushroom",
+  "name": "TINYMUSHROOM",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 104,
+  "key": "big_mushroom",
+  "name": "BIG MUSHROOM",
+  "pocket": "items",
+  "price": 5000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 106,
+  "key": "pearl",
+  "name": "PEARL",
+  "pocket": "items",
+  "price": 1400,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 107,
+  "key": "big_pearl",
+  "name": "BIG PEARL",
+  "pocket": "items",
+  "price": 7500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 108,
+  "key": "stardust",
+  "name": "STARDUST",
+  "pocket": "items",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 109,
+  "key": "star_piece",
+  "name": "STAR PIECE",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 110,
+  "key": "nugget",
+  "name": "NUGGET",
+  "pocket": "items",
+  "price": 10000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 111,
+  "key": "heart_scale",
+  "name": "HEART SCALE",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 121,
+  "key": "orange_mail",
+  "name": "ORANGE MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 122,
+  "key": "harbor_mail",
+  "name": "HARBOR MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 123,
+  "key": "glitter_mail",
+  "name": "GLITTER MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 124,
+  "key": "mech_mail",
+  "name": "MECH MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 125,
+  "key": "wood_mail",
+  "name": "WOOD MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 126,
+  "key": "wave_mail",
+  "name": "WAVE MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 127,
+  "key": "bead_mail",
+  "name": "BEAD MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 128,
+  "key": "shadow_mail",
+  "name": "SHADOW MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 129,
+  "key": "tropic_mail",
+  "name": "TROPIC MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 130,
+  "key": "dream_mail",
+  "name": "DREAM MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 131,
+  "key": "fab_mail",
+  "name": "FAB MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 132,
+  "key": "retro_mail",
+  "name": "RETRO MAIL",
+  "pocket": "items",
+  "price": 50,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 133,
+  "key": "cheri_berry",
+  "name": "CHERI BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_par",
+  "keyItem": false
+ },
+ {
+  "id": 134,
+  "key": "chesto_berry",
+  "name": "CHESTO BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_slp",
+  "keyItem": false
+ },
+ {
+  "id": 135,
+  "key": "pecha_berry",
+  "name": "PECHA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_psn",
+  "keyItem": false
+ },
+ {
+  "id": 136,
+  "key": "rawst_berry",
+  "name": "RAWST BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_brn",
+  "keyItem": false
+ },
+ {
+  "id": 137,
+  "key": "aspear_berry",
+  "name": "ASPEAR BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_frz",
+  "keyItem": false
+ },
+ {
+  "id": 138,
+  "key": "leppa_berry",
+  "name": "LEPPA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "restore_pp",
+  "keyItem": false
+ },
+ {
+  "id": 139,
+  "key": "oran_berry",
+  "name": "ORAN BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "restore_hp",
+  "keyItem": false
+ },
+ {
+  "id": 140,
+  "key": "persim_berry",
+  "name": "PERSIM BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_confusion",
+  "keyItem": false
+ },
+ {
+  "id": 141,
+  "key": "lum_berry",
+  "name": "LUM BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "cure_status",
+  "keyItem": false
+ },
+ {
+  "id": 142,
+  "key": "sitrus_berry",
+  "name": "SITRUS BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "restore_hp",
+  "keyItem": false
+ },
+ {
+  "id": 143,
+  "key": "figy_berry",
+  "name": "FIGY BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "confuse_spicy",
+  "keyItem": false
+ },
+ {
+  "id": 144,
+  "key": "wiki_berry",
+  "name": "WIKI BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "confuse_dry",
+  "keyItem": false
+ },
+ {
+  "id": 145,
+  "key": "mago_berry",
+  "name": "MAGO BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "confuse_sweet",
+  "keyItem": false
+ },
+ {
+  "id": 146,
+  "key": "aguav_berry",
+  "name": "AGUAV BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "confuse_bitter",
+  "keyItem": false
+ },
+ {
+  "id": 147,
+  "key": "iapapa_berry",
+  "name": "IAPAPA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "confuse_sour",
+  "keyItem": false
+ },
+ {
+  "id": 148,
+  "key": "razz_berry",
+  "name": "RAZZ BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 149,
+  "key": "bluk_berry",
+  "name": "BLUK BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 150,
+  "key": "nanab_berry",
+  "name": "NANAB BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 151,
+  "key": "wepear_berry",
+  "name": "WEPEAR BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 152,
+  "key": "pinap_berry",
+  "name": "PINAP BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 153,
+  "key": "pomeg_berry",
+  "name": "POMEG BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 154,
+  "key": "kelpsy_berry",
+  "name": "KELPSY BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 155,
+  "key": "qualot_berry",
+  "name": "QUALOT BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 156,
+  "key": "hondew_berry",
+  "name": "HONDEW BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 157,
+  "key": "grepa_berry",
+  "name": "GREPA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 158,
+  "key": "tamato_berry",
+  "name": "TAMATO BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 159,
+  "key": "cornn_berry",
+  "name": "CORNN BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 160,
+  "key": "magost_berry",
+  "name": "MAGOST BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 161,
+  "key": "rabuta_berry",
+  "name": "RABUTA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 162,
+  "key": "nomel_berry",
+  "name": "NOMEL BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 163,
+  "key": "spelon_berry",
+  "name": "SPELON BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 164,
+  "key": "pamtre_berry",
+  "name": "PAMTRE BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 165,
+  "key": "watmel_berry",
+  "name": "WATMEL BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 166,
+  "key": "durin_berry",
+  "name": "DURIN BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 167,
+  "key": "belue_berry",
+  "name": "BELUE BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 168,
+  "key": "liechi_berry",
+  "name": "LIECHI BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "attack_up",
+  "keyItem": false
+ },
+ {
+  "id": 169,
+  "key": "ganlon_berry",
+  "name": "GANLON BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "defense_up",
+  "keyItem": false
+ },
+ {
+  "id": 170,
+  "key": "salac_berry",
+  "name": "SALAC BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "speed_up",
+  "keyItem": false
+ },
+ {
+  "id": 171,
+  "key": "petaya_berry",
+  "name": "PETAYA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "sp_attack_up",
+  "keyItem": false
+ },
+ {
+  "id": 172,
+  "key": "apicot_berry",
+  "name": "APICOT BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "sp_defense_up",
+  "keyItem": false
+ },
+ {
+  "id": 173,
+  "key": "lansat_berry",
+  "name": "LANSAT BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "critical_up",
+  "keyItem": false
+ },
+ {
+  "id": 174,
+  "key": "starf_berry",
+  "name": "STARF BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": "random_stat_up",
+  "keyItem": false
+ },
+ {
+  "id": 175,
+  "key": "enigma_berry",
+  "name": "ENIGMA BERRY",
+  "pocket": "berry_pouch",
+  "price": 20,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 179,
+  "key": "bright_powder",
+  "name": "BRIGHTPOWDER",
+  "pocket": "items",
+  "price": 10,
+  "holdEffect": "evasion_up",
+  "keyItem": false
+ },
+ {
+  "id": 180,
+  "key": "white_herb",
+  "name": "WHITE HERB",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "restore_stats",
+  "keyItem": false
+ },
+ {
+  "id": 181,
+  "key": "macho_brace",
+  "name": "MACHO BRACE",
+  "pocket": "items",
+  "price": 3000,
+  "holdEffect": "macho_brace",
+  "keyItem": false
+ },
+ {
+  "id": 182,
+  "key": "exp_share",
+  "name": "EXP. SHARE",
+  "pocket": "items",
+  "price": 3000,
+  "holdEffect": "exp_share",
+  "keyItem": false
+ },
+ {
+  "id": 183,
+  "key": "quick_claw",
+  "name": "QUICK CLAW",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "quick_claw",
+  "keyItem": false
+ },
+ {
+  "id": 184,
+  "key": "soothe_bell",
+  "name": "SOOTHE BELL",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "friendship_up",
+  "keyItem": false
+ },
+ {
+  "id": 185,
+  "key": "mental_herb",
+  "name": "MENTAL HERB",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "cure_attract",
+  "keyItem": false
+ },
+ {
+  "id": 186,
+  "key": "choice_band",
+  "name": "CHOICE BAND",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "choice_band",
+  "keyItem": false
+ },
+ {
+  "id": 187,
+  "key": "kings_rock",
+  "name": "KING'S ROCK",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "flinch",
+  "keyItem": false
+ },
+ {
+  "id": 188,
+  "key": "silver_powder",
+  "name": "SILVERPOWDER",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "bug_power",
+  "keyItem": false
+ },
+ {
+  "id": 189,
+  "key": "amulet_coin",
+  "name": "AMULET COIN",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "double_prize",
+  "keyItem": false
+ },
+ {
+  "id": 190,
+  "key": "cleanse_tag",
+  "name": "CLEANSE TAG",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "repel",
+  "keyItem": false
+ },
+ {
+  "id": 191,
+  "key": "soul_dew",
+  "name": "SOUL DEW",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "soul_dew",
+  "keyItem": false
+ },
+ {
+  "id": 192,
+  "key": "deep_sea_tooth",
+  "name": "DEEPSEATOOTH",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "deep_sea_tooth",
+  "keyItem": false
+ },
+ {
+  "id": 193,
+  "key": "deep_sea_scale",
+  "name": "DEEPSEASCALE",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "deep_sea_scale",
+  "keyItem": false
+ },
+ {
+  "id": 194,
+  "key": "smoke_ball",
+  "name": "SMOKE BALL",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "can_always_run",
+  "keyItem": false
+ },
+ {
+  "id": 195,
+  "key": "everstone",
+  "name": "EVERSTONE",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "prevent_evolve",
+  "keyItem": false
+ },
+ {
+  "id": 196,
+  "key": "focus_band",
+  "name": "FOCUS BAND",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "focus_band",
+  "keyItem": false
+ },
+ {
+  "id": 197,
+  "key": "lucky_egg",
+  "name": "LUCKY EGG",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "lucky_egg",
+  "keyItem": false
+ },
+ {
+  "id": 198,
+  "key": "scope_lens",
+  "name": "SCOPE LENS",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "scope_lens",
+  "keyItem": false
+ },
+ {
+  "id": 199,
+  "key": "metal_coat",
+  "name": "METAL COAT",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "steel_power",
+  "keyItem": false
+ },
+ {
+  "id": 200,
+  "key": "leftovers",
+  "name": "LEFTOVERS",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "leftovers",
+  "keyItem": false
+ },
+ {
+  "id": 201,
+  "key": "dragon_scale",
+  "name": "DRAGON SCALE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": "dragon_scale",
+  "keyItem": false
+ },
+ {
+  "id": 202,
+  "key": "light_ball",
+  "name": "LIGHT BALL",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "light_ball",
+  "keyItem": false
+ },
+ {
+  "id": 203,
+  "key": "soft_sand",
+  "name": "SOFT SAND",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "ground_power",
+  "keyItem": false
+ },
+ {
+  "id": 204,
+  "key": "hard_stone",
+  "name": "HARD STONE",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "rock_power",
+  "keyItem": false
+ },
+ {
+  "id": 205,
+  "key": "miracle_seed",
+  "name": "MIRACLE SEED",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "grass_power",
+  "keyItem": false
+ },
+ {
+  "id": 206,
+  "key": "black_glasses",
+  "name": "BLACKGLASSES",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "dark_power",
+  "keyItem": false
+ },
+ {
+  "id": 207,
+  "key": "black_belt",
+  "name": "BLACK BELT",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "fighting_power",
+  "keyItem": false
+ },
+ {
+  "id": 208,
+  "key": "magnet",
+  "name": "MAGNET",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "electric_power",
+  "keyItem": false
+ },
+ {
+  "id": 209,
+  "key": "mystic_water",
+  "name": "MYSTIC WATER",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "water_power",
+  "keyItem": false
+ },
+ {
+  "id": 210,
+  "key": "sharp_beak",
+  "name": "SHARP BEAK",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "flying_power",
+  "keyItem": false
+ },
+ {
+  "id": 211,
+  "key": "poison_barb",
+  "name": "POISON BARB",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "poison_power",
+  "keyItem": false
+ },
+ {
+  "id": 212,
+  "key": "never_melt_ice",
+  "name": "NEVERMELTICE",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "ice_power",
+  "keyItem": false
+ },
+ {
+  "id": 213,
+  "key": "spell_tag",
+  "name": "SPELL TAG",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "ghost_power",
+  "keyItem": false
+ },
+ {
+  "id": 214,
+  "key": "twisted_spoon",
+  "name": "TWISTEDSPOON",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "psychic_power",
+  "keyItem": false
+ },
+ {
+  "id": 215,
+  "key": "charcoal",
+  "name": "CHARCOAL",
+  "pocket": "items",
+  "price": 9800,
+  "holdEffect": "fire_power",
+  "keyItem": false
+ },
+ {
+  "id": 216,
+  "key": "dragon_fang",
+  "name": "DRAGON FANG",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "dragon_power",
+  "keyItem": false
+ },
+ {
+  "id": 217,
+  "key": "silk_scarf",
+  "name": "SILK SCARF",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": "normal_power",
+  "keyItem": false
+ },
+ {
+  "id": 218,
+  "key": "up_grade",
+  "name": "UP-GRADE",
+  "pocket": "items",
+  "price": 2100,
+  "holdEffect": "up_grade",
+  "keyItem": false
+ },
+ {
+  "id": 219,
+  "key": "shell_bell",
+  "name": "SHELL BELL",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "shell_bell",
+  "keyItem": false
+ },
+ {
+  "id": 220,
+  "key": "sea_incense",
+  "name": "SEA INCENSE",
+  "pocket": "items",
+  "price": 9600,
+  "holdEffect": "water_power",
+  "keyItem": false
+ },
+ {
+  "id": 221,
+  "key": "lax_incense",
+  "name": "LAX INCENSE",
+  "pocket": "items",
+  "price": 9600,
+  "holdEffect": "evasion_up",
+  "keyItem": false
+ },
+ {
+  "id": 222,
+  "key": "lucky_punch",
+  "name": "LUCKY PUNCH",
+  "pocket": "items",
+  "price": 10,
+  "holdEffect": "lucky_punch",
+  "keyItem": false
+ },
+ {
+  "id": 223,
+  "key": "metal_powder",
+  "name": "METAL POWDER",
+  "pocket": "items",
+  "price": 10,
+  "holdEffect": "metal_powder",
+  "keyItem": false
+ },
+ {
+  "id": 224,
+  "key": "thick_club",
+  "name": "THICK CLUB",
+  "pocket": "items",
+  "price": 500,
+  "holdEffect": "thick_club",
+  "keyItem": false
+ },
+ {
+  "id": 225,
+  "key": "stick",
+  "name": "STICK",
+  "pocket": "items",
+  "price": 200,
+  "holdEffect": "stick",
+  "keyItem": false
+ },
+ {
+  "id": 254,
+  "key": "red_scarf",
+  "name": "RED SCARF",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 255,
+  "key": "blue_scarf",
+  "name": "BLUE SCARF",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 256,
+  "key": "pink_scarf",
+  "name": "PINK SCARF",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 257,
+  "key": "green_scarf",
+  "name": "GREEN SCARF",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 258,
+  "key": "yellow_scarf",
+  "name": "YELLOW SCARF",
+  "pocket": "items",
+  "price": 100,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 259,
+  "key": "mach_bike",
+  "name": "MACH BIKE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 260,
+  "key": "coin_case",
+  "name": "COIN CASE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 261,
+  "key": "itemfinder",
+  "name": "ITEMFINDER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 262,
+  "key": "old_rod",
+  "name": "OLD ROD",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 263,
+  "key": "good_rod",
+  "name": "GOOD ROD",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 264,
+  "key": "super_rod",
+  "name": "SUPER ROD",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 265,
+  "key": "ss_ticket",
+  "name": "S.S. TICKET",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 266,
+  "key": "contest_pass",
+  "name": "CONTEST PASS",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 268,
+  "key": "wailmer_pail",
+  "name": "WAILMER PAIL",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 269,
+  "key": "devon_goods",
+  "name": "DEVON GOODS",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 270,
+  "key": "soot_sack",
+  "name": "SOOT SACK",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 271,
+  "key": "basement_key",
+  "name": "BASEMENT KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 272,
+  "key": "acro_bike",
+  "name": "ACRO BIKE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 273,
+  "key": "pokeblock_case",
+  "name": "{POKEBLOCK} CASE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 274,
+  "key": "letter",
+  "name": "LETTER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 275,
+  "key": "eon_ticket",
+  "name": "EON TICKET",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 276,
+  "key": "red_orb",
+  "name": "RED ORB",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 277,
+  "key": "blue_orb",
+  "name": "BLUE ORB",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 278,
+  "key": "scanner",
+  "name": "SCANNER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 279,
+  "key": "go_goggles",
+  "name": "GO-GOGGLES",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 280,
+  "key": "meteorite",
+  "name": "METEORITE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 281,
+  "key": "room_1_key",
+  "name": "RM. 1 KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 282,
+  "key": "room_2_key",
+  "name": "RM. 2 KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 283,
+  "key": "room_4_key",
+  "name": "RM. 4 KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 284,
+  "key": "room_6_key",
+  "name": "RM. 6 KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 285,
+  "key": "storage_key",
+  "name": "STORAGE KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 286,
+  "key": "root_fossil",
+  "name": "ROOT FOSSIL",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 287,
+  "key": "claw_fossil",
+  "name": "CLAW FOSSIL",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 288,
+  "key": "devon_scope",
+  "name": "DEVON SCOPE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 289,
+  "key": "tm01",
+  "name": "TM01",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 290,
+  "key": "tm02",
+  "name": "TM02",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 291,
+  "key": "tm03",
+  "name": "TM03",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 292,
+  "key": "tm04",
+  "name": "TM04",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 293,
+  "key": "tm05",
+  "name": "TM05",
+  "pocket": "tm_case",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 294,
+  "key": "tm06",
+  "name": "TM06",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 295,
+  "key": "tm07",
+  "name": "TM07",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 296,
+  "key": "tm08",
+  "name": "TM08",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 297,
+  "key": "tm09",
+  "name": "TM09",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 298,
+  "key": "tm10",
+  "name": "TM10",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 299,
+  "key": "tm11",
+  "name": "TM11",
+  "pocket": "tm_case",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 300,
+  "key": "tm12",
+  "name": "TM12",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 301,
+  "key": "tm13",
+  "name": "TM13",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 302,
+  "key": "tm14",
+  "name": "TM14",
+  "pocket": "tm_case",
+  "price": 5500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 303,
+  "key": "tm15",
+  "name": "TM15",
+  "pocket": "tm_case",
+  "price": 7500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 304,
+  "key": "tm16",
+  "name": "TM16",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 305,
+  "key": "tm17",
+  "name": "TM17",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 306,
+  "key": "tm18",
+  "name": "TM18",
+  "pocket": "tm_case",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 307,
+  "key": "tm19",
+  "name": "TM19",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 308,
+  "key": "tm20",
+  "name": "TM20",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 309,
+  "key": "tm21",
+  "name": "TM21",
+  "pocket": "tm_case",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 310,
+  "key": "tm22",
+  "name": "TM22",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 311,
+  "key": "tm23",
+  "name": "TM23",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 312,
+  "key": "tm24",
+  "name": "TM24",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 313,
+  "key": "tm25",
+  "name": "TM25",
+  "pocket": "tm_case",
+  "price": 5500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 314,
+  "key": "tm26",
+  "name": "TM26",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 315,
+  "key": "tm27",
+  "name": "TM27",
+  "pocket": "tm_case",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 316,
+  "key": "tm28",
+  "name": "TM28",
+  "pocket": "tm_case",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 317,
+  "key": "tm29",
+  "name": "TM29",
+  "pocket": "tm_case",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 318,
+  "key": "tm30",
+  "name": "TM30",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 319,
+  "key": "tm31",
+  "name": "TM31",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 320,
+  "key": "tm32",
+  "name": "TM32",
+  "pocket": "tm_case",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 321,
+  "key": "tm33",
+  "name": "TM33",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 322,
+  "key": "tm34",
+  "name": "TM34",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 323,
+  "key": "tm35",
+  "name": "TM35",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 324,
+  "key": "tm36",
+  "name": "TM36",
+  "pocket": "tm_case",
+  "price": 1000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 325,
+  "key": "tm37",
+  "name": "TM37",
+  "pocket": "tm_case",
+  "price": 2000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 326,
+  "key": "tm38",
+  "name": "TM38",
+  "pocket": "tm_case",
+  "price": 5500,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 327,
+  "key": "tm39",
+  "name": "TM39",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 328,
+  "key": "tm40",
+  "name": "TM40",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 329,
+  "key": "tm41",
+  "name": "TM41",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 330,
+  "key": "tm42",
+  "name": "TM42",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 331,
+  "key": "tm43",
+  "name": "TM43",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 332,
+  "key": "tm44",
+  "name": "TM44",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 333,
+  "key": "tm45",
+  "name": "TM45",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 334,
+  "key": "tm46",
+  "name": "TM46",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 335,
+  "key": "tm47",
+  "name": "TM47",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 336,
+  "key": "tm48",
+  "name": "TM48",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 337,
+  "key": "tm49",
+  "name": "TM49",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 338,
+  "key": "tm50",
+  "name": "TM50",
+  "pocket": "tm_case",
+  "price": 3000,
+  "holdEffect": null,
+  "keyItem": false
+ },
+ {
+  "id": 339,
+  "key": "hm01",
+  "name": "HM01",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 340,
+  "key": "hm02",
+  "name": "HM02",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 341,
+  "key": "hm03",
+  "name": "HM03",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 342,
+  "key": "hm04",
+  "name": "HM04",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 343,
+  "key": "hm05",
+  "name": "HM05",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 344,
+  "key": "hm06",
+  "name": "HM06",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 345,
+  "key": "hm07",
+  "name": "HM07",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 346,
+  "key": "hm08",
+  "name": "HM08",
+  "pocket": "tm_case",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 349,
+  "key": "oaks_parcel",
+  "name": "OAK'S PARCEL",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 350,
+  "key": "poke_flute",
+  "name": "POKé FLUTE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 351,
+  "key": "secret_key",
+  "name": "SECRET KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 352,
+  "key": "bike_voucher",
+  "name": "BIKE VOUCHER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 353,
+  "key": "gold_teeth",
+  "name": "GOLD TEETH",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 354,
+  "key": "old_amber",
+  "name": "OLD AMBER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 355,
+  "key": "card_key",
+  "name": "CARD KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 356,
+  "key": "lift_key",
+  "name": "LIFT KEY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 357,
+  "key": "helix_fossil",
+  "name": "HELIX FOSSIL",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 358,
+  "key": "dome_fossil",
+  "name": "DOME FOSSIL",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 359,
+  "key": "silph_scope",
+  "name": "SILPH SCOPE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 360,
+  "key": "bicycle",
+  "name": "BICYCLE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 361,
+  "key": "town_map",
+  "name": "TOWN MAP",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 362,
+  "key": "vs_seeker",
+  "name": "VS SEEKER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 363,
+  "key": "fame_checker",
+  "name": "FAME CHECKER",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 364,
+  "key": "tm_case",
+  "name": "TM CASE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 365,
+  "key": "berry_pouch",
+  "name": "BERRY POUCH",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 366,
+  "key": "teachy_tv",
+  "name": "TEACHY TV",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 367,
+  "key": "tri_pass",
+  "name": "TRI-PASS",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 368,
+  "key": "rainbow_pass",
+  "name": "RAINBOW PASS",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 369,
+  "key": "tea",
+  "name": "TEA",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 370,
+  "key": "mystic_ticket",
+  "name": "MYSTICTICKET",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 371,
+  "key": "aurora_ticket",
+  "name": "AURORATICKET",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 372,
+  "key": "powder_jar",
+  "name": "POWDER JAR",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 373,
+  "key": "ruby",
+  "name": "RUBY",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ },
+ {
+  "id": 374,
+  "key": "sapphire",
+  "name": "SAPPHIRE",
+  "pocket": "key_items",
+  "price": 0,
+  "holdEffect": null,
+  "keyItem": true
+ }
+]
