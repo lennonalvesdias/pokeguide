@@ -1,5 +1,5 @@
 // Vale ensinar o TM? Golden cases com a equipe de meio de jogo (6 insígnias).
-import { createTypeChart, secondaryBonus, type TeamMember, teachAdvice, teamCoverage } from '@pokeguide/domain';
+import { canLearnMove, createTypeChart, secondaryBonus, type TeamMember, teachAdvice, teamCoverage } from '@pokeguide/domain';
 import { describe, expect, it } from 'vitest';
 import { lookup, rules, typeChart, upcomingOpponents } from '../src/index.ts';
 
@@ -93,5 +93,32 @@ describe('HM03 Surf no Snorlax (equipe real)', () => {
   });
   it('mesmo sem considerar a equipe, não compensa (HM + paralisia do Body Slam)', () => {
     expect(teachAdvice(chart, snorlax, lookup.move('surf'), OPP, BADGES, rules.hmMoves).kind).toBe('keep');
+  });
+});
+
+// Golden case (validação em campo, aba Golpes): Gyarados Nv 34 sobe para o Nv 35 e o jogo oferece Twister.
+describe('Twister por nível no Gyarados (aba Golpes)', () => {
+  const TEAM = [
+    member('gyarados', 34, { atk: 96, def: 61, spe: 66, spa: 56, spd: 78 }, ['ice_beam', 'dragon_rage', 'bite', 'surf']),
+    member('jolteon', 36, { atk: 62, def: 47, spe: 100, spa: 100, spd: 75 }, ['thunderbolt', 'sand_attack', 'double_kick', 'quick_attack']),
+    member('snorlax', 38, { atk: 92, def: 66, spe: 33, spa: 62, spd: 91 }, ['body_slam', 'sleep_talk', 'rest', 'strength']),
+    member('charizard', 40, { atk: 75, def: 73, spe: 99, spa: 101, spd: 79 }, ['wing_attack', 'flamethrower', 'fly', 'brick_break']),
+    member('dugtrio', 32, { atk: 64, def: 38, spe: 87, spa: 46, spd: 51 }, ['dig', 'cut', 'rock_slide', 'sand_tomb']),
+    member('kadabra', 38, { atk: 44, def: 35, spe: 100, spa: 111, spd: 54 }, ['reflect', 'recover', 'psychic', 'flash']),
+  ];
+  const gyarados = TEAM[0]!;
+  const twister = lookup.move('twister');
+  it('Twister não é TM: sem `learnable`, a comparação recusa', () => {
+    expect(teachAdvice(chart, gyarados, twister, OPP, BADGES, rules.hmMoves).kind).toBe('cannot');
+    expect(canLearnMove(gyarados, 'twister')).toBe(true);
+    expect(canLearnMove(gyarados, 'psychic')).toBe(false);
+  });
+  it('não aprender: Dragon Rage (40 fixo) já rende mais que Twister especial com Sp. Atk baixo', () => {
+    const a = teachAdvice(chart, gyarados, twister, OPP, BADGES, rules.hmMoves, {
+      teamBest: teamCoverage(chart, TEAM, OPP, BADGES).get(gyarados.id),
+      learnable: true,
+    });
+    expect(a).toMatchObject({ kind: 'keep', reason: 'low-gain', protectedMove: 'surf', hm: false });
+    if (a.kind === 'keep') expect(a.gain).toBeLessThan(0.05);
   });
 });

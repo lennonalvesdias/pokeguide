@@ -120,6 +120,9 @@ input, select {
 .movetable th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 4px 4px 6px; }
 .movetable td { padding: 8px 4px; border-top: 1px solid var(--line); vertical-align: middle; }
 .movetable tr.new td { background: var(--primary-bg); }
+.movetable tr.forget td { background: color-mix(in srgb, var(--warn) 10%, var(--card)); }
+.form:has(> .suggest) { flex-wrap: wrap; }
+.form > .suggest { flex-basis: 100%; }
 .tag { display: inline-block; font-size: 11px; font-weight: 700; margin-left: 6px; padding: 1px 6px; border-radius: 6px; background: var(--line); color: var(--ink); }
 .tag.good { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
 .tag.lock { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn); }

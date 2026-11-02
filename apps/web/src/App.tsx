@@ -16,6 +16,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Bag } from './Bag.tsx';
 import { Journey } from './Journey.tsx';
 import { MemberDetail } from './Member.tsx';
+import { MovesTab } from './Moves.tsx';
 import { Sprite } from './Sprite.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
 import {
@@ -46,7 +47,6 @@ const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
 type Tab = 'battle' | 'journey' | 'team' | 'bag' | 'moves';
 
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
-const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
 
 
 export function App() {
@@ -262,7 +262,7 @@ export function App() {
             </button>
           </>
         ) : (
-          <MovesTab team={team} />
+          <MovesTab team={team} preview={p!} />
         )}
       </main>
 
@@ -772,99 +772,6 @@ const STATUS_LABEL: Record<string, string> = {
   paralysis: 'paralisado',
   toxic: 'envenenado (tóxico)',
 };
-
-// ---------------- Golpes ----------------
-
-const SYNERGY: Record<string, string[]> = { rest: ['sleep_talk', 'snore'], sleep_talk: ['rest'], snore: ['rest'] };
-
-function MovesTab({ team }: { team: TeamMember[] }) {
-  const [memberId, setMemberId] = useState(team[0]?.id ?? '');
-  const [moveText, setMoveText] = useState('');
-  const member = team.find((m) => m.id === memberId) ?? team[0];
-  const moveSearch = findOption(moveOptions, moveText);
-  const candidate = moveSearch.match;
-  if (!member) return null;
-  const current = member.moves.map((x) => x.move);
-  const keys = new Set([...current.map((m) => m.key), ...(candidate ? [candidate.key] : [])]);
-
-  return (
-    <section>
-      <div className="card form">
-        <label>
-          Pokémon
-          <select value={member.id} onChange={(e) => setMemberId(e.target.value)}>
-            {team.map((m) => (
-              <option key={m.id} value={m.id}>
-                {m.name} (Nv {m.level})
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Golpe novo
-          <input list="moves" value={moveText} onChange={(e) => setMoveText(e.target.value)} placeholder="ex.: Sleep Talk" autoComplete="off" />
-        </label>
-        <datalist id="moves">
-          {moveOptions.map((o) => (
-            <option key={o.key} value={o.label} />
-          ))}
-        </datalist>
-      </div>
-      {moveText.trim() && !candidate && (
-        <Suggestions items={moveSearch.suggestions} onPick={(label) => setMoveText(label)} empty="Nenhum golpe com esse nome." />
-      )}
-
-      <div className="card">
-        <table className="movetable">
-          <thead>
-            <tr>
-              <th>Golpe</th>
-              <th>Tipo</th>
-              <th>Poder</th>
-              <th>Classe</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {candidate && <MoveRow move={lookup.move(candidate.key)} member={member} keys={keys} isNew />}
-            {current.map((m) => (
-              <MoveRow key={m.key} move={m} member={member} keys={keys} />
-            ))}
-          </tbody>
-        </table>
-        <p className="fine">
-          Esta versão compara os golpes e bloqueia HMs; a recomendação automática de qual esquecer vem com o assistente de builds.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-const CATEGORY_LABEL = { physical: 'Físico', special: 'Especial', status: 'Status' } as const;
-
-function MoveRow({ move, member, keys, isNew = false }: { move: MoveDefinition; member: TeamMember; keys: Set<string>; isNew?: boolean }) {
-  const hm = !forgetRule(move.key, rules.hmMoves).canForgetInLearnScreen;
-  const stab = !!move.power && member.species.types.includes(move.type);
-  const synergy = (SYNERGY[move.key] ?? []).filter((k) => keys.has(k));
-  return (
-    <tr className={isNew ? 'new' : ''}>
-      <td>
-        {displayName(move.name)}
-        {isNew && <span className="tag">novo</span>}
-        {synergy.length > 0 && <span className="tag good">combina com {synergy.map((k) => displayName(lookup.move(k).name)).join(', ')}</span>}
-      </td>
-      <td>
-        <TypeTag type={move.type} />
-      </td>
-      <td>
-        {move.power && move.power > 1 ? move.power : '—'}
-        {stab && <span className="tag">STAB</span>}
-      </td>
-      <td>{CATEGORY_LABEL[move.category]}</td>
-      <td>{hm && !isNew ? <span className="tag lock" title="HM: só o Move Deleter apaga">HM</span> : null}</td>
-    </tr>
-  );
-}
 
 // ---------------- Comum ----------------
 

@@ -180,10 +180,20 @@ function weighted(values: number[], weights: number[]): number {
 export interface TeachOptions {
   /** Melhor dano do resto da equipe contra cada adversário (ver `teamCoverage`). */
   teamBest?: readonly number[] | undefined;
+  /**
+   * O membro aprende o golpe por outro caminho além de TM/HM (ex.: subir de nível).
+   * Sem isso, só vale a lista de TMs/HMs da espécie.
+   */
+  learnable?: boolean | undefined;
+}
+
+/** O membro aprende o golpe subindo de nível ou por TM/HM? */
+export function canLearnMove(member: TeamMember, moveKey: string): boolean {
+  return !!member.species.tmhm?.includes(moveKey) || member.species.levelUpMoves.some((m) => m.move === moveKey);
 }
 
 /**
- * Compara ensinar `move` no lugar de cada golpe atual (HMs não entram: só o Move Deleter apaga).
+ * Compara aprender `move` (TM/HM ou, com `learnable`, por nível) no lugar de cada golpe atual (HMs não entram: só o Move Deleter apaga).
  * O ganho é relativo ao dano esperado atual contra `opponents`, com peso menor para quem o resto
  * da equipe já derruba: um adversário que outro membro nocauteia vale 30% de um que ninguém cobre.
  */
@@ -196,7 +206,7 @@ export function teachAdvice(
   hmMoves: readonly string[],
   opts: TeachOptions = {},
 ): TeachAdvice {
-  if (!member.species.tmhm?.includes(move.key)) return { kind: 'cannot' };
+  if (!opts.learnable && !member.species.tmhm?.includes(move.key)) return { kind: 'cannot' };
   if (member.moves.some((m) => m.move.key === move.key)) return { kind: 'knows' };
   if (move.category === 'status' && !FIXED_DAMAGE[move.effect]) return { kind: 'not-comparable', reason: 'status' };
   if (move.power === 1 && !FIXED_DAMAGE[move.effect]) return { kind: 'not-comparable', reason: 'variable-power' };
