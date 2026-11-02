@@ -1,6 +1,6 @@
 // Bolsa: o que você tem, o que cada item faz e quem da equipe aprende cada TM/HM.
 import { items, lookup, machines, rules, upcomingOpponents } from '@pokeguide/data-firered';
-import { type TeachAdvice, teachAdvice, type TeachOpponent, type TeamMember, teamCoverage } from '@pokeguide/domain';
+import { type TeachAdvice, teachAdvice, type TeachOpponent, type TeachScenario, type TeamMember, teamCoverage } from '@pokeguide/domain';
 import type { ItemStack, SaveImportPreview } from '@pokeguide/save-parser';
 import { useMemo, useState } from 'react';
 import { chart, TypeTag } from './App.tsx';
@@ -160,6 +160,7 @@ function BagRow({
                 return (
                   <li key={t.id} className={!a || a.kind === 'cannot' ? 'no' : a.kind === 'replace' || a.kind === 'free-slot' ? 'yes' : ''}>
                     <strong>{t.name}</strong>: {a ? memberLine(a, !!stab) : 'não aprende'}
+                    {a && (a.kind === 'replace' || a.kind === 'free-slot') && <Scenarios list={a.scenarios} />}
                   </li>
                 );
               })}
@@ -170,6 +171,40 @@ function BagRow({
         </div>
       )}
     </div>
+  );
+}
+
+const pct = (x: number) => `${Math.round(x * 100)}%`;
+const oppName = (s: TeachScenario) => `${displayName(lookup.species(s.species).name)} Nv ${s.level}`;
+
+/**
+ * O efeito por adversário, além da média: quem passa a cair com um golpe, onde melhora e onde piora.
+ * Dano esperado do melhor golpe, em % do HP do adversário, contando a precisão.
+ */
+function Scenarios({ list }: { list: TeachScenario[] }) {
+  const changed = list.filter((s) => Math.abs(s.after - s.before) >= 0.05);
+  if (!changed.length) return <p className="fine">Não muda o dano contra nenhum adversário de referência.</p>;
+  const ko = changed.filter((s) => s.after >= 1 && s.before < 1).sort((a, b) => a.before - b.before);
+  const lostKo = changed.filter((s) => s.before >= 1 && s.after < 1);
+  const better = changed.filter((s) => s.after > s.before).sort((a, b) => b.after - b.before - (a.after - a.before));
+  const worse = changed.filter((s) => s.after < s.before).sort((a, b) => a.after - a.before - (b.after - b.before));
+  const sample = (xs: TeachScenario[], n = 3) => xs.slice(0, n).map(oppName).join(', ') + (xs.length > n ? ` e mais ${xs.length - n}` : '');
+  return (
+    <details className="scenarios">
+      <summary>
+        Por adversário: melhora contra {better.length}, piora contra {worse.length}, igual contra {list.length - changed.length}
+      </summary>
+      {ko.length > 0 && <p className="fine">Passa a derrubar com um golpe: {sample(ko)}.</p>}
+      {lostKo.length > 0 && <p className="fine warn-text">Deixa de derrubar com um golpe: {sample(lostKo)}.</p>}
+      <ul className="scenario-list">
+        {[...better.slice(0, 5), ...worse.slice(0, 3)].map((s) => (
+          <li key={`${s.species}:${s.level}`} className={s.after > s.before ? 'up' : 'down'}>
+            {oppName(s)}: {pct(s.before)} → {pct(s.after)} do HP por golpe
+          </li>
+        ))}
+      </ul>
+      <p className="fine">Dano esperado do melhor golpe contra cada adversário, contando a precisão; 100% = derruba com um golpe.</p>
+    </details>
   );
 }
 

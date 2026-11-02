@@ -1,6 +1,6 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import { type AreaOpponent, type NavArea, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
+import { type AreaOpponent, type NavArea, type NavBlocker, type NavObstacle, type NavOpener, type NavWorld, type WorldMap, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
@@ -100,10 +100,28 @@ export const walkthrough = walkthroughJson as unknown as JourneyStep[];
 /** Pokémon selvagens por mapa (versão FireRed). */
 export const encounters = encountersJson as MapEncounters[];
 export const manifest = manifestJson;
-/** Áreas com guia passo a passo (grafo de tiles, escadas, buracos e interruptores do decomp). */
-export const navigation = navigationJson as unknown as NavArea[];
-/** Área de navegação que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
-export const navigationAreaOf = (mapKey: string) => navigation.find((a) => a.floors.some((f) => f.map === mapKey)) ?? null;
+/** Áreas com guia passo a passo e bloqueios de script (os mapas ficam em `loadWorld`). */
+export const navigation = navigationJson as unknown as { areas: NavArea[]; blockers: NavBlocker[]; newGameFlags: number[]; obstacles: Record<string, NavObstacle>; openers: NavOpener[]; elevatorKeys: NavWorld['elevatorKeys'] };
+/** Área com guia que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
+export const navigationAreaOf = (mapKey: string) => navigation.areas.find((a) => a.maps.includes(mapKey)) ?? null;
+
+let worldPromise: Promise<NavWorld> | null = null;
+/**
+ * O mundo de Kanto (256 mapas, ~900 KB): carregado sob demanda, num pedaço separado do app,
+ * para não atrasar a abertura. Fica em cache depois da primeira vez.
+ */
+export function loadWorld(): Promise<NavWorld> {
+  worldPromise ??= import('../data/world.json', { with: { type: 'json' } }).then((m) => ({
+    maps: (m.default as unknown as WorldMap[]),
+    areas: navigation.areas,
+    blockers: navigation.blockers,
+    newGameFlags: navigation.newGameFlags,
+    obstacles: navigation.obstacles,
+    openers: navigation.openers,
+    elevatorKeys: navigation.elevatorKeys,
+  }));
+  return worldPromise;
+}
 
 export const versions: Versions = {
   rulesetId: 'firered-gen3',
@@ -216,13 +234,24 @@ export function areaTrainers(
 }
 
 /** Lugares de treino: um por área + método (grama/caverna, surfando, cada vara), com os encontros no nível médio. */
-export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlySet<string>): TrainingSpotInput[] {
+/**
+ * Para surfar no FireRed é preciso a insígnia Soul e um Pokémon da equipe que saiba Surf
+ * (field_control_avatar.c: GetInteractedWaterScript → FLAG_BADGE05_GET && PartyHasMonWithSurf).
+ * Ter o HM03 na bolsa não basta.
+ */
+export function canSurf(badges: readonly string[], team: ReadonlyArray<{ moves: ReadonlyArray<{ move: { key: string } }> }>): boolean {
+  return badges.includes('soul') && team.some((m) => m.moves.some((x) => x.move.key === 'surf'));
+}
+
+export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlySet<string>, opts: { canSurf: boolean }): TrainingSpotInput[] {
   const groups = new Map<string, { maps: Set<string>; slots: Map<string, { species: string; level: number; rate: number }> }>();
   for (const e of encounters) {
     const area = areaOf(e.map);
     if (!areas.includes(area)) continue;
     for (const s of e.slots) {
       if (s.method === 'rock_smash' || (s.method.endsWith('_rod') && !keyItems.has(s.method))) continue;
+      // Selvagens na água pedem Surf (as varas pescam da margem, sem surfar).
+      if (s.method === 'water' && !opts.canSurf) continue;
       const key = `${area}|${s.method}`;
       const g = groups.get(key) ?? { maps: new Set(), slots: new Map() };
       g.maps.add(e.map);

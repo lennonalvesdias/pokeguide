@@ -43,11 +43,15 @@ git sparse-checkout set \
   /src/data/wild_encounters.json \
   /src/data/pokemon/experience_tables.h \
   /data/scripts/pokemon_mansion.inc \
+  /data/scripts/silphco_doors.inc \
   /data/scripts/item_ball_scripts.inc \
+  /include/constants/vars.h \
+  /data/event_scripts.s \
   /data/layouts/layouts.json \
-  '/data/layouts/PokemonMansion_*/map.bin' \
-  /data/tilesets/primary/building/metatile_attributes.bin \
-  /data/tilesets/secondary/pokemon_mansion/metatile_attributes.bin \
+  '/data/layouts/*/map.bin' \
+  '/data/tilesets/*/*/metatile_attributes.bin' \
+  /src/data/tilesets/headers.h \
+  /src/data/tilesets/metatiles.h \
   /include/constants/metatile_behaviors.h \
   /include/constants/metatile_labels.h \
   /include/fieldmap.h

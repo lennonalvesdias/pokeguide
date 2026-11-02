@@ -19,6 +19,8 @@ export interface StoredSave {
   fileName: string;
   /** content_hash do arquivo no Dropbox, para não baixar de novo o que não mudou. */
   sourceHash?: string;
+  /** Demonstração com dados de exemplo: só na memória, nunca gravada. */
+  demo?: true;
 }
 
 const KEY = 'save:v1';
@@ -107,6 +109,7 @@ export function toTeam(preview: SaveImportPreview): TeamMember[] {
         hp: p.hp,
         status: p.status,
         moves: p.moves.map((m) => ({ move: lookup.move(m.moveId), pp: m.pp })),
+        ...(species.abilities.length ? { ability: species.abilities[p.abilitySlot] ?? species.abilities[0]! } : {}),
       };
     });
 }

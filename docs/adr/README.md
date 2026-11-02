@@ -4,7 +4,8 @@
 | --- | --- |
 | [0000 — Arquitetura v1.0](0000-arquitetura-v1.0.md) | Proposta original |
 | [Revisão e plano de implementação](https://claude.ai/artifact/Xqf2ctaRMyHgXCDYh7Et5d) | Base da v1.1 |
-| [Navegação contextual e walkthrough verificável](ADR-contextual-walkthrough.md) | Aceita; fases 1 e 2 (Pokémon Mansion) implementadas |
+| [Navegação contextual e walkthrough verificável](ADR-contextual-walkthrough.md) | Aceita; fases 1–2 feitas, fase 4: 4a e 4b feitas (Kanto + 14 áreas), 4c pendente |
+| [Distribuição de dados](ADR-distribuicao-de-dados.md) | Aceita |
 | [Auditoria de UX 2026-11](../UX-AUDIT-2026-11.md) | P0 implementados; P1/P2 pendentes |
 
 ## Mudanças da v1.1 já refletidas no código
@@ -32,6 +33,6 @@
 
 ## Pendentes para a v1.1
 
-- [ ] ADR de uso de LLM (onde entra, provedor, comportamento offline, validação de saída).
-- [ ] ADR de distribuição de dados (service worker, atualização de dataset, migrações de IndexedDB).
+- [ ] ADR de uso de LLM: fora do plano por decisão do usuário (a fase 4 interativa substitui a fase 3; casos pontuais ficam nos apps de IA).
+- [x] ADR de distribuição de dados (service worker, atualização de dataset, migrações de IndexedDB).
 - [x] Versão do jogo: FireRed (revisão ainda não confirmada).

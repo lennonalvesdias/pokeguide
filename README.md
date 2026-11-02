@@ -9,7 +9,7 @@ Projeto pessoal. Decisões de arquitetura em [`docs/adr`](docs/adr/README.md).
 
 | Caminho | O que é |
 | --- | --- |
-| `apps/web` | PWA para iPhone: importa o save, recomenda Pokémon e golpe, compara golpes, guia passo a passo na Pokémon Mansion. Funciona offline. |
+| `apps/web` | PWA para iPhone: importa o save, recomenda Pokémon e golpe, compara golpes, mostra o próximo objetivo da história e guia passo a passo por Kanto (rota entre cidades e 14 áreas, ainda em beta). Tem uma demonstração para usar sem save. Funciona offline. |
 | `packages/domain` | Contratos e regras puras (tipos, imunidades, restrições de HM, planejador de navegação). Sem DOM nem rede. |
 | `packages/data-firered` | Dataset `firered-gen3` gerado do decomp + golden cases. |
 | `packages/save-parser` | Leitura somente leitura de saves `.sav` de FRLG. Roda no navegador. |
@@ -32,9 +32,15 @@ pnpm data:build
 
 ## Validando enquanto joga
 
-Quando uma recomendação estiver errada, toque em **Reportar recomendação errada** no app.
-Isso abre uma issue com o contexto completo (adversário, equipe, versões) e o rótulo `golden-case`;
-cada issue vira um teste em `packages/data-firered/test/` antes da correção.
+Quando uma recomendação ou um passo do guia estiver errado, toque em **Gerar relatório** no app.
+Você descreve o problema e copia, compartilha ou abre uma issue (rótulo `golden-case`) com o contexto
+(adversário, equipe ou passo do guia, e versões). Nada é enviado sozinho, e o relatório não leva nome,
+IDs do treinador nem flags do save. Cada relatório vira um teste em `packages/data-firered/test/` antes
+da correção.
+
+Em **Mais › Diagnóstico** ficam números de uso guardados só no aparelho: tempo até a primeira
+recomendação (p75) e quantos passos do guia deram certo, ficaram bloqueados ou não foram achados.
+É por eles que uma área sai de beta.
 
 ## Dados e direitos
 

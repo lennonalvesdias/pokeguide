@@ -1,6 +1,6 @@
 # ADR — Navegação contextual e walkthrough verificável (FireRed)
 
-Status: **Aceita: fases 1 e 2 implementadas para a Pokémon Mansion; fases 3 e 4 pendentes** (ver [Revisão e implementação](#revisão-e-implementação-2026-11))  
+Status: **Aceita: fases 1 e 2 feitas; fase 3 fora do plano; fase 4 em andamento (4a e 4b feitas; falta 4c, de interface)** (ver [Revisão e implementação](#revisão-e-implementação-2026-11))  
 Escopo: PokéGuide PWA, Pokémon FireRed (Gen III), Delta/iPhone  
 Branch: `feature/contextual-walkthrough-spec`  
 Relacionadas: ADR-010 (navegação em grafo) em [0000](0000-arquitetura-v1.0.md), [auditoria de UX](../UX-AUDIT-2026-11.md) (UX-01, UX-07)
@@ -220,3 +220,125 @@ entrada, em qualquer estado inicial do interruptor.
 
 **Pendente para fechar o DoD em campo:** jogar a mansão no Delta seguindo só o guia (save real em
 `fixtures/private/`, nunca versionado) e o E2E mobile de persistência ao fechar/reabrir o PWA.
+
+## Fase 4: decisões e andamento (2026-11)
+
+Decisões do usuário:
+
+- **Fase 3 fora do plano.** A fase 4 precisa ser completa e interativa o bastante para dispensar o
+  reconhecimento de screenshot; casos pontuais ficam com os apps de IA.
+- **Mapa inteiro de Kanto.** O guia passo a passo vale dentro dos lugares. Entre cidades a orientação é
+  por rota ("Como chegar", a partir do passo atual da Jornada).
+- **Ilhas Sevii numa segunda leva.**
+- **Áreas em "beta"** até serem atravessadas no jogo seguindo só o guia.
+- **Itens escondidos na rota completa.**
+- **"Preparar a batalha"** a partir do passo que cruza a visão de um treinador.
+
+### 4a: motor genérico e áreas sem quebra-cabeça (feito)
+
+**Dados.** O pipeline extrai do decomp os 256 mapas de Kanto (`world.json`):
+
+- colisão e comportamento de cada tile (ledge, bordas direcionais, água, correnteza, girador, gelo,
+  cachoeira) e elevação;
+- warps, com o jeito de disparar (ao pisar; ao apertar a direção no tapete ou na escada lateral);
+- conexões entre mapas;
+- objetos: Poké Balls, itens escondidos, treinadores com linha de visão, árvores de Cut, rochas de Rock
+  Smash, pedras e pessoas. Para pessoas, também as posições que o script de entrada no mapa aplica
+  conforme uma variável ou flag (`setobjectxyperm`);
+- gatilhos de script;
+- as flags ligadas num jogo novo (`EventScript_ResetAllMapFlags`).
+
+**Save.** O leitor passou a expor as variáveis de script (`SaveBlock1.vars`, 0x1000), de que dependem os
+bloqueios.
+
+**Motor de movimento.** Segue o decomp na ordem do jogo:
+
+- a ledge vem antes da colisão: a ledge tem colisão e só passa quem pula na direção dela;
+- bordas direcionais;
+- elevação, com início do Surf (terra elevação 3 olhando para água, fora de água rápida) e fim do Surf
+  (margem elevação 3);
+- HMs de campo com a insígnia da tabela do jogo;
+- conexões com `x − offset`;
+- movimento forçado: correnteza, girador, gelo e cachoeira.
+
+**Bloqueios curados.** São 20, cada um ligado a um gatilho real e à condição que o script checa: guardas
+de Saffron (Tea), Cycling Road (Bicycle), fantasma da Pokémon Tower (Silph Scope), velhinho de Viridian
+(Oak's Parcel, pela variável), guardas da Route 23 (insígnias) e outros.
+
+**Obstáculos.** Os conhecidos têm explicação e, quando dá, uma ação (fósseis do Mt. Moon, Snorlax com a
+Poké Flute).
+
+**Quando não há rota.** O guia diz o que falta. O planejador relaxa as condições com custo alto e lista
+os requisitos: HM e insígnia, item, bloqueio ou obstáculo.
+
+**Caminhos longos.** Viram trechos de no máximo ~20 tiles com contagem de passos ("ande 6 passos para
+cima, 4 para a direita..."), cada um com ponto de checagem no minimapa.
+
+**Áreas em beta.** Pokémon Mansion, Viridian Forest, Mt. Moon, Rock Tunnel, Diglett's Cave, Power Plant,
+Pokémon Tower, Cerulean Cave e S.S. Anne, mais a rota pelo mundo.
+
+**Testes.**
+
+- Golden cases por área: a sequência de ações de decisão da entrada ao objetivo, mais os casos negativos
+  (sem Surf, sem Silph Scope, sem o Oak's Parcel).
+- Testes unitários de cada regra de movimento num mundo sintético.
+- Varredura da mansão com o motor novo, com as mesmas 14/15 ações de decisão do motor anterior.
+
+### 4b: mecânicas especiais (feito)
+
+**Sobreposições genéricas.** O pipeline lê o script de carga de cada mapa (`OnLoad`/`OnTransition`). Todo
+rótulo chamado sob uma condição que troca tiles (`setmetatile`, `setmaplayoutindex`) vira uma sobreposição:
+
+- **condições:** flag ligada/desligada, variável comparada, treinador vencido;
+- **casos extraídos:** grades da mansão (agora pelo mesmo caminho genérico, com os mesmos 24 tiles no 1F),
+  20 portas da Silph Co., barreira do Rocket Hideout, escada escondida do Game Corner, barreiras da Victory
+  Road e correntezas do Seafoam (troca de layout);
+- **regra de incerteza:** condição desconhecida assume a variante mais restritiva.
+
+**Aberturas** (como o jogador desfaz uma sobreposição):
+
+- Card Key (Silph Co.);
+- vencer o Rocket da barreira;
+- interruptor atrás do pôster do Game Corner;
+- quebra-cabeças de Strength.
+
+**Quebra-cabeças resolvidos pelo pipeline:**
+
+- **Victory Road:** o script do botão diz qual pedra precisa chegar (`copyobjectxytoperm`). Uma busca em
+  largura com as regras de `TryPushBoulder` encontra a sequência de empurrões.
+- **Seafoam:**
+  - cada pedra guarda no `trainer_type` a flag que revela a pedra de baixo (`GetBoulderRevealFlagByLocalIdAndMap`);
+  - a cadeia é calculada de trás para frente a partir das pedras que param cada correnteza;
+  - o estado inicial vem do script de reinício da Route 20;
+  - a busca considera várias pedras (no B3F uma pedra precisa ser tirada do caminho de outra);
+  - são 8 tarefas, executadas como pré-requisito dos objetivos do Seafoam.
+- **Teste independente:** refaz cada empurrão sobre o mapa e confere que a pedra termina no botão ou no
+  buraco.
+
+**Outras correções e mecânicas:**
+
+- **Elevadores:** andares e destino exato vêm do script (`setdynamicwarp`); o do Rocket Hideout exige o
+  Lift Key (`FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT`).
+- **Teletransportadores:** `MB_REGULAR_WARP`, que é o que `IsWarpPad` testa no FireRed.
+- **Portas (vale para o jogo inteiro):** o tile da porta tem colisão, e o warp dispara com o jogador logo
+  abaixo, andando para cima (`TryDoorWarp`). Na 4a nenhuma porta funcionava; corrigido aqui.
+- **Buscar antes:** se o que falta é um item no chão da própria área (Card Key) ou a chave de um elevador
+  (Lift Key), o guia vai buscá-lo antes. Itens pegos na sessão contam como fatos até o próximo save.
+- **Safari Zone:** cada passo informa quantos dos 600 passos da entrada o caminho gasta.
+
+**Áreas novas (beta):** Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands e Victory Road. Cada uma
+tem golden case da entrada ao objetivo.
+
+### 4c: abas, relatório e diagnóstico (feito)
+
+- **Abas** "Agora · Batalha · Jornada · Equipe · Mais" (`apps/web/src/features/now/Now.tsx`). "Agora" é a
+  tela inicial: objetivo atual com "Como chegar" (rota pelo mundo) e o guia da área, abrindo a Jornada já
+  no guia; posição pelo save com a idade; atalhos e quem precisa de cura. "Mais" agrupa Bolsa, Golpes,
+  Save (Dropbox e importação manual) e Diagnóstico. A preferência antiga `tab=bag|moves` vira `more`.
+- **Relatório** (`features/feedback/Report.tsx`): no passo do guia ("Passo errado?") e nas recomendações de
+  batalha. Leva área, objetivo, passo, posição, interruptor e as últimas entradas do registro da sessão, ou
+  o contexto da batalha, mais as versões. Remove nome, IDs, `flagsHex`, `varsHex` e nome do arquivo. O
+  jogador copia, compartilha (`navigator.share`) ou abre uma issue; nada é enviado sem ação dele.
+- **Diagnóstico local** (`features/diagnostics/`): contadores em `localStorage` (`metrics:v1`), sem rede.
+  Mostra o p75 do tempo entre abrir o app e a primeira recomendação (meta do ADR) e a taxa de passos
+  "bloqueado/não achou", que é o sinal para tirar uma área de beta depois da validação em campo.
