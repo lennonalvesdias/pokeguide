@@ -26,6 +26,7 @@ import { MemberDetail } from './Member.tsx';
 import { MovesTab } from './Moves.tsx';
 import { Sprite } from './Sprite.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
+import { NAV_ITEMS, restoreTab, type Tab } from './navigation.ts';
 import {
   connectDropbox,
   disconnect as disconnectDropbox,
@@ -49,18 +50,6 @@ import {
 } from './state.ts';
 
 export const chart = createTypeChart(typeChart);
-type Tab = 'now' | 'battle' | 'journey' | 'team' | 'more';
-type MoreSection = 'bag' | 'moves' | 'save' | 'diagnostics';
-const TABS: readonly Tab[] = ['now', 'battle', 'journey', 'team', 'more'];
-
-/** Aba salva; as antigas Bolsa e Golpes agora ficam dentro de Mais. */
-function initialTab(): { tab: Tab; more: MoreSection } {
-  const saved = readPref('tab');
-  if (saved === 'bag' || saved === 'moves') return { tab: 'more', more: saved };
-  const more = readPref('moreSection') as MoreSection | null;
-  return { tab: TABS.includes(saved as Tab) ? (saved as Tab) : 'now', more: more && ['bag', 'moves', 'save', 'diagnostics'].includes(more) ? more : 'bag' };
-}
-
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
 
 
@@ -70,9 +59,7 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
-  const [initial] = useState(initialTab);
-  const [tab, setTabRaw] = useState<Tab>(initial.tab);
-  const [more, setMoreRaw] = useState<MoreSection>(initial.more);
+  const [tab, setTabRaw] = useState<Tab>(() => restoreTab(readPref('tab'), readPref('moreSection')));
   /** Guia aberto na Jornada: a tela Agora abre um, e voltar à aba reabre o último (ou nenhum, se foi fechado). */
   const [openGuide, setOpenGuide] = useState<GuideTarget | null>(null);
   const [journeyNonce, setJourneyNonce] = useState(0);
@@ -80,13 +67,7 @@ export function App() {
     setTabRaw(t);
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
-  function setMore(m: MoreSection) {
-    setMoreRaw(m);
-    writePref('moreSection', m);
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }
   function go(g: NowGoto) {
-    if (g.tab === 'more') setMore(g.section);
     if ('guide' in g) {
       setOpenGuide(g.guide);
       setJourneyNonce((n) => n + 1);
@@ -184,8 +165,7 @@ export function App() {
   }, [dropbox, loading]);
 
   function goConnect() {
-    setMore('save');
-    setTab('more');
+    setTab('save');
     requestAnimationFrame(() => document.querySelector('.dropbox')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
   }
 
@@ -307,51 +287,25 @@ export function App() {
           <Journey key={journeyNonce} preview={p} team={team} onPrepare={prepareTrainer} initialGuide={openGuide} onGuideChange={setOpenGuide} />
         ) : tab === 'team' ? (
           <TeamTab team={team} stored={save!} />
-        ) : (
+        ) : tab === 'bag' ? (
+          <Bag preview={p} team={team} />
+        ) : tab === 'moves' ? (
+          <MovesTab team={team} preview={p} />
+        ) : tab === 'save' ? (
           <>
-            <nav className="subtabs" aria-label="Mais">
-              {(
-                [
-                  ['bag', 'Bolsa'],
-                  ['moves', 'Golpes'],
-                  ['save', 'Save'],
-                  ['diagnostics', 'Diagnóstico'],
-                ] as const
-              ).map(([id, label]) => (
-                <button key={id} type="button" aria-current={more === id ? 'page' : undefined} className={more === id ? 'on' : ''} onClick={() => setMore(id)}>
-                  {label}
-                </button>
-              ))}
-            </nav>
-            {more === 'bag' ? (
-              <Bag preview={p} team={team} />
-            ) : more === 'moves' ? (
-              <MovesTab team={team} preview={p} />
-            ) : more === 'save' ? (
-              <>
-                <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
-                <button type="button" className="btn ghost wide" onClick={() => fileRef.current?.click()}>
-                  Importar arquivo de save manualmente
-                </button>
-              </>
-            ) : (
-              <Diagnostics stored={save!} />
-            )}
+            <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
+            <button type="button" className="btn ghost wide" onClick={() => fileRef.current?.click()}>
+              Importar arquivo de save manualmente
+            </button>
           </>
+        ) : (
+          <Diagnostics stored={save!} />
         )}
       </main>
 
       {p && (
         <nav className="tabs" aria-label="Seções">
-          {(
-            [
-              ['now', 'Agora'],
-              ['battle', 'Batalha'],
-              ['journey', 'Jornada'],
-              ['team', 'Equipe'],
-              ['more', 'Mais'],
-            ] as const
-          ).map(([id, label]) => (
+          {NAV_ITEMS.map(([id, label]) => (
             <button key={id} type="button" aria-current={tab === id ? 'page' : undefined} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
               {label}
             </button>

@@ -10,7 +10,7 @@ import type { GuideTarget } from '../walkthrough/Walkthrough.tsx';
 
 const trainerKeyById = new Map(trainers.map((t) => [t.id, t.key]));
 
-export type NowGoto = { tab: 'battle' | 'journey' | 'team' } | { tab: 'more'; section: 'bag' | 'moves' } | { tab: 'journey'; guide: GuideTarget };
+export type NowGoto = { tab: 'battle' | 'journey' | 'team' | 'bag' | 'moves' } | { tab: 'journey'; guide: GuideTarget };
 
 export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMember[]; onGo: (g: NowGoto) => void }) {
   const p = stored.preview;
@@ -78,7 +78,7 @@ export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMemb
           <strong>Estou em batalha</strong>
           <span className="fine">Quem usar e qual golpe</span>
         </button>
-        <button type="button" className="btn ghost now-tile" onClick={() => onGo({ tab: 'more', section: 'bag' })}>
+        <button type="button" className="btn ghost now-tile" onClick={() => onGo({ tab: 'bag' })}>
           <strong>Aprender golpe (TM/HM)</strong>
           <span className="fine">Ensinar ou não, e no lugar de qual</span>
         </button>
@@ -86,7 +86,7 @@ export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMemb
           <strong>Equipe</strong>
           <span className="fine">{hurt.length ? `${hurt.length} precisa(m) de cura` : 'Todos bem'}</span>
         </button>
-        <button type="button" className="btn ghost now-tile" onClick={() => onGo({ tab: 'more', section: 'moves' })}>
+        <button type="button" className="btn ghost now-tile" onClick={() => onGo({ tab: 'moves' })}>
           <strong>Golpes</strong>
           <span className="fine">Comparar e ver o que esquecer</span>
         </button>
