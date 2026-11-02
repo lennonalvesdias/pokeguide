@@ -107,6 +107,7 @@ export function toTeam(preview: SaveImportPreview): TeamMember[] {
         hp: p.hp,
         status: p.status,
         moves: p.moves.map((m) => ({ move: lookup.move(m.moveId), pp: m.pp })),
+        ...(species.abilities.length ? { ability: species.abilities[p.abilitySlot] ?? species.abilities[0]! } : {}),
       };
     });
 }

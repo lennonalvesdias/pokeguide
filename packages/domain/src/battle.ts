@@ -13,6 +13,8 @@ export interface TeamMember {
   hp: { current: number; max: number };
   status: string | null;
   moves: Array<{ move: MoveDefinition; pp?: number }>;
+  /** Habilidade pelo slot do save (Gen III: slot 1 numa espécie de uma habilidade usa a primeira). */
+  ability?: string;
 }
 
 export interface Opponent {

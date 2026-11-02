@@ -1,6 +1,6 @@
 // Batalha contra treinador: time real (níveis, IV, natureza, habilidade e golpes do jogo).
 import { abilities, lookup, type TrainerDefinition, trainers } from '@pokeguide/data-firered';
-import { assessTeam, findOption, type Opponent, type TeamMember, wildMoveset } from '@pokeguide/domain';
+import { assessTeam, findOption, type Opponent, predictReplacement, type TeamMember, wildMoveset } from '@pokeguide/domain';
 import type { SaveImportPreview } from '@pokeguide/save-parser';
 import { useEffect, useMemo, useState } from 'react';
 import { ActiveAdviceLine, ActivePicker, chart, CompactRecommendation, mapLabel, NoSafeWinner, Recommendation, ReportLink, Suggestions, TypeTag } from './App.tsx';
@@ -141,6 +141,85 @@ function TrainerDetail({ trainer, team, badges, defeated, activeId }: { trainer:
     () => trainer.party.map((p) => ({ p, opp: toOpponent(p), ranking: assessTeam(chart, team, toOpponent(p), badges) })),
     [trainer, team, badges],
   );
+  // Batalha expressa: um Pokémon do adversário por vez. O primeiro é o do topo do time; depois de um
+  // desmaio, o jogo NÃO segue a ordem: escolhe pelo tipo do seu Pokémon em campo (predictReplacement).
+  const [current, setCurrent] = useState(0);
+  const [fainted, setFainted] = useState<number[]>([]);
+  const [why, setWhy] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  useEffect(() => {
+    setCurrent(0);
+    setFainted([]);
+    setWhy(null);
+    setShowAll(false);
+  }, [trainer.key]);
+  const idx = Math.min(current, rows.length - 1);
+  const remaining = rows.length - fainted.length - (fainted.includes(idx) ? 0 : 1);
+  const active = activeId ? byId.get(activeId) : undefined;
+  const pick = (i: number) => {
+    setCurrent(i);
+    setWhy(null);
+  };
+  const faint = () => {
+    const out = [...new Set([...fainted, idx])];
+    setFainted(out);
+    const left = rows.map((_, i) => i).filter((i) => !out.includes(i));
+    if (!left.length) {
+      setWhy('Todos os Pokémon dele desmaiaram.');
+      return;
+    }
+    if (trainer.double || !active) {
+      setCurrent(-1);
+      setWhy(trainer.double ? 'Batalha dupla: toque em quem ele mandou.' : 'Quem ele mandou? Toque nele acima. (Escolha quem você tem em campo para o app prever.)');
+      return;
+    }
+    const r = predictReplacement(
+      chart,
+      rows.map(({ opp }, i) => ({ species: opp.species, moves: opp.moves, available: !out.includes(i) })),
+      { species: active.species, ...(active.ability ? { ability: active.ability } : {}) },
+    );
+    if (r.kind === 'typing' || r.kind === 'only') {
+      setCurrent(r.index);
+      setWhy(
+        r.kind === 'only'
+          ? 'Só sobrou este.'
+          : `Pela regra do jogo ele manda ${displayName(rows[r.index]!.opp.species.name)}: o que mais sofre com o tipo de ${active.name} e tem golpe superefetivo contra ele. Se vier outro, toque nele acima.`,
+      );
+    } else {
+      setCurrent(-1);
+      setWhy('Quem ele mandou? Toque nele acima. (Aqui o jogo escolhe pelo dano, e não dá para prever com certeza.)');
+    }
+  };
+  const card = (i: number) => {
+    const { p, opp, ranking } = rows[i]!;
+    const top = ranking[0];
+    const second = ranking[1];
+    return (
+      <article key={`${p.species}-${i}`} className="card opp-mon">
+        <div className="row">
+          <strong className="with-sprite">
+            <Sprite species={opp.species} size={48} />
+            {i + 1}. {displayName(opp.species.name)} <span className="lvl-tag">Nv {p.level}</span>
+          </strong>
+          <span className="types">
+            {opp.species.types.map((t) => (
+              <TypeTag key={t} type={t} />
+            ))}
+          </span>
+        </div>
+        <p className="fine">
+          {p.ability && `${displayName(abilityName.get(p.ability) ?? p.ability)} · `}
+          {p.nature && `${displayName(p.nature)} · `}
+          {opp.moves.map((m) => displayName(m.name)).join(', ')}
+          {!p.moves && ' (golpes padrão)'}
+        </p>
+        <ActiveAdviceLine team={team} activeId={activeId} opponent={opp} badges={badges} />
+        {top && byId.get(top.memberId) && <NoSafeWinner best={top} member={byId.get(top.memberId)!} />}
+        {top && byId.get(top.memberId) && <Recommendation a={top} member={byId.get(top.memberId)!} primary />}
+        {second && byId.get(second.memberId) && <CompactRecommendation a={second} member={byId.get(second.memberId)!} />}
+      </article>
+    );
+  };
   return (
     <>
       <div className="card trainer-head">
@@ -154,35 +233,49 @@ function TrainerDetail({ trainer, team, badges, defeated, activeId }: { trainer:
           {trainer.items.length > 0 && ` · usa ${trainer.items.map((i) => displayName(i.replace(/_/g, ' '))).join(', ')}`}
         </p>
       </div>
-      {rows.map(({ p, opp, ranking }, i) => {
-        const top = ranking[0];
-        const second = ranking[1];
-        return (
-          <article key={`${p.species}-${i}`} className="card opp-mon">
-            <div className="row">
-              <strong className="with-sprite">
-                <Sprite species={opp.species} size={48} />
-                {i + 1}. {displayName(opp.species.name)} <span className="lvl-tag">Nv {p.level}</span>
-              </strong>
-              <span className="types">
-                {opp.species.types.map((t) => (
-                  <TypeTag key={t} type={t} />
-                ))}
-              </span>
+      {showAll ? (
+        <>
+          {rows.map((_, i) => card(i))}
+          <button type="button" className="btn ghost wide" onClick={() => setShowAll(false)}>
+            Voltar ao Pokémon atual
+          </button>
+        </>
+      ) : (
+        <>
+          {rows.length > 1 && (
+            <div className="opp-strip" role="tablist" aria-label="Pokémon do adversário em campo">
+              {rows.map(({ opp, p }, i) => (
+                <button
+                  key={`${p.species}-${i}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === idx}
+                  className={`opp-dot ${current >= 0 && i === idx ? 'on' : fainted.includes(i) ? 'past' : ''}`}
+                  onClick={() => pick(i)}
+                  aria-label={`${i + 1}. ${displayName(opp.species.name)} Nv ${p.level}`}
+                >
+                  <Sprite species={opp.species} size={40} />
+                  <span>{p.level}</span>
+                </button>
+              ))}
             </div>
-            <p className="fine">
-              {p.ability && `${displayName(abilityName.get(p.ability) ?? p.ability)} · `}
-              {p.nature && `${displayName(p.nature)} · `}
-              {opp.moves.map((m) => displayName(m.name)).join(', ')}
-              {!p.moves && ' (golpes padrão)'}
-            </p>
-            <ActiveAdviceLine team={team} activeId={activeId} opponent={opp} badges={badges} />
-            {top && byId.get(top.memberId) && <NoSafeWinner best={top} member={byId.get(top.memberId)!} />}
-            {top && byId.get(top.memberId) && <Recommendation a={top} member={byId.get(top.memberId)!} primary />}
-            {second && byId.get(second.memberId) && <CompactRecommendation a={second} member={byId.get(second.memberId)!} />}
-          </article>
-        );
-      })}
+          )}
+          {why && <p className={`hint ${current < 0 ? 'warn' : ''}`}>{why}</p>}
+          {current >= 0 && card(idx)}
+          <div className="wt-buttons">
+            {rows.length > 1 && current >= 0 && remaining > 0 && (
+              <button type="button" className="btn solid" onClick={faint}>
+                {displayName(rows[idx]!.opp.species.name)} desmaiou
+              </button>
+            )}
+            {rows.length > 1 && (
+              <button type="button" className="btn ghost" onClick={() => setShowAll(true)}>
+                Ver o time inteiro ({rows.length})
+              </button>
+            )}
+          </div>
+        </>
+      )}
       <ReportLink
         title={`Recomendação: ${trainerLabel(trainer)}`}
         context={{

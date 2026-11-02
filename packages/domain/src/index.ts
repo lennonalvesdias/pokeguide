@@ -3,6 +3,7 @@ export * from './matchup.ts';
 export * from './moveset.ts';
 export * from './damage.ts';
 export * from './battle.ts';
+export * from './ai-switch.ts';
 export * from './search.ts';
 export * from './duel.ts';
 export * from './journey.ts';

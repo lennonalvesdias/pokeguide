@@ -13,6 +13,7 @@ import {
   type NavArea,
   type NavSession,
   planRoute,
+  predictReplacement,
   nextGuidance,
   reconcileSave,
   setPosition,
@@ -23,7 +24,7 @@ import {
 } from '@pokeguide/domain';
 import { describe, expect, it } from 'vitest';
 import { facts } from './nav-facts.ts';
-import { loadWorld, lookup, manifest, moves, navigation, navigationAreaOf, rules, species, typeChart, upcomingOpponents, wildLevelHint } from '../src/index.ts';
+import { loadWorld, lookup, manifest, moves, navigation, navigationAreaOf, rules, species, trainers, typeChart, upcomingOpponents, wildLevelHint } from '../src/index.ts';
 
 const chart = createTypeChart(typeChart);
 const vs = (moveKey: string, speciesKey: string, opts: Parameters<typeof matchup>[3] = {}) =>
@@ -456,5 +457,27 @@ describe('fase 4b: Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands, Vict
       if (p.hole) expect(fell, `${p.map}: a pedra cai num buraco`).toBe(true);
       else expect(at.has(`${p.end!.x},${p.end!.y}`), `${p.map}: a pedra para no botão`).toBe(true);
     }
+  });
+});
+
+describe('quem o treinador manda depois de um desmaio (GetMostSuitableMonToSwitchInto, UX-05)', () => {
+  const party = (key: string, fainted: number[]) => {
+    const t = trainers.find((x) => x.key === key)!;
+    return t.party.map((p, i) => {
+      const sp = lookup.species(p.species);
+      return { species: sp, moves: (p.moves ?? wildMoveset(sp, p.level)).map((m) => lookup.move(m)), available: !fainted.includes(i) };
+    });
+  };
+  it('Hiker Brice contra Charizard: depois do 1º Geodude vem o 2º Geodude, não o Machop (sem golpe superefetivo)', () => {
+    expect(predictReplacement(chart, party('hiker_brice', [0]), { species: lookup.species('charizard') })).toEqual({ kind: 'typing', index: 2 });
+  });
+  it('Super Nerd Aidan contra Gyarados: depois do 1º Voltorb vem o Magnemite (Thunder Shock 4×), pulando Koffing e Voltorb', () => {
+    expect(predictReplacement(chart, party('super_nerd_aidan', [0]), { species: lookup.species('gyarados') })).toEqual({ kind: 'typing', index: 3 });
+  });
+  it('Lass Haley contra Charizard: ninguém tem golpe superefetivo, o jogo escolhe pelo dano (sem previsão)', () => {
+    expect(predictReplacement(chart, party('lass_haley', [0]), { species: lookup.species('charizard') })).toEqual({ kind: 'damage' });
+  });
+  it('com um Pokémon só de pé, é ele', () => {
+    expect(predictReplacement(chart, party('hiker_brice', [0, 1]), { species: lookup.species('charizard') })).toEqual({ kind: 'only', index: 2 });
   });
 });
