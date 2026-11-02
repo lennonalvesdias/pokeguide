@@ -91,71 +91,99 @@ export function MemberDetail({ member, team, preview }: { member: TeamMember; te
   const up = nat ? (Object.keys(STAT_LABEL) as Array<keyof typeof STAT_LABEL>).find((s) => natureModifier(nat, s) > 1) : undefined;
   const down = nat ? (Object.keys(STAT_LABEL) as Array<keyof typeof STAT_LABEL>).find((s) => natureModifier(nat, s) < 1) : undefined;
 
+  const best = spots[0];
+  const bestArea = best?.key.split('|') ?? [];
+  const bestBattles = best && toNext ? Math.ceil(toNext / Math.max(best.expPerBattle, 1)) : null;
+
   return (
     <div className="member-detail">
-      <dl className="facts">
-        {nat && (
-          <>
-            <dt>Natureza</dt>
-            <dd>
-              {displayName(nat)}
-              {up && down ? ` (+${STAT_LABEL[up]}, −${STAT_LABEL[down]})` : ' (neutra)'}
-            </dd>
-          </>
-        )}
-        {ability && (
-          <>
-            <dt>Habilidade</dt>
-            <dd>{displayName(abilityName.get(ability) ?? ability)}</dd>
-          </>
-        )}
-        {toNext !== null && (
-          <>
-            <dt>Experiência</dt>
-            <dd>
-              faltam {toNext.toLocaleString('pt-BR')} XP para o Nv {member.level + 1}
-            </dd>
-          </>
-        )}
-        {saved && (
-          <>
-            <dt>IVs</dt>
-            <dd>
-              HP {saved.ivs.hp} · Atk {saved.ivs.atk} · Def {saved.ivs.def} · SpA {saved.ivs.spa} · SpD {saved.ivs.spd} · Vel {saved.ivs.spe} (de 31)
-            </dd>
-          </>
-        )}
-        <dt>Base</dt>
-        <dd>
-          HP {sp.baseStats.hp} · Atk {sp.baseStats.atk} · Def {sp.baseStats.def} · SpA {sp.baseStats.spa} · SpD {sp.baseStats.spd} · Vel {sp.baseStats.spe}
-        </dd>
-      </dl>
+      {/* Ação recomendada: o que fazer com ele agora, sem números de análise. */}
+      <div className="copilot-box">
+        <p className="label">Ação recomendada · golpes</p>
+        <MovesetLine advice={moveset.now} />
+        {moveset.now.locked.length > 0 && <p className="fine">Ficam de qualquer jeito: {moveset.now.locked.map(moveName).join(', ')}.</p>}
 
-      <p className="label">Fraquezas e resistências</p>
-      <div className="weak">
-        {[4, 2, 0.5, 0.25, 0].map((mult) => {
-          const ts = weak.filter((x) => x.m === mult);
-          if (!ts.length) return null;
-          return (
-            <p key={mult} className="fine">
-              <strong>{mult === 0 ? 'Imune' : `${String(mult).replace('.', ',')}×`}</strong>{' '}
-              {ts.map((x) => (
-                <TypeTag key={x.t} type={x.t} />
-              ))}
-            </p>
-          );
-        })}
+        <p className="label">Ação recomendada · onde treinar</p>
+        {best ? (
+          <p className="advice stay">
+            <strong>{mapLabel(bestArea[0] ?? '')}</strong> {METHOD_LABEL[bestArea[1] ?? ''] ?? ''}
+            {bestBattles !== null ? ` · ~${bestBattles} luta${bestBattles > 1 ? 's' : ''} até o Nv ${member.level + 1}` : ''}
+          </p>
+        ) : (
+          <p className="fine">Nenhum lugar já visitado em que ele vença os selvagens com folga.</p>
+        )}
+
+        {nextMoves.length > 0 && (
+          <p className="fine">
+            Próximo golpe por nível: Nv {nextMoves[0]!.level}, {moveName(nextMoves[0]!.move)}.
+          </p>
+        )}
       </div>
 
-      {nextMoves.length > 0 && (
-        <>
-          <p className="label">Próximos golpes por nível</p>
-          <p className="fine">{nextMoves.map((m) => `Nv ${m.level}: ${moveName(m.move)}`).join(' · ')}</p>
-        </>
-      )}
+      <details className="advanced">
+        <summary>Análise avançada</summary>
+        <dl className="facts">
+          {nat && (
+            <>
+              <dt>Natureza</dt>
+              <dd>
+                {displayName(nat)}
+                {up && down ? ` (+${STAT_LABEL[up]}, −${STAT_LABEL[down]})` : ' (neutra)'}
+              </dd>
+            </>
+          )}
+          {ability && (
+            <>
+              <dt>Habilidade</dt>
+              <dd>{displayName(abilityName.get(ability) ?? ability)}</dd>
+            </>
+          )}
+          {toNext !== null && (
+            <>
+              <dt>Experiência</dt>
+              <dd>
+                faltam {toNext.toLocaleString('pt-BR')} XP para o Nv {member.level + 1}
+              </dd>
+            </>
+          )}
+          {saved && (
+            <>
+              <dt>IVs</dt>
+              <dd>
+                HP {saved.ivs.hp} · Atk {saved.ivs.atk} · Def {saved.ivs.def} · SpA {saved.ivs.spa} · SpD {saved.ivs.spd} · Vel {saved.ivs.spe} (de 31)
+              </dd>
+            </>
+          )}
+          <dt>Base</dt>
+          <dd>
+            HP {sp.baseStats.hp} · Atk {sp.baseStats.atk} · Def {sp.baseStats.def} · SpA {sp.baseStats.spa} · SpD {sp.baseStats.spd} · Vel {sp.baseStats.spe}
+          </dd>
+        </dl>
 
-      <div className="copilot-box">
-        <p className="label">Copiloto · onde treinar</p>
+        <p className="label">Fraquezas e resistências</p>
+        <div className="weak">
+          {[4, 2, 0.5, 0.25, 0].map((mult) => {
+            const ts = weak.filter((x) => x.m === mult);
+            if (!ts.length) return null;
+            return (
+              <p key={mult} className="fine">
+                <strong>{mult === 0 ? 'Imune' : `${String(mult).replace('.', ',')}×`}</strong>{' '}
+                {ts.map((x) => (
+                  <TypeTag key={x.t} type={x.t} />
+                ))}
+              </p>
+            );
+          })}
+        </div>
+
+        {nextMoves.length > 0 && (
+          <>
+            <p className="label">Próximos golpes por nível</p>
+            <p className="fine">{nextMoves.map((m) => `Nv ${m.level}: ${moveName(m.move)}`).join(' · ')}</p>
+          </>
+        )}
+
+        <p className="label">Lugares para treinar</p>
         {spots.length ? (
           <ol className="spots">
             {spots.map((s) => {
@@ -178,8 +206,7 @@ export function MemberDetail({ member, team, preview }: { member: TeamMember; te
           {traded || luckyEgg ? `, ×1,5 por ${traded ? 'ser trocado' : 'Lucky Egg'}` : ''}).
         </p>
 
-        <p className="label">Copiloto · melhor combinação de golpes</p>
-        <MovesetLine advice={moveset.now} />
+        <p className="label">Como a combinação de golpes foi escolhida</p>
         {moveset.wanted.length > 0 && (
           <p className="fine">
             Vale procurar: {moveset.wanted.map((l) => `${moveName(l.move)} (${l.source})${l.replaces ? ` no lugar de ${moveName(l.replaces)}` : ''}`).join(', ')} · +
@@ -188,9 +215,8 @@ export function MemberDetail({ member, team, preview }: { member: TeamMember; te
         )}
         <p className="fine">
           Comparado pelo dano esperado contra os {moveset.opponents} Pokémon dos treinadores que faltam, pesando menos quem outro membro já derruba.
-          {moveset.now.locked.length > 0 && ` Ficam de qualquer jeito: ${moveset.now.locked.map(moveName).join(', ')}.`}
         </p>
-      </div>
+      </details>
     </div>
   );
 }
