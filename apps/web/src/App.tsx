@@ -71,7 +71,9 @@ export function App() {
   const [initial] = useState(initialTab);
   const [tab, setTabRaw] = useState<Tab>(initial.tab);
   const [more, setMoreRaw] = useState<MoreSection>(initial.more);
-  const [guideFromNow, setGuideFromNow] = useState<{ target: GuideTarget; nonce: number } | null>(null);
+  /** Guia aberto na Jornada: a tela Agora abre um, e voltar à aba reabre o último (ou nenhum, se foi fechado). */
+  const [openGuide, setOpenGuide] = useState<GuideTarget | null>(null);
+  const [journeyNonce, setJourneyNonce] = useState(0);
   function setTab(t: Tab) {
     setTabRaw(t);
   }
@@ -81,8 +83,10 @@ export function App() {
   }
   function go(g: NowGoto) {
     if (g.tab === 'more') setMore(g.section);
-    if ('guide' in g) setGuideFromNow((x) => ({ target: g.guide, nonce: (x?.nonce ?? 0) + 1 }));
-    else if (g.tab === 'journey') setGuideFromNow(null);
+    if ('guide' in g) {
+      setOpenGuide(g.guide);
+      setJourneyNonce((n) => n + 1);
+    }
     setTab(g.tab);
     window.scrollTo({ top: 0 });
   }
@@ -284,7 +288,7 @@ export function App() {
         ) : tab === 'battle' ? (
           <BattleTab key={battleNonce} team={team} badges={p.badges} preview={p} />
         ) : tab === 'journey' ? (
-          <Journey key={guideFromNow?.nonce ?? 0} preview={p} team={team} onPrepare={prepareTrainer} initialGuide={guideFromNow?.target ?? null} />
+          <Journey key={journeyNonce} preview={p} team={team} onPrepare={prepareTrainer} initialGuide={openGuide} onGuideChange={setOpenGuide} />
         ) : tab === 'team' ? (
           <TeamTab team={team} stored={save!} />
         ) : (

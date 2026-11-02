@@ -146,10 +146,6 @@ export function describeRequirements(world: NavWorld, area: NavArea, facts: NavF
 }
 
 /**
- * A próxima coisa a fazer. Só devolve um passo quando ele vale para o estado conhecido
- * (ou para os dois estados do interruptor); senão pergunta.
- */
-/**
  * Fatos do save mais o que o jogador confirmou nesta sessão (itens pegos, chaves buscadas): o save só
  * fica sabendo na próxima vez que você salvar.
  */
@@ -165,6 +161,10 @@ export function sessionFacts(facts: NavFacts, s: NavSession): NavFacts {
   };
 }
 
+/**
+ * A próxima coisa a fazer. Só devolve um passo quando ele vale para o estado conhecido
+ * (ou para os dois estados do interruptor); senão pergunta.
+ */
 export function nextGuidance(world: NavWorld, area: NavArea, saveFacts: NavFacts, s: NavSession, opts: GuidanceOptions = {}): Guidance {
   const facts = sessionFacts(saveFacts, s);
   const objective = objectiveOf(area, s.objectiveId);
