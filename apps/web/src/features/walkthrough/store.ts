@@ -1,4 +1,6 @@
 // Sessão do guia passo a passo: fica só neste aparelho (IndexedDB), por partida e por área.
+// Regra de migração (ADR de distribuição de dados): sessão de outro formato ou de outra versão do
+// dataset recomeça pedindo onde você está. O progresso não se perde: itens pegos e eventos vêm do save.
 import type { NavSession } from '@pokeguide/domain';
 import { del, get, set } from 'idb-keyval';
 
@@ -8,30 +10,28 @@ export interface StoredNav {
   saveCounter: number | null;
 }
 
-const key = (fingerprint: string, areaId: string) => `nav:v1:${fingerprint}:${areaId}`;
+const key = (fingerprint: string, sessionKey: string) => `nav:v2:${fingerprint}:${sessionKey}`;
 
-export async function loadNav(fingerprint: string, areaId: string): Promise<StoredNav | null> {
+export async function loadNav(fingerprint: string, sessionKey: string, datasetVersion: string): Promise<StoredNav | null> {
   try {
-    const v = await get<StoredNav>(key(fingerprint, areaId));
-    if (v?.session?.schemaVersion !== 1) return null;
-    // Sessões gravadas antes da rota completa não têm `collected`.
-    const fix = <T extends { collected?: string[] }>(c: T) => ({ ...c, collected: c.collected ?? [] });
-    return { ...v, session: { ...fix(v.session), past: v.session.past.map(fix) } };
+    const v = await get<StoredNav>(key(fingerprint, sessionKey));
+    if (v?.session?.schemaVersion !== 2 || v.session.datasetVersion !== datasetVersion) return null;
+    return v;
   } catch {
     return null;
   }
 }
 
-export async function saveNav(fingerprint: string, areaId: string, value: StoredNav): Promise<void> {
+export async function saveNav(fingerprint: string, sessionKey: string, value: StoredNav): Promise<void> {
   try {
-    await set(key(fingerprint, areaId), value);
+    await set(key(fingerprint, sessionKey), value);
   } catch {
     // Sem armazenamento (aba privada): a sessão continua só na memória.
   }
 }
 
-export async function clearNav(fingerprint: string, areaId: string): Promise<void> {
+export async function clearNav(fingerprint: string, sessionKey: string): Promise<void> {
   try {
-    await del(key(fingerprint, areaId));
+    await del(key(fingerprint, sessionKey));
   } catch {}
 }

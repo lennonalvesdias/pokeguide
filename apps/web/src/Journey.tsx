@@ -4,7 +4,7 @@ import { evaluateJourney, type TeamMember } from '@pokeguide/domain';
 import { isFlagSet, type SaveImportPreview } from '@pokeguide/save-parser';
 import { useMemo, useState } from 'react';
 import { Copilot } from './Copilot.tsx';
-import { Walkthrough } from './features/walkthrough/Walkthrough.tsx';
+import { type GuideTarget, Walkthrough } from './features/walkthrough/Walkthrough.tsx';
 
 const trainerKeyById = new Map(trainers.map((t) => [t.id, t.key]));
 
@@ -20,24 +20,40 @@ export function Journey({ preview, team, onPrepare }: { preview: SaveImportPrevi
     [preview],
   );
   const [showAll, setShowAll] = useState(false);
-  const [guide, setGuide] = useState<string | null>(null);
-  // Guia passo a passo: quando o próximo passo passa por uma área mapeada ou você está nela.
+  const [guide, setGuide] = useState<GuideTarget | null>(null);
+  // Guia passo a passo: área com guia onde você está ou por onde o próximo passo passa.
   const here = lookup.map(preview.location.mapGroup, preview.location.mapNum)?.key ?? '';
+  const stepAreas = state.current?.areas ?? [];
   const guideArea =
-    navigation.find((a) => a.floors.some((f) => f.map === here)) ??
-    navigation.find((a) => state.current?.areas?.includes(a.mapPrefix)) ??
+    navigation.areas.find((a) => a.maps.includes(here)) ??
+    navigation.areas.find((a) => a.maps.some((k) => stepAreas.some((p) => k.startsWith(p)))) ??
     null;
-  const openArea = navigation.find((a) => a.id === guide) ?? null;
+  // "Como chegar": o último lugar do passo atual, se você ainda não está nele.
+  const destination = stepAreas.length ? stepAreas[stepAreas.length - 1]! : null;
+  const routeTarget: GuideTarget | null = destination && !here.startsWith(destination) && state.current ? { kind: 'route', prefix: destination, title: `Ir para ${state.current.where}` } : null;
 
-  if (openArea) return <Walkthrough area={openArea} preview={preview} team={team} onClose={() => setGuide(null)} />;
+  if (guide) {
+    return (
+      <Walkthrough
+        target={guide}
+        preview={preview}
+        team={team}
+        onClose={() => setGuide(null)}
+        onPrepare={(k) => {
+          setGuide(null);
+          onPrepare(k);
+        }}
+      />
+    );
+  }
 
   if (!preview.flagsHex) {
     return (
       <section className="card">
         <h2 className="card-title">Jornada</h2>
         <p className="fine">Este save foi lido por uma versão antiga do app. Atualize o save (o Dropbox faz isso sozinho) para ver o progresso.</p>
-        {navigation.map((a) => (
-          <button key={a.id} type="button" className="btn ghost wide" onClick={() => setGuide(a.id)}>
+        {navigation.areas.map((a) => (
+          <button key={a.id} type="button" className="btn ghost wide" onClick={() => setGuide({ kind: 'area', id: a.id })}>
             Guia passo a passo: {a.name} (modo manual)
           </button>
         ))}
@@ -67,8 +83,13 @@ export function Journey({ preview, team, onPrepare }: { preview: SaveImportPrevi
           <h2 className="card-title">{current.title}</h2>
           <p className="where">{current.where}</p>
           <p>{current.how}</p>
+          {routeTarget && (
+            <button type="button" className="btn solid wide" onClick={() => setGuide(routeTarget)}>
+              Como chegar (passo a passo)
+            </button>
+          )}
           {guideArea && (
-            <button type="button" className="btn solid wide" onClick={() => setGuide(guideArea.id)}>
+            <button type="button" className={`btn ${routeTarget ? 'ghost' : 'solid'} wide`} onClick={() => setGuide({ kind: 'area', id: guideArea.id })}>
               Guia passo a passo: {guideArea.name}
             </button>
           )}

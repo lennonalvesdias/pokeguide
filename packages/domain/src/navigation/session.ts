@@ -1,22 +1,25 @@
 // Sessão de navegação: uma ação por vez, confirmada pelo jogador. Incerteza vira pergunta, nunca direção inventada.
-import { defaultNames, floorLabel, type NavNames, ordinal, switchColor, switchState, zone } from './describe.ts';
-import { type Plan, type PlanGoal, planRoute, trainerSight } from './planner.ts';
+import { defaultNames, mapName, type NavNames, ordinalAmong, switchColor, switchState, zone } from './describe.ts';
+import { FIELD_MOVE_BADGE, newGameFlags, objectPresent, type Plan, type PlanGoal, planRoute, type Requirement, trainerSight } from './planner.ts';
 import { planSteps } from './steps.ts';
 import type {
+  FieldMove,
   Guidance,
   GuidanceStep,
   NavAnchor,
   NavArea,
   NavFact,
+  NavFacts,
   NavLogEntry,
   NavLogKind,
   NavObjective,
   NavPlace,
-  NavPoiOf,
   NavSession,
   NavSessionCore,
+  NavWorld,
   RouteMode,
   StepOutcome,
+  SwitchStatue,
 } from './types.ts';
 
 const MAX_PAST = 3;
@@ -24,7 +27,6 @@ const MAX_LOG = 200;
 
 export interface GuidanceOptions {
   names?: NavNames;
-  defeatedTrainers?: ReadonlySet<string>;
   /** Para sugerir saída rápida só quando dá: a área permite e o jogador tem como. */
   hasEscapeRope?: boolean;
   knowsDig?: boolean;
@@ -33,7 +35,7 @@ export interface GuidanceOptions {
 export function startNavSession(area: NavArea, objectiveId: string, datasetVersion: string, now: string, mode: RouteMode = 'fast'): NavSession {
   const objective = objectiveOf(area, objectiveId);
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     game: 'firered',
     datasetVersion,
     areaId: area.id,
@@ -67,7 +69,6 @@ const core = (s: NavSession): NavSessionCore => ({
   recent: s.recent,
 });
 
-/** Guarda o estado atual para "desfazer" e registra o evento. */
 function change(s: NavSession, kind: NavLogKind, text: string, now: string, patch: Partial<NavSessionCore>, stepId?: string): NavSession {
   const entry: NavLogEntry = { at: now, kind, text, ...(stepId ? { stepId } : {}) };
   return { ...s, ...patch, past: [...s.past, core(s)].slice(-MAX_PAST), log: [...s.log, entry].slice(-MAX_LOG) };
@@ -75,89 +76,153 @@ function change(s: NavSession, kind: NavLogKind, text: string, now: string, patc
 
 const fact = <T>(value: T, confidence: NavFact<T>['confidence'], source: NavFact<T>['source'], at: string): NavFact<T> => ({ value, confidence, source, at });
 
-/** Itens opcionais da área (não o do objetivo) que ainda não foram pegos. */
-export function remainingOptionalItems(area: NavArea, s: NavSession, objective: NavObjective): string[] {
-  return area.pois.filter((p) => p.kind === 'item' && p.item !== objective.item && !s.collected.includes(p.id)).map((p) => p.id);
+export function goalOf(o: NavObjective): PlanGoal {
+  if (o.item) return { kind: 'item', item: o.item };
+  if (o.talk) return { kind: 'talk', place: o.talk };
+  if (o.reach) return { kind: 'reach', ...o.reach };
+  if (o.reachPrefix) return { kind: 'reach-prefix', prefix: o.reachPrefix };
+  return { kind: 'exit' };
 }
-
-const goalOf = (o: NavObjective): PlanGoal => (o.item ? { kind: 'item', item: o.item } : { kind: 'exit' });
 
 const sameStep = (a: GuidanceStep, b: GuidanceStep) => a.id === b.id && a.assumesSwitchOn === undefined && b.assumesSwitchOn === undefined;
 
-/** Estátua do andar mais perto da posição (para a pergunta sobre a cor dos olhos). */
-function nearestStatue(area: NavArea, at: NavPlace): NavPoiOf<'switch'> | null {
-  const list = area.pois.filter((p): p is NavPoiOf<'switch'> => p.kind === 'switch' && p.floor === at.floor);
+function nearestStatue(area: NavArea, at: NavPlace): SwitchStatue | null {
+  const list = (area.switch?.statues ?? []).filter((p) => p.map === at.map);
   list.sort((a, b) => Math.abs(a.x - at.x) + Math.abs(a.y - at.y) - (Math.abs(b.x - at.x) + Math.abs(b.y - at.y)));
   return list[0] ?? null;
 }
 
-export function describePlace(area: NavArea, p: NavPlace): string {
-  return `${floorLabel(area, p.floor)}, ${zone(area, p.floor, p)}`;
+export function describePlace(world: NavWorld, area: NavArea, p: NavPlace): string {
+  const m = world.maps.find((x) => x.key === p.map);
+  return m ? `${mapName(world, area, p.map)}, ${zone(m, p)}` : p.map;
+}
+
+/** Itens opcionais da área ainda no chão (visíveis e escondidos), sem o do objetivo. */
+export function remainingOptionalItems(world: NavWorld, area: NavArea, s: NavSession, objective: NavObjective, facts: NavFacts): string[] {
+  const done = new Set(s.collected);
+  const out: string[] = [];
+  for (const m of world.maps) {
+    if (!area.maps.includes(m.key)) continue;
+    m.objects.forEach((o, i) => {
+      const id = `${m.key}#${i}`;
+      if (o.kind === 'item' && o.item !== objective.item && objectPresent(o, facts, done, id, newGameFlags(world))) out.push(id);
+    });
+    m.hidden.forEach((h, i) => {
+      const id = `${m.key}#h${i}`;
+      if (!done.has(id) && facts.flag(h.flag) !== true) out.push(id);
+    });
+  }
+  return out;
+}
+
+const MOVE_NAME: Record<FieldMove, string> = { flash: 'Flash', cut: 'Cut', strength: 'Strength', surf: 'Surf', rock_smash: 'Rock Smash', waterfall: 'Waterfall' };
+const BADGE_NAME = (k: string) => `${k.charAt(0).toUpperCase()}${k.slice(1)} Badge`;
+
+/** O que falta, em texto, para uma rota que só existe relaxando condições. */
+export function describeRequirements(world: NavWorld, area: NavArea, facts: NavFacts, reqs: readonly Requirement[]): string[] {
+  const out = new Set<string>();
+  for (const r of reqs) {
+    if (r.kind === 'field-move') {
+      const badge = FIELD_MOVE_BADGE[r.move];
+      const parts = [!facts.fieldMoves.has(r.move) ? `alguém na equipe com ${MOVE_NAME[r.move]}` : null, !facts.badges.includes(badge) ? `a ${BADGE_NAME(badge)}` : null].filter(Boolean);
+      out.add(`${MOVE_NAME[r.move]}: falta ${parts.join(' e ')}.`);
+    } else if (r.kind === 'blocker') {
+      const b = world.blockers.find((x) => x.id === r.id);
+      if (b) out.add(b.text);
+    } else {
+      const o = world.maps.find((m) => m.key === r.place.map)?.objects.find((x) => x.x === r.place.x && x.y === r.place.y);
+      const known = o?.kind === 'npc' ? world.obstacles[o.gfx]?.text : undefined;
+      out.add(known ?? `Há alguém bloqueando o caminho em ${describePlace(world, area, r.place)}: normalmente sai depois de um evento da história.`);
+    }
+  }
+  return [...out];
 }
 
 /**
  * A próxima coisa a fazer. Só devolve um passo quando ele vale para o estado conhecido
  * (ou para os dois estados do interruptor); senão pergunta.
  */
-export function nextGuidance(area: NavArea, s: NavSession, opts: GuidanceOptions = {}): Guidance {
+export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s: NavSession, opts: GuidanceOptions = {}): Guidance {
   const objective = objectiveOf(area, s.objectiveId);
   if (s.done) {
     const hints: string[] = [];
-    const floor = area.floors.find((f) => f.map === s.position?.value.floor);
-    if (objective.item && (floor ?? area.floors[0])?.allowEscaping) {
-      if (opts.hasEscapeRope) hints.push(`use uma Escape Rope (funciona na ${area.name})`);
+    const here = world.maps.find((m) => m.key === s.position?.value.map);
+    if (!objective.exit && (here?.allowEscaping ?? false)) {
+      if (opts.hasEscapeRope) hints.push(`use uma Escape Rope (funciona aqui)`);
       if (opts.knowsDig) hints.push('use Dig fora de batalha');
     }
     return { kind: 'done', text: objective.doneText, exitHint: hints.length ? `Para sair na hora: ${hints.join(' ou ')}.` : null };
   }
   const pos = s.position;
-  if (!pos) return { kind: 'locate', reason: 'Ainda não sei onde você está na mansão.' };
+  if (!pos) return { kind: 'locate', reason: 'Ainda não sei onde você está.' };
   if (pos.confidence !== 'confirmed') {
     const from = pos.source === 'save' ? 'O último save diz que você está' : 'Você deve estar';
-    return { kind: 'confirm-position', place: pos.value, question: `${from} no ${describePlace(area, pos.value)}. Ainda está aí?` };
+    return { kind: 'confirm-position', place: pos.value, question: `${from} em ${describePlace(world, area, pos.value)}. Ainda está aí?` };
   }
   const names = opts.names ?? defaultNames;
-  const sight = trainerSight(area, opts.defeatedTrainers ?? new Set());
-  const planOpts = { mode: s.mode, ...(opts.defeatedTrainers ? { defeatedTrainers: opts.defeatedTrainers } : {}) };
-  // Rota completa: primeiro o item opcional mais perto que ainda está no chão, depois o objetivo.
-  const optional = s.mode === 'complete' ? remainingOptionalItems(area, s, objective) : [];
-  const goal: PlanGoal = optional.length ? { kind: 'items', poiIds: optional } : goalOf(objective);
+  const sight = trainerSight(world, new Set(area.maps), facts.defeatedTrainers);
+  const collected = new Set(s.collected);
+  const planOpts = { mode: s.mode, collected };
+  const optional = s.mode === 'complete' ? remainingOptionalItems(world, area, s, objective, facts) : [];
+  const goal: PlanGoal = optional.length ? { kind: 'collect', ids: optional } : goalOf(objective);
   const stepsOf = (plan: Plan | null, switchConfirmed: boolean) =>
-    plan ? planSteps(area, plan, { names, sight, startExact: s.positionExact, switchConfirmed }) : null;
+    plan
+      ? planSteps(world, area, plan, {
+          names,
+          sight,
+          startExact: s.positionExact,
+          switchConfirmed,
+          ...(objective.who ? { who: objective.who } : {}),
+          ...(objective.reach?.x !== undefined ? { reachTile: { x: objective.reach.x, y: objective.reach.y ?? 0 } } : {}),
+        })
+      : null;
+  const stuck = (on: boolean | 'both'): Guidance => {
+    const relaxed = planRoute(world, area, facts, pos.value, on, goalOf(objective), { ...planOpts, relaxed: true });
+    const missing = relaxed ? describeRequirements(world, area, facts, relaxed.requirements) : [];
+    return {
+      kind: 'stuck',
+      text: missing.length ? 'Daqui ainda não dá para chegar: falta algo.' : 'Não encontrei uma rota comprovada daqui. Toque em "Onde estou?" e confirme sua posição.',
+      missing,
+    };
+  };
 
-  if (s.switchOn) {
-    const steps = stepsOf(planRoute(area, pos.value, s.switchOn.value, goal, planOpts), s.switchOn.confidence === 'confirmed');
-    if (!steps?.length) return { kind: 'stuck', text: 'Não encontrei uma rota comprovada daqui. Toque em "Onde estou?" e confirme sua posição.' };
+  if (!area.switch || s.switchOn) {
+    const on = s.switchOn?.value ?? false;
+    const confirmed = !area.switch || s.switchOn?.confidence === 'confirmed';
+    const plan = planRoute(world, area, facts, pos.value, on, goal, planOpts);
+    const steps = stepsOf(plan, confirmed);
+    if (plan && !steps?.length && goal.kind !== 'collect') return { kind: 'done', text: objective.doneText, exitHint: null };
+    if (!steps?.length) return stuck(on);
     return { kind: 'step', step: steps[0]! };
   }
 
   // Interruptor desconhecido: o passo só sai se for o mesmo nos dois estados.
   if (s.needLook) {
-    const look = stepsOf(planRoute(area, pos.value, 'both', { kind: 'any-switch' }, planOpts), true);
+    const look = stepsOf(planRoute(world, area, facts, pos.value, 'both', { kind: 'any-switch' }, planOpts), true);
     if (look?.length) return { kind: 'step', step: look[0]! };
   }
-  const off = stepsOf(planRoute(area, pos.value, false, goal, planOpts), true);
-  const onSteps = stepsOf(planRoute(area, pos.value, true, goal, planOpts), true);
-  if (!off?.length && !onSteps?.length) return { kind: 'stuck', text: 'Não encontrei uma rota comprovada daqui. Toque em "Onde estou?" e confirme sua posição.' };
+  const off = stepsOf(planRoute(world, area, facts, pos.value, false, goal, planOpts), true);
+  const onSteps = stepsOf(planRoute(world, area, facts, pos.value, true, goal, planOpts), true);
+  if (!off?.length && !onSteps?.length) return stuck('both');
   if (off?.length && onSteps?.length && sameStep(off[0]!, onSteps[0]!)) return { kind: 'step', step: off[0]! };
   const statue = nearestStatue(area, pos.value);
+  const m = world.maps.find((x) => x.key === pos.value.map);
+  const ord = statue && m ? ordinalAmong(m, (area.switch?.statues ?? []).filter((x) => x.map === statue.map), statue, true) : '';
   return {
     kind: 'ask-switch',
     reason: 'O caminho daqui depende do interruptor, e eu não sei em que estado ele está.',
-    question: statue
-      ? `Olhe a estátua de Pokémon${ordinal(area, statue, true) ? ` (${ordinal(area, statue, true)})` : ''} ${zone(area, statue.floor, statue)} deste andar: os olhos estão vermelhos ou pretos?`
+    question: statue && m
+      ? `Olhe a estátua de Pokémon${ord ? ` (${ord})` : ''} ${zone(m, statue)} deste andar: os olhos estão vermelhos ou pretos?`
       : 'Os olhos das estátuas de Pokémon estão vermelhos ou pretos?',
     statue,
   };
 }
 
-/** Resposta à cor dos olhos da estátua (null = não consigo ver). */
 export function answerSwitch(s: NavSession, on: boolean | null, now: string): NavSession {
   if (on === null) return change(s, 'answer', 'Não consegue ver a estátua: guiar até uma para olhar.', now, { needLook: true });
   return change(s, 'answer', `Olhos ${switchColor(on)}: interruptor ${switchState(on)}.`, now, { switchOn: fact(on, 'confirmed', 'manual', now), needLook: false });
 }
 
-/** O jogador disse onde está (ponto de referência) ou confirmou a posição sugerida. */
 export function setPosition(s: NavSession, place: NavPlace, now: string, text = 'Posição informada pelo jogador.'): NavSession {
   return change(s, 'position', text, now, { position: fact(place, 'confirmed', 'manual', now), positionExact: true });
 }
@@ -167,7 +232,6 @@ export function confirmPosition(s: NavSession, now: string): NavSession {
   return change(s, 'position', 'Posição confirmada pelo jogador.', now, { position: fact(s.position.value, 'confirmed', 'manual', now) });
 }
 
-/** "Onde estou?": esquece a posição e pergunta de novo. */
 export function forgetPosition(s: NavSession, now: string, reason = 'O jogador pediu para informar a posição de novo.'): NavSession {
   return change(s, 'position', reason, now, { position: null, positionExact: false });
 }
@@ -180,7 +244,6 @@ export function undo(s: NavSession, now: string): NavSession {
 
 export interface OutcomeResult {
   session: NavSession;
-  /** O que foi corrigido e por quê (mostrar ao jogador). */
   correction: string | null;
 }
 
@@ -188,7 +251,7 @@ export interface OutcomeResult {
  * Resultado do passo. 'blocked' significa: grade fechada (cross-gate), olhos da outra cor
  * (press-switch) ou caminho travado (demais). 'not-found': não achou a referência.
  */
-export function applyOutcome(area: NavArea, s: NavSession, step: GuidanceStep, outcome: StepOutcome, now: string): OutcomeResult {
+export function applyOutcome(world: NavWorld, area: NavArea, s: NavSession, step: GuidanceStep, outcome: StepOutcome, now: string): OutcomeResult {
   const objective = objectiveOf(area, s.objectiveId);
   const recent = [...s.recent, { stepId: step.id, instruction: step.instruction, outcome, at: now }].slice(-MAX_PAST);
   const supposed = (on: boolean) => `eu supunha ${switchState(on)}${s.switchOn?.source === 'save' ? ', pelo save' : ''}`;
@@ -198,46 +261,73 @@ export function applyOutcome(area: NavArea, s: NavSession, step: GuidanceStep, o
       step.effect.switchOn !== undefined
         ? fact(step.effect.switchOn, 'confirmed', 'manual', now)
         : step.assumesSwitchOn !== undefined
-          ? fact(step.assumesSwitchOn, 'confirmed', 'manual', now) // passou pela grade: o estado está provado
+          ? fact(step.assumesSwitchOn, 'confirmed', 'manual', now)
           : s.switchOn;
-    const done = (!!objective.item && step.effect.collected === objective.item) || (!objective.item && !!step.effect.exited);
-    const collected = step.effect.collectedPoi && !s.collected.includes(step.effect.collectedPoi) ? [...s.collected, step.effect.collectedPoi] : s.collected;
-    const session = change(s, 'outcome', `Consegui: ${step.instruction}`, now, {
-      position: fact(step.effect.position, 'confirmed', 'manual', now),
-      positionExact: step.action !== 'cross-gate' && step.action !== 'exit',
-      switchOn,
-      recent,
-      collected,
-      done,
-    }, step.id);
+    const done =
+      (!!objective.item && step.effect.collected === objective.item) ||
+      (!!objective.exit && !!step.effect.exited) ||
+      (!objective.item && !objective.exit && !!step.effect.reached);
+    let collected = step.effect.collectedId && !s.collected.includes(step.effect.collectedId) ? [...s.collected, step.effect.collectedId] : s.collected;
+    if (step.effect.removedId) {
+      const [mapKey] = step.effect.removedId.split('#');
+      const m = world.maps.find((x) => x.key === mapKey);
+      const o = m?.objects[Number(step.effect.removedId.split('#')[1])];
+      // Fósseis: pegar um tira os dois (o Super Nerd leva o outro). Demais: só o próprio.
+      const ids =
+        o?.kind === 'npc' && m
+          ? m.objects.flatMap((x, i) => (x.kind === 'npc' && x.gfx === o.gfx && Math.abs(x.x - o.x) + Math.abs(x.y - o.y) <= 2 ? [`${mapKey}#${i}`] : []))
+          : [step.effect.removedId];
+      collected = [...collected, ...ids.map((id) => (step.effect.removedTemp ? `tmp:${id}` : id)).filter((id) => !collected.includes(id))];
+    }
+    // Árvore cortada e rocha quebrada voltam quando você sai do mapa.
+    if (step.effect.position.map !== s.position?.value.map) collected = collected.filter((id) => !id.startsWith('tmp:') || id.startsWith(`tmp:${step.effect.position.map}#`));
+    const session = change(
+      s,
+      'outcome',
+      `Consegui: ${step.instruction}`,
+      now,
+      {
+        position: fact(step.effect.position, 'confirmed', 'manual', now),
+        // O jogador confirmou que chegou ao ponto marcado: dá para contar passos a partir dele.
+        positionExact: !['cross-gate', 'connect', 'land'].includes(step.action),
+        switchOn,
+        recent,
+        collected,
+        done,
+      },
+      step.id,
+    );
     return { session, correction: null };
   }
 
   if (outcome === 'blocked' && step.action === 'cross-gate' && step.assumesSwitchOn !== undefined) {
     const actual = !step.assumesSwitchOn;
-    // Parou diante da grade: o último tile antes dela.
-    const gateIdx = step.path.findIndex((t) => area.floors.find((f) => f.map === step.floor)?.grid[t.y]?.[t.x]?.match(/[01]/));
-    const before = gateIdx > 0 ? step.path[gateIdx - 1]! : s.position?.value ?? step.effect.position;
+    const m = world.maps.find((x) => x.key === step.map);
+    const gateIdx = m ? step.path.findIndex((t) => m.tiles[t.y * m.width + t.x] === 'g') : -1;
+    const before = gateIdx > 0 ? step.path[gateIdx - 1]! : (s.position?.value ?? step.effect.position);
     const correction = `Corrigi: a grade estava fechada, então o interruptor está ${switchState(actual)} (${supposed(step.assumesSwitchOn)}). Refiz a rota a partir da grade.`;
-    const session = change(s, 'correction', correction, now, {
-      position: fact({ floor: step.floor, x: before.x, y: before.y }, 'confirmed', 'manual', now),
-      positionExact: false,
-      switchOn: fact(actual, 'confirmed', 'manual', now),
-      recent,
-    }, step.id);
+    const session = change(
+      s,
+      'correction',
+      correction,
+      now,
+      { position: fact({ map: step.map, x: before.x, y: before.y }, 'confirmed', 'manual', now), positionExact: false, switchOn: fact(actual, 'confirmed', 'manual', now), recent },
+      step.id,
+    );
     return { session, correction };
   }
 
   if (outcome === 'blocked' && step.action === 'press-switch' && step.effect.switchOn !== undefined) {
-    // Apertou e os olhos ficaram da outra cor: o estado de antes era o oposto do suposto.
     const actual = !step.effect.switchOn;
     const correction = `Corrigi: os olhos ficaram ${switchColor(actual)}, então agora o interruptor está ${switchState(actual)} (${supposed(!step.effect.switchOn)} antes de apertar). Refiz a rota.`;
-    const session = change(s, 'correction', correction, now, {
-      position: fact(step.effect.position, 'confirmed', 'manual', now),
-      positionExact: true,
-      switchOn: fact(actual, 'confirmed', 'manual', now),
-      recent,
-    }, step.id);
+    const session = change(
+      s,
+      'correction',
+      correction,
+      now,
+      { position: fact(step.effect.position, 'confirmed', 'manual', now), positionExact: true, switchOn: fact(actual, 'confirmed', 'manual', now), recent },
+      step.id,
+    );
     return { session, correction };
   }
 
@@ -250,14 +340,12 @@ export function applyOutcome(area: NavArea, s: NavSession, step: GuidanceStep, o
 }
 
 export interface SaveFacts {
-  /** Mapa do save (chave do decomp) e posição no momento em que salvou. */
   mapKey: string | null;
   x: number;
   y: number;
   /** null = o save não traz as flags (leitor antigo): fica desconhecido, nunca "desligado". */
   switchOn: boolean | null;
   hasItem: (item: string) => boolean;
-  /** Flags de evento do save (a flag "hide" de uma Poké Ball fica ligada depois que ela é pega). */
   isFlagSet?: (flag: number) => boolean;
 }
 
@@ -265,64 +353,93 @@ export interface SaveFacts {
  * Concilia o save com a sessão. O save é "provável" (pode ser de antes do que o jogador fez);
  * nunca sobrescreve o que o jogador confirmou: divergências viram `conflicts` para perguntar.
  */
-export function reconcileSave(area: NavArea, s: NavSession, save: SaveFacts, now: string): { session: NavSession; conflicts: string[] } {
+export function reconcileSave(world: NavWorld, area: NavArea, s: NavSession, save: SaveFacts, now: string): { session: NavSession; conflicts: string[] } {
   const objective = objectiveOf(area, s.objectiveId);
   const conflicts: string[] = [];
   const patch: Partial<NavSessionCore> = {};
-  const inArea = !!save.mapKey && area.floors.some((f) => f.map === save.mapKey);
+  const known = !!save.mapKey && world.maps.some((m) => m.key === save.mapKey);
   const userPos = s.position?.source === 'manual' ? s.position : null;
-  if (inArea) {
-    const place = { floor: save.mapKey!, x: save.x, y: save.y };
+  if (known && (area.maps.includes(save.mapKey!) || !area.switch)) {
+    const place = { map: save.mapKey!, x: save.x, y: save.y };
     if (!userPos) {
       patch.position = fact(place, 'probable', 'save', now);
       patch.positionExact = true;
-    } else if (userPos.value.floor !== place.floor) {
-      conflicts.push(`O save diz que você está no ${floorLabel(area, place.floor)}, mas você confirmou ${floorLabel(area, userPos.value.floor)}. Vale o que você confirmou; se mudou de lugar, toque em "Onde estou?".`);
+    } else if (userPos.value.map !== place.map) {
+      conflicts.push(
+        `O save diz que você está em ${mapName(world, area, place.map)}, mas você confirmou ${mapName(world, area, userPos.value.map)}. Vale o que você confirmou; se mudou de lugar, toque em "Onde estou?".`,
+      );
     }
   } else if (s.position?.source === 'save') {
     patch.position = null;
     patch.positionExact = false;
   }
-  if (save.switchOn !== null) {
+  if (area.switch && save.switchOn !== null) {
     if (!s.switchOn || s.switchOn.source === 'save') patch.switchOn = fact(save.switchOn, 'probable', 'save', now);
     else if (s.switchOn.value !== save.switchOn) {
-      conflicts.push(`O save diz que o interruptor está ${switchState(save.switchOn)}, mas você confirmou ${switchState(s.switchOn.value)}. Vale o que você confirmou; se apertou uma estátua depois, olhe os olhos dela.`);
+      conflicts.push(
+        `O save diz que o interruptor está ${switchState(save.switchOn)}, mas você confirmou ${switchState(s.switchOn.value)}. Vale o que você confirmou; se apertou uma estátua depois, olhe os olhos dela.`,
+      );
     }
   }
   if (objective.item && save.hasItem(objective.item)) patch.done = true;
   if (save.isFlagSet) {
-    const taken = area.pois.filter((p) => p.kind === 'item' && save.isFlagSet!(p.hideFlag) && !s.collected.includes(p.id)).map((p) => p.id);
-    if (taken.length) patch.collected = [...s.collected, ...taken];
+    const taken: string[] = [];
+    for (const m of world.maps) {
+      if (!area.maps.includes(m.key)) continue;
+      m.objects.forEach((o, i) => {
+        if (o.kind === 'item' && o.hideFlag !== null && save.isFlagSet!(o.hideFlag)) taken.push(`${m.key}#${i}`);
+      });
+      m.hidden.forEach((h, i) => {
+        if (save.isFlagSet!(h.flag)) taken.push(`${m.key}#h${i}`);
+      });
+    }
+    const add = taken.filter((id) => !s.collected.includes(id));
+    if (add.length) patch.collected = [...s.collected, ...add];
+    if (objective.talk) {
+      const o = world.maps.find((m) => m.key === objective.talk!.map)?.objects.find((x) => x.x === objective.talk!.x && x.y === objective.talk!.y);
+      if (o?.hideFlag !== null && o?.hideFlag !== undefined && save.isFlagSet(o.hideFlag)) patch.done = true;
+    }
   }
   if (!Object.keys(patch).length && !conflicts.length) return { session: s, conflicts };
-  let session = change(s, 'save', 'Save importado: posição e interruptor como prováveis.', now, patch);
+  let session = change(s, 'save', 'Save importado: posição e estado como prováveis.', now, patch);
   for (const c of conflicts) session = { ...session, log: [...session.log, { at: now, kind: 'conflict' as const, text: c }].slice(-MAX_LOG) };
   return { session, conflicts };
 }
 
-/** Pontos de referência para o jogador dizer onde está, por andar. */
-export function locationAnchors(area: NavArea): NavAnchor[] {
-  const out: NavAnchor[] = [{ id: 'entrance', label: `Na entrada (acabei de entrar pela porta do ${floorLabel(area, area.entrance.floor)})`, place: area.entrance }];
-  const seen = new Set<string>();
+/**
+ * Pontos de referência para o jogador dizer onde está: entrada, chegadas de escadas/portas e estátuas.
+ * Na rota pelo mundo, os Centros Pokémon (todo mundo sabe dizer em qual cidade está).
+ */
+export function locationAnchors(world: NavWorld, area: NavArea): NavAnchor[] {
+  if (area.maps.length > 60) {
+    return world.maps
+      .filter((m) => m.key.endsWith('PokemonCenter_1F'))
+      .flatMap((m) => {
+        const mat = m.warps.find((w) => w.kind === 'exit-mat');
+        return mat ? [{ id: `pc:${m.key}`, label: `Dentro do ${mapName(world, area, m.key)}`, place: { map: m.key, x: mat.x, y: mat.y - 1 } }] : [];
+      });
+  }
+  const inArea = new Set(area.maps);
+  const out: NavAnchor[] = [{ id: 'entrance', label: `Na entrada (${mapName(world, area, area.entrance.map)})`, place: area.entrance }];
+  const seen = new Set<string>([`${area.entrance.map}:${area.entrance.x}:${area.entrance.y}`]);
   const push = (a: NavAnchor) => {
-    const k = `${a.place.floor}:${a.place.x}:${a.place.y}`;
+    const k = `${a.place.map}:${a.place.x}:${a.place.y}`;
     if (seen.has(k)) return;
     seen.add(k);
     out.push(a);
   };
-  for (const p of area.pois) {
-    if (p.kind === 'stairs') {
-      push({
-        id: `arrive:${p.id}`,
-        label: `Acabei de ${p.direction === 'up' ? 'subir' : 'descer'} a escada vindo do ${floorLabel(area, p.floor)} (cheguei ${zone(area, p.to.floor, p.to)})`,
-        place: p.to,
-      });
-    }
-    if (p.kind === 'fall') push({ id: `arrive:${p.id}`, label: `Caí de um buraco do ${floorLabel(area, p.floor)}`, place: p.to });
-    if (p.kind === 'switch') {
-      const ord = ordinal(area, p, true);
-      push({ id: `statue:${p.id}`, label: `Em frente à estátua de Pokémon${ord ? ` (${ord})` : ''} ${zone(area, p.floor, p)}`, place: { floor: p.floor, ...p.stand } });
+  for (const m of world.maps) {
+    for (const w of m.warps) {
+      if (!w.to || !inArea.has(w.to.map) || w.trigger === 'none') continue;
+      const dest = world.maps.find((x) => x.key === w.to!.map)!;
+      const how = w.kind === 'fall' ? 'Caí de um buraco' : w.kind === 'stairs' || w.kind === 'ladder' || w.kind === 'escalator' ? 'Acabei de chegar pela escada' : 'Acabei de entrar';
+      push({ id: `arrive:${m.key}:${w.x},${w.y}`, label: `${how} vindo de ${mapName(world, area, m.key)} (${zone(dest, w.to)})`, place: w.to });
     }
   }
-  return out.sort((a, b) => area.floors.findIndex((f) => f.map === a.place.floor) - area.floors.findIndex((f) => f.map === b.place.floor));
+  for (const st of area.switch?.statues ?? []) {
+    const m = world.maps.find((x) => x.key === st.map)!;
+    push({ id: `statue:${st.id}`, label: `Em frente à estátua de Pokémon ${zone(m, st)}`, place: { map: st.map, ...st.stand } });
+  }
+  const order = (p: NavPlace) => area.maps.indexOf(p.map);
+  return out.sort((a, b) => order(a.place) - order(b.place));
 }

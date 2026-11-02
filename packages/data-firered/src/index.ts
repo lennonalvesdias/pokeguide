@@ -1,6 +1,6 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import { type AreaOpponent, type NavArea, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
+import { type AreaOpponent, type NavArea, type NavBlocker, type NavObstacle, type NavWorld, type WorldMap, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
@@ -100,10 +100,26 @@ export const walkthrough = walkthroughJson as unknown as JourneyStep[];
 /** Pokémon selvagens por mapa (versão FireRed). */
 export const encounters = encountersJson as MapEncounters[];
 export const manifest = manifestJson;
-/** Áreas com guia passo a passo (grafo de tiles, escadas, buracos e interruptores do decomp). */
-export const navigation = navigationJson as unknown as NavArea[];
-/** Área de navegação que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
-export const navigationAreaOf = (mapKey: string) => navigation.find((a) => a.floors.some((f) => f.map === mapKey)) ?? null;
+/** Áreas com guia passo a passo e bloqueios de script (os mapas ficam em `loadWorld`). */
+export const navigation = navigationJson as unknown as { areas: NavArea[]; blockers: NavBlocker[]; newGameFlags: number[]; obstacles: Record<string, NavObstacle> };
+/** Área com guia que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
+export const navigationAreaOf = (mapKey: string) => navigation.areas.find((a) => a.maps.includes(mapKey)) ?? null;
+
+let worldPromise: Promise<NavWorld> | null = null;
+/**
+ * O mundo de Kanto (256 mapas, ~900 KB): carregado sob demanda, num pedaço separado do app,
+ * para não atrasar a abertura. Fica em cache depois da primeira vez.
+ */
+export function loadWorld(): Promise<NavWorld> {
+  worldPromise ??= import('../data/world.json', { with: { type: 'json' } }).then((m) => ({
+    maps: (m.default as unknown as WorldMap[]),
+    areas: navigation.areas,
+    blockers: navigation.blockers,
+    newGameFlags: navigation.newGameFlags,
+    obstacles: navigation.obstacles,
+  }));
+  return worldPromise;
+}
 
 export const versions: Versions = {
   rulesetId: 'firered-gen3',
