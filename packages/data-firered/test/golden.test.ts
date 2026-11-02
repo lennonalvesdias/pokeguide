@@ -21,9 +21,10 @@ import {
   teachAdvice,
   wildMoveset,
 } from '@pokeguide/domain';
+import { canSurf, trainingSpotInputs } from '../src/index.ts';
 import { describe, expect, it } from 'vitest';
 import { facts } from './nav-facts.ts';
-import { canSurf, loadWorld, lookup, manifest, moves, navigation, navigationAreaOf, rules, species, trainingSpotInputs, typeChart, upcomingOpponents, wildLevelHint } from '../src/index.ts';
+import { loadWorld, lookup, manifest, moves, navigation, navigationAreaOf, rules, species, typeChart, upcomingOpponents, wildLevelHint } from '../src/index.ts';
 
 const chart = createTypeChart(typeChart);
 const vs = (moveKey: string, speciesKey: string, opts: Parameters<typeof matchup>[3] = {}) =>
@@ -114,6 +115,23 @@ describe('dados específicos do FireRed', () => {
   });
   it('não existe tipo Fairy', () => {
     expect(species.flatMap((s) => s.types)).not.toContain('fairy');
+  });
+});
+
+describe('treino na água só com Surf (GetInteractedWaterScript)', () => {
+  const surfer = [{ moves: [{ move: { key: 'surf' } }] }];
+  const noSurfer = [{ moves: [{ move: { key: 'water_gun' } }] }];
+  it('sem a insígnia Soul não surfa, mesmo com alguém que sabe Surf', () => {
+    expect(canSurf(['boulder', 'cascade', 'thunder', 'rainbow'], surfer)).toBe(false);
+  });
+  it('com a insígnia Soul e ninguém que saiba Surf, não surfa (o HM03 na bolsa não basta)', () => {
+    expect(canSurf(['boulder', 'cascade', 'thunder', 'rainbow', 'soul'], noSurfer)).toBe(false);
+  });
+  it('Cerulean City sem poder surfar: nenhum lugar de treino na água', () => {
+    expect(trainingSpotInputs(['CeruleanCity'], new Set(), { canSurf: false }).map((s) => s.key)).toEqual([]);
+  });
+  it('Cerulean City podendo surfar: o lugar de treino é a água', () => {
+    expect(trainingSpotInputs(['CeruleanCity'], new Set(), { canSurf: true }).map((s) => s.key)).toEqual(['CeruleanCity|water']);
   });
 });
 
@@ -456,22 +474,5 @@ describe('fase 4b: Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands, Vict
       if (p.hole) expect(fell, `${p.map}: a pedra cai num buraco`).toBe(true);
       else expect(at.has(`${p.end!.x},${p.end!.y}`), `${p.map}: a pedra para no botão`).toBe(true);
     }
-  });
-});
-
-describe('treino na água só com Surf (GetInteractedWaterScript)', () => {
-  const surfer = [{ moves: [{ move: { key: 'surf' } }] }];
-  const noSurfer = [{ moves: [{ move: { key: 'water_gun' } }] }];
-  it('sem a insígnia Soul não surfa, mesmo com alguém que sabe Surf', () => {
-    expect(canSurf(['boulder', 'cascade', 'thunder', 'rainbow'], surfer)).toBe(false);
-  });
-  it('com a insígnia Soul e ninguém que saiba Surf, não surfa (o HM03 na bolsa não basta)', () => {
-    expect(canSurf(['boulder', 'cascade', 'thunder', 'rainbow', 'soul'], noSurfer)).toBe(false);
-  });
-  it('Cerulean City sem poder surfar: nenhum lugar de treino na água', () => {
-    expect(trainingSpotInputs(['CeruleanCity'], new Set(), { canSurf: false }).map((s) => s.key)).toEqual([]);
-  });
-  it('Cerulean City podendo surfar: o lugar de treino é a água', () => {
-    expect(trainingSpotInputs(['CeruleanCity'], new Set(), { canSurf: true }).map((s) => s.key)).toEqual(['CeruleanCity|water']);
   });
 });
