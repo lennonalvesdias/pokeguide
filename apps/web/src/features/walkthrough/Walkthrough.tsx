@@ -29,6 +29,8 @@ import {
 import type { SaveImportPreview } from '@pokeguide/save-parser';
 import { useEffect, useMemo, useState } from 'react';
 import { displayName } from '../../state.ts';
+import { track } from '../diagnostics/metrics.ts';
+import { ReportButton } from '../feedback/Report.tsx';
 import { navFacts, saveFacts } from './facts.ts';
 import { MiniMap } from './MiniMap.tsx';
 import { clearNav, loadNav, saveNav } from './store.ts';
@@ -164,6 +166,7 @@ function Guide({
   const t = now;
   const outcome = (st: GuidanceStep, o: StepOutcome) => {
     const r = applyOutcome(world, area, session, st, o, t());
+    track({ kind: 'outcome', outcome: o });
     update(r.session, r.correction);
   };
 
@@ -381,6 +384,31 @@ function GuidanceCard({
     );
   }
   const st = guidance.step;
+  return <StepCard world={world} area={area} session={session} st={st} objective={objective} update={update} outcome={outcome} onPrepare={onPrepare} />;
+}
+
+function StepCard({
+  world,
+  area,
+  session,
+  st,
+  objective,
+  update,
+  outcome,
+  onPrepare,
+}: {
+  world: NavWorld;
+  area: NavArea;
+  session: NavSession;
+  st: GuidanceStep;
+  objective: string;
+  update: (s: NavSession, msg?: string | null) => void;
+  outcome: (st: GuidanceStep, o: StepOutcome) => void;
+  onPrepare: (trainerKey: string) => void;
+}) {
+  const t = now;
+  // Conta cada passo mostrado (métrica local da tela de Diagnóstico).
+  useEffect(() => track({ kind: 'guide-step' }), [st.id]);
   const buttons: Array<[string, () => void, 'solid' | 'ghost']> =
     st.action === 'press-switch'
       ? [
@@ -442,6 +470,19 @@ function GuidanceCard({
       <p className="fine">
         {st.remaining === 1 ? 'Último passo.' : `Faltam ${st.remaining} passos (${mapName(world, area, st.map)} agora).`}
       </p>
+      <ReportButton
+        title={`Guia: ${area.name} · ${objective}`}
+        label="Passo errado? Gerar relatório"
+        context={{
+          area: area.id,
+          areaStatus: area.status,
+          objective: session.objectiveId,
+          step: { id: st.id, action: st.action, map: st.map, instruction: st.instruction, basis: st.basis },
+          position: session.position?.value ?? null,
+          switchOn: session.switchOn?.value ?? null,
+          recent: session.log.slice(-6).map((h) => `${h.kind}: ${h.text}`),
+        }}
+      />
     </article>
   );
 }

@@ -123,7 +123,10 @@ o ataque principal com STAB fosse o candidato a sair.
 | UX-07 | **Parcial** | O guia da mansão funciona sem flags do save (modo manual, com pontos de referência e perguntas). O roteiro da Jornada ainda depende das flags |
 | UX-04 | **Feito** | O cabeçalho mostra a idade do save (horário de chegada ao Dropbox ou data do arquivo importado) e, depois de 15 min, avisa que local e progresso podem ter mudado. No guia, posição e interruptor vindos do save aparecem como "Provável" e pedem confirmação; divergência com o que o jogador confirmou vira aviso, nunca sobrescrita silenciosa |
 | UX-11 (novo) | **Feito** | Ver "Validação em campo: Magneton" abaixo |
-| UX-03, 05, 06, 09, 10 | Pendente (P1/P2) | Reorganização em "Agora", batalha expressa, separação de análise avançada, onboarding e feedback contextual |
+| UX-03 | **Feito** | Abas **Agora · Batalha · Jornada · Equipe · Mais**. "Agora" abre o app: objetivo do momento com "Como chegar" e o guia da área, onde você está (com a idade do save), atalhos (Estou em batalha, Aprender golpe, Equipe, Golpes) e quem precisa de cura. Bolsa, Golpes, Save/Dropbox e Diagnóstico ficam em "Mais"; a aba salva antiga (Bolsa/Golpes) migra sozinha |
+| UX-10 | **Feito** | "Gerar relatório" nas recomendações de batalha (selvagem e treinador) e em cada passo do guia: o jogador descreve o problema e copia, compartilha ou abre uma issue. Nada é enviado sozinho; o relatório tira nome, IDs do treinador, flags e variáveis do save |
+| Métricas | **Feito (local)** | Tela "Mais › Diagnóstico": versões, dados do save, aberturas, importações, recomendações, p75 do tempo até a primeira recomendação, passos do guia e resultados (feito/bloqueado/não achou). Fica só no aparelho (`localStorage`), com copiar e zerar |
+| UX-05, 06, 09 | Pendente (P2) | Batalha expressa, separação de análise avançada e onboarding |
 
 Roadmap P0 após esta entrega: os três itens estão feitos (o 2 para a mansão; outras áreas dependem da
 fase 4 do ADR de navegação).
