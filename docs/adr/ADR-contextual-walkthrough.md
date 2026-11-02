@@ -1,6 +1,6 @@
 # ADR — Navegação contextual e walkthrough verificável (FireRed)
 
-Status: **Aceita: fases 1 e 2 feitas; fase 3 fora do plano; fase 4 em andamento (4a feita)** (ver [Revisão e implementação](#revisão-e-implementação-2026-11))  
+Status: **Aceita: fases 1 e 2 feitas; fase 3 fora do plano; fase 4 em andamento (4a e 4b feitas; falta 4c, de interface)** (ver [Revisão e implementação](#revisão-e-implementação-2026-11))  
 Escopo: PokéGuide PWA, Pokémon FireRed (Gen III), Delta/iPhone  
 Branch: `feature/contextual-walkthrough-spec`  
 Relacionadas: ADR-010 (navegação em grafo) em [0000](0000-arquitetura-v1.0.md), [auditoria de UX](../UX-AUDIT-2026-11.md) (UX-01, UX-07)
@@ -284,13 +284,53 @@ Pokémon Tower, Cerulean Cave e S.S. Anne, mais a rota pelo mundo.
 - Testes unitários de cada regra de movimento num mundo sintético.
 - Varredura da mansão com o motor novo, com as mesmas 14/15 ações de decisão do motor anterior.
 
-### 4b e 4c (próximas PRs)
+### 4b: mecânicas especiais (feito)
 
-- **4b:**
-  - Rocket Hideout (giradores, Lift Key, elevador);
-  - Silph Co. (portas de Card Key, teletransportes, elevador);
-  - Safari Zone (passos, conexões internas);
-  - Seafoam Islands (pedras de Strength que param correntezas);
-  - Victory Road (Strength e botões).
-- **4c:** abas "Agora · Batalha · Jornada · Equipe · Mais", relatório de problema copiável e diagnóstico
-  só local.
+**Sobreposições genéricas.** O pipeline lê o script de carga de cada mapa (`OnLoad`/`OnTransition`). Todo
+rótulo chamado sob uma condição que troca tiles (`setmetatile`, `setmaplayoutindex`) vira uma sobreposição:
+
+- **condições:** flag ligada/desligada, variável comparada, treinador vencido;
+- **casos extraídos:** grades da mansão (agora pelo mesmo caminho genérico, com os mesmos 24 tiles no 1F),
+  20 portas da Silph Co., barreira do Rocket Hideout, escada escondida do Game Corner, barreiras da Victory
+  Road e correntezas do Seafoam (troca de layout);
+- **regra de incerteza:** condição desconhecida assume a variante mais restritiva.
+
+**Aberturas** (como o jogador desfaz uma sobreposição):
+
+- Card Key (Silph Co.);
+- vencer o Rocket da barreira;
+- interruptor atrás do pôster do Game Corner;
+- quebra-cabeças de Strength.
+
+**Quebra-cabeças resolvidos pelo pipeline:**
+
+- **Victory Road:** o script do botão diz qual pedra precisa chegar (`copyobjectxytoperm`). Uma busca em
+  largura com as regras de `TryPushBoulder` encontra a sequência de empurrões.
+- **Seafoam:**
+  - cada pedra guarda no `trainer_type` a flag que revela a pedra de baixo (`GetBoulderRevealFlagByLocalIdAndMap`);
+  - a cadeia é calculada de trás para frente a partir das pedras que param cada correnteza;
+  - o estado inicial vem do script de reinício da Route 20;
+  - a busca considera várias pedras (no B3F uma pedra precisa ser tirada do caminho de outra);
+  - são 8 tarefas, executadas como pré-requisito dos objetivos do Seafoam.
+- **Teste independente:** refaz cada empurrão sobre o mapa e confere que a pedra termina no botão ou no
+  buraco.
+
+**Outras correções e mecânicas:**
+
+- **Elevadores:** andares e destino exato vêm do script (`setdynamicwarp`); o do Rocket Hideout exige o
+  Lift Key (`FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT`).
+- **Teletransportadores:** `MB_REGULAR_WARP`, que é o que `IsWarpPad` testa no FireRed.
+- **Portas (vale para o jogo inteiro):** o tile da porta tem colisão, e o warp dispara com o jogador logo
+  abaixo, andando para cima (`TryDoorWarp`). Na 4a nenhuma porta funcionava; corrigido aqui.
+- **Buscar antes:** se o que falta é um item no chão da própria área (Card Key) ou a chave de um elevador
+  (Lift Key), o guia vai buscá-lo antes. Itens pegos na sessão contam como fatos até o próximo save.
+- **Safari Zone:** cada passo informa quantos dos 600 passos da entrada o caminho gasta.
+
+**Áreas novas (beta):** Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands e Victory Road. Cada uma
+tem golden case da entrada ao objetivo.
+
+### 4c (próxima PR)
+
+- abas "Agora · Batalha · Jornada · Equipe · Mais";
+- relatório de problema copiável, sem dados do save;
+- diagnóstico só local.

@@ -43,6 +43,7 @@ git sparse-checkout set \
   /src/data/wild_encounters.json \
   /src/data/pokemon/experience_tables.h \
   /data/scripts/pokemon_mansion.inc \
+  /data/scripts/silphco_doors.inc \
   /data/scripts/item_ball_scripts.inc \
   /include/constants/vars.h \
   /data/event_scripts.s \

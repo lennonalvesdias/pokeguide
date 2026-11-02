@@ -45,18 +45,23 @@ export function MiniMap({
   const px = (x: number) => (x - x0) * CELL;
   const py = (y: number) => (y - y0) * CELL;
   const center = (t: NavTile) => `${px(t.x) + CELL / 2},${py(t.y) + CELL / 2}`;
+  // Tiles das grades do interruptor da área (Pokémon Mansion).
+  const switchAt = new Map<number, { c: string; set: boolean }>();
+  for (const ov of map.overlays) {
+    if (!('flag' in ov.when) || ov.when.flag !== area.switch?.flag.id) continue;
+    for (const t of ov.tiles) switchAt.set(t.y * map.width + t.x, { c: t.c, set: ov.when.set });
+  }
   const cells: React.ReactNode[] = [];
   for (let y = y0; y <= y1; y++) {
     for (let x = x0; x <= x1; x++) {
       const c = map.tiles[y * map.width + x]!;
-      if (c === '#') continue;
+      if (c === '#' && !switchAt.has(y * map.width + x)) continue;
       let cls = 'mm-floor';
       if (WATER.has(c)) cls = 'mm-water';
       else if (LEDGE.has(c)) cls = 'mm-ledge';
-      else if (c === 'g') {
-        const g = map.gates.find((t) => t.x === x && t.y === y);
-        const isSwitch = g && area.switch?.flag.id === g.flag;
-        const open = g && isSwitch && switchOn !== null ? g.passWhenSet === switchOn : null;
+      const sw = switchAt.get(y * map.width + x);
+      if (sw) {
+        const open = switchOn === null ? null : (switchOn === sw.set ? sw.c : c) !== '#';
         cls = open === null ? 'mm-gate unknown' : open ? 'mm-gate open' : 'mm-gate closed';
       }
       cells.push(<rect key={`${x},${y}`} className={cls} x={px(x)} y={py(y)} width={CELL} height={CELL} />);
@@ -90,7 +95,7 @@ export function MiniMap({
       <figcaption className="fine">
         <span className="mm-key you" /> você · <span className="mm-key target" /> próximo ponto · <span className="mm-key stairs" /> porta/escada ·{' '}
         <span className="mm-key water" /> água
-        {map.gates.length > 0 && <> · grades: {switchOn === null ? 'estado desconhecido (amarelo)' : 'verde aberta, vermelha fechada'}</>}
+        {switchAt.size > 0 && <> · grades: {switchOn === null ? 'estado desconhecido (amarelo)' : 'verde aberta, vermelha fechada'}</>}
       </figcaption>
     </figure>
   );

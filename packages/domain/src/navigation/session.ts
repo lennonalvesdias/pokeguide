@@ -1,7 +1,7 @@
 // Sessão de navegação: uma ação por vez, confirmada pelo jogador. Incerteza vira pergunta, nunca direção inventada.
 import { defaultNames, mapName, type NavNames, ordinalAmong, switchColor, switchState, zone } from './describe.ts';
 import { FIELD_MOVE_BADGE, newGameFlags, objectPresent, type Plan, type PlanGoal, planRoute, type Requirement, trainerSight } from './planner.ts';
-import { planSteps } from './steps.ts';
+import { planSteps, taskSteps } from './steps.ts';
 import type {
   FieldMove,
   Guidance,
@@ -129,6 +129,13 @@ export function describeRequirements(world: NavWorld, area: NavArea, facts: NavF
     } else if (r.kind === 'blocker') {
       const b = world.blockers.find((x) => x.id === r.id);
       if (b) out.add(b.text);
+    } else if (r.kind === 'opener') {
+      const op = world.openers.find((x) => x.id === r.id);
+      if (op) out.add(`${op.why}${op.needsItem ? ` (precisa do item ${op.needsItem.replace(/_/g, ' ')})` : ''}`);
+    } else if (r.kind === 'elevator') {
+      out.add(`O elevador de ${mapName(world, area, r.map)} só funciona com o Lift Key (um Rocket do B4F do Rocket Hideout deixa cair depois da batalha).`);
+    } else if (r.kind === 'overlay') {
+      out.add(`Há uma passagem fechada por um evento do jogo em ${mapName(world, area, r.map)}.`);
     } else {
       const o = world.maps.find((m) => m.key === r.place.map)?.objects.find((x) => x.x === r.place.x && x.y === r.place.y);
       const known = o?.kind === 'npc' ? world.obstacles[o.gfx]?.text : undefined;
@@ -142,7 +149,24 @@ export function describeRequirements(world: NavWorld, area: NavArea, facts: NavF
  * A próxima coisa a fazer. Só devolve um passo quando ele vale para o estado conhecido
  * (ou para os dois estados do interruptor); senão pergunta.
  */
-export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s: NavSession, opts: GuidanceOptions = {}): Guidance {
+/**
+ * Fatos do save mais o que o jogador confirmou nesta sessão (itens pegos, chaves buscadas): o save só
+ * fica sabendo na próxima vez que você salvar.
+ */
+export function sessionFacts(facts: NavFacts, s: NavSession): NavFacts {
+  const items = s.collected.filter((c) => c.startsWith('item:')).map((c) => c.slice(5));
+  const on = new Set(s.collected.filter((c) => c.startsWith('flag:')).map((c) => Number(c.slice(5))));
+  const off = new Set(s.collected.filter((c) => c.startsWith('noflag:')).map((c) => Number(c.slice(7))));
+  if (!items.length && !on.size && !off.size) return facts;
+  return {
+    ...facts,
+    items: new Set([...facts.items, ...items]),
+    flag: (id) => (on.has(id) ? true : off.has(id) ? false : facts.flag(id)),
+  };
+}
+
+export function nextGuidance(world: NavWorld, area: NavArea, saveFacts: NavFacts, s: NavSession, opts: GuidanceOptions = {}): Guidance {
+  const facts = sessionFacts(saveFacts, s);
   const objective = objectiveOf(area, s.objectiveId);
   if (s.done) {
     const hints: string[] = [];
@@ -160,6 +184,25 @@ export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s:
     return { kind: 'confirm-position', place: pos.value, question: `${from} em ${describePlace(world, area, pos.value)}. Ainda está aí?` };
   }
   const names = opts.names ?? defaultNames;
+  // Pré-requisitos (pedras do Seafoam): a próxima tarefa ainda não feita vem antes do objetivo.
+  if (objective.needsTasks) {
+    const task = (area.tasks ?? []).find((t) => !s.collected.includes(`task:${t.id}`) && facts.flag(t.reveals) !== false && facts.flag(t.stops) !== true);
+    if (task) {
+      const done = Math.max(0, ...s.collected.filter((c) => c.startsWith(`task:${task.id}#`)).map((c) => Number(c.split('#').pop())));
+      const firstStand = done === 0 ? task.boulder : task.pushes[done - 1]!.stand;
+      const atTask = pos.value.map === task.map && Math.abs(pos.value.x - firstStand.x) + Math.abs(pos.value.y - firstStand.y) <= 1;
+      if (atTask || done > 0) return { kind: 'step', step: taskSteps(world, area, task, done)[0]! };
+      const sightT = trainerSight(world, new Set(area.maps), facts.defeatedTrainers);
+      const toTask = planRoute(world, area, facts, pos.value, s.switchOn?.value ?? false, { kind: 'talk', place: { map: task.map, ...task.boulder } }, { mode: s.mode, collected: new Set(s.collected) });
+      const steps = toTask ? planSteps(world, area, toTask, { names, sight: sightT, startExact: s.positionExact, switchConfirmed: true, who: 'a pedra' }) : null;
+      if (steps?.length) {
+        const first = steps[0]!;
+        const effect = first.action === 'talk' ? { position: first.effect.position } : first.effect;
+        return { kind: 'step', step: { ...first, effect, notes: [`Antes: ${task.why}`, ...first.notes] } };
+      }
+      if (toTask) return { kind: 'step', step: taskSteps(world, area, task, done)[0]! };
+    }
+  }
   const sight = trainerSight(world, new Set(area.maps), facts.defeatedTrainers);
   const collected = new Set(s.collected);
   const planOpts = { mode: s.mode, collected };
@@ -168,6 +211,7 @@ export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s:
   const stepsOf = (plan: Plan | null, switchConfirmed: boolean) =>
     plan
       ? planSteps(world, area, plan, {
+          openerDone: (id) => Math.max(0, ...s.collected.filter((c) => c.startsWith(`${id}#`)).map((c) => Number(c.split('#').pop()))),
           names,
           sight,
           startExact: s.positionExact,
@@ -178,6 +222,30 @@ export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s:
       : null;
   const stuck = (on: boolean | 'both'): Guidance => {
     const relaxed = planRoute(world, area, facts, pos.value, on, goalOf(objective), { ...planOpts, relaxed: true });
+    // O que falta é um item que está no chão da própria área (o Card Key da Silph Co.)? Vai buscar antes.
+    for (const r of relaxed?.requirements ?? []) {
+      const op = r.kind === 'opener' ? world.openers.find((x) => x.id === r.id) : undefined;
+      if (!op?.needsItem || objective.item === op.needsItem) continue;
+      const fetch = planRoute(world, area, facts, pos.value, on === 'both' ? false : on, { kind: 'item', item: op.needsItem }, planOpts);
+      const steps = stepsOf(fetch, true);
+      if (steps?.length) {
+        const first = steps[0]!;
+        return { kind: 'step', step: { ...first, notes: [`Primeiro: ${op.why}`, ...first.notes] } };
+      }
+    }
+    // Elevador travado: vai buscar a chave (Lift Key), se ela estiver na área.
+    for (const r of relaxed?.requirements ?? []) {
+      const key = r.kind === 'elevator' ? world.elevatorKeys.find((k) => k.elevator === r.map) : undefined;
+      if (!key || !area.maps.includes(key.fetch.map)) continue;
+      const fetch = planRoute(world, area, facts, pos.value, on === 'both' ? false : on, { kind: 'talk', place: key.fetch }, planOpts);
+      const steps = fetch ? planSteps(world, area, fetch, { names, sight, startExact: s.positionExact, switchConfirmed: true, who: key.who }) : null;
+      if (steps?.length) {
+        const first = steps[0]!;
+        // Buscar a chave não conclui o objetivo: o passo final entrega o item.
+        const effect = first.action === 'talk' ? { position: first.effect.position, collected: key.gives } : first.effect;
+        return { kind: 'step', step: { ...first, effect, notes: [key.why, ...first.notes] } };
+      }
+    }
     const missing = relaxed ? describeRequirements(world, area, facts, relaxed.requirements) : [];
     return {
       kind: 'stuck',
@@ -193,7 +261,7 @@ export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s:
     const steps = stepsOf(plan, confirmed);
     if (plan && !steps?.length && goal.kind !== 'collect') return { kind: 'done', text: objective.doneText, exitHint: null };
     if (!steps?.length) return stuck(on);
-    return { kind: 'step', step: steps[0]! };
+    return { kind: 'step', step: withSafariNote(world, pos.value.map, plan!, steps[0]!) };
   }
 
   // Interruptor desconhecido: o passo só sai se for o mesmo nos dois estados.
@@ -216,6 +284,13 @@ export function nextGuidance(world: NavWorld, area: NavArea, facts: NavFacts, s:
       : 'Os olhos das estátuas de Pokémon estão vermelhos ou pretos?',
     statue,
   };
+}
+
+/** Na Safari Zone cada entrada dá 600 passos: diz quanto o caminho gasta. */
+function withSafariNote(world: NavWorld, mapKey: string, plan: Plan, step: GuidanceStep): GuidanceStep {
+  if (world.maps.find((m) => m.key === mapKey)?.mapsec !== 'KANTO_SAFARI_ZONE') return step;
+  const steps = plan.actions.filter((a) => a.type === 'move' || a.type === 'jump' || a.type === 'surf' || a.type === 'land' || a.type === 'remove').length;
+  return { ...step, notes: [...step.notes, `Safari Zone: este caminho gasta uns ${steps} dos 600 passos de cada entrada.`] };
 }
 
 export function answerSwitch(s: NavSession, on: boolean | null, now: string): NavSession {
@@ -279,6 +354,10 @@ export function applyOutcome(world: NavWorld, area: NavArea, s: NavSession, step
           : [step.effect.removedId];
       collected = [...collected, ...ids.map((id) => (step.effect.removedTemp ? `tmp:${id}` : id)).filter((id) => !collected.includes(id))];
     }
+    if (step.effect.collected && !collected.includes(`item:${step.effect.collected}`)) collected = [...collected, `item:${step.effect.collected}`];
+    for (const mk of step.effect.marks ?? []) if (!collected.includes(mk)) collected = [...collected, mk];
+    if (step.effect.openedId) collected = [...collected.filter((c) => !c.startsWith(`${step.effect.openedId}#`)), step.effect.openedId];
+    if (step.effect.openerProgress && !collected.includes(step.effect.openerProgress)) collected = [...collected, step.effect.openerProgress];
     // Árvore cortada e rocha quebrada voltam quando você sai do mapa.
     if (step.effect.position.map !== s.position?.value.map) collected = collected.filter((id) => !id.startsWith('tmp:') || id.startsWith(`tmp:${step.effect.position.map}#`));
     const session = change(
@@ -303,7 +382,10 @@ export function applyOutcome(world: NavWorld, area: NavArea, s: NavSession, step
   if (outcome === 'blocked' && step.action === 'cross-gate' && step.assumesSwitchOn !== undefined) {
     const actual = !step.assumesSwitchOn;
     const m = world.maps.find((x) => x.key === step.map);
-    const gateIdx = m ? step.path.findIndex((t) => m.tiles[t.y * m.width + t.x] === 'g') : -1;
+    const switchTiles = new Set(
+      (m?.overlays ?? []).filter((ov) => 'flag' in ov.when && ov.when.flag === area.switch?.flag.id).flatMap((ov) => ov.tiles.map((t) => `${t.x},${t.y}`)),
+    );
+    const gateIdx = step.path.findIndex((t) => switchTiles.has(`${t.x},${t.y}`));
     const before = gateIdx > 0 ? step.path[gateIdx - 1]! : (s.position?.value ?? step.effect.position);
     const correction = `Corrigi: a grade estava fechada, então o interruptor está ${switchState(actual)} (${supposed(step.assumesSwitchOn)}). Refiz a rota a partir da grade.`;
     const session = change(

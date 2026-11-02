@@ -429,6 +429,547 @@
    ],
    "notes": "O rival te desafia no corredor do 2F.",
    "status": "beta"
+  },
+  {
+   "id": "rocket_hideout",
+   "name": "Rocket Hideout",
+   "maps": [
+    "RocketHideout_B1F",
+    "RocketHideout_B2F",
+    "RocketHideout_B3F",
+    "RocketHideout_B4F",
+    "RocketHideout_Elevator"
+   ],
+   "labels": {
+    "RocketHideout_B1F": "B1F",
+    "RocketHideout_B2F": "B2F",
+    "RocketHideout_B3F": "B3F",
+    "RocketHideout_B4F": "B4F",
+    "RocketHideout_Elevator": "elevador"
+   },
+   "entrance": {
+    "map": "RocketHideout_B1F",
+    "x": 12,
+    "y": 2
+   },
+   "objectives": [
+    {
+     "id": "giovanni",
+     "title": "Enfrentar o Giovanni (Silph Scope)",
+     "talk": {
+      "map": "RocketHideout_B4F",
+      "x": 19,
+      "y": 4
+     },
+     "who": "o Giovanni",
+     "doneText": "Você chegou ao Giovanni. Vença-o e pegue o Silph Scope que ele deixa cair."
+    },
+    {
+     "id": "exit",
+     "title": "Sair do Hideout",
+     "exit": true,
+     "doneText": "Você saiu do Rocket Hideout."
+    }
+   ],
+   "notes": "No B2F e no B3F, as setas no chão fazem você deslizar até um ponto de parada. O elevador (B1F, B2F, B4F) só funciona com o Lift Key.",
+   "status": "beta"
+  },
+  {
+   "id": "silph_co",
+   "name": "Silph Co.",
+   "maps": [
+    "SilphCo_1F",
+    "SilphCo_2F",
+    "SilphCo_3F",
+    "SilphCo_4F",
+    "SilphCo_5F",
+    "SilphCo_6F",
+    "SilphCo_7F",
+    "SilphCo_8F",
+    "SilphCo_9F",
+    "SilphCo_10F",
+    "SilphCo_11F",
+    "SilphCo_Elevator"
+   ],
+   "labels": {
+    "SilphCo_1F": "1F",
+    "SilphCo_2F": "2F",
+    "SilphCo_3F": "3F",
+    "SilphCo_4F": "4F",
+    "SilphCo_5F": "5F",
+    "SilphCo_6F": "6F",
+    "SilphCo_7F": "7F",
+    "SilphCo_8F": "8F",
+    "SilphCo_9F": "9F",
+    "SilphCo_10F": "10F",
+    "SilphCo_11F": "11F",
+    "SilphCo_Elevator": "elevador"
+   },
+   "entrance": {
+    "map": "SilphCo_1F",
+    "x": 8,
+    "y": 20
+   },
+   "objectives": [
+    {
+     "id": "giovanni",
+     "title": "Enfrentar o Giovanni no 11F",
+     "talk": {
+      "map": "SilphCo_11F",
+      "x": 6,
+      "y": 11
+     },
+     "who": "o Giovanni",
+     "doneText": "Você chegou ao Giovanni. Vença-o para libertar a Silph Co.: o presidente te dá a Master Ball."
+    },
+    {
+     "id": "card_key",
+     "title": "Pegar o Card Key (5F)",
+     "item": "card_key",
+     "doneText": "Você tem o Card Key: ele abre as portas trancadas de todos os andares."
+    },
+    {
+     "id": "exit",
+     "title": "Sair da Silph Co.",
+     "exit": true,
+     "doneText": "Você saiu da Silph Co."
+    }
+   ],
+   "notes": "Os teletransportadores (quadrados no chão) levam a outro ponto do mesmo andar ou de outro andar. As portas trancadas abrem com o Card Key.",
+   "status": "beta"
+  },
+  {
+   "id": "safari_zone",
+   "name": "Safari Zone",
+   "maps": [
+    "SafariZone_Center",
+    "SafariZone_East",
+    "SafariZone_North",
+    "SafariZone_West",
+    "SafariZone_Center_RestHouse",
+    "SafariZone_East_RestHouse",
+    "SafariZone_North_RestHouse",
+    "SafariZone_West_RestHouse",
+    "SafariZone_SecretHouse"
+   ],
+   "labels": {
+    "SafariZone_Center": "centro",
+    "SafariZone_East": "leste",
+    "SafariZone_North": "norte",
+    "SafariZone_West": "oeste",
+    "SafariZone_SecretHouse": "casa secreta"
+   },
+   "entrance": {
+    "map": "SafariZone_Center",
+    "x": 26,
+    "y": 30
+   },
+   "objectives": [
+    {
+     "id": "surf",
+     "title": "Ganhar a HM03 (Surf) na casa secreta",
+     "talk": {
+      "map": "SafariZone_SecretHouse",
+      "x": 6,
+      "y": 5
+     },
+     "who": "o homem da casa secreta",
+     "doneText": "Fale com ele para ganhar a HM03 (Surf)."
+    },
+    {
+     "id": "gold_teeth",
+     "title": "Pegar os Gold Teeth",
+     "item": "gold_teeth",
+     "doneText": "Você tem os Gold Teeth: leve ao Warden em Fuchsia City para ganhar a HM04 (Strength)."
+    },
+    {
+     "id": "exit",
+     "title": "Sair da Safari Zone",
+     "exit": true,
+     "doneText": "Você saiu da Safari Zone."
+    }
+   ],
+   "notes": "Cada entrada custa ¥500 e dá 600 passos (e 30 Safari Balls). Quando os passos acabam, você volta para a portaria.",
+   "status": "beta"
+  },
+  {
+   "id": "seafoam_islands",
+   "name": "Seafoam Islands",
+   "maps": [
+    "SeafoamIslands_1F",
+    "SeafoamIslands_B1F",
+    "SeafoamIslands_B2F",
+    "SeafoamIslands_B3F",
+    "SeafoamIslands_B4F"
+   ],
+   "labels": {
+    "SeafoamIslands_1F": "1F",
+    "SeafoamIslands_B1F": "B1F",
+    "SeafoamIslands_B2F": "B2F",
+    "SeafoamIslands_B3F": "B3F",
+    "SeafoamIslands_B4F": "B4F"
+   },
+   "entrance": {
+    "map": "SeafoamIslands_1F",
+    "x": 6,
+    "y": 21
+   },
+   "objectives": [
+    {
+     "id": "articuno",
+     "title": "Chegar ao Articuno",
+     "talk": {
+      "map": "SeafoamIslands_B4F",
+      "x": 9,
+      "y": 2
+     },
+     "who": "o Articuno",
+     "doneText": "Você está diante do Articuno (Nv 50). Salve o jogo antes de falar com ele.",
+     "needsTasks": true
+    },
+    {
+     "id": "cross",
+     "title": "Atravessar para o outro lado da Route 20",
+     "reach": {
+      "map": "Route20",
+      "x": 72,
+      "y": 14
+     },
+     "doneText": "Você atravessou as Seafoam Islands.",
+     "needsTasks": true
+    },
+    {
+     "id": "exit",
+     "title": "Sair das ilhas",
+     "exit": true,
+     "doneText": "Você saiu das Seafoam Islands."
+    }
+   ],
+   "notes": "No B3F e no B4F a correnteza é forte demais: ela para quando duas pedras caem do andar de cima (Strength). As instruções de correnteza mostram para onde a água te leva.",
+   "status": "beta",
+   "tasks": [
+    {
+     "id": "boulder:SeafoamIslands_1F:22,12",
+     "map": "SeafoamIslands_1F",
+     "boulder": {
+      "x": 22,
+      "y": 12
+     },
+     "hideFlag": 64,
+     "reveals": 66,
+     "pushes": [
+      {
+       "stand": {
+        "x": 22,
+        "y": 13
+       },
+       "from": {
+        "x": 22,
+        "y": 12
+       },
+       "dir": "up",
+       "times": 4
+      },
+      {
+       "stand": {
+        "x": 23,
+        "y": 8
+       },
+       "from": {
+        "x": 22,
+        "y": 8
+       },
+       "dir": "left",
+       "times": 1
+      }
+     ],
+     "why": "A correnteza do B3F para quando duas pedras caem nele, vindas do andar de cima (Strength).",
+     "stops": 722
+    },
+    {
+     "id": "boulder:SeafoamIslands_1F:32,9",
+     "map": "SeafoamIslands_1F",
+     "boulder": {
+      "x": 32,
+      "y": 9
+     },
+     "hideFlag": 65,
+     "reveals": 67,
+     "pushes": [
+      {
+       "stand": {
+        "x": 32,
+        "y": 10
+       },
+       "from": {
+        "x": 32,
+        "y": 9
+       },
+       "dir": "up",
+       "times": 1
+      },
+      {
+       "stand": {
+        "x": 33,
+        "y": 8
+       },
+       "from": {
+        "x": 32,
+        "y": 8
+       },
+       "dir": "left",
+       "times": 2
+      }
+     ],
+     "why": "A correnteza do B3F para quando duas pedras caem nele, vindas do andar de cima (Strength).",
+     "stops": 722
+    },
+    {
+     "id": "boulder:SeafoamIslands_B1F:22,8",
+     "map": "SeafoamIslands_B1F",
+     "boulder": {
+      "x": 22,
+      "y": 8
+     },
+     "hideFlag": 66,
+     "reveals": 68,
+     "pushes": [
+      {
+       "stand": {
+        "x": 21,
+        "y": 8
+       },
+       "from": {
+        "x": 22,
+        "y": 8
+       },
+       "dir": "right",
+       "times": 1
+      }
+     ],
+     "why": "A correnteza do B3F para quando duas pedras caem nele, vindas do andar de cima (Strength).",
+     "stops": 722
+    },
+    {
+     "id": "boulder:SeafoamIslands_B1F:30,8",
+     "map": "SeafoamIslands_B1F",
+     "boulder": {
+      "x": 30,
+      "y": 8
+     },
+     "hideFlag": 67,
+     "reveals": 69,
+     "pushes": [
+      {
+       "stand": {
+        "x": 31,
+        "y": 8
+       },
+       "from": {
+        "x": 30,
+        "y": 8
+       },
+       "dir": "left",
+       "times": 2
+      }
+     ],
+     "why": "A correnteza do B3F para quando duas pedras caem nele, vindas do andar de cima (Strength).",
+     "stops": 722
+    },
+    {
+     "id": "boulder:SeafoamIslands_B2F:22,8",
+     "map": "SeafoamIslands_B2F",
+     "boulder": {
+      "x": 22,
+      "y": 8
+     },
+     "hideFlag": 68,
+     "reveals": 70,
+     "pushes": [
+      {
+       "stand": {
+        "x": 21,
+        "y": 8
+       },
+       "from": {
+        "x": 22,
+        "y": 8
+       },
+       "dir": "right",
+       "times": 2
+      }
+     ],
+     "why": "A correnteza do B3F para quando duas pedras caem nele, vindas do andar de cima (Strength).",
+     "stops": 722
+    },
+    {
+     "id": "boulder:SeafoamIslands_B2F:30,8",
+     "map": "SeafoamIslands_B2F",
+     "boulder": {
+      "x": 30,
+      "y": 8
+     },
+     "hideFlag": 69,
+     "reveals": 71,
+     "pushes": [
+      {
+       "stand": {
+        "x": 31,
+        "y": 8
+       },
+       "from": {
+        "x": 30,
+        "y": 8
+       },
+       "dir": "left",
+       "times": 3
+      }
+     ],
+     "why": "A correnteza do B3F para quando duas pedras caem nele, vindas do andar de cima (Strength).",
+     "stops": 722,
+     "setsFlag": 722
+    },
+    {
+     "id": "boulder:SeafoamIslands_B3F:6,17",
+     "map": "SeafoamIslands_B3F",
+     "boulder": {
+      "x": 6,
+      "y": 17
+     },
+     "hideFlag": 72,
+     "reveals": 76,
+     "pushes": [
+      {
+       "stand": {
+        "x": 6,
+        "y": 16
+       },
+       "from": {
+        "x": 6,
+        "y": 17
+       },
+       "dir": "down",
+       "times": 1
+      }
+     ],
+     "why": "A correnteza do B4F para quando duas pedras do B3F caem nos buracos (Strength).",
+     "stops": 723
+    },
+    {
+     "id": "boulder:SeafoamIslands_B3F:12,16",
+     "map": "SeafoamIslands_B3F",
+     "boulder": {
+      "x": 12,
+      "y": 16
+     },
+     "hideFlag": 74,
+     "reveals": 77,
+     "pushes": [
+      {
+       "stand": {
+        "x": 13,
+        "y": 17
+       },
+       "from": {
+        "x": 13,
+        "y": 16
+       },
+       "dir": "up",
+       "times": 2
+      },
+      {
+       "stand": {
+        "x": 12,
+        "y": 15
+       },
+       "from": {
+        "x": 12,
+        "y": 16
+       },
+       "dir": "down",
+       "times": 1
+      },
+      {
+       "stand": {
+        "x": 13,
+        "y": 17
+       },
+       "from": {
+        "x": 12,
+        "y": 17
+       },
+       "dir": "left",
+       "times": 3
+      },
+      {
+       "stand": {
+        "x": 10,
+        "y": 16
+       },
+       "from": {
+        "x": 9,
+        "y": 16
+       },
+       "dir": "left",
+       "times": 1
+      },
+      {
+       "stand": {
+        "x": 9,
+        "y": 16
+       },
+       "from": {
+        "x": 9,
+        "y": 17
+       },
+       "dir": "down",
+       "times": 1
+      }
+     ],
+     "why": "A correnteza do B4F para quando duas pedras do B3F caem nos buracos (Strength).",
+     "stops": 723,
+     "setsFlag": 723
+    }
+   ]
+  },
+  {
+   "id": "victory_road",
+   "name": "Victory Road",
+   "maps": [
+    "VictoryRoad_1F",
+    "VictoryRoad_2F",
+    "VictoryRoad_3F"
+   ],
+   "labels": {
+    "VictoryRoad_1F": "1F",
+    "VictoryRoad_2F": "2F",
+    "VictoryRoad_3F": "3F"
+   },
+   "entrance": {
+    "map": "VictoryRoad_1F",
+    "x": 11,
+    "y": 20
+   },
+   "objectives": [
+    {
+     "id": "cross",
+     "title": "Atravessar até a Indigo Plateau",
+     "reach": {
+      "map": "Route23",
+      "x": 18,
+      "y": 28
+     },
+     "doneText": "Você saiu da Victory Road. Siga para o norte até a Indigo Plateau."
+    },
+    {
+     "id": "exit",
+     "title": "Sair da Victory Road",
+     "exit": true,
+     "doneText": "Você saiu da Victory Road."
+    }
+   ],
+   "notes": "As barreiras de pedra somem quando a pedra certa chega ao botão no chão (Strength). O guia mostra cada empurrão.",
+   "status": "beta"
   }
  ],
  "blockers": [
@@ -1225,5 +1766,697 @@
   "POLICEMAN": {
    "text": "Um policial bloqueia a passagem: ele sai depois do evento da história nesse lugar."
   }
- }
+ },
+ "openers": [
+  {
+   "id": "silph_card_key:SilphCo_2F:EventScript_Close2FDoor1",
+   "map": "SilphCo_2F",
+   "label": "EventScript_Close2FDoor1",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_2F:EventScript_Close2FDoor2",
+   "map": "SilphCo_2F",
+   "label": "EventScript_Close2FDoor2",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_3F:EventScript_Close3FDoor1",
+   "map": "SilphCo_3F",
+   "label": "EventScript_Close3FDoor1",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_3F:EventScript_Close3FDoor2",
+   "map": "SilphCo_3F",
+   "label": "EventScript_Close3FDoor2",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_4F:EventScript_Close4FDoor1",
+   "map": "SilphCo_4F",
+   "label": "EventScript_Close4FDoor1",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_4F:EventScript_Close4FDoor2",
+   "map": "SilphCo_4F",
+   "label": "EventScript_Close4FDoor2",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_5F:EventScript_Close5FDoor1",
+   "map": "SilphCo_5F",
+   "label": "EventScript_Close5FDoor1",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_5F:EventScript_Close5FDoor2",
+   "map": "SilphCo_5F",
+   "label": "EventScript_Close5FDoor2",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_5F:EventScript_Close5FDoor3",
+   "map": "SilphCo_5F",
+   "label": "EventScript_Close5FDoor3",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_6F:EventScript_Close6FDoor",
+   "map": "SilphCo_6F",
+   "label": "EventScript_Close6FDoor",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_7F:EventScript_Close7FDoor1",
+   "map": "SilphCo_7F",
+   "label": "EventScript_Close7FDoor1",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_7F:EventScript_Close7FDoor2",
+   "map": "SilphCo_7F",
+   "label": "EventScript_Close7FDoor2",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_7F:EventScript_Close7FDoor3",
+   "map": "SilphCo_7F",
+   "label": "EventScript_Close7FDoor3",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_8F:EventScript_Close8FDoor",
+   "map": "SilphCo_8F",
+   "label": "EventScript_Close8FDoor",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_9F:EventScript_Close9FDoor1",
+   "map": "SilphCo_9F",
+   "label": "EventScript_Close9FDoor1",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_9F:EventScript_Close9FDoor2",
+   "map": "SilphCo_9F",
+   "label": "EventScript_Close9FDoor2",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_9F:EventScript_Close9FDoor3",
+   "map": "SilphCo_9F",
+   "label": "EventScript_Close9FDoor3",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_9F:EventScript_Close9FDoor4",
+   "map": "SilphCo_9F",
+   "label": "EventScript_Close9FDoor4",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_10F:EventScript_Close10FDoor",
+   "map": "SilphCo_10F",
+   "label": "EventScript_Close10FDoor",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "silph_card_key:SilphCo_11F:EventScript_Close11FDoor",
+   "map": "SilphCo_11F",
+   "label": "EventScript_Close11FDoor",
+   "effect": "remove",
+   "needsItem": "card_key",
+   "why": "As portas da Silph Co. só abrem com o Card Key (fica no 5F).",
+   "steps": [
+    {
+     "instruction": "Fique de frente para a porta e aperte A: o Card Key abre.",
+     "expected": "A porta abre.",
+     "question": "A porta abriu?"
+    }
+   ]
+  },
+  {
+   "id": "rocket_hideout_barrier:RocketHideout_B1F:RocketHideout_B1F_EventScript_SetBarrier",
+   "map": "RocketHideout_B1F",
+   "label": "RocketHideout_B1F_EventScript_SetBarrier",
+   "effect": "remove",
+   "trainer": "team_rocket_grunt_12",
+   "why": "A barreira some quando você vence o Rocket que a guarda.",
+   "steps": [
+    {
+     "instruction": "Chegue perto da barreira e vença o Team Rocket Grunt que a guarda.",
+     "expected": "Depois da batalha, a barreira some.",
+     "question": "A barreira sumiu?"
+    }
+   ]
+  },
+  {
+   "id": "game_corner_poster:CeladonCity_GameCorner:CeladonCity_GameCorner_EventScript_HideRocketHideout",
+   "map": "CeladonCity_GameCorner",
+   "label": "CeladonCity_GameCorner_EventScript_HideRocketHideout",
+   "effect": "remove",
+   "why": "A escada do Rocket Hideout fica escondida atrás de um pôster no Game Corner.",
+   "steps": [
+    {
+     "instruction": "Vença o Rocket que está na frente do pôster da parede de cima, fique de frente para o pôster e aperte A: há um interruptor atrás dele.",
+     "expected": "Aparece uma escada no chão.",
+     "question": "A escada apareceu?"
+    }
+   ]
+  },
+  {
+   "id": "boulder:VictoryRoad_1F:VictoryRoad_1F_EventScript_SetRockBarrier",
+   "map": "VictoryRoad_1F",
+   "label": "VictoryRoad_1F_EventScript_SetRockBarrier",
+   "effect": "remove",
+   "needsMove": "strength",
+   "why": "A barreira de pedra some quando a pedra certa chega ao botão no chão (Strength).",
+   "steps": [],
+   "puzzle": {
+    "boulder": {
+     "x": 7,
+     "y": 18
+    },
+    "target": {
+     "x": 20,
+     "y": 16
+    },
+    "pushes": [
+     {
+      "stand": {
+       "x": 7,
+       "y": 17
+      },
+      "from": {
+       "x": 7,
+       "y": 18
+      },
+      "dir": "down",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 6,
+       "y": 19
+      },
+      "from": {
+       "x": 7,
+       "y": 19
+      },
+      "dir": "right",
+      "times": 4
+     },
+     {
+      "stand": {
+       "x": 11,
+       "y": 20
+      },
+      "from": {
+       "x": 11,
+       "y": 19
+      },
+      "dir": "up",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 10,
+       "y": 18
+      },
+      "from": {
+       "x": 11,
+       "y": 18
+      },
+      "dir": "right",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 12,
+       "y": 19
+      },
+      "from": {
+       "x": 12,
+       "y": 18
+      },
+      "dir": "up",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 11,
+       "y": 17
+      },
+      "from": {
+       "x": 12,
+       "y": 17
+      },
+      "dir": "right",
+      "times": 7
+     },
+     {
+      "stand": {
+       "x": 19,
+       "y": 18
+      },
+      "from": {
+       "x": 19,
+       "y": 17
+      },
+      "dir": "up",
+      "times": 2
+     },
+     {
+      "stand": {
+       "x": 18,
+       "y": 15
+      },
+      "from": {
+       "x": 19,
+       "y": 15
+      },
+      "dir": "right",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 20,
+       "y": 14
+      },
+      "from": {
+       "x": 20,
+       "y": 15
+      },
+      "dir": "down",
+      "times": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "boulder:VictoryRoad_2F:VictoryRoad_2F_EventScript_SetRockBarrier1",
+   "map": "VictoryRoad_2F",
+   "label": "VictoryRoad_2F_EventScript_SetRockBarrier1",
+   "effect": "remove",
+   "needsMove": "strength",
+   "why": "A barreira de pedra some quando a pedra certa chega ao botão no chão (Strength).",
+   "steps": [],
+   "puzzle": {
+    "boulder": {
+     "x": 6,
+     "y": 17
+    },
+    "target": {
+     "x": 2,
+     "y": 19
+    },
+    "pushes": [
+     {
+      "stand": {
+       "x": 6,
+       "y": 16
+      },
+      "from": {
+       "x": 6,
+       "y": 17
+      },
+      "dir": "down",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 7,
+       "y": 18
+      },
+      "from": {
+       "x": 6,
+       "y": 18
+      },
+      "dir": "left",
+      "times": 2
+     },
+     {
+      "stand": {
+       "x": 4,
+       "y": 17
+      },
+      "from": {
+       "x": 4,
+       "y": 18
+      },
+      "dir": "down",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 5,
+       "y": 19
+      },
+      "from": {
+       "x": 4,
+       "y": 19
+      },
+      "dir": "left",
+      "times": 2
+     }
+    ]
+   }
+  },
+  {
+   "id": "boulder:VictoryRoad_2F:VictoryRoad_2F_EventScript_SetRockBarrier2",
+   "map": "VictoryRoad_2F",
+   "label": "VictoryRoad_2F_EventScript_SetRockBarrier2",
+   "effect": "remove",
+   "needsMove": "strength",
+   "why": "A barreira de pedra some quando a pedra certa chega ao botão no chão (Strength).",
+   "steps": [],
+   "puzzle": {
+    "boulder": {
+     "x": 33,
+     "y": 19
+    },
+    "target": {
+     "x": 14,
+     "y": 19
+    },
+    "pushes": [
+     {
+      "stand": {
+       "x": 34,
+       "y": 19
+      },
+      "from": {
+       "x": 33,
+       "y": 19
+      },
+      "dir": "left",
+      "times": 19
+     }
+    ]
+   }
+  },
+  {
+   "id": "boulder:VictoryRoad_3F:VictoryRoad_3F_EventScript_SetRockBarrier",
+   "map": "VictoryRoad_3F",
+   "label": "VictoryRoad_3F_EventScript_SetRockBarrier",
+   "effect": "remove",
+   "needsMove": "strength",
+   "why": "A barreira de pedra some quando a pedra certa chega ao botão no chão (Strength).",
+   "steps": [],
+   "puzzle": {
+    "boulder": {
+     "x": 19,
+     "y": 15
+    },
+    "target": {
+     "x": 7,
+     "y": 7
+    },
+    "pushes": [
+     {
+      "stand": {
+       "x": 19,
+       "y": 16
+      },
+      "from": {
+       "x": 19,
+       "y": 15
+      },
+      "dir": "up",
+      "times": 7
+     },
+     {
+      "stand": {
+       "x": 18,
+       "y": 8
+      },
+      "from": {
+       "x": 19,
+       "y": 8
+      },
+      "dir": "right",
+      "times": 10
+     },
+     {
+      "stand": {
+       "x": 29,
+       "y": 9
+      },
+      "from": {
+       "x": 29,
+       "y": 8
+      },
+      "dir": "up",
+      "times": 5
+     },
+     {
+      "stand": {
+       "x": 30,
+       "y": 3
+      },
+      "from": {
+       "x": 29,
+       "y": 3
+      },
+      "dir": "left",
+      "times": 18
+     },
+     {
+      "stand": {
+       "x": 11,
+       "y": 2
+      },
+      "from": {
+       "x": 11,
+       "y": 3
+      },
+      "dir": "down",
+      "times": 1
+     },
+     {
+      "stand": {
+       "x": 12,
+       "y": 4
+      },
+      "from": {
+       "x": 11,
+       "y": 4
+      },
+      "dir": "left",
+      "times": 5
+     },
+     {
+      "stand": {
+       "x": 6,
+       "y": 3
+      },
+      "from": {
+       "x": 6,
+       "y": 4
+      },
+      "dir": "down",
+      "times": 3
+     },
+     {
+      "stand": {
+       "x": 5,
+       "y": 7
+      },
+      "from": {
+       "x": 6,
+       "y": 7
+      },
+      "dir": "right",
+      "times": 1
+     }
+    ]
+   }
+  }
+ ],
+ "elevatorKeys": [
+  {
+   "elevator": "RocketHideout_Elevator",
+   "fetch": {
+    "map": "RocketHideout_B4F",
+    "x": 3,
+    "y": 2
+   },
+   "who": "a Poké Ball do Lift Key",
+   "why": "Primeiro pegue o Lift Key: vença o Rocket do B4F que fica ao lado da Poké Ball (ela aparece depois da batalha) e pegue-a.",
+   "gives": "lift_key"
+  }
+ ]
 }

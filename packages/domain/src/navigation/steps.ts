@@ -15,8 +15,9 @@ import {
   warpGroup,
   zone,
 } from './describe.ts';
-import type { Plan, PlanAction } from './planner.ts';
-import type { GuidanceStep, NavArea, NavPlace, NavTile, NavWorld, StepAction, StepBasis, WorldMap, WorldWarp } from './types.ts';
+import { openerId, type Plan, type PlanAction } from './planner.ts';
+import type { NavDirection, NavOpener } from './types.ts';
+import type { GuidanceStep, NavArea, NavPlace, NavTask, NavTile, NavWorld, StepAction, StepBasis, WorldMap, WorldWarp } from './types.ts';
 
 export interface StepContext {
   names: NavNames;
@@ -30,6 +31,8 @@ export interface StepContext {
   who?: string;
   /** Objetivo de chegar a um tile exato (não só ao mapa). */
   reachTile?: NavTile;
+  /** Quantos passos de cada abertura já foram feitos (`open:<mapa>:<rótulo>` → n). */
+  openerDone?: (id: string) => number;
 }
 
 type Text = Pick<GuidanceStep, 'instruction' | 'landmark' | 'expectedResult' | 'verificationQuestion' | 'alternativeOnFailure'>;
@@ -151,7 +154,7 @@ export function planSteps(world: NavWorld, area: NavArea, plan: Plan, ctx: StepC
     });
     switch (w.kind) {
       case 'door':
-        return go(`a porta ${article(dest) === 'a' ? 'da' : article(dest) === 'o' ? 'do' : 'de'} ${dest}`, 'entre');
+        return go(`a porta ${article(dest) === 'a' ? 'da' : article(dest) === 'o' ? 'do' : 'de'} ${dest}`, 'entre andando para cima');
       case 'exit-mat':
         return go('a saída (o tapete da porta)', `ande ${DIR_TEXT[(press ?? 'down') as keyof typeof DIR_TEXT]} para sair ${to}`);
       case 'stairs': {
@@ -261,6 +264,31 @@ export function planSteps(world: NavWorld, area: NavArea, plan: Plan, ctx: StepC
           false,
         );
         break;
+      case 'open': {
+        const id = openerId(a.opener);
+        const done = ctx.openerDone?.(id) ?? 0;
+        const list = openerTexts(m, a.opener);
+        list.forEach((st, k) => {
+          if (k < done) return;
+          const last = k === list.length - 1;
+          emit(
+            'open',
+            st.target ?? a.at,
+            {
+              landmark: `a passagem fechada ${zone(m, a.at)}`,
+              instruction: `${list.length > 1 ? `(${k + 1}/${list.length}) ` : ''}${st.instruction}`,
+              expectedResult: st.expected,
+              verificationQuestion: st.question,
+              alternativeOnFailure: `Por quê: ${a.opener.why}`,
+            },
+            last ? { position: pos, openedId: id } : { position: pos, openerProgress: `${id}#${k + 1}` },
+            false,
+          );
+        });
+        path.push(a.to);
+        pos = { map: a.map, ...a.to };
+        break;
+      }
       case 'remove': {
         const obstacle = a.move === 'interact' && a.gfx ? world.obstacles[a.gfx]?.remove : undefined;
         if (obstacle) {
@@ -319,6 +347,24 @@ export function planSteps(world: NavWorld, area: NavArea, plan: Plan, ctx: StepC
         const next = actions[i + 1];
         const leaves = !area.maps.includes(a.to.map);
         emit('warp', a.via, warpText(m, a.warp, a.press), { position: a.to, ...(leaves && next?.type === 'goal' && next.goal.kind === 'exit' ? { exited: true } : {}) }, true);
+        break;
+      }
+      case 'elevator': {
+        path.push(a.via);
+        const dest = name(a.to.map);
+        emit(
+          'warp',
+          a.via,
+          {
+            landmark: 'o painel do elevador',
+            instruction: `Dentro do elevador, fique de frente para o painel na parede, aperte A e escolha ${dest}. Depois saia pela porta (ande para baixo).`,
+            expectedResult: `Você sai ${inName(dest)}.`,
+            verificationQuestion: `Você está ${inName(dest)}?`,
+            alternativeOnFailure: 'Se o painel não funcionar, confira se você tem o que o elevador exige (no Rocket Hideout, o Lift Key).',
+          },
+          { position: a.to },
+          true,
+        );
         break;
       }
       case 'connect': {
@@ -441,4 +487,68 @@ export function planSteps(world: NavWorld, area: NavArea, plan: Plan, ctx: StepC
     }
   }
   return steps.map((s, i) => ({ ...s, remaining: steps.length - i }));
+}
+
+const SIDE: Record<NavDirection, string> = { up: 'embaixo dela', down: 'em cima dela', left: 'à direita dela', right: 'à esquerda dela' };
+
+/** Textos de uma abertura: os curados ou, num quebra-cabeça de Strength, um por grupo de empurrões. */
+function openerTexts(m: WorldMap, op: NavOpener): Array<{ instruction: string; expected: string; question: string; target?: NavTile }> {
+  if (!op.puzzle) return op.steps;
+  const { boulder, pushes } = op.puzzle;
+  const out: Array<{ instruction: string; expected: string; question: string; target?: NavTile }> = [
+    {
+      instruction: `Vá até a pedra ${zone(m, boulder)}, fique de frente para ela e use Strength (aperte A e escolha YES).`,
+      expected: 'Aparece a mensagem de que o Pokémon pode mover pedras.',
+      question: 'Usou Strength?',
+      target: boulder,
+    },
+  ];
+  pushes.forEach((p, i) => {
+    const [dx, dy] = p.dir === 'up' ? [0, -1] : p.dir === 'down' ? [0, 1] : p.dir === 'left' ? [-1, 0] : [1, 0];
+    const end = { x: p.from.x + dx * p.times, y: p.from.y + dy * p.times };
+    const lastPush = i === pushes.length - 1;
+    out.push({
+      instruction: `Fique ${SIDE[p.dir]} (${zone(m, p.stand)}) e ande ${DIR_TEXT[p.dir]} ${p.times === 1 ? '1 vez' : `${p.times} vezes`}: a pedra vai junto.`,
+      expected: lastPush ? 'A pedra cai no botão do chão e a barreira de pedra some.' : `A pedra para ${zone(m, end)}, no ponto marcado.`,
+      question: lastPush ? 'A barreira sumiu?' : 'A pedra está no ponto marcado?',
+      target: end,
+    });
+  });
+  return out;
+}
+
+/** Passos de uma tarefa de pedra (Seafoam): usar Strength e cada grupo de empurrões, a partir de `done`. */
+export function taskSteps(world: NavWorld, area: NavArea, task: NavTask, done: number): GuidanceStep[] {
+  const m = world.maps.find((x) => x.key === task.map)!;
+  const texts = openerTexts(m, { id: task.id, map: task.map, label: task.id, effect: 'apply', why: task.why, steps: [], puzzle: { boulder: task.boulder, target: task.boulder, pushes: task.pushes } });
+  // O último empurrão derruba a pedra no buraco (não num botão).
+  const last = texts[texts.length - 1]!;
+  texts[texts.length - 1] = { ...last, expected: 'A pedra cai no buraco (ela vai aparecer no andar de baixo).', question: 'A pedra caiu no buraco?' };
+  const out: GuidanceStep[] = [];
+  texts.forEach((t, k) => {
+    if (k < done) return;
+    const final = k === texts.length - 1;
+    const marks = final
+      ? [`task:${task.id}`, ...(task.hideFlag !== null ? [`flag:${task.hideFlag}`] : []), `noflag:${task.reveals}`, ...(task.setsFlag !== undefined ? [`flag:${task.setsFlag}`] : [])]
+      : [`task:${task.id}#${k + 1}`];
+    out.push({
+      id: `push:${task.id}:${k}`,
+      action: 'push',
+      map: task.map,
+      target: t.target ?? task.boulder,
+      path: [],
+      instruction: `${texts.length > 1 ? `(${k + 1}/${texts.length}) ` : ''}${t.instruction}`,
+      landmark: `a pedra ${zone(m, task.boulder)}`,
+      expectedResult: t.expected,
+      verificationQuestion: t.question,
+      alternativeOnFailure: `Se a pedra travou num lugar diferente, saia do andar e volte: as pedras voltam ao lugar. Por quê: ${task.why}`,
+      basis: 'validated',
+      effect: { position: { map: task.map, ...(t.target ?? task.boulder) }, marks },
+      trainers: [],
+      trainerKeys: [],
+      notes: [],
+      remaining: texts.length - k,
+    });
+  });
+  return out;
 }

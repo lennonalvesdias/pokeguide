@@ -1,6 +1,6 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import { type AreaOpponent, type NavArea, type NavBlocker, type NavObstacle, type NavWorld, type WorldMap, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
+import { type AreaOpponent, type NavArea, type NavBlocker, type NavObstacle, type NavOpener, type NavWorld, type WorldMap, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
@@ -101,7 +101,7 @@ export const walkthrough = walkthroughJson as unknown as JourneyStep[];
 export const encounters = encountersJson as MapEncounters[];
 export const manifest = manifestJson;
 /** Áreas com guia passo a passo e bloqueios de script (os mapas ficam em `loadWorld`). */
-export const navigation = navigationJson as unknown as { areas: NavArea[]; blockers: NavBlocker[]; newGameFlags: number[]; obstacles: Record<string, NavObstacle> };
+export const navigation = navigationJson as unknown as { areas: NavArea[]; blockers: NavBlocker[]; newGameFlags: number[]; obstacles: Record<string, NavObstacle>; openers: NavOpener[]; elevatorKeys: NavWorld['elevatorKeys'] };
 /** Área com guia que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
 export const navigationAreaOf = (mapKey: string) => navigation.areas.find((a) => a.maps.includes(mapKey)) ?? null;
 
@@ -117,6 +117,8 @@ export function loadWorld(): Promise<NavWorld> {
     blockers: navigation.blockers,
     newGameFlags: navigation.newGameFlags,
     obstacles: navigation.obstacles,
+    openers: navigation.openers,
+    elevatorKeys: navigation.elevatorKeys,
   }));
   return worldPromise;
 }

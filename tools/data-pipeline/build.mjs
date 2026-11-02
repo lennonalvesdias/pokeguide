@@ -6,9 +6,10 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { solveBoulder, solveBoulders } from './puzzles.mjs';
 import { buildWorld } from './world.mjs';
 
-const DATASET_VERSION = '0.8.0';
+const DATASET_VERSION = '0.9.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -530,7 +531,6 @@ const BG_FACING = { BG_EVENT_PLAYER_FACING_NORTH: 'up', BG_EVENT_PLAYER_FACING_S
 const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 const curatedNav = JSON.parse(readFileSync(join(ROOT, 'packages/data-firered/curated/navigation.json'), 'utf8'));
 const mapSec = (key) => JSON.parse(read(`data/maps/${key}/map.json`)).region_map_section.replace('MAPSEC_', '');
-const gateSources = [];
 const switches = new Map();
 for (const area of curatedNav.areas.filter((a) => a.switch)) {
   const flagId = flagConsts.get(`FLAG_${area.switch.flag}`) ?? fail(`navegação/${area.id}: flag ${area.switch.flag}`);
@@ -547,17 +547,8 @@ for (const area of curatedNav.areas.filter((a) => a.switch)) {
     // Sinal visível do estado: olhos vermelhos com a flag ligada, pretos desligada.
     const label = (id) => [...metatileIds.entries()].find(([k, v]) => v === id && k.includes('Statue'))?.[0] ?? '';
     if (!press.some((t) => label(t.metatile).includes('RedEyes')) || !reset.some((t) => label(t.metatile).includes('BlackEyes'))) fail(`navegação/${m.key}: olhos da estátua`);
-    const free = blocks.map((b) => ((b >> 10) & 3) === 0);
-    const off = [...free];
-    const on = [...free];
-    for (const t of reset) {
-      if ((blocks[t.y * width + t.x] & 0x3ff) !== t.metatile) fail(`navegação/${m.key}: (${t.x},${t.y}) no layout difere do Reset`);
-      off[t.y * width + t.x] = !t.impassable;
-    }
-    for (const t of press) on[t.y * width + t.x] = !t.impassable;
-    const tiles = [];
-    for (let i = 0; i < width * height; i++) if (on[i] !== off[i]) tiles.push({ x: i % width, y: Math.floor(i / width), passWhenSet: on[i] });
-    gateSources.push({ map: m.key, flag: flagId, tiles });
+    // O layout precisa estar no estado desligado: as grades do mundo vêm só do Press (sobreposição com a flag ligada).
+    for (const t of reset) if ((blocks[t.y * width + t.x] & 0x3ff) !== t.metatile) fail(`navegação/${m.key}: (${t.x},${t.y}) no layout difere do Reset`);
     (mj.bg_events ?? []).forEach((b, i) => {
       if (b.type !== 'sign' || b.script !== `${m.key}_EventScript_Statue`) return;
       const facing = BG_FACING[b.player_facing_dir] ?? fail(`navegação/${m.key}: estátua sem direção`);
@@ -589,7 +580,8 @@ const world = buildWorld({
   scriptTrainers,
   itemKey,
   mapsIndex: maps,
-  gateSources,
+  trainerConsts,
+  sharedScripts: ['data/scripts/pokemon_mansion.inc', 'data/scripts/silphco_doors.inc'],
 });
 if (world.length < 200) fail(`mundo: só ${world.length} mapas de Kanto`);
 const worldByKey = new Map(world.map((m) => [m.key, m]));
@@ -659,7 +651,117 @@ for (const [g, o] of Object.entries(curatedNav.obstacles)) {
   if (!gfxInWorld.has(g)) fail(`obstáculo ${g} não aparece em nenhum mapa`);
   if (o.remove?.needsItem && !itemKeys.has(o.remove.needsItem)) fail(`obstáculo ${g}: item ${o.remove.needsItem}`);
 }
-const navigation = { areas: navAreas, blockers: navBlockers, newGameFlags, obstacles: curatedNav.obstacles };
+// Aberturas: como o jogador desfaz uma sobreposição (porta, barreira, escada escondida).
+const navOpeners = [];
+for (const o of curatedNav.openers) {
+  const mre = new RegExp(o.mapPattern);
+  const lre = new RegExp(o.labelPattern);
+  let n = 0;
+  for (const m of world.filter((w) => mre.test(w.key))) {
+    for (const ov of m.overlays.filter((v) => lre.test(v.label))) {
+      if (o.needsItem && !itemKeys.has(o.needsItem)) fail(`abertura ${o.id}: item ${o.needsItem}`);
+      navOpeners.push({
+        id: `${o.id}:${m.key}:${ov.label}`,
+        map: m.key,
+        label: ov.label,
+        effect: o.effect,
+        ...(o.needsItem ? { needsItem: o.needsItem } : {}),
+        ...(ov.when.trainer ? { trainer: ov.when.trainer } : {}),
+        why: o.why,
+        steps: o.steps,
+      });
+      n++;
+    }
+  }
+  if (!n) fail(`abertura ${o.id}: nenhuma sobreposição casa com ${o.labelPattern}`);
+}
+// Botões de Strength: o script do botão diz a pedra (copyobjectxytoperm) e a variável; a barreira é a
+// sobreposição com essa variável. A sequência de empurrões é calculada a partir do mapa.
+for (const key of curatedNav.boulderPuzzles.maps) {
+  const m = worldByKey.get(key) ?? fail(`quebra-cabeça: mapa ${key}`);
+  const mj = JSON.parse(read(`data/maps/${key}/map.json`));
+  const src = read(`data/maps/${key}/scripts.inc`);
+  for (const ce of (mj.coord_events ?? []).filter((c) => /FloorSwitch\d*$/.test(c.script))) {
+    const body = src.split(`${ce.script}::`)[1]?.split(/\n\w+::/)[0] ?? fail(`quebra-cabeça: ${ce.script}`);
+    const localId = body.match(/copyobjectxytoperm (\w+)/)?.[1] ?? fail(`quebra-cabeça: pedra de ${ce.script}`);
+    const bi = mj.object_events.findIndex((o) => o.local_id === localId);
+    const boulder = mj.object_events[bi] ?? fail(`quebra-cabeça: ${localId}`);
+    const varId = varConsts.get(ce.var) ?? fail(`quebra-cabeça: ${ce.var}`);
+    const ov = m.overlays.find((v) => 'var' in v.when && v.when.var === varId) ?? fail(`quebra-cabeça: barreira de ${ce.var}`);
+    const closed = new Set(m.overlays.flatMap((v) => v.tiles.filter((t) => t.c === '#').map((t) => t.y * m.width + t.x)));
+    const starts = m.warps.map((w) => ({ x: w.x, y: w.y }));
+    const pushes = solveBoulder(m, { x: boulder.x, y: boulder.y }, { x: ce.x, y: ce.y }, starts, closed);
+    if (!pushes) fail(`quebra-cabeça: sem solução para ${localId} em ${key}`);
+    navOpeners.push({
+      id: `boulder:${key}:${ov.label}`,
+      map: key,
+      label: ov.label,
+      effect: 'remove',
+      needsMove: 'strength',
+      why: 'A barreira de pedra some quando a pedra certa chega ao botão no chão (Strength).',
+      steps: [],
+      puzzle: { boulder: { x: boulder.x, y: boulder.y }, target: { x: ce.x, y: ce.y }, pushes },
+    });
+  }
+}
+for (const k of curatedNav.elevatorKeys) {
+  if (!worldByKey.get(k.elevator)?.elevator) fail(`chave de elevador: ${k.elevator} não é elevador`);
+  if (!worldByKey.get(k.fetch.map)?.objects.some((o) => o.x === k.fetch.x && o.y === k.fetch.y)) fail(`chave de elevador: nada em ${k.fetch.map} (${k.fetch.x},${k.fetch.y})`);
+}
+// Cadeias de pedras (Seafoam): de trás para frente, a partir das pedras que precisam aparecer, até as que
+// já estão visíveis num jogo novo; cada empurrão é resolvido até qualquer buraco do andar.
+// Estado inicial da cadeia: o que o script de reinício (Route 20, ao entrar com a correnteza ativa) esconde e mostra.
+const hiddenAtStart = new Set(newGameFlags);
+for (const chain of curatedNav.boulderChains) {
+  const body = read(`data/maps/${chain.reset.map}/scripts.inc`).split(`${chain.reset.label}::`)[1]?.split(/\n\w+::/)[0] ?? fail(`cadeia: ${chain.reset.label}`);
+  for (const m of body.matchAll(/(setflag|clearflag) (FLAG_\w+)/g)) {
+    const id = flagConsts.get(m[2]) ?? fail(`cadeia: ${m[2]}`);
+    if (m[1] === 'setflag') hiddenAtStart.add(id);
+    else hiddenAtStart.delete(id);
+  }
+}
+const newGameSet = hiddenAtStart;
+for (const chain of curatedNav.boulderChains) {
+  const area = navAreas.find((a) => a.id === chain.area) ?? fail(`cadeia: área ${chain.area}`);
+  const boulders = world.filter((m) => area.maps.includes(m.key)).flatMap((m) => m.objects.filter((o) => o.kind === 'boulder').map((o) => ({ map: m.key, o })));
+  const order = [];
+  const need = (flag) => {
+    const b = boulders.find((x) => x.o.revealFlag === flag) ?? fail(`cadeia: nenhuma pedra revela ${flag}`);
+    if (b.o.hideFlag !== null && newGameSet.has(b.o.hideFlag)) need(b.o.hideFlag);
+    if (!order.includes(b) && !(area.tasks ?? []).some((t) => t.map === b.map && t.boulder.x === b.o.x && t.boulder.y === b.o.y)) order.push(b);
+  };
+  for (const f of chain.needs) need(flagConsts.get(f) ?? fail(`cadeia: ${f}`));
+  // Andar de cima primeiro (a ordem do decomp: 1F, B1F, B2F...).
+  order.sort((a, b) => area.maps.indexOf(a.map) - area.maps.indexOf(b.map));
+  const fallen = new Set((area.tasks ?? []).map((t) => `${t.map}:${t.boulder.x},${t.boulder.y}`));
+  const revealed = new Set((area.tasks ?? []).map((t) => t.reveals));
+  area.tasks ??= [];
+  order.forEach((b, i) => {
+    const m = worldByKey.get(b.map);
+    const holes = m.warps.filter((w) => w.kind === 'fall').map((w) => ({ x: w.x, y: w.y }));
+    const present = m.objects.filter((o) => o.kind === 'boulder' && !fallen.has(`${b.map}:${o.x},${o.y}`) && (o.hideFlag === null || !newGameSet.has(o.hideFlag) || revealed.has(o.hideFlag)));
+    // Partidas: chegadas do andar e os vizinhos da pedra (no B3F você chega surfando à plataforma dela).
+    const starts = [...m.warps.map((w) => ({ x: w.x, y: w.y })), ...[[0, -1], [0, 1], [-1, 0], [1, 0]].map(([dx, dy]) => ({ x: b.o.x + dx, y: b.o.y + dy }))];
+    const pushes =
+      solveBoulder(m, { x: b.o.x, y: b.o.y }, holes, starts, new Set(), { holes, present }) ??
+      solveBoulders(m, present.map((o) => ({ x: o.x, y: o.y })), { x: b.o.x, y: b.o.y }, holes, starts);
+    if (!pushes) fail(`cadeia: sem solução para a pedra (${b.o.x},${b.o.y}) em ${b.map}`);
+    fallen.add(`${b.map}:${b.o.x},${b.o.y}`);
+    revealed.add(b.o.revealFlag);
+    area.tasks.push({
+      id: `boulder:${b.map}:${b.o.x},${b.o.y}`,
+      map: b.map,
+      boulder: { x: b.o.x, y: b.o.y },
+      hideFlag: b.o.hideFlag,
+      reveals: b.o.revealFlag,
+      pushes,
+      why: chain.why,
+      stops: flagConsts.get(chain.stops) ?? fail(`cadeia: ${chain.stops}`),
+      ...(i === order.length - 1 ? { setsFlag: flagConsts.get(chain.stops) } : {}),
+    });
+  });
+}
+const navigation = { areas: navAreas, blockers: navBlockers, newGameFlags, obstacles: curatedNav.obstacles, openers: navOpeners, elevatorKeys: curatedNav.elevatorKeys };
 
 // ---------- invariantes ----------
 const typeNames = new Set(types.map((t) => t.name));
