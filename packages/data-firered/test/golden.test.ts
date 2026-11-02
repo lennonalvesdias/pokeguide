@@ -22,6 +22,7 @@ import {
   teachAdvice,
   wildMoveset,
 } from '@pokeguide/domain';
+import { canSurf, trainingSpotInputs } from '../src/index.ts';
 import { describe, expect, it } from 'vitest';
 import { facts } from './nav-facts.ts';
 import { loadWorld, lookup, manifest, moves, navigation, navigationAreaOf, rules, species, trainers, typeChart, upcomingOpponents, wildLevelHint } from '../src/index.ts';
@@ -115,6 +116,23 @@ describe('dados específicos do FireRed', () => {
   });
   it('não existe tipo Fairy', () => {
     expect(species.flatMap((s) => s.types)).not.toContain('fairy');
+  });
+});
+
+describe('treino na água só com Surf (GetInteractedWaterScript)', () => {
+  const surfer = [{ moves: [{ move: { key: 'surf' } }] }];
+  const noSurfer = [{ moves: [{ move: { key: 'water_gun' } }] }];
+  it('sem a insígnia Soul não surfa, mesmo com alguém que sabe Surf', () => {
+    expect(canSurf(['boulder', 'cascade', 'thunder', 'rainbow'], surfer)).toBe(false);
+  });
+  it('com a insígnia Soul e ninguém que saiba Surf, não surfa (o HM03 na bolsa não basta)', () => {
+    expect(canSurf(['boulder', 'cascade', 'thunder', 'rainbow', 'soul'], noSurfer)).toBe(false);
+  });
+  it('Cerulean City sem poder surfar: nenhum lugar de treino na água', () => {
+    expect(trainingSpotInputs(['CeruleanCity'], new Set(), { canSurf: false }).map((s) => s.key)).toEqual([]);
+  });
+  it('Cerulean City podendo surfar: o lugar de treino é a água', () => {
+    expect(trainingSpotInputs(['CeruleanCity'], new Set(), { canSurf: true }).map((s) => s.key)).toEqual(['CeruleanCity|water']);
   });
 });
 

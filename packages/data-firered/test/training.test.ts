@@ -43,12 +43,12 @@ describe('XP (Gen III)', () => {
 
 describe('onde treinar', () => {
   it('Route 21 (Tangela na grama, ~545 XP) é o melhor lugar para o Gyarados entre os já visitados', () => {
-    const spots = trainingSpots(chart, gyarados!, trainingSpotInputs(['Route21', 'PokemonMansion', 'CinnabarIsland', 'SafariZone'], new Set()), BADGES);
+    const spots = trainingSpots(chart, gyarados!, trainingSpotInputs(['Route21', 'PokemonMansion', 'CinnabarIsland', 'SafariZone'], new Set(), { canSurf: true }), BADGES);
     expect(spots[0]!.key).toBe('Route21|land');
     expect(spots[0]!.expPerBattle).toBe(545);
   });
   it('só entra lugar em que ele vence com folga', () => {
-    for (const s of trainingSpots(chart, dugtrio!, trainingSpotInputs(['Route21', 'PokemonMansion', 'SafariZone', 'PowerPlant'], new Set()), BADGES)) {
+    for (const s of trainingSpots(chart, dugtrio!, trainingSpotInputs(['Route21', 'PokemonMansion', 'SafariZone', 'PowerPlant'], new Set(), { canSurf: true }), BADGES)) {
       expect(s.winRate).toBeGreaterThanOrEqual(0.9);
       expect(s.hpLoss).toBeLessThanOrEqual(0.5);
     }
