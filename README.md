@@ -9,7 +9,7 @@ Projeto pessoal. Decisões de arquitetura em [`docs/adr`](docs/adr/README.md).
 
 | Caminho | O que é |
 | --- | --- |
-| `apps/web` | PWA para iPhone: importa o save, recomenda Pokémon e golpe, compara golpes, mostra o próximo objetivo da história e guia passo a passo por Kanto (rota entre cidades e 14 áreas, ainda em beta). Funciona offline. |
+| `apps/web` | PWA para iPhone: importa o save, recomenda Pokémon e golpe, compara golpes, mostra o próximo objetivo da história e guia passo a passo por Kanto (rota entre cidades e 14 áreas, ainda em beta). Tem uma demonstração para usar sem save. Funciona offline. |
 | `packages/domain` | Contratos e regras puras (tipos, imunidades, restrições de HM, planejador de navegação). Sem DOM nem rede. |
 | `packages/data-firered` | Dataset `firered-gen3` gerado do decomp + golden cases. |
 | `packages/save-parser` | Leitura somente leitura de saves `.sav` de FRLG. Roda no navegador. |
