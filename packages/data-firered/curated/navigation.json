@@ -1,19 +1,25 @@
 {
-  "$comment": "Áreas com guia passo a passo. Só a escolha dos mapas e os textos são editoriais: colisão, escadas, buracos, estátuas, itens e treinadores vêm do decomp (tools/data-pipeline/build.mjs).",
+  "$comment": "Áreas com guia passo a passo e bloqueios de script. Editorial: escolha dos mapas, textos e objetivos. Grade, warps, objetos e gatilhos vêm do decomp (tools/data-pipeline). Cada bloqueio aponta para o gatilho real (mapa + script) e para a condição que o script checa. status: 'beta' até alguém atravessar a área no jogo seguindo só o guia; então 'validated' com a data.",
   "areas": [
     {
       "id": "pokemon_mansion",
       "name": "Pokémon Mansion",
-      "mapPrefix": "PokemonMansion",
-      "switchFlag": "POKEMON_MANSION_SWITCH_STATE",
-      "switchScript": "data/scripts/pokemon_mansion.inc",
-      "entrance": { "from": "CinnabarIsland" },
-      "floors": [
-        { "map": "PokemonMansion_1F", "label": "1F" },
-        { "map": "PokemonMansion_2F", "label": "2F" },
-        { "map": "PokemonMansion_3F", "label": "3F" },
-        { "map": "PokemonMansion_B1F", "label": "B1F" }
+      "mapsecs": [
+        "POKEMON_MANSION"
       ],
+      "labels": {
+        "PokemonMansion_1F": "1F",
+        "PokemonMansion_2F": "2F",
+        "PokemonMansion_3F": "3F",
+        "PokemonMansion_B1F": "B1F"
+      },
+      "entrance": {
+        "from": "CinnabarIsland"
+      },
+      "switch": {
+        "flag": "POKEMON_MANSION_SWITCH_STATE",
+        "script": "data/scripts/pokemon_mansion.inc"
+      },
       "objectives": [
         {
           "id": "secret_key",
@@ -24,10 +30,605 @@
         {
           "id": "exit",
           "title": "Sair da mansão",
+          "exit": true,
           "doneText": "Você saiu da Pokémon Mansion para a Cinnabar Island."
         }
       ],
-      "notes": "Todas as estátuas acionam o mesmo interruptor: cada vez que você aperta uma, todas as grades da mansão (em todos os andares) trocam de estado. Olhos vermelhos = ligado; olhos pretos = desligado."
+      "notes": "Todas as estátuas acionam o mesmo interruptor: cada vez que você aperta uma, todas as grades da mansão (em todos os andares) trocam de estado. Olhos vermelhos = ligado; olhos pretos = desligado.",
+      "status": "beta"
+    },
+    {
+      "id": "viridian_forest",
+      "name": "Viridian Forest",
+      "mapsecs": [
+        "VIRIDIAN_FOREST"
+      ],
+      "labels": {},
+      "entrance": {
+        "from": "Route2_ViridianForest_SouthEntrance"
+      },
+      "objectives": [
+        {
+          "id": "cross",
+          "title": "Atravessar até Pewter",
+          "reach": {
+            "map": "Route2_ViridianForest_NorthEntrance"
+          },
+          "doneText": "Você saiu da floresta. Siga para o norte até Pewter City."
+        },
+        {
+          "id": "exit",
+          "title": "Sair da floresta",
+          "exit": true,
+          "doneText": "Você saiu da Viridian Forest."
+        }
+      ],
+      "notes": "A floresta é um labirinto de árvores com treinadores de Bug escondidos na grama alta.",
+      "status": "beta"
+    },
+    {
+      "id": "mt_moon",
+      "name": "Mt. Moon",
+      "mapsecs": [
+        "MT_MOON"
+      ],
+      "labels": {
+        "MtMoon_1F": "1F",
+        "MtMoon_B1F": "B1F",
+        "MtMoon_B2F": "B2F"
+      },
+      "entrance": {
+        "from": "Route4"
+      },
+      "objectives": [
+        {
+          "id": "cross",
+          "title": "Atravessar até a Route 4 (lado de Cerulean)",
+          "reach": {
+            "map": "Route4",
+            "x": 32,
+            "y": 5
+          },
+          "doneText": "Você saiu do Mt. Moon. Siga para o leste até Cerulean City."
+        },
+        {
+          "id": "exit",
+          "title": "Sair do Mt. Moon",
+          "exit": true,
+          "doneText": "Você saiu do Mt. Moon."
+        }
+      ],
+      "notes": "No B2F, depois do Super Nerd, você escolhe um dos dois fósseis (Dome ou Helix).",
+      "status": "beta"
+    },
+    {
+      "id": "rock_tunnel",
+      "name": "Rock Tunnel",
+      "mapsecs": [
+        "ROCK_TUNNEL"
+      ],
+      "labels": {
+        "RockTunnel_1F": "1F",
+        "RockTunnel_B1F": "B1F"
+      },
+      "entrance": {
+        "from": "Route10"
+      },
+      "objectives": [
+        {
+          "id": "cross",
+          "title": "Atravessar até Lavender Town",
+          "reach": {
+            "map": "Route10",
+            "x": 8,
+            "y": 57
+          },
+          "doneText": "Você saiu do Rock Tunnel. Siga para o sul até Lavender Town."
+        },
+        {
+          "id": "exit",
+          "title": "Sair do Rock Tunnel",
+          "exit": true,
+          "doneText": "Você saiu do Rock Tunnel."
+        }
+      ],
+      "notes": "Sem Flash a caverna fica escura, mas o caminho é o mesmo: as instruções valem com ou sem luz.",
+      "status": "beta"
+    },
+    {
+      "id": "digletts_cave",
+      "name": "Diglett's Cave",
+      "mapsecs": [
+        "DIGLETTS_CAVE"
+      ],
+      "labels": {
+        "DiglettsCave_NorthEntrance": "entrada norte",
+        "DiglettsCave_B1F": "B1F",
+        "DiglettsCave_SouthEntrance": "entrada sul"
+      },
+      "entrance": {
+        "from": "Route2"
+      },
+      "objectives": [
+        {
+          "id": "cross",
+          "title": "Atravessar até a Route 11 (Vermilion)",
+          "reach": {
+            "map": "Route11"
+          },
+          "doneText": "Você saiu na Route 11, a leste de Vermilion City."
+        },
+        {
+          "id": "exit",
+          "title": "Sair da caverna",
+          "exit": true,
+          "doneText": "Você saiu da Diglett's Cave."
+        }
+      ],
+      "notes": "Um túnel longo e sem bifurcações perigosas: liga a Route 2 (perto de Pewter) à Route 11.",
+      "status": "beta"
+    },
+    {
+      "id": "power_plant",
+      "name": "Power Plant",
+      "mapsecs": [
+        "POWER_PLANT"
+      ],
+      "labels": {},
+      "entrance": {
+        "from": "Route10"
+      },
+      "objectives": [
+        {
+          "id": "zapdos",
+          "title": "Chegar ao Zapdos",
+          "talk": {
+            "map": "PowerPlant",
+            "x": 5,
+            "y": 11
+          },
+          "doneText": "Você está diante do Zapdos (Nv 50). Salve o jogo antes de falar com ele.",
+          "who": "o Zapdos"
+        },
+        {
+          "id": "exit",
+          "title": "Sair da Power Plant",
+          "exit": true,
+          "doneText": "Você saiu da Power Plant."
+        }
+      ],
+      "notes": "Algumas Poké Balls no chão são Voltorb ou Electrode: elas aparecem como itens no mapa do jogo, mas são batalhas.",
+      "status": "beta"
+    },
+    {
+      "id": "pokemon_tower",
+      "name": "Pokémon Tower",
+      "mapsecs": [
+        "POKEMON_TOWER"
+      ],
+      "labels": {
+        "PokemonTower_1F": "1F",
+        "PokemonTower_2F": "2F",
+        "PokemonTower_3F": "3F",
+        "PokemonTower_4F": "4F",
+        "PokemonTower_5F": "5F",
+        "PokemonTower_6F": "6F",
+        "PokemonTower_7F": "7F"
+      },
+      "entrance": {
+        "from": "LavenderTown"
+      },
+      "objectives": [
+        {
+          "id": "fuji",
+          "title": "Resgatar o Mr. Fuji",
+          "talk": {
+            "map": "PokemonTower_7F",
+            "x": 11,
+            "y": 4
+          },
+          "doneText": "Você chegou ao Mr. Fuji. Fale com ele: ele te leva para casa e dá a Poké Flute.",
+          "who": "o Mr. Fuji"
+        },
+        {
+          "id": "exit",
+          "title": "Sair da torre",
+          "exit": true,
+          "doneText": "Você saiu da Pokémon Tower."
+        }
+      ],
+      "notes": "Sem o Silph Scope os fantasmas não são identificados e o fantasma do 6F não deixa passar. O círculo de purificação do 5F recupera a equipe.",
+      "status": "beta"
+    },
+    {
+      "id": "cerulean_cave",
+      "name": "Cerulean Cave",
+      "mapsecs": [
+        "CERULEAN_CAVE"
+      ],
+      "labels": {
+        "CeruleanCave_1F": "1F",
+        "CeruleanCave_2F": "2F",
+        "CeruleanCave_B1F": "B1F"
+      },
+      "entrance": {
+        "from": "CeruleanCity"
+      },
+      "objectives": [
+        {
+          "id": "mewtwo",
+          "title": "Chegar ao Mewtwo",
+          "talk": {
+            "map": "CeruleanCave_B1F",
+            "x": 7,
+            "y": 12
+          },
+          "doneText": "Você está diante do Mewtwo (Nv 70). Salve o jogo antes de falar com ele.",
+          "who": "o Mewtwo"
+        },
+        {
+          "id": "exit",
+          "title": "Sair da caverna",
+          "exit": true,
+          "doneText": "Você saiu da Cerulean Cave."
+        }
+      ],
+      "notes": "Pós-jogo. A caverna exige Surf para cruzar a água.",
+      "status": "beta"
+    },
+    {
+      "id": "ss_anne",
+      "name": "S.S. Anne",
+      "mapsecs": [
+        "S_S_ANNE"
+      ],
+      "labels": {},
+      "entrance": {
+        "from": "VermilionCity"
+      },
+      "objectives": [
+        {
+          "id": "captain",
+          "title": "Falar com o capitão (HM01 Cut)",
+          "talk": {
+            "map": "SSAnne_CaptainsOffice",
+            "x": 5,
+            "y": 4
+          },
+          "doneText": "Você chegou ao capitão. Fale com ele para ganhar a HM01 (Cut).",
+          "who": "o capitão"
+        },
+        {
+          "id": "exit",
+          "title": "Sair do navio",
+          "exit": true,
+          "doneText": "Você desceu do S.S. Anne."
+        }
+      ],
+      "notes": "O rival te desafia no corredor do 2F.",
+      "status": "beta"
     }
-  ]
+  ],
+  "blockers": [
+    {
+      "id": "viridian_old_man",
+      "map": "ViridianCity",
+      "scripts": [
+        "RoadBlocked"
+      ],
+      "clearedBy": [],
+      "text": "O velhinho deitado não deixa passar até você entregar o Oak's Parcel ao Professor Oak (Pallet Town)."
+    },
+    {
+      "id": "viridian_gym_door",
+      "map": "ViridianCity",
+      "scripts": [
+        "GymDoorLocked"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "cascade",
+            "thunder",
+            "rainbow",
+            "soul",
+            "marsh",
+            "volcano"
+          ]
+        }
+      ],
+      "text": "A porta do Ginásio de Viridian só abre com as outras sete insígnias."
+    },
+    {
+      "id": "pewter_gym_guide",
+      "map": "PewterCity",
+      "scripts": [
+        "GymGuideTriggerTop",
+        "GymGuideTriggerMid",
+        "GymGuideTriggerBottom",
+        "GymGuideTriggerRight"
+      ],
+      "clearedBy": [],
+      "text": "O guia te leva ao ginásio enquanto você não vencer o Brock: a saída leste de Pewter só libera depois da Boulder Badge."
+    },
+    {
+      "id": "saffron_gate_route5",
+      "map": "Route5_SouthEntrance",
+      "scripts": [
+        "GuardTriggerLeft",
+        "GuardTriggerMid",
+        "GuardTriggerRight"
+      ],
+      "clearedBy": [
+        {
+          "flag": "FLAG_GOT_TEA"
+        }
+      ],
+      "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+    },
+    {
+      "id": "saffron_gate_route6",
+      "map": "Route6_NorthEntrance",
+      "scripts": [
+        "GuardTriggerLeft",
+        "GuardTriggerMid",
+        "GuardTriggerRight"
+      ],
+      "clearedBy": [
+        {
+          "flag": "FLAG_GOT_TEA"
+        }
+      ],
+      "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+    },
+    {
+      "id": "saffron_gate_route7",
+      "map": "Route7_EastEntrance",
+      "scripts": [
+        "GuardTriggerTop",
+        "GuardTriggerMid",
+        "GuardTriggerBottom"
+      ],
+      "clearedBy": [
+        {
+          "flag": "FLAG_GOT_TEA"
+        }
+      ],
+      "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+    },
+    {
+      "id": "saffron_gate_route8",
+      "map": "Route8_WestEntrance",
+      "scripts": [
+        "GuardTriggerTop",
+        "GuardTriggerMid",
+        "GuardTriggerBottom"
+      ],
+      "clearedBy": [
+        {
+          "flag": "FLAG_GOT_TEA"
+        }
+      ],
+      "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+    },
+    {
+      "id": "cycling_road_route16",
+      "map": "Route16_NorthEntrance_1F",
+      "scripts": [
+        "NeedBikeTriggerTop",
+        "NeedBikeTriggerMidTop",
+        "NeedBikeTriggerMid",
+        "NeedBikeTriggerMidBottom",
+        "NeedBikeTriggerBottom"
+      ],
+      "clearedBy": [
+        {
+          "item": "bicycle"
+        }
+      ],
+      "text": "A Cycling Road só pode ser feita de bicicleta: suba na Bicycle antes de passar pelo guarda."
+    },
+    {
+      "id": "cycling_road_route18",
+      "map": "Route18_EastEntrance_1F",
+      "scripts": [
+        "NeedBikeTriggerTop",
+        "NeedBikeTriggerMidTop",
+        "NeedBikeTriggerMid",
+        "NeedBikeTriggerMidBottom",
+        "NeedBikeTriggerBottom"
+      ],
+      "clearedBy": [
+        {
+          "item": "bicycle"
+        }
+      ],
+      "text": "A Cycling Road só pode ser feita de bicicleta: suba na Bicycle antes de passar pelo guarda."
+    },
+    {
+      "id": "tower_marowak",
+      "map": "PokemonTower_6F",
+      "scripts": [
+        "MarowakGhost"
+      ],
+      "clearedBy": [
+        {
+          "item": "silph_scope"
+        }
+      ],
+      "text": "O fantasma do 6F só pode ser enfrentado com o Silph Scope (do Giovanni, no Rocket Hideout)."
+    },
+    {
+      "id": "vermilion_ticket",
+      "map": "VermilionCity",
+      "scripts": [
+        "CheckTicketLeft",
+        "CheckTicketRight"
+      ],
+      "clearedBy": [
+        {
+          "flag": "FLAG_GOT_SS_TICKET"
+        }
+      ],
+      "text": "O marinheiro só deixa embarcar no S.S. Anne com o S.S. Ticket (do Bill, ao norte de Cerulean)."
+    },
+    {
+      "id": "cinnabar_gym_door",
+      "map": "CinnabarIsland",
+      "scripts": [
+        "GymDoorLocked"
+      ],
+      "clearedBy": [
+        {
+          "flag": "FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY"
+        }
+      ],
+      "text": "A porta do Ginásio de Cinnabar só abre com a Secret Key (Pokémon Mansion, B1F)."
+    },
+    {
+      "id": "route22_boulder_guard",
+      "map": "Route22_NorthEntrance",
+      "scripts": [
+        "BoulderBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "boulder"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 22 só deixa passar com a Boulder Badge."
+    },
+    {
+      "id": "route23_cascade",
+      "map": "Route23",
+      "scripts": [
+        "CascadeBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "cascade"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Cascade Badge."
+    },
+    {
+      "id": "route23_thunder",
+      "map": "Route23",
+      "scripts": [
+        "ThunderBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "thunder"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Thunder Badge."
+    },
+    {
+      "id": "route23_rainbow",
+      "map": "Route23",
+      "scripts": [
+        "RainbowBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "rainbow"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Rainbow Badge."
+    },
+    {
+      "id": "route23_soul",
+      "map": "Route23",
+      "scripts": [
+        "SoulBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "soul"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Soul Badge."
+    },
+    {
+      "id": "route23_marsh",
+      "map": "Route23",
+      "scripts": [
+        "MarshBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "marsh"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Marsh Badge."
+    },
+    {
+      "id": "route23_volcano",
+      "map": "Route23",
+      "scripts": [
+        "VolcanoBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "volcano"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Volcano Badge."
+    },
+    {
+      "id": "route23_earth",
+      "map": "Route23",
+      "scripts": [
+        "EarthBadgeGuardTrigger"
+      ],
+      "clearedBy": [
+        {
+          "badges": [
+            "earth"
+          ]
+        }
+      ],
+      "text": "O guarda da Route 23 confere a Earth Badge."
+    }
+  ],
+  "obstacles": {
+    "FOSSIL": {
+      "text": "Os fósseis bloqueiam a passagem: vença o Super Nerd e pegue um dos dois (Dome ou Helix); o outro some junto.",
+      "remove": {
+        "instruction": "Vença o Super Nerd perto dos fósseis, depois fique de frente para um dos fósseis e aperte A para pegá-lo (Dome = Kabuto, Helix = Omanyte).",
+        "expected": "Você pega um fóssil e o outro some: a passagem abre.",
+        "question": "Pegou um fóssil e a passagem abriu?"
+      }
+    },
+    "SNORLAX": {
+      "text": "Um Snorlax dorme no caminho: acorde-o com a Poké Flute (do Mr. Fuji, em Lavender Town).",
+      "remove": {
+        "needsItem": "poke_flute",
+        "instruction": "Fique de frente para o Snorlax, aperte A e use a Poké Flute. Ele acorda e luta (Nv 30): capture ou derrote.",
+        "expected": "O Snorlax sai do caminho.",
+        "question": "O Snorlax saiu do caminho?"
+      }
+    },
+    "ROCKET_M": {
+      "text": "Um Team Rocket está no caminho: ele sai depois do evento da história nesse lugar."
+    },
+    "POLICEMAN": {
+      "text": "Um policial bloqueia a passagem: ele sai depois do evento da história nesse lugar."
+    }
+  }
 }

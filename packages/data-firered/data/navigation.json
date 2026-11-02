@@ -1,836 +1,1229 @@
-[
- {
-  "id": "pokemon_mansion",
-  "name": "Pokémon Mansion",
-  "mapPrefix": "PokemonMansion",
-  "switchFlag": {
-   "key": "POKEMON_MANSION_SWITCH_STATE",
-   "id": 620
-  },
-  "entrance": {
-   "floor": "PokemonMansion_1F",
-   "x": 8,
-   "y": 33
-  },
-  "floors": [
-   {
+{
+ "areas": [
+  {
+   "id": "pokemon_mansion",
+   "name": "Pokémon Mansion",
+   "maps": [
+    "PokemonMansion_1F",
+    "PokemonMansion_2F",
+    "PokemonMansion_3F",
+    "PokemonMansion_B1F"
+   ],
+   "labels": {
+    "PokemonMansion_1F": "1F",
+    "PokemonMansion_2F": "2F",
+    "PokemonMansion_3F": "3F",
+    "PokemonMansion_B1F": "B1F"
+   },
+   "entrance": {
     "map": "PokemonMansion_1F",
-    "label": "1F",
-    "allowEscaping": true,
-    "group": 1,
-    "num": 59,
-    "width": 38,
-    "height": 35,
-    "grid": [
-     "######################################",
-     "######################################",
-     "######################################",
-     "#....................................#",
-     "#....................................#",
-     "#..#.#.###...#.....#.#.#.#..#####....#",
-     "#..#...###...#.....#.#.#.#..#####...##",
-     "#............#..............#####...##",
-     "#............#..............#........#",
-     "#............##...####...####........#",
-     "################..####111####...###..#",
-     "################..####111####...###..#",
-     "##############....#.......####.......#",
-     "#..........###....#........###.......#",
-     "#..........###....#.........##.......#",
-     "#.................#.........##.......#",
-     "#.................#.........##.......#",
-     "#...............###############...####",
-     "#...............###############000####",
-     "##..............###############000####",
-     "###..#.....#...##..#####.............#",
-     "###..#.....#...##......#.............#",
-     "###..#.....#...##......#.............#",
-     "###.............#......#.............#",
-     "#...............#......####...##...###",
-     "#....#.....#....#......####111##111###",
-     "#....#.....#....#..########111##111###",
-     "#....#.....#....#......##......#.....#",
-     "#...............#......##......#.....#",
-     "#...............#..............#.....#",
-     "#....#.....#....#..............#.....#",
-     "#....#.....#....#..............#.....#",
-     "#....#.....#....#..######......#.....#",
-     "#...............#..............#.....#",
-     "######################################"
-    ],
-    "objects": [
-     {
-      "x": 22,
-      "y": 24
-     },
-     {
-      "x": 29,
-      "y": 32
-     },
-     {
-      "x": 22,
-      "y": 6
-     },
-     {
-      "x": 27,
-      "y": 15
-     },
-     {
-      "x": 8,
-      "y": 8
-     }
-    ],
-    "source": "data/layouts/PokemonMansion_1F/map.bin data/maps/PokemonMansion_1F/map.json"
+    "x": 8,
+    "y": 33
    },
-   {
-    "map": "PokemonMansion_2F",
-    "label": "2F",
-    "allowEscaping": true,
-    "group": 1,
-    "num": 60,
-    "width": 38,
-    "height": 38,
-    "grid": [
-     "######################################",
-     "######################################",
-     "######################################",
-     "#..##.....###........#...............#",
-     "#..##.....###........#...###.........#",
-     "#.#.........#........#...###.........#",
-     "##..........0........#...............#",
-     "#...........0........#..........###..#",
-     "#...........0........###...####.###..#",
-     "#...........#........###...########..#",
-     "#...........###......###...###########",
-     "###############......................#",
-     "###########.##.......................#",
-     "#############.....######...###########",
-     "#...##....###.....######111###########",
-     "#...##....###.....######111###########",
-     "#.#.........#.....#..........##......#",
-     "#.................#..........##......#",
-     "#.................#..........#.......#",
-     "#######.........##########.###...#####",
-     "#######...#.....#############....###.#",
-     "#######..##.....##########.......#####",
-     "#........####...#..######..........###",
-     "#.........###...#..######..........###",
-     "#.........###...#..###################",
-     "#.........##....#..###################",
-     "###########.....#..###################",
-     "###########.....#..###################",
-     "###########.....#..###################",
-     "#.........#.....#..###################",
-     "#.........1........###################",
-     "#.######..1........###################",
-     "#.######..1........###################",
-     "#.........#.....######################",
-     "#.........#.....######################",
-     "######################################",
-     "######################################",
-     "######################################"
-    ],
-    "objects": [
+   "switch": {
+    "flag": {
+     "key": "POKEMON_MANSION_SWITCH_STATE",
+     "id": 620
+    },
+    "statues": [
      {
+      "id": "PokemonMansion_1F:switch:0",
+      "map": "PokemonMansion_1F",
       "x": 5,
-      "y": 23
+      "y": 5,
+      "stand": {
+       "x": 5,
+       "y": 6
+      },
+      "facing": "up",
+      "source": "data/maps/PokemonMansion_1F/map.json#bg_events[0] data/scripts/pokemon_mansion.inc"
      },
      {
-      "x": 36,
-      "y": 8
+      "id": "PokemonMansion_2F:switch:0",
+      "map": "PokemonMansion_2F",
+      "x": 2,
+      "y": 16,
+      "stand": {
+       "x": 2,
+       "y": 17
+      },
+      "facing": "up",
+      "source": "data/maps/PokemonMansion_2F/map.json#bg_events[0] data/scripts/pokemon_mansion.inc"
      },
      {
-      "x": 18,
-      "y": 23
+      "id": "PokemonMansion_3F:switch:1",
+      "map": "PokemonMansion_3F",
+      "x": 12,
+      "y": 5,
+      "stand": {
+       "x": 12,
+       "y": 6
+      },
+      "facing": "up",
+      "source": "data/maps/PokemonMansion_3F/map.json#bg_events[1] data/scripts/pokemon_mansion.inc"
      },
      {
-      "x": 35,
-      "y": 17
+      "id": "PokemonMansion_B1F:switch:1",
+      "map": "PokemonMansion_B1F",
+      "x": 24,
+      "y": 29,
+      "stand": {
+       "x": 24,
+       "y": 30
+      },
+      "facing": "up",
+      "source": "data/maps/PokemonMansion_B1F/map.json#bg_events[1] data/scripts/pokemon_mansion.inc"
+     },
+     {
+      "id": "PokemonMansion_B1F:switch:2",
+      "map": "PokemonMansion_B1F",
+      "x": 27,
+      "y": 5,
+      "stand": {
+       "x": 27,
+       "y": 6
+      },
+      "facing": "up",
+      "source": "data/maps/PokemonMansion_B1F/map.json#bg_events[2] data/scripts/pokemon_mansion.inc"
      }
-    ],
-    "source": "data/layouts/PokemonMansion_2F/map.bin data/maps/PokemonMansion_2F/map.json"
+    ]
    },
-   {
-    "map": "PokemonMansion_3F",
-    "label": "3F",
-    "allowEscaping": true,
-    "group": 1,
-    "num": 61,
-    "width": 38,
-    "height": 35,
-    "grid": [
-     "######################################",
-     "######################################",
-     "######################################",
-     "#.....##........###..#.......#...#...#",
-     "#.....##.........##..#.......#....#..#",
-     "##..........#....##..#..###..#....##.#",
-     "###..................0..###........###",
-     "###..................0...............#",
-     "########.######......0...............#",
-     "###############......#...............#",
-     "########.########...######.###.#######",
-     "#.###....##...###111##################",
-     "#..##....##...###111######.....#######",
-     "#..#..........##.....................#",
-     "#.............#......................#",
-     "#.............####...##..##..#########",
-     "#.....###.....####...##..##..#########",
-     "####..###....#####...##..##..#########",
-     "####........######...##..##.....##...#",
-     "#..........################.....##...#",
-     "#.............#############..........#",
-     "#.............#############..........#",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################",
-     "######################################"
-    ],
-    "objects": [
-     {
-      "x": 7,
-      "y": 13
+   "objectives": [
+    {
+     "id": "secret_key",
+     "title": "Pegar a Secret Key",
+     "item": "secret_key",
+     "doneText": "Você tem a Secret Key. Ela abre a porta do Ginásio de Cinnabar: saia da mansão e enfrente o Blaine."
+    },
+    {
+     "id": "exit",
+     "title": "Sair da mansão",
+     "exit": true,
+     "doneText": "Você saiu da Pokémon Mansion para a Cinnabar Island."
+    }
+   ],
+   "notes": "Todas as estátuas acionam o mesmo interruptor: cada vez que você aperta uma, todas as grades da mansão (em todos os andares) trocam de estado. Olhos vermelhos = ligado; olhos pretos = desligado.",
+   "status": "beta"
+  },
+  {
+   "id": "viridian_forest",
+   "name": "Viridian Forest",
+   "maps": [
+    "ViridianForest"
+   ],
+   "labels": {},
+   "entrance": {
+    "map": "ViridianForest",
+    "x": 29,
+    "y": 62
+   },
+   "objectives": [
+    {
+     "id": "cross",
+     "title": "Atravessar até Pewter",
+     "reach": {
+      "map": "Route2_ViridianForest_NorthEntrance"
      },
-     {
-      "x": 22,
-      "y": 13
-     },
-     {
-      "x": 9,
-      "y": 19
-     },
-     {
+     "doneText": "Você saiu da floresta. Siga para o norte até Pewter City."
+    },
+    {
+     "id": "exit",
+     "title": "Sair da floresta",
+     "exit": true,
+     "doneText": "Você saiu da Viridian Forest."
+    }
+   ],
+   "notes": "A floresta é um labirinto de árvores com treinadores de Bug escondidos na grama alta.",
+   "status": "beta"
+  },
+  {
+   "id": "mt_moon",
+   "name": "Mt. Moon",
+   "maps": [
+    "MtMoon_1F",
+    "MtMoon_B1F",
+    "MtMoon_B2F"
+   ],
+   "labels": {
+    "MtMoon_1F": "1F",
+    "MtMoon_B1F": "B1F",
+    "MtMoon_B2F": "B2F"
+   },
+   "entrance": {
+    "map": "MtMoon_1F",
+    "x": 18,
+    "y": 37
+   },
+   "objectives": [
+    {
+     "id": "cross",
+     "title": "Atravessar até a Route 4 (lado de Cerulean)",
+     "reach": {
+      "map": "Route4",
       "x": 32,
-      "y": 6
-     }
-    ],
-    "source": "data/layouts/PokemonMansion_3F/map.bin data/maps/PokemonMansion_3F/map.json"
+      "y": 5
+     },
+     "doneText": "Você saiu do Mt. Moon. Siga para o leste até Cerulean City."
+    },
+    {
+     "id": "exit",
+     "title": "Sair do Mt. Moon",
+     "exit": true,
+     "doneText": "Você saiu do Mt. Moon."
+    }
+   ],
+   "notes": "No B2F, depois do Super Nerd, você escolhe um dos dois fósseis (Dome ou Helix).",
+   "status": "beta"
+  },
+  {
+   "id": "rock_tunnel",
+   "name": "Rock Tunnel",
+   "maps": [
+    "RockTunnel_1F",
+    "RockTunnel_B1F"
+   ],
+   "labels": {
+    "RockTunnel_1F": "1F",
+    "RockTunnel_B1F": "B1F"
    },
-   {
-    "map": "PokemonMansion_B1F",
-    "label": "B1F",
-    "allowEscaping": true,
-    "group": 1,
-    "num": 62,
-    "width": 38,
-    "height": 35,
-    "grid": [
-     "######################################",
-     "######################################",
-     "######################################",
-     "#...........#............#...........#",
-     "#...........#............#...........#",
-     "#...........#............#.#.........#",
-     "#...........#####...######...........#",
-     "#....###....#####...##########....####",
-     "#....###....#####...##########....####",
-     "#...........#............#####....####",
-     "#...........1........................#",
-     "#...........1........................#",
-     "#...........1........................#",
-     "#...........#........................#",
-     "#####...#######################......#",
-     "#####...#######################......#",
-     "#####...#######################......#",
-     "#...........#.................#......#",
-     "#.###...###.#.................#......#",
-     "#...........#.................###...##",
-     "#...........#.................###000##",
-     "#.###...###.#...####...####...###000##",
-     "#...........#...####111####..........#",
-     "#############...####111####..........#",
-     "#############...#.........#..........#",
-     "#############...#.........#..........#",
-     "#...............#.........#......#####",
-     "#...............#...###...#......###.#",
-     "#...............0...###...#......#####",
-     "#...............0.......#.#........###",
-     "#...............0.........#........###",
-     "#...............#.........#..........#",
-     "######################################",
-     "######################################",
-     "######################################"
-    ],
-    "objects": [
-     {
-      "x": 6,
-      "y": 21
+   "entrance": {
+    "map": "RockTunnel_1F",
+    "x": 17,
+    "y": 2
+   },
+   "objectives": [
+    {
+     "id": "cross",
+     "title": "Atravessar até Lavender Town",
+     "reach": {
+      "map": "Route10",
+      "x": 8,
+      "y": 57
      },
-     {
-      "x": 20,
-      "y": 25
+     "doneText": "Você saiu do Rock Tunnel. Siga para o sul até Lavender Town."
+    },
+    {
+     "id": "exit",
+     "title": "Sair do Rock Tunnel",
+     "exit": true,
+     "doneText": "Você saiu do Rock Tunnel."
+    }
+   ],
+   "notes": "Sem Flash a caverna fica escura, mas o caminho é o mesmo: as instruções valem com ou sem luz.",
+   "status": "beta"
+  },
+  {
+   "id": "digletts_cave",
+   "name": "Diglett's Cave",
+   "maps": [
+    "DiglettsCave_NorthEntrance",
+    "DiglettsCave_B1F",
+    "DiglettsCave_SouthEntrance"
+   ],
+   "labels": {
+    "DiglettsCave_NorthEntrance": "entrada norte",
+    "DiglettsCave_B1F": "B1F",
+    "DiglettsCave_SouthEntrance": "entrada sul"
+   },
+   "entrance": {
+    "map": "DiglettsCave_NorthEntrance",
+    "x": 4,
+    "y": 6
+   },
+   "objectives": [
+    {
+     "id": "cross",
+     "title": "Atravessar até a Route 11 (Vermilion)",
+     "reach": {
+      "map": "Route11"
      },
-     {
-      "x": 34,
-      "y": 13
+     "doneText": "Você saiu na Route 11, a leste de Vermilion City."
+    },
+    {
+     "id": "exit",
+     "title": "Sair da caverna",
+     "exit": true,
+     "doneText": "Você saiu da Diglett's Cave."
+    }
+   ],
+   "notes": "Um túnel longo e sem bifurcações perigosas: liga a Route 2 (perto de Pewter) à Route 11.",
+   "status": "beta"
+  },
+  {
+   "id": "power_plant",
+   "name": "Power Plant",
+   "maps": [
+    "PowerPlant"
+   ],
+   "labels": {},
+   "entrance": {
+    "map": "PowerPlant",
+    "x": 5,
+    "y": 38
+   },
+   "objectives": [
+    {
+     "id": "zapdos",
+     "title": "Chegar ao Zapdos",
+     "talk": {
+      "map": "PowerPlant",
+      "x": 5,
+      "y": 11
      },
-     {
-      "x": 23,
+     "doneText": "Você está diante do Zapdos (Nv 50). Salve o jogo antes de falar com ele.",
+     "who": "o Zapdos"
+    },
+    {
+     "id": "exit",
+     "title": "Sair da Power Plant",
+     "exit": true,
+     "doneText": "Você saiu da Power Plant."
+    }
+   ],
+   "notes": "Algumas Poké Balls no chão são Voltorb ou Electrode: elas aparecem como itens no mapa do jogo, mas são batalhas.",
+   "status": "beta"
+  },
+  {
+   "id": "pokemon_tower",
+   "name": "Pokémon Tower",
+   "maps": [
+    "PokemonTower_1F",
+    "PokemonTower_2F",
+    "PokemonTower_3F",
+    "PokemonTower_4F",
+    "PokemonTower_5F",
+    "PokemonTower_6F",
+    "PokemonTower_7F"
+   ],
+   "labels": {
+    "PokemonTower_1F": "1F",
+    "PokemonTower_2F": "2F",
+    "PokemonTower_3F": "3F",
+    "PokemonTower_4F": "4F",
+    "PokemonTower_5F": "5F",
+    "PokemonTower_6F": "6F",
+    "PokemonTower_7F": "7F"
+   },
+   "entrance": {
+    "map": "PokemonTower_1F",
+    "x": 11,
+    "y": 18
+   },
+   "objectives": [
+    {
+     "id": "fuji",
+     "title": "Resgatar o Mr. Fuji",
+     "talk": {
+      "map": "PokemonTower_7F",
+      "x": 11,
       "y": 4
      },
-     {
-      "x": 2,
-      "y": 29
+     "doneText": "Você chegou ao Mr. Fuji. Fale com ele: ele te leva para casa e dá a Poké Flute.",
+     "who": "o Mr. Fuji"
+    },
+    {
+     "id": "exit",
+     "title": "Sair da torre",
+     "exit": true,
+     "doneText": "Você saiu da Pokémon Tower."
+    }
+   ],
+   "notes": "Sem o Silph Scope os fantasmas não são identificados e o fantasma do 6F não deixa passar. O círculo de purificação do 5F recupera a equipe.",
+   "status": "beta"
+  },
+  {
+   "id": "cerulean_cave",
+   "name": "Cerulean Cave",
+   "maps": [
+    "CeruleanCave_1F",
+    "CeruleanCave_2F",
+    "CeruleanCave_B1F"
+   ],
+   "labels": {
+    "CeruleanCave_1F": "1F",
+    "CeruleanCave_2F": "2F",
+    "CeruleanCave_B1F": "B1F"
+   },
+   "entrance": {
+    "map": "CeruleanCave_1F",
+    "x": 33,
+    "y": 21
+   },
+   "objectives": [
+    {
+     "id": "mewtwo",
+     "title": "Chegar ao Mewtwo",
+     "talk": {
+      "map": "CeruleanCave_B1F",
+      "x": 7,
+      "y": 12
      },
-     {
-      "x": 5,
-      "y": 7
-     }
-    ],
-    "source": "data/layouts/PokemonMansion_B1F/map.bin data/maps/PokemonMansion_B1F/map.json"
-   }
-  ],
-  "pois": [
-   {
-    "id": "PokemonMansion_1F:exit:1",
-    "kind": "exit",
-    "floor": "PokemonMansion_1F",
-    "x": 8,
-    "y": 33,
-    "press": "down",
-    "to": {
-     "map": "CINNABAR_ISLAND"
+     "doneText": "Você está diante do Mewtwo (Nv 70). Salve o jogo antes de falar com ele.",
+     "who": "o Mewtwo"
     },
-    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[1]"
-   },
-   {
-    "id": "PokemonMansion_1F:stairs:3",
-    "kind": "stairs",
-    "floor": "PokemonMansion_1F",
-    "x": 10,
-    "y": 13,
-    "direction": "up",
-    "to": {
-     "floor": "PokemonMansion_2F",
-     "x": 6,
-     "y": 14
-    },
-    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[3]"
-   },
-   {
-    "id": "PokemonMansion_1F:stairs:4",
-    "kind": "stairs",
-    "floor": "PokemonMansion_1F",
-    "x": 25,
-    "y": 27,
-    "direction": "down",
-    "to": {
-     "floor": "PokemonMansion_B1F",
-     "x": 34,
-     "y": 29
-    },
-    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[4]"
-   },
-   {
-    "id": "PokemonMansion_1F:exit:5",
-    "kind": "exit",
-    "floor": "PokemonMansion_1F",
-    "x": 34,
-    "y": 33,
-    "press": "down",
-    "to": {
-     "map": "CINNABAR_ISLAND"
-    },
-    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[5]"
-   },
-   {
-    "id": "PokemonMansion_1F:switch:0",
-    "kind": "switch",
-    "floor": "PokemonMansion_1F",
-    "x": 5,
-    "y": 5,
-    "stand": {
-     "x": 5,
-     "y": 6
-    },
-    "facing": "up",
-    "source": "data/maps/PokemonMansion_1F/map.json#bg_events[0] data/scripts/pokemon_mansion.inc"
-   },
-   {
-    "id": "PokemonMansion_1F:trainer:0",
-    "kind": "trainer",
-    "floor": "PokemonMansion_1F",
-    "x": 22,
-    "y": 24,
-    "trainer": "scientist_ted",
-    "sight": 4,
-    "facing": [
-     "left"
-    ],
-    "source": "data/maps/PokemonMansion_1F/map.json#object_events[0]"
-   },
-   {
-    "id": "PokemonMansion_1F:item:1",
-    "kind": "item",
-    "floor": "PokemonMansion_1F",
-    "x": 29,
-    "y": 32,
-    "item": "carbos",
-    "hideFlag": 415,
-    "source": "data/maps/PokemonMansion_1F/map.json#object_events[1]"
-   },
-   {
-    "id": "PokemonMansion_1F:item:2",
-    "kind": "item",
-    "floor": "PokemonMansion_1F",
-    "x": 22,
-    "y": 6,
-    "item": "escape_rope",
-    "hideFlag": 416,
-    "source": "data/maps/PokemonMansion_1F/map.json#object_events[2]"
-   },
-   {
-    "id": "PokemonMansion_1F:item:3",
-    "kind": "item",
-    "floor": "PokemonMansion_1F",
-    "x": 27,
-    "y": 15,
-    "item": "protein",
-    "hideFlag": 458,
-    "source": "data/maps/PokemonMansion_1F/map.json#object_events[3]"
-   },
-   {
-    "id": "PokemonMansion_1F:trainer:4",
-    "kind": "trainer",
-    "floor": "PokemonMansion_1F",
-    "x": 8,
-    "y": 8,
-    "trainer": "youngster_johnson",
-    "sight": 1,
-    "facing": [
-     "up",
-     "down",
-     "left",
-     "right"
-    ],
-    "source": "data/maps/PokemonMansion_1F/map.json#object_events[4]"
-   },
-   {
-    "id": "PokemonMansion_2F:stairs:0",
-    "kind": "stairs",
-    "floor": "PokemonMansion_2F",
-    "x": 9,
-    "y": 3,
-    "direction": "up",
-    "to": {
-     "floor": "PokemonMansion_3F",
-     "x": 8,
-     "y": 3
-    },
-    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[0]"
-   },
-   {
-    "id": "PokemonMansion_2F:stairs:1",
-    "kind": "stairs",
-    "floor": "PokemonMansion_2F",
-    "x": 34,
-    "y": 22,
-    "direction": "up",
-    "to": {
-     "floor": "PokemonMansion_3F",
-     "x": 34,
-     "y": 18
-    },
-    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[1]"
-   },
-   {
-    "id": "PokemonMansion_2F:stairs:2",
-    "kind": "stairs",
-    "floor": "PokemonMansion_2F",
-    "x": 6,
-    "y": 14,
-    "direction": "down",
-    "to": {
-     "floor": "PokemonMansion_1F",
-     "x": 10,
-     "y": 13
-    },
-    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[2]"
-   },
-   {
-    "id": "PokemonMansion_2F:stairs:3",
-    "kind": "stairs",
-    "floor": "PokemonMansion_2F",
-    "x": 9,
-    "y": 14,
-    "direction": "up",
-    "to": {
-     "floor": "PokemonMansion_3F",
-     "x": 11,
-     "y": 11
-    },
-    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[3]"
-   },
-   {
-    "id": "PokemonMansion_2F:switch:0",
-    "kind": "switch",
-    "floor": "PokemonMansion_2F",
-    "x": 2,
-    "y": 16,
-    "stand": {
-     "x": 2,
-     "y": 17
-    },
-    "facing": "up",
-    "source": "data/maps/PokemonMansion_2F/map.json#bg_events[0] data/scripts/pokemon_mansion.inc"
-   },
-   {
-    "id": "PokemonMansion_2F:trainer:0",
-    "kind": "trainer",
-    "floor": "PokemonMansion_2F",
-    "x": 5,
-    "y": 23,
-    "trainer": "burglar_arnie",
-    "sight": 1,
-    "facing": [
-     "up",
-     "down",
-     "left",
-     "right"
-    ],
-    "source": "data/maps/PokemonMansion_2F/map.json#object_events[0]"
-   },
-   {
-    "id": "PokemonMansion_2F:item:1",
-    "kind": "item",
-    "floor": "PokemonMansion_2F",
-    "x": 36,
-    "y": 8,
-    "item": "calcium",
-    "hideFlag": 417,
-    "source": "data/maps/PokemonMansion_2F/map.json#object_events[1]"
-   },
-   {
-    "id": "PokemonMansion_2F:item:2",
-    "kind": "item",
-    "floor": "PokemonMansion_2F",
-    "x": 18,
-    "y": 23,
-    "item": "zinc",
-    "hideFlag": 459,
-    "source": "data/maps/PokemonMansion_2F/map.json#object_events[2]"
-   },
-   {
-    "id": "PokemonMansion_2F:item:3",
-    "kind": "item",
-    "floor": "PokemonMansion_2F",
-    "x": 35,
-    "y": 17,
-    "item": "hp_up",
-    "hideFlag": 460,
-    "source": "data/maps/PokemonMansion_2F/map.json#object_events[3]"
-   },
-   {
-    "id": "PokemonMansion_3F:stairs:0",
-    "kind": "stairs",
-    "floor": "PokemonMansion_3F",
-    "x": 8,
-    "y": 3,
-    "direction": "down",
-    "to": {
-     "floor": "PokemonMansion_2F",
-     "x": 9,
-     "y": 3
-    },
-    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[0]"
-   },
-   {
-    "id": "PokemonMansion_3F:stairs:1",
-    "kind": "stairs",
-    "floor": "PokemonMansion_3F",
-    "x": 34,
-    "y": 18,
-    "direction": "down",
-    "to": {
-     "floor": "PokemonMansion_2F",
-     "x": 34,
-     "y": 22
-    },
-    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[1]"
-   },
-   {
-    "id": "PokemonMansion_3F:stairs:2",
-    "kind": "stairs",
-    "floor": "PokemonMansion_3F",
-    "x": 11,
-    "y": 11,
-    "direction": "down",
-    "to": {
-     "floor": "PokemonMansion_2F",
-     "x": 9,
-     "y": 14
-    },
-    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[2]"
-   },
-   {
-    "id": "PokemonMansion_3F:fall:18-18",
-    "kind": "fall",
-    "floor": "PokemonMansion_3F",
-    "x": 18,
-    "y": 18,
-    "tiles": [
-     {
-      "x": 18,
-      "y": 18,
-      "to": {
-       "floor": "PokemonMansion_1F",
-       "x": 19,
-       "y": 22
-      }
-     },
-     {
-      "x": 19,
-      "y": 18,
-      "to": {
-       "floor": "PokemonMansion_1F",
-       "x": 20,
-       "y": 22
-      }
-     },
-     {
-      "x": 20,
-      "y": 18,
-      "to": {
-       "floor": "PokemonMansion_1F",
-       "x": 20,
-       "y": 22
-      }
-     }
-    ],
-    "to": {
-     "floor": "PokemonMansion_1F",
-     "x": 19,
-     "y": 22
-    },
-    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[3] data/maps/PokemonMansion_3F/map.json#warp_events[4] data/maps/PokemonMansion_3F/map.json#warp_events[6]"
-   },
-   {
-    "id": "PokemonMansion_3F:fall:23-18",
-    "kind": "fall",
-    "floor": "PokemonMansion_3F",
-    "x": 23,
-    "y": 18,
-    "tiles": [
-     {
-      "x": 23,
-      "y": 18,
-      "to": {
-       "floor": "PokemonMansion_2F",
-       "x": 27,
-       "y": 17
-      }
-     },
-     {
-      "x": 24,
-      "y": 18,
-      "to": {
-       "floor": "PokemonMansion_2F",
-       "x": 27,
-       "y": 17
-      }
-     }
-    ],
-    "to": {
-     "floor": "PokemonMansion_2F",
-     "x": 27,
-     "y": 17
-    },
-    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[5] data/maps/PokemonMansion_3F/map.json#warp_events[7]"
-   },
-   {
-    "id": "PokemonMansion_3F:switch:1",
-    "kind": "switch",
-    "floor": "PokemonMansion_3F",
-    "x": 12,
-    "y": 5,
-    "stand": {
-     "x": 12,
-     "y": 6
-    },
-    "facing": "up",
-    "source": "data/maps/PokemonMansion_3F/map.json#bg_events[1] data/scripts/pokemon_mansion.inc"
-   },
-   {
-    "id": "PokemonMansion_3F:trainer:0",
-    "kind": "trainer",
-    "floor": "PokemonMansion_3F",
-    "x": 7,
-    "y": 13,
-    "trainer": "burglar_simon",
-    "sight": 1,
-    "facing": [
-     "up",
-     "down",
-     "left",
-     "right"
-    ],
-    "source": "data/maps/PokemonMansion_3F/map.json#object_events[0]"
-   },
-   {
-    "id": "PokemonMansion_3F:trainer:1",
-    "kind": "trainer",
-    "floor": "PokemonMansion_3F",
-    "x": 22,
-    "y": 13,
-    "trainer": "scientist_braydon",
-    "sight": 1,
-    "facing": [
-     "down"
-    ],
-    "source": "data/maps/PokemonMansion_3F/map.json#object_events[1]"
-   },
-   {
-    "id": "PokemonMansion_3F:item:2",
-    "kind": "item",
-    "floor": "PokemonMansion_3F",
-    "x": 9,
-    "y": 19,
-    "item": "max_potion",
-    "hideFlag": 418,
-    "source": "data/maps/PokemonMansion_3F/map.json#object_events[2]"
-   },
-   {
-    "id": "PokemonMansion_3F:item:3",
-    "kind": "item",
-    "floor": "PokemonMansion_3F",
+    {
+     "id": "exit",
+     "title": "Sair da caverna",
+     "exit": true,
+     "doneText": "Você saiu da Cerulean Cave."
+    }
+   ],
+   "notes": "Pós-jogo. A caverna exige Surf para cruzar a água.",
+   "status": "beta"
+  },
+  {
+   "id": "ss_anne",
+   "name": "S.S. Anne",
+   "maps": [
+    "SSAnne_Exterior",
+    "SSAnne_1F_Corridor",
+    "SSAnne_2F_Corridor",
+    "SSAnne_3F_Corridor",
+    "SSAnne_B1F_Corridor",
+    "SSAnne_Deck",
+    "SSAnne_Kitchen",
+    "SSAnne_CaptainsOffice",
+    "SSAnne_1F_Room1",
+    "SSAnne_1F_Room2",
+    "SSAnne_1F_Room3",
+    "SSAnne_1F_Room4",
+    "SSAnne_1F_Room5",
+    "SSAnne_1F_Room7",
+    "SSAnne_2F_Room1",
+    "SSAnne_2F_Room2",
+    "SSAnne_2F_Room3",
+    "SSAnne_2F_Room4",
+    "SSAnne_2F_Room5",
+    "SSAnne_2F_Room6",
+    "SSAnne_B1F_Room1",
+    "SSAnne_B1F_Room2",
+    "SSAnne_B1F_Room3",
+    "SSAnne_B1F_Room4",
+    "SSAnne_B1F_Room5",
+    "SSAnne_1F_Room6"
+   ],
+   "labels": {},
+   "entrance": {
+    "map": "SSAnne_Exterior",
     "x": 32,
-    "y": 6,
-    "item": "iron",
-    "hideFlag": 419,
-    "source": "data/maps/PokemonMansion_3F/map.json#object_events[3]"
+    "y": 5
    },
-   {
-    "id": "PokemonMansion_B1F:stairs:0",
-    "kind": "stairs",
-    "floor": "PokemonMansion_B1F",
-    "x": 34,
-    "y": 29,
-    "direction": "up",
-    "to": {
-     "floor": "PokemonMansion_1F",
-     "x": 25,
-     "y": 27
+   "objectives": [
+    {
+     "id": "captain",
+     "title": "Falar com o capitão (HM01 Cut)",
+     "talk": {
+      "map": "SSAnne_CaptainsOffice",
+      "x": 5,
+      "y": 4
+     },
+     "doneText": "Você chegou ao capitão. Fale com ele para ganhar a HM01 (Cut).",
+     "who": "o capitão"
     },
-    "source": "data/maps/PokemonMansion_B1F/map.json#warp_events[0]"
-   },
-   {
-    "id": "PokemonMansion_B1F:switch:1",
-    "kind": "switch",
-    "floor": "PokemonMansion_B1F",
-    "x": 24,
-    "y": 29,
-    "stand": {
-     "x": 24,
-     "y": 30
+    {
+     "id": "exit",
+     "title": "Sair do navio",
+     "exit": true,
+     "doneText": "Você desceu do S.S. Anne."
+    }
+   ],
+   "notes": "O rival te desafia no corredor do 2F.",
+   "status": "beta"
+  }
+ ],
+ "blockers": [
+  {
+   "id": "viridian_old_man",
+   "map": "ViridianCity",
+   "tiles": [
+    {
+     "x": 22,
+     "y": 11,
+     "var": 16465,
+     "value": 0
+    }
+   ],
+   "clearedBy": [],
+   "text": "O velhinho deitado não deixa passar até você entregar o Oak's Parcel ao Professor Oak (Pallet Town)."
+  },
+  {
+   "id": "viridian_gym_door",
+   "map": "ViridianCity",
+   "tiles": [
+    {
+     "x": 36,
+     "y": 11,
+     "var": 16474,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "cascade",
+      "thunder",
+      "rainbow",
+      "soul",
+      "marsh",
+      "volcano"
+     ]
+    }
+   ],
+   "text": "A porta do Ginásio de Viridian só abre com as outras sete insígnias."
+  },
+  {
+   "id": "pewter_gym_guide",
+   "map": "PewterCity",
+   "tiles": [
+    {
+     "x": 42,
+     "y": 21,
+     "var": 16492,
+     "value": 0
     },
-    "facing": "up",
-    "source": "data/maps/PokemonMansion_B1F/map.json#bg_events[1] data/scripts/pokemon_mansion.inc"
-   },
-   {
-    "id": "PokemonMansion_B1F:switch:2",
-    "kind": "switch",
-    "floor": "PokemonMansion_B1F",
-    "x": 27,
-    "y": 5,
-    "stand": {
-     "x": 27,
-     "y": 6
+    {
+     "x": 42,
+     "y": 22,
+     "var": 16492,
+     "value": 0
     },
-    "facing": "up",
-    "source": "data/maps/PokemonMansion_B1F/map.json#bg_events[2] data/scripts/pokemon_mansion.inc"
-   },
-   {
-    "id": "PokemonMansion_B1F:item:0",
-    "kind": "item",
-    "floor": "PokemonMansion_B1F",
-    "x": 6,
-    "y": 21,
-    "item": "tm22",
-    "hideFlag": 423,
-    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[0]"
-   },
-   {
-    "id": "PokemonMansion_B1F:trainer:1",
-    "kind": "trainer",
-    "floor": "PokemonMansion_B1F",
-    "x": 20,
-    "y": 25,
-    "trainer": "burglar_lewis",
-    "sight": 1,
-    "facing": [
-     "up",
-     "down",
-     "left",
-     "right"
-    ],
-    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[1]"
-   },
-   {
-    "id": "PokemonMansion_B1F:trainer:2",
-    "kind": "trainer",
-    "floor": "PokemonMansion_B1F",
-    "x": 34,
-    "y": 13,
-    "trainer": "scientist_ivan",
-    "sight": 6,
-    "facing": [
-     "down"
-    ],
-    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[2]"
-   },
-   {
-    "id": "PokemonMansion_B1F:item:3",
-    "kind": "item",
-    "floor": "PokemonMansion_B1F",
-    "x": 23,
-    "y": 4,
-    "item": "tm14",
-    "hideFlag": 420,
-    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[3]"
-   },
-   {
-    "id": "PokemonMansion_B1F:item:4",
-    "kind": "item",
-    "floor": "PokemonMansion_B1F",
-    "x": 2,
-    "y": 29,
-    "item": "full_restore",
-    "hideFlag": 421,
-    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[4]"
-   },
-   {
-    "id": "PokemonMansion_B1F:item:5",
-    "kind": "item",
-    "floor": "PokemonMansion_B1F",
-    "x": 5,
-    "y": 7,
-    "item": "secret_key",
-    "hideFlag": 424,
-    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[5]"
+    {
+     "x": 42,
+     "y": 23,
+     "var": 16492,
+     "value": 0
+    },
+    {
+     "x": 43,
+     "y": 23,
+     "var": 16492,
+     "value": 0
+    }
+   ],
+   "clearedBy": [],
+   "text": "O guia te leva ao ginásio enquanto você não vencer o Brock: a saída leste de Pewter só libera depois da Boulder Badge."
+  },
+  {
+   "id": "saffron_gate_route5",
+   "map": "Route5_SouthEntrance",
+   "tiles": [
+    {
+     "x": 3,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 4,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 5,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "flag": 678,
+     "name": "FLAG_GOT_TEA"
+    }
+   ],
+   "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+  },
+  {
+   "id": "saffron_gate_route6",
+   "map": "Route6_NorthEntrance",
+   "tiles": [
+    {
+     "x": 3,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 4,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 5,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "flag": 678,
+     "name": "FLAG_GOT_TEA"
+    }
+   ],
+   "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+  },
+  {
+   "id": "saffron_gate_route7",
+   "map": "Route7_EastEntrance",
+   "tiles": [
+    {
+     "x": 6,
+     "y": 4,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 6,
+     "var": 16482,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "flag": 678,
+     "name": "FLAG_GOT_TEA"
+    }
+   ],
+   "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+  },
+  {
+   "id": "saffron_gate_route8",
+   "map": "Route8_WestEntrance",
+   "tiles": [
+    {
+     "x": 6,
+     "y": 4,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 5,
+     "var": 16482,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 6,
+     "var": 16482,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "flag": 678,
+     "name": "FLAG_GOT_TEA"
+    }
+   ],
+   "text": "O guarda de Saffron só deixa passar quando você tem o Tea (a senhora do térreo da Celadon Mansion dá)."
+  },
+  {
+   "id": "cycling_road_route16",
+   "map": "Route16_NorthEntrance_1F",
+   "tiles": [
+    {
+     "x": 6,
+     "y": 10,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 11,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 12,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 13,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 14,
+     "var": 16385,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "item": "bicycle"
+    }
+   ],
+   "text": "A Cycling Road só pode ser feita de bicicleta: suba na Bicycle antes de passar pelo guarda."
+  },
+  {
+   "id": "cycling_road_route18",
+   "map": "Route18_EastEntrance_1F",
+   "tiles": [
+    {
+     "x": 6,
+     "y": 4,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 5,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 6,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 7,
+     "var": 16385,
+     "value": 0
+    },
+    {
+     "x": 6,
+     "y": 8,
+     "var": 16385,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "item": "bicycle"
+    }
+   ],
+   "text": "A Cycling Road só pode ser feita de bicicleta: suba na Bicycle antes de passar pelo guarda."
+  },
+  {
+   "id": "tower_marowak",
+   "map": "PokemonTower_6F",
+   "tiles": [
+    {
+     "x": 11,
+     "y": 15,
+     "var": 16473,
+     "value": 0
+    },
+    {
+     "x": 12,
+     "y": 16,
+     "var": 16473,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "item": "silph_scope"
+    }
+   ],
+   "text": "O fantasma do 6F só pode ser enfrentado com o Silph Scope (do Giovanni, no Rocket Hideout)."
+  },
+  {
+   "id": "vermilion_ticket",
+   "map": "VermilionCity",
+   "tiles": [
+    {
+     "x": 22,
+     "y": 33,
+     "var": 16467,
+     "value": 0
+    },
+    {
+     "x": 23,
+     "y": 33,
+     "var": 16467,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "flag": 564,
+     "name": "FLAG_GOT_SS_TICKET"
+    }
+   ],
+   "text": "O marinheiro só deixa embarcar no S.S. Anne com o S.S. Ticket (do Bill, ao norte de Cerulean)."
+  },
+  {
+   "id": "cinnabar_gym_door",
+   "map": "CinnabarIsland",
+   "tiles": [
+    {
+     "x": 20,
+     "y": 5,
+     "var": 16385,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "flag": 424,
+     "name": "FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY"
+    }
+   ],
+   "text": "A porta do Ginásio de Cinnabar só abre com a Secret Key (Pokémon Mansion, B1F)."
+  },
+  {
+   "id": "route22_boulder_guard",
+   "map": "Route22_NorthEntrance",
+   "tiles": [
+    {
+     "x": 7,
+     "y": 2,
+     "var": 16479,
+     "value": 0
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "boulder"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 22 só deixa passar com a Boulder Badge."
+  },
+  {
+   "id": "route23_cascade",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 13,
+     "y": 149,
+     "var": 16479,
+     "value": 1
+    },
+    {
+     "x": 12,
+     "y": 148,
+     "var": 16479,
+     "value": 1
+    },
+    {
+     "x": 11,
+     "y": 148,
+     "var": 16479,
+     "value": 1
+    },
+    {
+     "x": 14,
+     "y": 149,
+     "var": 16479,
+     "value": 1
+    },
+    {
+     "x": 10,
+     "y": 148,
+     "var": 16479,
+     "value": 1
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "cascade"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Cascade Badge."
+  },
+  {
+   "id": "route23_thunder",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 7,
+     "y": 140,
+     "var": 16479,
+     "value": 2
+    },
+    {
+     "x": 4,
+     "y": 139,
+     "var": 16479,
+     "value": 2
+    },
+    {
+     "x": 5,
+     "y": 139,
+     "var": 16479,
+     "value": 2
+    },
+    {
+     "x": 6,
+     "y": 140,
+     "var": 16479,
+     "value": 2
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "thunder"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Thunder Badge."
+  },
+  {
+   "id": "route23_rainbow",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 12,
+     "y": 123,
+     "var": 16479,
+     "value": 3
+    },
+    {
+     "x": 10,
+     "y": 122,
+     "var": 16479,
+     "value": 3
+    },
+    {
+     "x": 11,
+     "y": 122,
+     "var": 16479,
+     "value": 3
+    },
+    {
+     "x": 13,
+     "y": 123,
+     "var": 16479,
+     "value": 3
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "rainbow"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Rainbow Badge."
+  },
+  {
+   "id": "route23_soul",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 11,
+     "y": 111,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 8,
+     "y": 109,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 9,
+     "y": 109,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 10,
+     "y": 109,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 11,
+     "y": 109,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 12,
+     "y": 109,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 12,
+     "y": 111,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 14,
+     "y": 112,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 13,
+     "y": 112,
+     "var": 16479,
+     "value": 4
+    },
+    {
+     "x": 15,
+     "y": 112,
+     "var": 16479,
+     "value": 4
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "soul"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Soul Badge."
+  },
+  {
+   "id": "route23_marsh",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 9,
+     "y": 94,
+     "var": 16479,
+     "value": 5
+    },
+    {
+     "x": 8,
+     "y": 94,
+     "var": 16479,
+     "value": 5
+    },
+    {
+     "x": 5,
+     "y": 92,
+     "var": 16479,
+     "value": 5
+    },
+    {
+     "x": 7,
+     "y": 94,
+     "var": 16479,
+     "value": 5
+    },
+    {
+     "x": 4,
+     "y": 92,
+     "var": 16479,
+     "value": 5
+    },
+    {
+     "x": 3,
+     "y": 92,
+     "var": 16479,
+     "value": 5
+    },
+    {
+     "x": 2,
+     "y": 92,
+     "var": 16479,
+     "value": 5
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "marsh"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Marsh Badge."
+  },
+  {
+   "id": "route23_volcano",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 12,
+     "y": 61,
+     "var": 16479,
+     "value": 6
+    },
+    {
+     "x": 10,
+     "y": 60,
+     "var": 16479,
+     "value": 6
+    },
+    {
+     "x": 13,
+     "y": 61,
+     "var": 16479,
+     "value": 6
+    },
+    {
+     "x": 11,
+     "y": 60,
+     "var": 16479,
+     "value": 6
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "volcano"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Volcano Badge."
+  },
+  {
+   "id": "route23_earth",
+   "map": "Route23",
+   "tiles": [
+    {
+     "x": 1,
+     "y": 35,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 1,
+     "y": 34,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 1,
+     "y": 32,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 1,
+     "y": 33,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 1,
+     "y": 31,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 1,
+     "y": 36,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 5,
+     "y": 35,
+     "var": 16479,
+     "value": 7
+    },
+    {
+     "x": 4,
+     "y": 35,
+     "var": 16479,
+     "value": 7
+    }
+   ],
+   "clearedBy": [
+    {
+     "badges": [
+      "earth"
+     ]
+    }
+   ],
+   "text": "O guarda da Route 23 confere a Earth Badge."
+  }
+ ],
+ "newGameFlags": [
+  43,
+  44,
+  51,
+  53,
+  54,
+  55,
+  60,
+  61,
+  63,
+  79,
+  90,
+  98,
+  107,
+  108,
+  109,
+  110,
+  111,
+  116,
+  117,
+  118,
+  123,
+  124,
+  125,
+  140,
+  144,
+  145,
+  146,
+  148,
+  149,
+  150,
+  151,
+  153,
+  157,
+  158,
+  159,
+  160,
+  161,
+  162,
+  163,
+  164,
+  165,
+  166,
+  167,
+  168,
+  169,
+  170,
+  171,
+  172,
+  174
+ ],
+ "obstacles": {
+  "FOSSIL": {
+   "text": "Os fósseis bloqueiam a passagem: vença o Super Nerd e pegue um dos dois (Dome ou Helix); o outro some junto.",
+   "remove": {
+    "instruction": "Vença o Super Nerd perto dos fósseis, depois fique de frente para um dos fósseis e aperte A para pegá-lo (Dome = Kabuto, Helix = Omanyte).",
+    "expected": "Você pega um fóssil e o outro some: a passagem abre.",
+    "question": "Pegou um fóssil e a passagem abriu?"
    }
-  ],
-  "objectives": [
-   {
-    "id": "secret_key",
-    "title": "Pegar a Secret Key",
-    "item": "secret_key",
-    "doneText": "Você tem a Secret Key. Ela abre a porta do Ginásio de Cinnabar: saia da mansão e enfrente o Blaine."
-   },
-   {
-    "id": "exit",
-    "title": "Sair da mansão",
-    "doneText": "Você saiu da Pokémon Mansion para a Cinnabar Island."
+  },
+  "SNORLAX": {
+   "text": "Um Snorlax dorme no caminho: acorde-o com a Poké Flute (do Mr. Fuji, em Lavender Town).",
+   "remove": {
+    "needsItem": "poke_flute",
+    "instruction": "Fique de frente para o Snorlax, aperte A e use a Poké Flute. Ele acorda e luta (Nv 30): capture ou derrote.",
+    "expected": "O Snorlax sai do caminho.",
+    "question": "O Snorlax saiu do caminho?"
    }
-  ],
-  "notes": "Todas as estátuas acionam o mesmo interruptor: cada vez que você aperta uma, todas as grades da mansão (em todos os andares) trocam de estado. Olhos vermelhos = ligado; olhos pretos = desligado."
+  },
+  "ROCKET_M": {
+   "text": "Um Team Rocket está no caminho: ele sai depois do evento da história nesse lugar."
+  },
+  "POLICEMAN": {
+   "text": "Um policial bloqueia a passagem: ele sai depois do evento da história nesse lugar."
+  }
  }
-]
+}

@@ -5,7 +5,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   // GitHub Pages serve em /pokeguide/; localmente e em outros hosts, na raiz.
   base: process.env.BASE_PATH ?? '/',
-  // O dataset (~600 KB) vai inteiro no bundle de propósito, para funcionar offline.
+  // Regras e roteiro vão no bundle principal; o mundo de Kanto (navegação) é um pedaço à parte, carregado
+  // sob demanda. Os dois entram no pré-cache: funciona offline (ver docs/adr/ADR-distribuicao-de-dados.md).
   build: { chunkSizeWarningLimit: 1000 },
   plugins: [
     react(),
@@ -27,7 +28,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // O dataset inteiro vai no bundle: tudo precisa estar em cache para funcionar offline.
+        // Todo .js (inclusive o pedaço do mundo) fica em cache para funcionar offline.
         globPatterns: ['**/*.{js,css,html,svg,png}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         // Imagens dos Pokémon: baixadas do PokeAPI/sprites na primeira vez e guardadas para uso offline.

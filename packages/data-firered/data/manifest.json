@@ -1,7 +1,7 @@
 {
   "rulesetId": "firered-gen3",
   "contentPackId": "firered",
-  "datasetVersion": "0.7.0",
+  "datasetVersion": "0.8.0",
   "source": {
     "repo": "https://github.com/pret/pokefirered",
     "commit": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
@@ -20,7 +20,8 @@
     "walkthrough": 29,
     "machines": 58,
     "encounters": 132,
-    "navigation": 1
+    "navigation": 4,
+    "world": 256
   },
   "sha256": {
     "types.json": "1e07185b45ec2cdcffd6d2d2459063f2fc7d0053a3009c04f7ac7768c4c4db27",
@@ -35,6 +36,7 @@
     "walkthrough.json": "9904740be8c20a31e4506acd2f4d05caf71a8887cb38a977f2a18d32134c3cb0",
     "machines.json": "a9992f63568b9b3c7ff905453a3340f68997172ab62dd2ece4a89ca329bd3799",
     "encounters.json": "e291bd75b148053c4c9454c65f6f6794ad148e21575920b9c67320006f3e9239",
-    "navigation.json": "d8db3d2da3ce0a978bed2da32efb5144e5d9592914524e3a1807dc82c4d566fb"
+    "navigation.json": "70def015a4c9c8410400651fb7de4252489b54dd886a7c257a39e9743588b019",
+    "world.json": "07b24435f6eb27e8438dbd448cda4f9edf4686185945c37cddfd49d6001c751a"
   }
 }

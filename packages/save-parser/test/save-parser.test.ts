@@ -3,8 +3,8 @@ import { resolve } from 'node:path';
 import { lookup, trainers } from '@pokeguide/data-firered';
 import fc from 'fast-check';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { parseSave, SaveParseError, type SaveImportPreview } from '../src/index.ts';
-import { syntheticSave } from './synthetic.ts';
+import { getVar, parseSave, SaveParseError, type SaveImportPreview } from '../src/index.ts';
+import { finalizeSection, syntheticSave } from './synthetic.ts';
 
 describe('save sintético', () => {
   it('lê o slot com maior contador', () => {
@@ -103,5 +103,21 @@ describe.skipIf(!existsSync(PRIVATE_SAVE))('save real (fixture privada)', () => 
   it('descarta itens com ID inexistente e avisa', () => {
     for (const pocket of Object.values(r.bag)) for (const it of pocket) expect(lookup.isKnownItem(it.itemId)).toBe(true);
     expect(r.warnings.some((w) => w.includes('inexistente'))).toBe(true);
+  });
+});
+
+describe('variáveis de script', () => {
+  it('lê VAR_MAP_SCENE_POKEMON_TOWER_6F (0x4059) de SaveBlock1.vars (0x1000)', () => {
+    const save = syntheticSave();
+    const v = new DataView(save.buffer);
+    // Slot B (contador 2) é o atual; 0x1000 + 0x59*2 = 0x10B2 cai na seção 2 (SaveBlock1 começa na 1, 0xF80 por seção).
+    for (let i = 0; i < 14; i++) {
+      const off = 14 * 0x1000 + i * 0x1000;
+      if (v.getUint16(off + 0xff4, true) !== 2) continue;
+      v.setUint16(off + 0x10b2 - 0xf80, 1, true);
+      finalizeSection(save, off);
+    }
+    const p = parseSave(save);
+    expect([getVar(p.varsHex, 0x4059), getVar(p.varsHex, 0x4051), getVar(p.varsHex, 0x3fff), getVar(undefined, 0x4059)]).toEqual([1, 0, null, null]);
   });
 });

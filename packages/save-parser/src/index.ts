@@ -2,7 +2,7 @@
 // Puro: sem APIs de Node ou DOM, roda em Web Worker. Nunca altera o buffer recebido.
 // Offsets conferidos contra pret/pokefirered include/global.h.
 
-export const SAVE_PARSER_VERSION = '0.4.0';
+export const SAVE_PARSER_VERSION = '0.5.0';
 
 const SECTION_SIZE = 0x1000;
 const SLOT_SIZE = 14 * SECTION_SIZE;
@@ -81,6 +81,8 @@ export interface SaveImportPreview {
   defeatedTrainerIds: number[];
   /** Todas as flags de evento (0x000–0x8FF) em hexadecimal, 1 bit por flag. Use `isFlagSet`. */
   flagsHex: string;
+  /** Variáveis de script 0x4000–0x40FF (u16 little-endian) em hexadecimal, 4 dígitos por variável. Use `getVar`. */
+  varsHex: string;
   party: SavedPokemon[];
   bag: {
     items: ItemStack[];
@@ -316,6 +318,8 @@ export function parseSave(input: ArrayBuffer | Uint8Array, opts: ParseOptions = 
     pokedex: { owned: countBits(0x28, 52), seen: countBits(0x5c, 52) },
     defeatedTrainerIds,
     flagsHex: Array.from(sb1.subarray(FLAGS, FLAGS + 0x120), (b) => b.toString(16).padStart(2, '0')).join(''),
+    // SaveBlock1.vars em 0x1000 (include/global.h), VARS_START 0x4000 .. VARS_END 0x40FF.
+    varsHex: Array.from({ length: 0x100 }, (_, i) => v1.getUint16(0x1000 + i * 2, true).toString(16).padStart(4, '0')).join(''),
     party,
     bag: {
       items: pocket(0x310, 42, true),
@@ -336,4 +340,15 @@ export function isFlagSet(flagsHex: string | undefined, flag: number): boolean {
   if (!flagsHex) return false;
   const byte = parseInt(flagsHex.substr((flag >> 3) * 2, 2), 16);
   return Number.isFinite(byte) && ((byte >> (flag & 7)) & 1) === 1;
+}
+
+/**
+ * Lê uma variável de script a partir de `varsHex` (ex.: VAR_MAP_SCENE_POKEMON_TOWER_6F = 0x4059).
+ * Retorna null se o save não traz variáveis (lido por uma versão antiga) ou o id está fora da faixa.
+ */
+export function getVar(varsHex: string | undefined, id: number): number | null {
+  const i = id - 0x4000;
+  if (!varsHex || i < 0 || i >= 0x100) return null;
+  const v = parseInt(varsHex.substr(i * 4, 4), 16);
+  return Number.isFinite(v) ? v : null;
 }

@@ -318,3 +318,10 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .mm-key.statue { background: #8e3d8e; }
 .wt-options summary { font-weight: 600; cursor: pointer; min-height: 32px; }
 .save-age.stale { color: var(--warn); font-weight: 600; }
+.mm-water { fill: color-mix(in srgb, #4772c9 35%, var(--card)); }
+.mm-ledge { fill: color-mix(in srgb, var(--warn) 30%, var(--card)); }
+.mm-key.water { background: color-mix(in srgb, #4772c9 35%, var(--card)); }
+.wt-missing { margin: 8px 0 0; padding-left: 18px; }
+.wt-missing li { margin: 4px 0; }
+.wt-trainers { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.wt-trainers .btn { text-align: left; white-space: normal; min-height: 40px; }
