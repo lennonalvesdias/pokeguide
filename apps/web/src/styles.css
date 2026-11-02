@@ -272,6 +272,9 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .facts dd { margin: 0; }
 .weak p { margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .member-detail .label { margin-top: 12px; }
+.member-detail .advanced { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
+.member-detail .advanced > summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--muted); padding: 6px 0; }
+.member-detail .advanced[open] > summary { margin-bottom: 6px; }
 .copilot-box { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: var(--bg); }
 .copilot-box .label:first-child { margin-top: 0; }
 .spots { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
