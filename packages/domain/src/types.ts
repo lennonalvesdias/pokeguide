@@ -5,6 +5,12 @@ export type TypeName =
   | 'normal' | 'fighting' | 'flying' | 'poison' | 'ground' | 'rock' | 'bug' | 'ghost' | 'steel'
   | '???' | 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'ice' | 'dragon' | 'dark';
 
+/** Os 17 tipos que atacam (sem `???`). */
+export const ATTACK_TYPES: readonly TypeName[] = [
+  'normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel',
+  'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark',
+];
+
 export type MoveCategory = 'physical' | 'special' | 'status';
 
 export interface MoveDefinition {

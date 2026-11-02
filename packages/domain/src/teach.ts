@@ -2,7 +2,7 @@
 import type { TeamMember } from './battle.ts';
 import { applyStage, badgeBoost, gen3Damage, gen3Hp, gen3Stat } from './damage.ts';
 import { matchup, type TypeChart } from './matchup.ts';
-import type { MoveDefinition, SpeciesDefinition } from './types.ts';
+import { ATTACK_TYPES, type MoveDefinition, type SpeciesDefinition, type TypeName } from './types.ts';
 
 /** Adversário de referência (ex.: o time dos treinadores que ainda faltam). */
 export interface TeachOpponent {
@@ -192,10 +192,20 @@ function weighted(values: number[], weights: number[]): number {
 export interface TeachOptions {
   /** Melhor dano do resto da equipe contra cada adversário (ver `teamCoverage`). */
   teamBest?: readonly number[] | undefined;
+  /**
+   * O membro aprende o golpe por outro caminho além de TM/HM (ex.: subir de nível).
+   * Sem isso, só vale a lista de TMs/HMs da espécie.
+   */
+  learnable?: boolean | undefined;
+}
+
+/** O membro aprende o golpe subindo de nível ou por TM/HM? */
+export function canLearnMove(member: TeamMember, moveKey: string): boolean {
+  return !!member.species.tmhm?.includes(moveKey) || member.species.levelUpMoves.some((m) => m.move === moveKey);
 }
 
 /**
- * Compara ensinar `move` no lugar de cada golpe atual (HMs não entram: só o Move Deleter apaga).
+ * Compara aprender `move` (TM/HM ou, com `learnable`, por nível) no lugar de cada golpe atual (HMs não entram: só o Move Deleter apaga).
  * O ganho é relativo ao dano esperado atual contra `opponents`, com peso menor para quem o resto
  * da equipe já derruba: um adversário que outro membro nocauteia vale 30% de um que ninguém cobre.
  */
@@ -208,7 +218,7 @@ export function teachAdvice(
   hmMoves: readonly string[],
   opts: TeachOptions = {},
 ): TeachAdvice {
-  if (!member.species.tmhm?.includes(move.key)) return { kind: 'cannot' };
+  if (!opts.learnable && !member.species.tmhm?.includes(move.key)) return { kind: 'cannot' };
   if (member.moves.some((m) => m.move.key === move.key)) return { kind: 'knows' };
   if (move.category === 'status' && !FIXED_DAMAGE[move.effect]) return { kind: 'not-comparable', reason: 'status' };
   if (move.power === 1 && !FIXED_DAMAGE[move.effect]) return { kind: 'not-comparable', reason: 'variable-power' };
@@ -363,4 +373,117 @@ export function bestMoveset(
   // Ganho pequeno não vale gastar TM: mantém o conjunto atual.
   if (gain < TEACH_MIN_GAIN) return { moves: current.map((m) => m.key), learn: [], gain: Math.max(0, gain), locked: lockedMoves.map((m) => m.key) };
   return { moves: moves.slice(0, 4), learn, gain, locked: lockedMoves.map((m) => m.key) };
+}
+
+/** O papel de um golpe no conjunto: por que fica (ou por que é o elo mais fraco). */
+export interface MoveRole {
+  move: string;
+  /** Contra quantos adversários de referência é o melhor golpe do conjunto (atual + novo). */
+  bestAgainst: number;
+  /** Quanto o dano esperado ponderado cai se este golpe sair do conjunto atual (relativo, 0–1). */
+  loss: number;
+  /** Dano esperado médio por turno (fração do HP) contra os adversários. */
+  average: number;
+  stab: boolean;
+  /** Ataque principal com STAB (ver `mainStabMove`). */
+  main: boolean;
+  hm: boolean;
+  /** Faz par com outro golpe do conjunto (Rest + Sleep Talk). */
+  combo: boolean;
+  status: boolean;
+  /** Dano fixo (Dragon Rage, Sonicboom, Seismic Toss/Night Shade no nível do usuário). */
+  fixedDamage: number | null;
+  /** Tipos que o golpe acerta super efetivo. */
+  superEffective: TypeName[];
+}
+
+export interface MovesetBreakdown {
+  /** Os golpes atuais, na ordem do save. */
+  current: MoveRole[];
+  candidate:
+    | (MoveRole & {
+        /** Stat que o golpe usa (Gen III: físico/especial pelo tipo) e o outro stat de ataque do membro. */
+        attackStat: 'atk' | 'spa' | null;
+        attackValue: number;
+        otherValue: number;
+        /** Golpes atuais de dano com média maior que a do novo. */
+        weakerThan: string[];
+        /** Para cada tipo que o novo acerta super efetivo, um golpe atual que também acerta. */
+        coveredBy: Array<{ type: TypeName; move: string }>;
+      })
+    | null;
+  /** Golpe atual que menos faz falta e pode sair (sem HM, par, principal ou status útil). */
+  weakest: string | null;
+}
+
+/**
+ * Explica o conjunto de golpes contra `opponents`: o que cada um cobre, quanto faz falta e, com `candidate`,
+ * por que o novo rende mais ou menos que os atuais. Mesma conta de `teachAdvice`.
+ */
+export function movesetBreakdown(
+  chart: TypeChart,
+  member: TeamMember,
+  candidate: MoveDefinition | null,
+  opponents: readonly TeachOpponent[],
+  badges: readonly string[],
+  hmMoves: readonly string[],
+  opts: TeachOptions = {},
+): MovesetBreakdown {
+  const current = member.moves.map((m) => m.move);
+  const all = candidate && !current.some((m) => m.key === candidate.key) ? [...current, candidate] : current;
+  const matrix = opponents.map((o) => all.map((m) => expectedDamage(chart, member, m, o, badges)));
+  const weights = opponents.map((_, i) => 1 - 0.7 * Math.min(1, opts.teamBest?.[i] ?? 0));
+  const idx = current.map((_, i) => i);
+  const now = weighted(bestPerRow(matrix, idx), weights);
+  const best = all.map(() => 0);
+  for (const row of matrix) {
+    let b = -1;
+    row.forEach((v, j) => {
+      if (v > 0 && (b < 0 || v > row[b]! + 1e-9)) b = j;
+    });
+    if (b >= 0) best[b]!++;
+  }
+  const main = mainStabMove(member);
+  const fixedOf = (m: MoveDefinition) => FIXED_DAMAGE[m.effect]?.(member.level) ?? null;
+  const role = (m: MoveDefinition, j: number): MoveRole => {
+    const without = idx.filter((i) => i !== j);
+    const inCurrent = j < current.length;
+    const damaging = isDamaging(m);
+    return {
+      move: m.key,
+      bestAgainst: best[j]!,
+      loss: inCurrent && now > 0 ? Math.max(0, (now - weighted(bestPerRow(matrix, without), weights)) / now) : 0,
+      average: matrix.length ? matrix.reduce((s, r) => s + r[j]!, 0) / matrix.length : 0,
+      stab: hasStab(member, m),
+      main: !!main && main.key === m.key && inCurrent,
+      hm: hmMoves.includes(m.key),
+      combo: inCurrent && isCombo(m.key, current),
+      status: !damaging,
+      fixedDamage: fixedOf(m),
+      superEffective: damaging && !fixedOf(m) ? ATTACK_TYPES.filter((t) => chart.multiplier(m.type, t) > 1) : [],
+    };
+  };
+  const roles = current.map(role);
+  let cand: MovesetBreakdown['candidate'] = null;
+  if (candidate && all.length > current.length) {
+    const r = role(candidate, current.length);
+    const physical = candidate.category === 'physical';
+    const special = candidate.category === 'special';
+    cand = {
+      ...r,
+      attackStat: physical ? 'atk' : special ? 'spa' : null,
+      attackValue: physical ? member.stats.atk : member.stats.spa,
+      otherValue: physical ? member.stats.spa : member.stats.atk,
+      weakerThan: roles.filter((x) => !x.status && x.average > r.average).sort((a, b) => b.average - a.average).map((x) => x.move),
+      coveredBy: r.superEffective.flatMap((t) => {
+        const by = roles.find((x) => x.superEffective.includes(t));
+        return by ? [{ type: t, move: by.move }] : [];
+      }),
+    };
+  }
+  const forgettable = roles.filter(
+    (x, i) => !x.hm && !x.combo && !x.main && !(x.status && !WEAK_STATUS.has(current[i]!.key)),
+  );
+  const weakest = forgettable.sort((a, b) => a.loss - b.loss)[0]?.move ?? null;
+  return { current: roles, candidate: cand, weakest };
 }

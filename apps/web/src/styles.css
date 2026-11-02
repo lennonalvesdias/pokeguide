@@ -120,6 +120,9 @@ input, select {
 .movetable th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 600; padding: 4px 4px 6px; }
 .movetable td { padding: 8px 4px; border-top: 1px solid var(--line); vertical-align: middle; }
 .movetable tr.new td { background: var(--primary-bg); }
+.movetable tr.forget td { background: color-mix(in srgb, var(--warn) 10%, var(--card)); }
+.form:has(> .suggest) { flex-wrap: wrap; }
+.form > .suggest { flex-basis: 100%; }
 .tag { display: inline-block; font-size: 11px; font-weight: 700; margin-left: 6px; padding: 1px 6px; border-radius: 6px; background: var(--line); color: var(--ink); }
 .tag.good { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
 .tag.lock { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn); }
@@ -361,3 +364,13 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .opp-dot { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0; min-width: 52px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
 .opp-dot.on { border-color: var(--primary-line); background: var(--primary-bg); font-weight: 700; }
 .opp-dot.past { opacity: .45; }
+
+/* Copiloto de golpes */
+.movetable.analysis { margin: 10px 0 4px; }
+.movetable.analysis td:first-child { white-space: nowrap; font-weight: 600; padding-right: 10px; vertical-align: top; }
+.movetable.analysis td { vertical-align: top; }
+.movetable.analysis tr.out td { background: color-mix(in srgb, var(--warn) 10%, var(--card)); }
+.movetable.analysis tr.in td { background: color-mix(in srgb, var(--good) 10%, var(--card)); }
+.why { margin: 4px 0 8px; padding-left: 18px; font-size: 14px; }
+.why li { margin: 4px 0; }
+.decision { margin: 10px 0 6px; padding: 10px 12px; border-radius: 10px; background: var(--bg); font-size: 14px; }
