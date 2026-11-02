@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#0f1115"/>
-  <circle cx="256" cy="256" r="150" fill="none" stroke="#f2c14e" stroke-width="28"/>
-  <path d="M256 128 L292 256 L256 384 L220 256 Z" fill="#f2c14e"/>
-  <path d="M256 128 L292 256 L220 256 Z" fill="#ff6b4a"/>
-  <circle cx="256" cy="256" r="18" fill="#0f1115"/>
+  <!-- Marca do PokéGuide: caminho de pixels dourados até o destino em vermelho. Ver docs/design/README.md. -->
+  <rect width="512" height="512" rx="112" fill="#17181C"/>
+  <g fill="#E9B949">
+    <rect x="96" y="352" width="54" height="54"/>
+    <rect x="160" y="352" width="54" height="54"/>
+    <rect x="224" y="352" width="54" height="54"/>
+    <rect x="224" y="288" width="54" height="54"/>
+    <rect x="224" y="224" width="54" height="54"/>
+    <rect x="288" y="224" width="54" height="54"/>
+  </g>
+  <rect x="320" y="96" width="96" height="96" fill="#C23A2E"/>
 </svg>

@@ -1,15 +1,30 @@
+/*
+ * Identidade “Caderno de campo de Kanto” (docs/design/README.md): papel, tinta e vermelho Kanto.
+ * O vermelho marca a única coisa a fazer agora; o ouro de insígnia é só preenchimento, nunca texto.
+ */
 :root {
-  --bg: #f4f2ee;
+  --bg: #f4f1ea;
   --card: #ffffff;
-  --ink: #1b1d22;
-  --muted: #6b6f78;
-  --line: #e2dfd8;
-  --accent: #c0392b;
-  --good: #186d3c;
-  --warn: #88570a;
+  --ink: #17181c;
+  --muted: #5e6169;
+  --line: #e3ded3;
+  --accent: #c23a2e;
+  --gold: #e9b949;
+  --good: #1e6b40;
+  --warn: #8a5a0c;
   --danger: #ae3327;
+  --info: #2f4e9a;
   --primary-bg: #fff6e5;
-  --primary-line: #f2c14e;
+  --primary-line: #e9b949;
+  /* Caixa de diálogo (recomendação principal): borda e sombra sólida. */
+  --frame: #17181c;
+  --frame-shadow: #17181c;
+  --hp-ok: #3fa34d;
+  --hp-mid: #e0b030;
+  --hp-low: #d2453a;
+  --font-display: 'Bricolage Grotesque Variable', 'Avenir Next', -apple-system, system-ui, sans-serif;
+  --font-body: 'Instrument Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-pixel: 'Silkscreen', ui-monospace, Menlo, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -19,11 +34,16 @@
     --ink: #eceae6;
     --muted: #9a9ea8;
     --line: #2a2e36;
+    --accent: #ff7b6b;
+    --gold: #c9a13a;
     --good: #58d68d;
     --warn: #f5b041;
     --danger: #ff7b6b;
+    --info: #8fb0ff;
     --primary-bg: #2a2416;
     --primary-line: #c9a13a;
+    --frame: #3a3f4a;
+    --frame-shadow: #000000;
     color-scheme: dark;
   }
 }
@@ -34,9 +54,19 @@ html, body { margin: 0; background: var(--bg); color: var(--ink); }
 /* Como app na tela de início, o puxão elástico deslocava o header e mostrava um vão sob a barra de status. */
 html, body { overscroll-behavior-y: none; }
 body {
-  font: 16px/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font: 16px/1.4 var(--font-body);
   -webkit-text-size-adjust: 100%;
 }
+/* Ação e títulos na voz de display; o pixel só em rótulos curtos, números e HP. */
+h1, h2, .card-title, .wt-action, .rec.primary .who, .copilot-title {
+  font-family: var(--font-display); letter-spacing: -0.015em;
+}
+.px, .section, .method-label {
+  font-family: var(--font-pixel); font-weight: 400; text-transform: uppercase; letter-spacing: .06em;
+}
+.label.px { font-size: 11px; color: var(--accent); }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.02em; }
+.brand-mark { flex-shrink: 0; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); }
 .app { max-width: 560px; margin: 0 auto; min-height: 100dvh; padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
 
 .top {
@@ -78,9 +108,25 @@ input, select {
 }
 @media (max-width: 380px) { .form { flex-wrap: wrap; } }
 
-.section { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 18px 2px 8px; }
+.section { font-size: 11px; color: var(--muted); margin: 18px 2px 8px; }
 .opp strong { font-size: 17px; }
-.rec.primary { background: var(--primary-bg); border-color: var(--primary-line); border-width: 2px; }
+/*
+ * Caixa de diálogo: a única peça com borda dupla e sombra sólida. É ela que diz “faça isto”.
+ * O ▼ pisca como o “continuar” do GBA (parado com Reduzir Movimento).
+ */
+.rec.primary {
+  position: relative; background: var(--card);
+  border: 3px solid var(--frame); border-radius: 16px;
+  box-shadow: inset 0 0 0 3px var(--card), inset 0 0 0 5px var(--gold), 0 5px 0 var(--frame-shadow);
+  padding: 16px 16px 20px; margin-bottom: 16px;
+}
+.rec.primary::after {
+  content: ''; position: absolute; right: 14px; bottom: 9px; width: 12px; height: 8px;
+  background: var(--accent); clip-path: polygon(0 0, 100% 0, 50% 100%);
+  animation: caret 1.1s steps(1) infinite;
+}
+@keyframes caret { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .rec.primary::after { animation: none; } }
 .rec.primary .who { font-size: 20px; }
 .who { font-size: 17px; }
 .move { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
@@ -96,21 +142,27 @@ input, select {
 .mult.m4, .mult.m2 { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
 .mult.m05, .mult.m025, .mult.m0 { background: color-mix(in srgb, var(--danger) 16%, transparent); color: var(--danger); }
 
-.type { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; color: #fff; text-transform: uppercase; letter-spacing: .02em; }
+/* Tipos: chip claro com texto em tinta e um quadrado na cor do tipo. Lê bem em qualquer tipo e tema. */
+.type {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; line-height: 1;
+  padding: 4px 8px 4px 6px; border-radius: 7px; color: var(--ink);
+  background: color-mix(in srgb, var(--tc, #a8a48f) 18%, var(--card));
+}
+.type::before { content: ''; width: 8px; height: 8px; border-radius: 2px; background: var(--tc, #a8a48f); flex-shrink: 0; }
 .types { display: inline-flex; gap: 4px; }
-.t-normal { background: #76765c; } .t-fighting { background: #b03028; } .t-flying { background: #7c67be; }
-.t-poison { background: #8e3d8e; } .t-ground { background: #8c7036; } .t-rock { background: #847427; }
-.t-bug { background: #6e7b14; } .t-ghost { background: #5f4b8b; } .t-steel { background: #737386; }
-.t-fire { background: #be5423; } .t-water { background: #4772c9; } .t-grass { background: #46832d; }
-.t-electric { background: #936f00; } .t-psychic { background: #ca416c; } .t-ice { background: #3f7e7e; }
-.t-dragon { background: #5c34d9; } .t-dark { background: #5a463a; } .t-mystery { background: #537d75; }
+.t-normal { --tc: #a8a48f; } .t-fighting { --tc: #b8423a; } .t-flying { --tc: #8c9be0; }
+.t-poison { --tc: #9a55a8; } .t-ground { --tc: #c9a056; } .t-rock { --tc: #b09a50; }
+.t-bug { --tc: #9aae2e; } .t-ghost { --tc: #6b5a9c; } .t-steel { --tc: #9aa4b4; }
+.t-fire { --tc: #e0703a; } .t-water { --tc: #4a7fd6; } .t-grass { --tc: #4fa35a; }
+.t-electric { --tc: #e8c232; } .t-psychic { --tc: #e2587f; } .t-ice { --tc: #6cc6cf; }
+.t-dragon { --tc: #5b4bd6; } .t-dark { --tc: #5a4a42; } .t-mystery { --tc: #6f9a92; }
 
 .member strong { font-size: 17px; }
 .lvl-tag { color: var(--muted); font-weight: 500; font-size: 14px; }
-.hpbar { height: 6px; background: var(--line); border-radius: 3px; margin-top: 8px; overflow: hidden; }
-.hpbar span { display: block; height: 100%; background: var(--good); }
-.hpbar.mid span { background: var(--warn); }
-.hpbar.low span { background: var(--danger); }
+.hpbar { height: 7px; background: var(--line); border-radius: 4px; margin-top: 8px; overflow: hidden; }
+.hpbar span { display: block; height: 100%; border-radius: 4px; background: var(--hp-ok); }
+.hpbar.mid span { background: var(--hp-mid); }
+.hpbar.low span { background: var(--hp-low); }
 .moves { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 6px; }
 .moves li { display: flex; align-items: center; gap: 8px; font-size: 15px; }
 .moves li > span:first-child { flex: 1; }
@@ -137,9 +189,13 @@ input, select {
 }
 .tabs button {
   min-width: 0; overflow-wrap: anywhere; appearance: none; border: 0; background: transparent; color: var(--muted);
-  font: inherit; font-size: 13px; font-weight: 600; padding: 10px 2px; border-radius: 10px; min-height: 44px; cursor: pointer;
+  font: inherit; font-size: 12px; font-weight: 600; padding: 6px 2px; border-radius: 12px; min-height: 48px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
 }
-.tabs button.on { background: var(--bg); color: var(--ink); box-shadow: inset 0 -3px var(--ink); }
+.tabs .icon .fill { fill: none; }
+.tabs button.on { background: var(--bg); color: var(--ink); font-weight: 700; }
+.tabs button.on .icon { color: var(--accent); }
+.tabs button.on .icon .fill { fill: currentColor; }
 
 .alert.confirm p { margin: 0 0 10px; }
 .actions { display: flex; gap: 8px; justify-content: flex-end; }
@@ -302,10 +358,11 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .wt-facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; margin: 12px 0 0; font-size: 15px; }
 .wt-facts dt { color: var(--muted); font-size: 13px; padding-top: 2px; }
 .wt-facts dd { margin: 0; }
-.conf { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 7px; border-radius: 6px; margin-left: 4px; }
-.conf.confirmed { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
-.conf.probable { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn); }
-.conf.unknown { background: var(--line); color: var(--ink); }
+/* Confiança: sempre escrita (Confirmado / Provável / Precisa confirmar); a cor só reforça. */
+.conf { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; margin-left: 4px; }
+.conf.confirmed { background: color-mix(in srgb, var(--good) 14%, transparent); color: var(--good); }
+.conf.probable { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.conf.unknown { background: color-mix(in srgb, var(--info) 14%, transparent); color: var(--info); }
 .wt-action { font-size: 19px; font-weight: 600; line-height: 1.35; margin: 8px 0; }
 .wt-question { font-weight: 700; margin: 12px 0 6px; }
 .wt-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }

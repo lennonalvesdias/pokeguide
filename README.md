@@ -4,6 +4,7 @@ Copiloto para Pokémon FireRed jogado no Delta (iPhone). Responde em segundos qu
 qual golpe escolher e qual golpe esquecer, com regras de Gen III determinísticas e sem depender de rede.
 
 Projeto pessoal. Decisões de arquitetura em [`docs/adr`](docs/adr/README.md).
+Identidade visual e regras de design em [`docs/design`](docs/design/README.md).
 
 ## Estrutura
 
