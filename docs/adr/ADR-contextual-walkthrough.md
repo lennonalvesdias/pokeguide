@@ -329,8 +329,16 @@ rótulo chamado sob uma condição que troca tiles (`setmetatile`, `setmaplayout
 **Áreas novas (beta):** Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands e Victory Road. Cada uma
 tem golden case da entrada ao objetivo.
 
-### 4c (próxima PR)
+### 4c: abas, relatório e diagnóstico (feito)
 
-- abas "Agora · Batalha · Jornada · Equipe · Mais";
-- relatório de problema copiável, sem dados do save;
-- diagnóstico só local.
+- **Abas** "Agora · Batalha · Jornada · Equipe · Mais" (`apps/web/src/features/now/Now.tsx`). "Agora" é a
+  tela inicial: objetivo atual com "Como chegar" (rota pelo mundo) e o guia da área, abrindo a Jornada já
+  no guia; posição pelo save com a idade; atalhos e quem precisa de cura. "Mais" agrupa Bolsa, Golpes,
+  Save (Dropbox e importação manual) e Diagnóstico. A preferência antiga `tab=bag|moves` vira `more`.
+- **Relatório** (`features/feedback/Report.tsx`): no passo do guia ("Passo errado?") e nas recomendações de
+  batalha. Leva área, objetivo, passo, posição, interruptor e as últimas entradas do registro da sessão, ou
+  o contexto da batalha, mais as versões. Remove nome, IDs, `flagsHex`, `varsHex` e nome do arquivo. O
+  jogador copia, compartilha (`navigator.share`) ou abre uma issue; nada é enviado sem ação dele.
+- **Diagnóstico local** (`features/diagnostics/`): contadores em `localStorage` (`metrics:v1`), sem rede.
+  Mostra o p75 do tempo entre abrir o app e a primeira recomendação (meta do ADR) e a taxa de passos
+  "bloqueado/não achou", que é o sinal para tirar uma área de beta depois da validação em campo.
