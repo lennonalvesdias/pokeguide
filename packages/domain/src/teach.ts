@@ -19,8 +19,11 @@ export type TeachAdvice =
   /** Tem menos de 4 golpes: aprende sem esquecer nada. */
   | ({ kind: 'free-slot' } & TeachGain)
   | ({ kind: 'replace'; replace: string; replaceIsStatus: boolean } & TeachGain)
-  /** O melhor que dá para fazer melhora menos que o limite: não compensa. */
-  | ({ kind: 'keep'; bestReplace: string | null } & TeachGain);
+  /**
+   * Não ensinar. `bestReplace` é só diagnóstico (a interface não deve apresentá-lo como sugestão);
+   * `protectedMove` é o ataque principal com STAB, que um golpe sem STAB nunca substitui.
+   */
+  | ({ kind: 'keep'; bestReplace: string | null; reason: 'low-gain' | 'only-locked'; protectedMove: string | null } & TeachGain);
 
 /** O porquê do número, para a interface explicar o ganho. */
 export interface TeachGain {
@@ -138,6 +141,23 @@ export function teamCoverage(
   return out;
 }
 
+const isDamaging = (m: MoveDefinition) => m.category !== 'status' && ((m.power ?? 0) > 1 || !!FIXED_DAMAGE[m.effect]);
+const hasStab = (member: TeamMember, m: MoveDefinition) => isDamaging(m) && member.species.types.includes(m.type);
+
+/**
+ * Ataque principal com STAB: o golpe de dano do tipo do Pokémon com maior poder × precisão.
+ * Uma média agregada de dano não pode tirá-lo para pôr um golpe sem STAB (ex.: Surf no Snorlax).
+ */
+export function mainStabMove(member: TeamMember): MoveDefinition | null {
+  const score = (m: MoveDefinition) => (m.power ?? 0) * (m.accuracy ?? 100);
+  const stab = member.moves.map((x) => x.move).filter((m) => hasStab(member, m) && !FIXED_DAMAGE[m.effect]);
+  return stab.sort((a, b) => score(b) - score(a))[0] ?? null;
+}
+
+/** O novo golpe pode ocupar o lugar do ataque principal? Só se também tiver STAB e for melhor. */
+const canReplaceMain = (member: TeamMember, main: MoveDefinition, move: MoveDefinition) =>
+  hasStab(member, move) && (move.power ?? 0) * (move.accuracy ?? 100) > (main.power ?? 0) * (main.accuracy ?? 100);
+
 /** Golpes que só funcionam juntos: nenhum deles é sugerido para esquecer enquanto o par existir. */
 const COMBOS: ReadonlyArray<readonly string[]> = [['rest', 'sleep_talk'], ['rest', 'snore']];
 const isCombo = (key: string, current: readonly MoveDefinition[]) =>
@@ -208,17 +228,19 @@ export function teachAdvice(
   // Empate: esquece primeiro um golpe mais fraco do mesmo tipo, depois um de status, depois o de menor poder.
   const forgetRank = (m: MoveDefinition) => (m.type === move.type && m.category !== 'status' && (m.power ?? 0) < (move.power ?? 0) ? 0 : m.category === 'status' ? 1 : 2);
   const tieBetter = (a: MoveDefinition, b: MoveDefinition) => forgetRank(a) - forgetRank(b) || (a.power ?? 0) - (b.power ?? 0);
+  const main = mainStabMove(member);
+  const protectedMove = main && !canReplaceMain(member, main, move) ? main.key : null;
   let best: { i: number; value: number } | null = null;
   for (const i of idx) {
     const m = current[i]!;
-    if (hmMoves.includes(m.key) || isCombo(m.key, current)) continue;
+    if (hmMoves.includes(m.key) || isCombo(m.key, current) || m.key === protectedMove) continue;
     const value = weighted(bestPerRow(matrix, [...idx.filter((j) => j !== i), current.length]), weights);
     if (!best || value > best.value + 1e-9 || (Math.abs(value - best.value) <= 1e-9 && tieBetter(m, current[best.i]!) < 0)) best = { i, value };
   }
-  if (!best) return { kind: 'keep', bestReplace: null, gain: 0, opponents: opponents.length, improves: [], worsens: 0, hm };
+  if (!best) return { kind: 'keep', bestReplace: null, reason: 'only-locked', protectedMove, gain: 0, opponents: opponents.length, improves: [], worsens: 0, hm };
   const replace = current[best.i]!;
   const g = explain([...idx.filter((j) => j !== best.i), current.length]);
-  if (g.gain < (hm ? TEACH_MIN_GAIN_HM : TEACH_MIN_GAIN)) return { kind: 'keep', bestReplace: replace.key, ...g };
+  if (g.gain < (hm ? TEACH_MIN_GAIN_HM : TEACH_MIN_GAIN)) return { kind: 'keep', bestReplace: replace.key, reason: 'low-gain', protectedMove, ...g };
   return { kind: 'replace', replace: replace.key, replaceIsStatus: replace.category === 'status', ...g };
 }
 
@@ -241,7 +263,7 @@ export interface MovesetAdvice {
   learn: Array<{ move: string; source: string; replaces: string | null }>;
   /** Ganho relativo do dano esperado ponderado. */
   gain: number;
-  /** Golpes que ficam de qualquer jeito (HM, par Rest + Sleep Talk, status útil). */
+  /** Golpes que ficam de qualquer jeito (HM, par Rest + Sleep Talk, ataque principal com STAB, status útil). */
   locked: string[];
 }
 
@@ -254,7 +276,7 @@ function combinations<T>(items: readonly T[], k: number): T[][] {
 
 /**
  * Melhor conjunto de 4 golpes com o que o membro já conhece e os TMs/HMs da bolsa que ele aprende.
- * HMs, o par Rest + Sleep Talk e golpes de status úteis ficam travados. Ensinar um HM novo só entra
+ * HMs, o par Rest + Sleep Talk, o ataque principal com STAB e golpes de status úteis ficam travados. Ensinar um HM novo só entra
  * se render 15% a mais que a melhor opção sem ele.
  */
 export function bestMoveset(
@@ -267,8 +289,15 @@ export function bestMoveset(
   opts: TeachOptions = {},
 ): MovesetAdvice {
   const current = member.moves.map((m) => m.move);
+  const main = mainStabMove(member);
+  // O ataque principal com STAB só sai se um candidato com STAB for melhor que ele.
+  const keepMain = !!main && !candidates.some((c) => member.species.tmhm?.includes(c.move.key) && canReplaceMain(member, main, c.move));
   const lockedMoves = current.filter(
-    (m) => hmMoves.includes(m.key) || isCombo(m.key, current) || (m.category === 'status' && !FIXED_DAMAGE[m.effect] && !WEAK_STATUS.has(m.key)),
+    (m) =>
+      hmMoves.includes(m.key) ||
+      isCombo(m.key, current) ||
+      (keepMain && m.key === main!.key) ||
+      (m.category === 'status' && !FIXED_DAMAGE[m.effect] && !WEAK_STATUS.has(m.key)),
   );
   const pool: MovesetCandidate[] = [];
   for (const m of current) if (!lockedMoves.includes(m) && (m.category !== 'status' || FIXED_DAMAGE[m.effect])) pool.push({ move: m });

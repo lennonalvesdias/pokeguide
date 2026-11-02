@@ -60,9 +60,10 @@ export function Bag({ preview, team }: { preview: SaveImportPreview; team: TeamM
           uso único; HMs são reutilizáveis, mas só o Move Deleter apaga o golpe depois.
         </p>
         <p className="fine">
-          “Vale ensinar” calcula o dano esperado (stats do seu Pokémon, STAB, tipos, precisão, crítico e efeito secundário) contra os{' '}
+          “Ensinar” calcula o dano esperado (stats do seu Pokémon, STAB, tipos, precisão, crítico e efeito secundário) contra os{' '}
           {opponents.length} Pokémon dos treinadores que ainda faltam. Adversários que outro membro da equipe já derruba contam menos. HMs
-          precisam de ganho maior, e golpes de HM e o par Rest + Sleep Talk nunca são sugeridos para esquecer.
+          precisam de ganho maior; golpes de HM, o par Rest + Sleep Talk e o ataque principal com STAB nunca são sugeridos para esquecer. O
+          percentual é uma média contra esse grupo, não o dano contra um adversário específico.
         </p>
       </div>
       {POCKETS.map(([pocket, title]) => {
@@ -176,23 +177,26 @@ const pctGain = (g: number) => `${g >= 0 ? '+' : '−'}${Math.abs(Math.round(g *
 const moveName = (k: string) => displayName(lookup.move(k).name);
 const where = (a: { improves: string[] }) => (a.improves.length ? `; melhora mais contra ${a.improves.map(displayName).join(', ')}` : '');
 
-/** Frase por membro na lista expandida. */
+/** Frase por membro na lista expandida: veredito primeiro (Ensinar / Não ensinar / Depende), depois o porquê. */
 function memberLine(a: TeachAdvice, stab: boolean): string {
+  const basis = (n: number) => ` contra ${n} Pokémon dos treinadores que faltam`;
   switch (a.kind) {
     case 'cannot':
       return 'não aprende';
     case 'knows':
       return 'já conhece';
     case 'not-comparable':
-      return a.reason === 'status' ? 'pode aprender · golpe de status: decida pelo seu estilo de jogo' : 'pode aprender · poder variável: não dá para comparar';
+      return a.reason === 'status' ? 'Depende: golpe de status, decida pelo seu estilo de jogo' : 'Depende: poder variável, não dá para comparar por dano';
     case 'free-slot':
-      return `vale ensinar: tem espaço livre · ${pctGain(a.gain)} de dano esperado${where(a)}`;
+      return `Ensinar: tem espaço livre · ${pctGain(a.gain)} de dano esperado${basis(a.opponents)}${where(a)}`;
     case 'replace':
-      return `vale ensinar no lugar de ${moveName(a.replace)}${a.replaceIsStatus ? ' (golpe de status: só se não usar)' : ''} · ${pctGain(a.gain)} de dano esperado${stab ? ' · STAB' : ''}${where(a)}${a.worsens ? `; piora um pouco contra ${a.worsens}` : ''}${a.hm ? ' · HM: só sai com o Move Deleter' : ''}`;
+      return `Ensinar no lugar de ${moveName(a.replace)}${a.replaceIsStatus ? ' (golpe de status: só se não usar)' : ''} · ${pctGain(a.gain)} de dano esperado${basis(a.opponents)}${stab ? ' · STAB' : ''}${where(a)}${a.worsens ? `; piora um pouco contra ${a.worsens}` : ''}${a.hm ? ' · HM: só sai com o Move Deleter' : ''}`;
     case 'keep':
-      return a.bestReplace
-        ? `não compensa: no melhor caso (no lugar de ${moveName(a.bestReplace)}) ${pctGain(a.gain)} de dano esperado${a.hm ? ', e HM exige ganho de 15%' : ''}`
-        : 'não compensa: só esqueceria um HM';
+      // Nunca citar a "melhor troca" de um "não compensa": soa como recomendação.
+      if (a.protectedMove && a.reason === 'only-locked')
+        return `Não ensinar: só caberia no lugar de ${moveName(a.protectedMove)}, o ataque principal com STAB${a.hm ? ', e HM só sai com o Move Deleter' : ''}`;
+      if (a.reason === 'only-locked') return 'Não ensinar: só sairia um HM ou um golpe de que outro depende (Rest + Sleep Talk)';
+      return `Não ensinar: o ganho seria pequeno (${pctGain(a.gain)} de dano esperado, abaixo do mínimo de ${a.hm ? '15% para HM' : '5%'})${a.protectedMove ? ` · ${moveName(a.protectedMove)} fica (ataque principal com STAB)` : ''}`;
   }
 }
 
@@ -211,9 +215,9 @@ function bestVerdict(team: TeamMember[], advice: Map<string, TeachAdvice>): { ki
   if (best) {
     const slot = best.a.kind === 'replace' ? ` no lugar de ${moveName(best.a.replace)}` : ' (espaço livre)';
     const vs = best.a.improves.length ? ` · melhora contra ${best.a.improves.slice(0, 2).map(displayName).join(', ')}` : '';
-    return { kind: 'yes', text: `Vale ensinar a ${best.t.name}${slot} · ${pctGain(best.a.gain)} de dano esperado${vs}` };
+    return { kind: 'yes', text: `Ensinar a ${best.t.name}${slot} · ${pctGain(best.a.gain)} de dano esperado${vs}` };
   }
-  if (status) return { kind: 'status', text: status === 'status' ? 'Golpe de status: não dá para comparar por dano' : 'Poder variável (amizade, HP etc.): não dá para comparar por dano' };
-  if (anyLearner) return { kind: 'no', text: 'Não compensa agora: os golpes atuais e a equipe já cobrem' };
+  if (status) return { kind: 'status', text: status === 'status' ? 'Depende: golpe de status, não dá para comparar por dano' : 'Depende: poder variável (amizade, HP etc.), não dá para comparar por dano' };
+  if (anyLearner) return { kind: 'no', text: 'Não ensinar agora: os golpes atuais e a equipe já cobrem' };
   return null;
 }

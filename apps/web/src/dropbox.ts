@@ -122,7 +122,7 @@ async function api(url: string, init: RequestInit): Promise<Response> {
 }
 
 interface ListResult {
-  entries: Array<{ '.tag': string; name: string; path_display: string; size?: number; content_hash?: string }>;
+  entries: Array<{ '.tag': string; name: string; path_display: string; size?: number; content_hash?: string; server_modified?: string }>;
   cursor: string;
   has_more: boolean;
 }
@@ -139,7 +139,13 @@ async function listFolder(path: string): Promise<CloudEntry[]> {
   for (;;) {
     for (const e of r.entries) {
       if (e['.tag'] !== 'file') continue;
-      out.push({ name: e.name, path: e.path_display, ...(e.size !== undefined ? { size: e.size } : {}), ...(e.content_hash ? { contentHash: e.content_hash } : {}) });
+      out.push({
+        name: e.name,
+        path: e.path_display,
+        ...(e.size !== undefined ? { size: e.size } : {}),
+        ...(e.content_hash ? { contentHash: e.content_hash } : {}),
+        ...(e.server_modified ? { modifiedAt: e.server_modified } : {}),
+      });
     }
     if (!r.has_more) return out;
     r = (await (

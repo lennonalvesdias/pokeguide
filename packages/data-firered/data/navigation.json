@@ -1,0 +1,836 @@
+[
+ {
+  "id": "pokemon_mansion",
+  "name": "Pokémon Mansion",
+  "mapPrefix": "PokemonMansion",
+  "switchFlag": {
+   "key": "POKEMON_MANSION_SWITCH_STATE",
+   "id": 620
+  },
+  "entrance": {
+   "floor": "PokemonMansion_1F",
+   "x": 8,
+   "y": 33
+  },
+  "floors": [
+   {
+    "map": "PokemonMansion_1F",
+    "label": "1F",
+    "allowEscaping": true,
+    "group": 1,
+    "num": 59,
+    "width": 38,
+    "height": 35,
+    "grid": [
+     "######################################",
+     "######################################",
+     "######################################",
+     "#....................................#",
+     "#....................................#",
+     "#..#.#.###...#.....#.#.#.#..#####....#",
+     "#..#...###...#.....#.#.#.#..#####...##",
+     "#............#..............#####...##",
+     "#............#..............#........#",
+     "#............##...####...####........#",
+     "################..####111####...###..#",
+     "################..####111####...###..#",
+     "##############....#.......####.......#",
+     "#..........###....#........###.......#",
+     "#..........###....#.........##.......#",
+     "#.................#.........##.......#",
+     "#.................#.........##.......#",
+     "#...............###############...####",
+     "#...............###############000####",
+     "##..............###############000####",
+     "###..#.....#...##..#####.............#",
+     "###..#.....#...##......#.............#",
+     "###..#.....#...##......#.............#",
+     "###.............#......#.............#",
+     "#...............#......####...##...###",
+     "#....#.....#....#......####111##111###",
+     "#....#.....#....#..########111##111###",
+     "#....#.....#....#......##......#.....#",
+     "#...............#......##......#.....#",
+     "#...............#..............#.....#",
+     "#....#.....#....#..............#.....#",
+     "#....#.....#....#..............#.....#",
+     "#....#.....#....#..######......#.....#",
+     "#...............#..............#.....#",
+     "######################################"
+    ],
+    "objects": [
+     {
+      "x": 22,
+      "y": 24
+     },
+     {
+      "x": 29,
+      "y": 32
+     },
+     {
+      "x": 22,
+      "y": 6
+     },
+     {
+      "x": 27,
+      "y": 15
+     },
+     {
+      "x": 8,
+      "y": 8
+     }
+    ],
+    "source": "data/layouts/PokemonMansion_1F/map.bin data/maps/PokemonMansion_1F/map.json"
+   },
+   {
+    "map": "PokemonMansion_2F",
+    "label": "2F",
+    "allowEscaping": true,
+    "group": 1,
+    "num": 60,
+    "width": 38,
+    "height": 38,
+    "grid": [
+     "######################################",
+     "######################################",
+     "######################################",
+     "#..##.....###........#...............#",
+     "#..##.....###........#...###.........#",
+     "#.#.........#........#...###.........#",
+     "##..........0........#...............#",
+     "#...........0........#..........###..#",
+     "#...........0........###...####.###..#",
+     "#...........#........###...########..#",
+     "#...........###......###...###########",
+     "###############......................#",
+     "###########.##.......................#",
+     "#############.....######...###########",
+     "#...##....###.....######111###########",
+     "#...##....###.....######111###########",
+     "#.#.........#.....#..........##......#",
+     "#.................#..........##......#",
+     "#.................#..........#.......#",
+     "#######.........##########.###...#####",
+     "#######...#.....#############....###.#",
+     "#######..##.....##########.......#####",
+     "#........####...#..######..........###",
+     "#.........###...#..######..........###",
+     "#.........###...#..###################",
+     "#.........##....#..###################",
+     "###########.....#..###################",
+     "###########.....#..###################",
+     "###########.....#..###################",
+     "#.........#.....#..###################",
+     "#.........1........###################",
+     "#.######..1........###################",
+     "#.######..1........###################",
+     "#.........#.....######################",
+     "#.........#.....######################",
+     "######################################",
+     "######################################",
+     "######################################"
+    ],
+    "objects": [
+     {
+      "x": 5,
+      "y": 23
+     },
+     {
+      "x": 36,
+      "y": 8
+     },
+     {
+      "x": 18,
+      "y": 23
+     },
+     {
+      "x": 35,
+      "y": 17
+     }
+    ],
+    "source": "data/layouts/PokemonMansion_2F/map.bin data/maps/PokemonMansion_2F/map.json"
+   },
+   {
+    "map": "PokemonMansion_3F",
+    "label": "3F",
+    "allowEscaping": true,
+    "group": 1,
+    "num": 61,
+    "width": 38,
+    "height": 35,
+    "grid": [
+     "######################################",
+     "######################################",
+     "######################################",
+     "#.....##........###..#.......#...#...#",
+     "#.....##.........##..#.......#....#..#",
+     "##..........#....##..#..###..#....##.#",
+     "###..................0..###........###",
+     "###..................0...............#",
+     "########.######......0...............#",
+     "###############......#...............#",
+     "########.########...######.###.#######",
+     "#.###....##...###111##################",
+     "#..##....##...###111######.....#######",
+     "#..#..........##.....................#",
+     "#.............#......................#",
+     "#.............####...##..##..#########",
+     "#.....###.....####...##..##..#########",
+     "####..###....#####...##..##..#########",
+     "####........######...##..##.....##...#",
+     "#..........################.....##...#",
+     "#.............#############..........#",
+     "#.............#############..........#",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################",
+     "######################################"
+    ],
+    "objects": [
+     {
+      "x": 7,
+      "y": 13
+     },
+     {
+      "x": 22,
+      "y": 13
+     },
+     {
+      "x": 9,
+      "y": 19
+     },
+     {
+      "x": 32,
+      "y": 6
+     }
+    ],
+    "source": "data/layouts/PokemonMansion_3F/map.bin data/maps/PokemonMansion_3F/map.json"
+   },
+   {
+    "map": "PokemonMansion_B1F",
+    "label": "B1F",
+    "allowEscaping": true,
+    "group": 1,
+    "num": 62,
+    "width": 38,
+    "height": 35,
+    "grid": [
+     "######################################",
+     "######################################",
+     "######################################",
+     "#...........#............#...........#",
+     "#...........#............#...........#",
+     "#...........#............#.#.........#",
+     "#...........#####...######...........#",
+     "#....###....#####...##########....####",
+     "#....###....#####...##########....####",
+     "#...........#............#####....####",
+     "#...........1........................#",
+     "#...........1........................#",
+     "#...........1........................#",
+     "#...........#........................#",
+     "#####...#######################......#",
+     "#####...#######################......#",
+     "#####...#######################......#",
+     "#...........#.................#......#",
+     "#.###...###.#.................#......#",
+     "#...........#.................###...##",
+     "#...........#.................###000##",
+     "#.###...###.#...####...####...###000##",
+     "#...........#...####111####..........#",
+     "#############...####111####..........#",
+     "#############...#.........#..........#",
+     "#############...#.........#..........#",
+     "#...............#.........#......#####",
+     "#...............#...###...#......###.#",
+     "#...............0...###...#......#####",
+     "#...............0.......#.#........###",
+     "#...............0.........#........###",
+     "#...............#.........#..........#",
+     "######################################",
+     "######################################",
+     "######################################"
+    ],
+    "objects": [
+     {
+      "x": 6,
+      "y": 21
+     },
+     {
+      "x": 20,
+      "y": 25
+     },
+     {
+      "x": 34,
+      "y": 13
+     },
+     {
+      "x": 23,
+      "y": 4
+     },
+     {
+      "x": 2,
+      "y": 29
+     },
+     {
+      "x": 5,
+      "y": 7
+     }
+    ],
+    "source": "data/layouts/PokemonMansion_B1F/map.bin data/maps/PokemonMansion_B1F/map.json"
+   }
+  ],
+  "pois": [
+   {
+    "id": "PokemonMansion_1F:exit:1",
+    "kind": "exit",
+    "floor": "PokemonMansion_1F",
+    "x": 8,
+    "y": 33,
+    "press": "down",
+    "to": {
+     "map": "CINNABAR_ISLAND"
+    },
+    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[1]"
+   },
+   {
+    "id": "PokemonMansion_1F:stairs:3",
+    "kind": "stairs",
+    "floor": "PokemonMansion_1F",
+    "x": 10,
+    "y": 13,
+    "direction": "up",
+    "to": {
+     "floor": "PokemonMansion_2F",
+     "x": 6,
+     "y": 14
+    },
+    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[3]"
+   },
+   {
+    "id": "PokemonMansion_1F:stairs:4",
+    "kind": "stairs",
+    "floor": "PokemonMansion_1F",
+    "x": 25,
+    "y": 27,
+    "direction": "down",
+    "to": {
+     "floor": "PokemonMansion_B1F",
+     "x": 34,
+     "y": 29
+    },
+    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[4]"
+   },
+   {
+    "id": "PokemonMansion_1F:exit:5",
+    "kind": "exit",
+    "floor": "PokemonMansion_1F",
+    "x": 34,
+    "y": 33,
+    "press": "down",
+    "to": {
+     "map": "CINNABAR_ISLAND"
+    },
+    "source": "data/maps/PokemonMansion_1F/map.json#warp_events[5]"
+   },
+   {
+    "id": "PokemonMansion_1F:switch:0",
+    "kind": "switch",
+    "floor": "PokemonMansion_1F",
+    "x": 5,
+    "y": 5,
+    "stand": {
+     "x": 5,
+     "y": 6
+    },
+    "facing": "up",
+    "source": "data/maps/PokemonMansion_1F/map.json#bg_events[0] data/scripts/pokemon_mansion.inc"
+   },
+   {
+    "id": "PokemonMansion_1F:trainer:0",
+    "kind": "trainer",
+    "floor": "PokemonMansion_1F",
+    "x": 22,
+    "y": 24,
+    "trainer": "scientist_ted",
+    "sight": 4,
+    "facing": [
+     "left"
+    ],
+    "source": "data/maps/PokemonMansion_1F/map.json#object_events[0]"
+   },
+   {
+    "id": "PokemonMansion_1F:item:1",
+    "kind": "item",
+    "floor": "PokemonMansion_1F",
+    "x": 29,
+    "y": 32,
+    "item": "carbos",
+    "hideFlag": 415,
+    "source": "data/maps/PokemonMansion_1F/map.json#object_events[1]"
+   },
+   {
+    "id": "PokemonMansion_1F:item:2",
+    "kind": "item",
+    "floor": "PokemonMansion_1F",
+    "x": 22,
+    "y": 6,
+    "item": "escape_rope",
+    "hideFlag": 416,
+    "source": "data/maps/PokemonMansion_1F/map.json#object_events[2]"
+   },
+   {
+    "id": "PokemonMansion_1F:item:3",
+    "kind": "item",
+    "floor": "PokemonMansion_1F",
+    "x": 27,
+    "y": 15,
+    "item": "protein",
+    "hideFlag": 458,
+    "source": "data/maps/PokemonMansion_1F/map.json#object_events[3]"
+   },
+   {
+    "id": "PokemonMansion_1F:trainer:4",
+    "kind": "trainer",
+    "floor": "PokemonMansion_1F",
+    "x": 8,
+    "y": 8,
+    "trainer": "youngster_johnson",
+    "sight": 1,
+    "facing": [
+     "up",
+     "down",
+     "left",
+     "right"
+    ],
+    "source": "data/maps/PokemonMansion_1F/map.json#object_events[4]"
+   },
+   {
+    "id": "PokemonMansion_2F:stairs:0",
+    "kind": "stairs",
+    "floor": "PokemonMansion_2F",
+    "x": 9,
+    "y": 3,
+    "direction": "up",
+    "to": {
+     "floor": "PokemonMansion_3F",
+     "x": 8,
+     "y": 3
+    },
+    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[0]"
+   },
+   {
+    "id": "PokemonMansion_2F:stairs:1",
+    "kind": "stairs",
+    "floor": "PokemonMansion_2F",
+    "x": 34,
+    "y": 22,
+    "direction": "up",
+    "to": {
+     "floor": "PokemonMansion_3F",
+     "x": 34,
+     "y": 18
+    },
+    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[1]"
+   },
+   {
+    "id": "PokemonMansion_2F:stairs:2",
+    "kind": "stairs",
+    "floor": "PokemonMansion_2F",
+    "x": 6,
+    "y": 14,
+    "direction": "down",
+    "to": {
+     "floor": "PokemonMansion_1F",
+     "x": 10,
+     "y": 13
+    },
+    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[2]"
+   },
+   {
+    "id": "PokemonMansion_2F:stairs:3",
+    "kind": "stairs",
+    "floor": "PokemonMansion_2F",
+    "x": 9,
+    "y": 14,
+    "direction": "up",
+    "to": {
+     "floor": "PokemonMansion_3F",
+     "x": 11,
+     "y": 11
+    },
+    "source": "data/maps/PokemonMansion_2F/map.json#warp_events[3]"
+   },
+   {
+    "id": "PokemonMansion_2F:switch:0",
+    "kind": "switch",
+    "floor": "PokemonMansion_2F",
+    "x": 2,
+    "y": 16,
+    "stand": {
+     "x": 2,
+     "y": 17
+    },
+    "facing": "up",
+    "source": "data/maps/PokemonMansion_2F/map.json#bg_events[0] data/scripts/pokemon_mansion.inc"
+   },
+   {
+    "id": "PokemonMansion_2F:trainer:0",
+    "kind": "trainer",
+    "floor": "PokemonMansion_2F",
+    "x": 5,
+    "y": 23,
+    "trainer": "burglar_arnie",
+    "sight": 1,
+    "facing": [
+     "up",
+     "down",
+     "left",
+     "right"
+    ],
+    "source": "data/maps/PokemonMansion_2F/map.json#object_events[0]"
+   },
+   {
+    "id": "PokemonMansion_2F:item:1",
+    "kind": "item",
+    "floor": "PokemonMansion_2F",
+    "x": 36,
+    "y": 8,
+    "item": "calcium",
+    "hideFlag": 417,
+    "source": "data/maps/PokemonMansion_2F/map.json#object_events[1]"
+   },
+   {
+    "id": "PokemonMansion_2F:item:2",
+    "kind": "item",
+    "floor": "PokemonMansion_2F",
+    "x": 18,
+    "y": 23,
+    "item": "zinc",
+    "hideFlag": 459,
+    "source": "data/maps/PokemonMansion_2F/map.json#object_events[2]"
+   },
+   {
+    "id": "PokemonMansion_2F:item:3",
+    "kind": "item",
+    "floor": "PokemonMansion_2F",
+    "x": 35,
+    "y": 17,
+    "item": "hp_up",
+    "hideFlag": 460,
+    "source": "data/maps/PokemonMansion_2F/map.json#object_events[3]"
+   },
+   {
+    "id": "PokemonMansion_3F:stairs:0",
+    "kind": "stairs",
+    "floor": "PokemonMansion_3F",
+    "x": 8,
+    "y": 3,
+    "direction": "down",
+    "to": {
+     "floor": "PokemonMansion_2F",
+     "x": 9,
+     "y": 3
+    },
+    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[0]"
+   },
+   {
+    "id": "PokemonMansion_3F:stairs:1",
+    "kind": "stairs",
+    "floor": "PokemonMansion_3F",
+    "x": 34,
+    "y": 18,
+    "direction": "down",
+    "to": {
+     "floor": "PokemonMansion_2F",
+     "x": 34,
+     "y": 22
+    },
+    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[1]"
+   },
+   {
+    "id": "PokemonMansion_3F:stairs:2",
+    "kind": "stairs",
+    "floor": "PokemonMansion_3F",
+    "x": 11,
+    "y": 11,
+    "direction": "down",
+    "to": {
+     "floor": "PokemonMansion_2F",
+     "x": 9,
+     "y": 14
+    },
+    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[2]"
+   },
+   {
+    "id": "PokemonMansion_3F:fall:18-18",
+    "kind": "fall",
+    "floor": "PokemonMansion_3F",
+    "x": 18,
+    "y": 18,
+    "tiles": [
+     {
+      "x": 18,
+      "y": 18,
+      "to": {
+       "floor": "PokemonMansion_1F",
+       "x": 19,
+       "y": 22
+      }
+     },
+     {
+      "x": 19,
+      "y": 18,
+      "to": {
+       "floor": "PokemonMansion_1F",
+       "x": 20,
+       "y": 22
+      }
+     },
+     {
+      "x": 20,
+      "y": 18,
+      "to": {
+       "floor": "PokemonMansion_1F",
+       "x": 20,
+       "y": 22
+      }
+     }
+    ],
+    "to": {
+     "floor": "PokemonMansion_1F",
+     "x": 19,
+     "y": 22
+    },
+    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[3] data/maps/PokemonMansion_3F/map.json#warp_events[4] data/maps/PokemonMansion_3F/map.json#warp_events[6]"
+   },
+   {
+    "id": "PokemonMansion_3F:fall:23-18",
+    "kind": "fall",
+    "floor": "PokemonMansion_3F",
+    "x": 23,
+    "y": 18,
+    "tiles": [
+     {
+      "x": 23,
+      "y": 18,
+      "to": {
+       "floor": "PokemonMansion_2F",
+       "x": 27,
+       "y": 17
+      }
+     },
+     {
+      "x": 24,
+      "y": 18,
+      "to": {
+       "floor": "PokemonMansion_2F",
+       "x": 27,
+       "y": 17
+      }
+     }
+    ],
+    "to": {
+     "floor": "PokemonMansion_2F",
+     "x": 27,
+     "y": 17
+    },
+    "source": "data/maps/PokemonMansion_3F/map.json#warp_events[5] data/maps/PokemonMansion_3F/map.json#warp_events[7]"
+   },
+   {
+    "id": "PokemonMansion_3F:switch:1",
+    "kind": "switch",
+    "floor": "PokemonMansion_3F",
+    "x": 12,
+    "y": 5,
+    "stand": {
+     "x": 12,
+     "y": 6
+    },
+    "facing": "up",
+    "source": "data/maps/PokemonMansion_3F/map.json#bg_events[1] data/scripts/pokemon_mansion.inc"
+   },
+   {
+    "id": "PokemonMansion_3F:trainer:0",
+    "kind": "trainer",
+    "floor": "PokemonMansion_3F",
+    "x": 7,
+    "y": 13,
+    "trainer": "burglar_simon",
+    "sight": 1,
+    "facing": [
+     "up",
+     "down",
+     "left",
+     "right"
+    ],
+    "source": "data/maps/PokemonMansion_3F/map.json#object_events[0]"
+   },
+   {
+    "id": "PokemonMansion_3F:trainer:1",
+    "kind": "trainer",
+    "floor": "PokemonMansion_3F",
+    "x": 22,
+    "y": 13,
+    "trainer": "scientist_braydon",
+    "sight": 1,
+    "facing": [
+     "down"
+    ],
+    "source": "data/maps/PokemonMansion_3F/map.json#object_events[1]"
+   },
+   {
+    "id": "PokemonMansion_3F:item:2",
+    "kind": "item",
+    "floor": "PokemonMansion_3F",
+    "x": 9,
+    "y": 19,
+    "item": "max_potion",
+    "hideFlag": 418,
+    "source": "data/maps/PokemonMansion_3F/map.json#object_events[2]"
+   },
+   {
+    "id": "PokemonMansion_3F:item:3",
+    "kind": "item",
+    "floor": "PokemonMansion_3F",
+    "x": 32,
+    "y": 6,
+    "item": "iron",
+    "hideFlag": 419,
+    "source": "data/maps/PokemonMansion_3F/map.json#object_events[3]"
+   },
+   {
+    "id": "PokemonMansion_B1F:stairs:0",
+    "kind": "stairs",
+    "floor": "PokemonMansion_B1F",
+    "x": 34,
+    "y": 29,
+    "direction": "up",
+    "to": {
+     "floor": "PokemonMansion_1F",
+     "x": 25,
+     "y": 27
+    },
+    "source": "data/maps/PokemonMansion_B1F/map.json#warp_events[0]"
+   },
+   {
+    "id": "PokemonMansion_B1F:switch:1",
+    "kind": "switch",
+    "floor": "PokemonMansion_B1F",
+    "x": 24,
+    "y": 29,
+    "stand": {
+     "x": 24,
+     "y": 30
+    },
+    "facing": "up",
+    "source": "data/maps/PokemonMansion_B1F/map.json#bg_events[1] data/scripts/pokemon_mansion.inc"
+   },
+   {
+    "id": "PokemonMansion_B1F:switch:2",
+    "kind": "switch",
+    "floor": "PokemonMansion_B1F",
+    "x": 27,
+    "y": 5,
+    "stand": {
+     "x": 27,
+     "y": 6
+    },
+    "facing": "up",
+    "source": "data/maps/PokemonMansion_B1F/map.json#bg_events[2] data/scripts/pokemon_mansion.inc"
+   },
+   {
+    "id": "PokemonMansion_B1F:item:0",
+    "kind": "item",
+    "floor": "PokemonMansion_B1F",
+    "x": 6,
+    "y": 21,
+    "item": "tm22",
+    "hideFlag": 423,
+    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[0]"
+   },
+   {
+    "id": "PokemonMansion_B1F:trainer:1",
+    "kind": "trainer",
+    "floor": "PokemonMansion_B1F",
+    "x": 20,
+    "y": 25,
+    "trainer": "burglar_lewis",
+    "sight": 1,
+    "facing": [
+     "up",
+     "down",
+     "left",
+     "right"
+    ],
+    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[1]"
+   },
+   {
+    "id": "PokemonMansion_B1F:trainer:2",
+    "kind": "trainer",
+    "floor": "PokemonMansion_B1F",
+    "x": 34,
+    "y": 13,
+    "trainer": "scientist_ivan",
+    "sight": 6,
+    "facing": [
+     "down"
+    ],
+    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[2]"
+   },
+   {
+    "id": "PokemonMansion_B1F:item:3",
+    "kind": "item",
+    "floor": "PokemonMansion_B1F",
+    "x": 23,
+    "y": 4,
+    "item": "tm14",
+    "hideFlag": 420,
+    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[3]"
+   },
+   {
+    "id": "PokemonMansion_B1F:item:4",
+    "kind": "item",
+    "floor": "PokemonMansion_B1F",
+    "x": 2,
+    "y": 29,
+    "item": "full_restore",
+    "hideFlag": 421,
+    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[4]"
+   },
+   {
+    "id": "PokemonMansion_B1F:item:5",
+    "kind": "item",
+    "floor": "PokemonMansion_B1F",
+    "x": 5,
+    "y": 7,
+    "item": "secret_key",
+    "hideFlag": 424,
+    "source": "data/maps/PokemonMansion_B1F/map.json#object_events[5]"
+   }
+  ],
+  "objectives": [
+   {
+    "id": "secret_key",
+    "title": "Pegar a Secret Key",
+    "item": "secret_key",
+    "doneText": "Você tem a Secret Key. Ela abre a porta do Ginásio de Cinnabar: saia da mansão e enfrente o Blaine."
+   },
+   {
+    "id": "exit",
+    "title": "Sair da mansão",
+    "doneText": "Você saiu da Pokémon Mansion para a Cinnabar Island."
+   }
+  ],
+  "notes": "Todas as estátuas acionam o mesmo interruptor: cada vez que você aperta uma, todas as grades da mansão (em todos os andares) trocam de estado. Olhos vermelhos = ligado; olhos pretos = desligado."
+ }
+]

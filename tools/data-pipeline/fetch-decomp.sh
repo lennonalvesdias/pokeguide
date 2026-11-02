@@ -41,7 +41,16 @@ git sparse-checkout set \
   /data/maps/map_groups.json \
   /include/constants/pokedex.h \
   /src/data/wild_encounters.json \
-  /src/data/pokemon/experience_tables.h
+  /src/data/pokemon/experience_tables.h \
+  /data/scripts/pokemon_mansion.inc \
+  /data/scripts/item_ball_scripts.inc \
+  /data/layouts/layouts.json \
+  '/data/layouts/PokemonMansion_*/map.bin' \
+  /data/tilesets/primary/building/metatile_attributes.bin \
+  /data/tilesets/secondary/pokemon_mansion/metatile_attributes.bin \
+  /include/constants/metatile_behaviors.h \
+  /include/constants/metatile_labels.h \
+  /include/fieldmap.h
 git fetch --depth 1 origin "$COMMIT"
 git checkout --quiet "$COMMIT"
 echo "decomp pronto em $DEST @ $COMMIT"

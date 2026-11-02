@@ -275,3 +275,46 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .copilot-box { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: var(--bg); }
 .copilot-box .label:first-child { margin-top: 0; }
 .spots { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
+
+/* Guia passo a passo (walkthrough) */
+.walkthrough .label { margin: 0; }
+.wt-field { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; }
+.wt-facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; margin: 12px 0 0; font-size: 15px; }
+.wt-facts dt { color: var(--muted); font-size: 13px; padding-top: 2px; }
+.wt-facts dd { margin: 0; }
+.conf { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 7px; border-radius: 6px; margin-left: 4px; }
+.conf.confirmed { background: color-mix(in srgb, var(--good) 18%, transparent); color: var(--good); }
+.conf.probable { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn); }
+.conf.unknown { background: var(--line); color: var(--ink); }
+.wt-action { font-size: 19px; font-weight: 600; line-height: 1.35; margin: 8px 0; }
+.wt-question { font-weight: 700; margin: 12px 0 6px; }
+.wt-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.wt-buttons .btn { min-height: 48px; flex: 1 1 30%; }
+.wt-tools { display: flex; gap: 8px; margin: 10px 0; }
+.wt-tools .btn { flex: 1; min-height: 44px; }
+.wt-correction { margin: 0 0 10px; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, var(--warn) 16%, var(--card)); font-size: 15px; }
+.wt-anchors { list-style: none; padding: 0; margin: 8px 0 0; }
+.wt-anchors .btn { text-align: left; white-space: normal; min-height: 44px; margin-top: 6px; }
+.wt-history { padding-left: 14px; font-size: 14px; }
+.wt-history li { margin: 4px 0; }
+.minimap { margin: 0 0 10px; }
+.minimap svg { width: 100%; height: auto; display: block; border-radius: 10px; }
+.mm-wall { fill: var(--line); }
+.mm-floor { fill: var(--card); }
+.mm-gate.open { fill: color-mix(in srgb, var(--good) 45%, var(--card)); }
+.mm-gate.closed { fill: var(--danger); }
+.mm-gate.unknown { fill: var(--warn); }
+.mm-stairs { fill: #4772c9; }
+.mm-hole { fill: var(--ink); }
+.mm-statue { fill: #8e3d8e; }
+.mm-item { fill: var(--accent); }
+.mm-path { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-dasharray: 3 2; }
+.mm-target { fill: none; stroke: var(--accent); stroke-width: 2; }
+.mm-you { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5; }
+.mm-key { display: inline-block; width: 9px; height: 9px; border-radius: 2px; vertical-align: middle; }
+.mm-key.you { background: var(--ink); border-radius: 50%; }
+.mm-key.target { border: 2px solid var(--accent); border-radius: 50%; }
+.mm-key.stairs { background: #4772c9; }
+.mm-key.statue { background: #8e3d8e; }
+.wt-options summary { font-weight: 600; cursor: pointer; min-height: 32px; }
+.save-age.stale { color: var(--warn); font-weight: 600; }

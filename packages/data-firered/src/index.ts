@@ -1,12 +1,13 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import { type AreaOpponent, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
+import { type AreaOpponent, type NavArea, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
 import machinesJson from '../data/machines.json' with { type: 'json' };
 import manifestJson from '../data/manifest.json' with { type: 'json' };
 import mapsJson from '../data/maps.json' with { type: 'json' };
+import navigationJson from '../data/navigation.json' with { type: 'json' };
 import movesJson from '../data/moves.json' with { type: 'json' };
 import rulesJson from '../data/rules.json' with { type: 'json' };
 import speciesJson from '../data/species.json' with { type: 'json' };
@@ -99,6 +100,10 @@ export const walkthrough = walkthroughJson as unknown as JourneyStep[];
 /** Pokémon selvagens por mapa (versão FireRed). */
 export const encounters = encountersJson as MapEncounters[];
 export const manifest = manifestJson;
+/** Áreas com guia passo a passo (grafo de tiles, escadas, buracos e interruptores do decomp). */
+export const navigation = navigationJson as unknown as NavArea[];
+/** Área de navegação que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
+export const navigationAreaOf = (mapKey: string) => navigation.find((a) => a.floors.some((f) => f.map === mapKey)) ?? null;
 
 export const versions: Versions = {
   rulesetId: 'firered-gen3',
@@ -233,4 +238,30 @@ export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlyS
     key,
     slots: [...g.slots.values()].map((x) => ({ opponent: wildOpponent(x.species, x.level), rate: x.rate / g.maps.size })),
   }));
+}
+
+export interface WildLevelHint {
+  level: number;
+  min: number;
+  max: number;
+  /** 'local': aparece no mapa do save; 'game': aparece em outro lugar do jogo; 'estimate': não aparece selvagem. */
+  source: 'local' | 'game' | 'estimate';
+  /** Mapa de onde veio a faixa (ausente na estimativa). */
+  map?: string;
+}
+
+/**
+ * Nível provável de um selvagem quando o jogador não informou: a faixa do encontro no mapa do save,
+ * senão a faixa do jogo mais próxima do nível da equipe, senão o nível da equipe. Usa o máximo da faixa
+ * (a ameaça maior), e a interface sempre pede para conferir o "Lv" na tela.
+ */
+export function wildLevelHint(speciesKey: string, mapKey: string, teamLevel: number): WildLevelHint {
+  const slots = encounters.flatMap((e) => e.slots.filter((s) => s.species === speciesKey).map((s) => ({ map: e.map, ...s })));
+  const prefix = areaOf(mapKey);
+  const local = slots.filter((s) => s.map === mapKey || areaOf(s.map) === prefix);
+  const pool = local.length ? local : slots;
+  if (!pool.length) return { level: teamLevel, min: teamLevel, max: teamLevel, source: 'estimate' };
+  const dist = (s: { minLevel: number; maxLevel: number }) => (teamLevel < s.minLevel ? s.minLevel - teamLevel : teamLevel > s.maxLevel ? teamLevel - s.maxLevel : 0);
+  const best = [...pool].sort((a, b) => dist(a) - dist(b) || a.map.localeCompare(b.map))[0]!;
+  return { level: best.maxLevel, min: best.minLevel, max: best.maxLevel, source: local.length ? 'local' : 'game', map: best.map };
 }

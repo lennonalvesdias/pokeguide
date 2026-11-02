@@ -9,6 +9,8 @@ export interface CloudEntry {
   path: string;
   size?: number;
   contentHash?: string;
+  /** Quando o arquivo chegou ao Dropbox (ISO 8601): o Delta Sync envia logo depois de salvar. */
+  modifiedAt?: string;
 }
 
 export interface DeltaSaveFile {
@@ -16,6 +18,7 @@ export interface DeltaSaveFile {
   path: string;
   size: number;
   contentHash?: string;
+  modifiedAt?: string;
 }
 
 const SAVE_FILE = /^GameSave-([0-9a-f]{40})-gameSave$/i;
@@ -26,7 +29,13 @@ export function deltaSaveFiles(entries: readonly CloudEntry[]): DeltaSaveFile[] 
   for (const e of entries) {
     const m = SAVE_FILE.exec(e.name);
     if (!m || e.size === undefined || !GBA_SAVE_SIZES.has(e.size)) continue;
-    out.push({ gameId: m[1]!.toLowerCase(), path: e.path, size: e.size, ...(e.contentHash ? { contentHash: e.contentHash } : {}) });
+    out.push({
+      gameId: m[1]!.toLowerCase(),
+      path: e.path,
+      size: e.size,
+      ...(e.contentHash ? { contentHash: e.contentHash } : {}),
+      ...(e.modifiedAt ? { modifiedAt: e.modifiedAt } : {}),
+    });
   }
   return out;
 }
