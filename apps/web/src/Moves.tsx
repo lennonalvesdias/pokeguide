@@ -1,11 +1,15 @@
 // Golpes: comparar um golpe novo com os atuais e dizer, como o copiloto, se vale aprender e no lugar de qual.
-import { lookup, machines, moves as allMoves, rules, upcomingOpponents } from '@pokeguide/data-firered';
+import { items, lookup, machines, moves as allMoves, rules, upcomingOpponents } from '@pokeguide/data-firered';
 import {
+  bestMoveset,
   canLearnMove,
   findOption,
   forgetRule,
   mainStabMove,
   type MoveDefinition,
+  type MoveRole,
+  type MovesetBreakdown,
+  movesetBreakdown,
   type TeachAdvice,
   teachAdvice,
   type TeamMember,
@@ -19,6 +23,7 @@ import { rivalStarterFor } from './TrainerBattle.tsx';
 
 const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
 const machineByMove = new Map(machines.map((m) => [m.move, m]));
+const itemById = new Map(items.map((i) => [i.id, i]));
 const SYNERGY: Record<string, string[]> = { rest: ['sleep_talk', 'snore'], sleep_talk: ['rest'], snore: ['rest'] };
 const CATEGORY_LABEL = { physical: 'Físico', special: 'Especial', status: 'Status' } as const;
 const moveName = (k: string) => displayName(lookup.move(k).name);
@@ -64,6 +69,26 @@ export function MovesTab({ team, preview }: { team: TeamMember[]; preview: SaveI
         : null,
     [member, candidate, opponents, coverage, preview],
   );
+  const breakdown = useMemo(
+    () =>
+      member && candidate
+        ? movesetBreakdown(chart, member, candidate, opponents, preview.badges, rules.hmMoves, { teamBest: coverage.get(member.id) })
+        : null,
+    [member, candidate, opponents, coverage, preview],
+  );
+  // Só quando não vale aprender agora: o que melhora o conjunto depois (próximos golpes por nível, depois TMs da bolsa).
+  const upgrade = useMemo((): Upgrade => {
+    if (!member || !candidate || advice?.kind !== 'keep') return null;
+    const opts = { teamBest: coverage.get(member.id), learnable: true };
+    for (const lv of member.species.levelUpMoves.filter((m) => m.level > member.level && m.move !== candidate.key)) {
+      const a = teachAdvice(chart, member, lookup.move(lv.move), opponents, preview.badges, rules.hmMoves, opts);
+      if (a.kind === 'replace') return { kind: 'level', level: lv.level, move: lv.move, replaces: a.replace, gain: a.gain };
+    }
+    const inBag = new Set(preview.bag.tmhm.map((s) => itemById.get(s.itemId)?.key));
+    const cands = machines.filter((m) => inBag.has(m.item)).map((m) => ({ move: lookup.move(m.move), source: m.label }));
+    const first = bestMoveset(chart, member, cands, opponents, preview.badges, rules.hmMoves, { teamBest: coverage.get(member.id) }).learn[0];
+    return first ? { kind: 'tm', source: first.source, move: first.move, replaces: first.replaces } : null;
+  }, [member, candidate, advice, opponents, coverage, preview]);
 
   if (!member) return null;
   const current = member.moves.map((x) => x.move);
@@ -109,7 +134,7 @@ export function MovesTab({ team, preview }: { team: TeamMember[]; preview: SaveI
         <Suggestions items={moveSearch.suggestions} onPick={(label) => setMoveText(label)} empty="Nenhum golpe com esse nome." />
       )}
 
-      {candidate && advice && <Verdict member={member} move={candidate} advice={advice} />}
+      {candidate && advice && breakdown && <Analysis member={member} move={candidate} advice={advice} breakdown={breakdown} upgrade={upgrade} />}
 
       <div className="card">
         <table className="movetable">
@@ -139,85 +164,222 @@ export function MovesTab({ team, preview }: { team: TeamMember[]; preview: SaveI
   );
 }
 
-/** O veredito do copiloto: aprender (e no lugar de qual), não aprender, ou depende. */
-function Verdict({ member, move, advice }: { member: TeamMember; move: MoveDefinition; advice: TeachAdvice }) {
+/** Próxima melhoria do conjunto: golpe por nível que vale entrar, TM da bolsa ou, sem isso, o elo mais fraco. */
+type Upgrade = { kind: 'level'; level: number; move: string; replaces: string; gain: number } | { kind: 'tm'; source: string; move: string; replaces: string | null } | null;
+
+const typeName = (t: string) => displayName(t);
+const list = (items: string[]) => (items.length <= 1 ? (items[0] ?? '') : `${items.slice(0, -1).join(', ')} e ${items.at(-1)}`);
+const CATEGORY_TEXT = { physical: 'físico', special: 'especial', status: 'de status' } as const;
+
+/** Por que o golpe atual fica (ou sai): STAB, HM, dano fixo, cobertura e contra quantos é o melhor. */
+function roleReason(r: MoveRole, move: MoveDefinition): string {
+  const parts: string[] = [];
+  if (r.main) parts.push(`principal ataque de ${typeName(move.type)} (STAB)`);
+  else if (r.stab) parts.push(`STAB de ${typeName(move.type)}`);
+  if (r.hm) parts.push('HM: só sai com o Move Deleter');
+  if (r.combo) parts.push(`faz par com ${move.key === 'rest' ? 'Sleep Talk/Snore' : 'Rest'}`);
+  if (r.status && !r.combo) parts.push('golpe de status');
+  if (r.fixedDamage) parts.push(`causa ${r.fixedDamage} HP fixos de dano`);
+  if (!r.stab && r.superEffective.length) parts.push(`cobertura contra ${list(r.superEffective.map(typeName))}`);
+  if (!r.status) parts.push(r.bestAgainst ? `melhor golpe contra ${r.bestAgainst} adversários` : 'nunca é o melhor golpe do conjunto');
+  return parts.join(' · ');
+}
+
+/** A análise do copiloto: veredito, golpe a golpe, o porquê, a próxima melhoria e a decisão. */
+function Analysis({
+  member,
+  move,
+  advice,
+  breakdown,
+  upgrade,
+}: {
+  member: TeamMember;
+  move: MoveDefinition;
+  advice: TeachAdvice;
+  breakdown: MovesetBreakdown;
+  upgrade: Upgrade;
+}) {
   const name = displayName(move.name);
   const source = learnSource(member, move.key);
-  const level = source?.kind === 'level';
+  const byLevel = source?.kind === 'level';
   const how =
     source?.kind === 'level'
-      ? `aprende no Nv ${source.level}`
+      ? `${member.name} aprende ${name} no Nv ${source.level}`
       : source?.kind === 'machine'
-        ? `aprende com o ${source.label}${source.hm ? '' : ' (uso único)'}`
+        ? `${member.name} aprende ${name} com o ${source.label}${source.hm ? '' : ' (uso único)'}`
         : source?.kind === 'reminder'
-          ? `aprendia no Nv ${source.level}; agora só pelo Move Reminder (Two Island)`
+          ? `${member.name} aprendia ${name} no Nv ${source.level}; agora só pelo Move Reminder (Two Island)`
           : null;
   const basis = (n: number) => `contra ${n} Pokémon dos treinadores que faltam`;
-  const where = (a: { improves: string[] }) => (a.improves.length ? ` Melhora mais contra ${a.improves.map(displayName).join(', ')}.` : '');
+  const current = member.moves.map((x) => x.move);
+  const roleOf = new Map(breakdown.current.map((r) => [r.move, r]));
+  const c = breakdown.candidate;
 
-  let tone: 'stay' | 'switch' | 'none';
-  let title: string;
-  let body: string;
-  let tip: string | null = null;
-  switch (advice.kind) {
-    case 'cannot':
-      tone = 'none';
-      title = `${member.name} não aprende ${name}`;
-      body = 'Nem por nível nem por TM/HM no FireRed.';
-      break;
-    case 'knows':
-      tone = 'stay';
-      title = `${member.name} já conhece ${name}`;
-      body = 'Nada a fazer.';
-      break;
-    case 'not-comparable':
-      tone = 'switch';
-      title = 'Depende do seu estilo de jogo';
-      body =
-        advice.reason === 'status'
-          ? `${name} é golpe de status: não dá para comparar por dano.`
-          : `${name} tem poder variável (amizade, HP etc.): não dá para comparar por dano.`;
-      break;
-    case 'free-slot':
-      tone = 'stay';
-      title = `Aprender ${name}`;
-      body = `Tem espaço livre, não esquece nada. ${pct(advice.gain)} de dano esperado ${basis(advice.opponents)}.${where(advice)}`;
-      break;
-    case 'replace':
-      tone = 'stay';
-      title = `Aprender ${name} no lugar de ${moveName(advice.replace)}`;
-      body = `${pct(advice.gain)} de dano esperado ${basis(advice.opponents)}.${where(advice)}${
-        advice.worsens ? ` Piora um pouco contra ${advice.worsens}.` : ''
-      }${advice.replaceIsStatus ? ` ${moveName(advice.replace)} é de status: troque só se não usa.` : ''}${advice.hm ? ' HM: depois, só o Move Deleter apaga.' : ''}`;
-      if (level) tip = `Na tela do jogo: “Make it forget another move?” → YES e escolha ${moveName(advice.replace)}.`;
-      break;
-    case 'keep':
-      tone = 'switch';
-      title = level ? `Não aprender ${name}` : `Não ensinar ${name} agora`;
-      // Nunca citar a "melhor troca" de um "não compensa": soa como recomendação.
-      body =
-        advice.reason === 'only-locked'
-          ? advice.protectedMove
-            ? `Só caberia no lugar de ${moveName(advice.protectedMove)}, o ataque principal com STAB.`
-            : 'Só sairia um HM ou um golpe de que outro depende (Rest + Sleep Talk).'
-          : `Os golpes atuais já rendem o mesmo ou mais: trocar daria ${pct(advice.gain)} de dano esperado ${basis(advice.opponents)}, abaixo do mínimo de ${
-              advice.hm ? '15% para HM' : '5%'
-            }.${advice.protectedMove ? ` ${moveName(advice.protectedMove)} fica (ataque principal com STAB).` : ''}`;
-      if (level)
-        tip = `Na tela do jogo: “Make it forget another move?” → NO, depois “Stop learning ${name.toUpperCase()}?” → YES. Se mudar de ideia, o Move Reminder da Two Island ensina de novo.`;
-      break;
+  // Casos sem tabela: não aprende, já conhece, golpe de status ou de poder variável.
+  if (advice.kind === 'cannot' || advice.kind === 'knows' || advice.kind === 'not-comparable') {
+    const [tone, title, body] =
+      advice.kind === 'cannot'
+        ? (['none', `${member.name} não aprende ${name}`, 'Nem por nível nem por TM/HM no FireRed.'] as const)
+        : advice.kind === 'knows'
+          ? (['stay', `${member.name} já conhece ${name}`, 'Nada a fazer.'] as const)
+          : ([
+              'switch',
+              'Depende do seu estilo de jogo',
+              advice.reason === 'status'
+                ? `${name} é golpe de status: não dá para comparar por dano.`
+                : `${name} tem poder variável (amizade, HP etc.): não dá para comparar por dano.`,
+            ] as const);
+    return (
+      <section className="card copilot" aria-label="Copiloto de golpes">
+        <p className="label">Copiloto</p>
+        <p className={`advice ${tone}`}>
+          <strong>{title}</strong>
+          <br />
+          {body}
+        </p>
+      </section>
+    );
   }
+
+  const learn = advice.kind !== 'keep';
+  const forget = advice.kind === 'replace' ? advice.replace : null;
+  const final = learn ? [...current.filter((m) => m.key !== forget).map((m) => m.key), move.key] : current.map((m) => m.key);
+
+  const headline =
+    advice.kind === 'keep'
+      ? byLevel
+        ? `Não aprenda ${name}. Selecione NO e mantenha os quatro golpes atuais.`
+        : `Não ensine ${name} agora. Mantenha os quatro golpes atuais${source?.kind === 'machine' && !source.hm ? ` e guarde o ${source.label}` : ''}.`
+      : advice.kind === 'replace'
+        ? byLevel
+          ? `Aprenda ${name} no lugar de ${moveName(advice.replace)}. Selecione YES e esqueça ${moveName(advice.replace)}.`
+          : `Ensine ${name} no lugar de ${moveName(advice.replace)}.`
+        : `Aprenda ${name}: tem espaço livre, não esquece nada.`;
+
+  // Linhas da tabela: os atuais do que mais faz falta ao que menos, o que sai e o novo por último.
+  const rows = [...breakdown.current]
+    .sort((a, b) => (a.move === forget ? 1 : 0) - (b.move === forget ? 1 : 0) || b.loss - a.loss)
+    .map((r) => {
+      const m = current.find((x) => x.key === r.move)!;
+      const verdict = r.move === forget ? 'Esquecer' : !learn && r.move === breakdown.weakest && !r.main ? 'Manter por enquanto' : 'Manter';
+      return { key: r.move, verdict, reason: roleReason(r, m), tone: r.move === forget ? 'out' : 'keep' };
+    });
+  if (c) {
+    const parts = [
+      c.fixedDamage ? `${c.fixedDamage} HP fixos` : `${move.power} de poder`,
+      c.stab ? 'com STAB' : 'sem STAB',
+      ...(c.bestAgainst ? [`seria o melhor golpe contra ${c.bestAgainst} adversários`] : []),
+    ];
+    rows.push({ key: move.key, verdict: learn ? 'Aprender' : 'Recusar', reason: parts.join(' · '), tone: learn ? 'in' : 'out' });
+  }
+
+  // O porquê, com números da mesma conta do veredito.
+  const why: string[] = [];
+  if (c) {
+    const stabText = c.stab ? `com STAB no ${member.name}` : `sem STAB no ${member.name}, que é ${list(member.species.types.map(typeName))}`;
+    why.push(`No FireRed, ${name} é um ataque ${CATEGORY_TEXT[move.category]} do tipo ${typeName(move.type)}, ${stabText}.`);
+    if (c.attackStat && c.attackValue < c.otherValue * 0.85)
+      why.push(
+        `Na Gen III a classe vem do tipo: ${name} usa o ${c.attackStat === 'spa' ? 'Sp. Atk' : 'Ataque'} (${c.attackValue}), bem abaixo do ${
+          c.attackStat === 'spa' ? 'Ataque' : 'Sp. Atk'
+        } (${c.otherValue}) do ${member.name}.`,
+      );
+    if (move.secondaryEffectChance > 0 && !learn) why.push(`A chance de ${move.secondaryEffectChance}% de efeito secundário entra na conta, mas não compensa.`);
+    if (!learn && c.weakerThan.length) why.push(`Em média, causa menos dano por turno que ${list(c.weakerThan.map(moveName))}.`);
+    const covered = new Map<string, string[]>();
+    for (const x of c.coveredBy) covered.set(x.move, [...(covered.get(x.move) ?? []), typeName(x.type)]);
+    for (const [m, types] of covered) if (!learn) why.push(`${moveName(m)} já acerta ${list(types)} com super efetivo.`);
+  }
+  if (advice.kind === 'keep') {
+    if (advice.reason === 'only-locked')
+      why.push(
+        advice.protectedMove
+          ? `Só caberia no lugar de ${moveName(advice.protectedMove)}, o ataque principal com STAB.`
+          : 'Só sairia um HM ou um golpe de que outro depende (Rest + Sleep Talk).',
+      );
+    else
+      why.push(
+        `Na melhor troca possível, o dano esperado ${basis(advice.opponents)} mudaria ${pct(advice.gain)}, abaixo do mínimo de ${advice.hm ? '15% para HM' : '5%'}.`,
+      );
+  } else {
+    why.push(`${pct(advice.gain)} de dano esperado ${basis(advice.opponents)}.${advice.improves.length ? ` Melhora mais contra ${list(advice.improves.map(displayName))}.` : ''}`);
+    if (advice.kind === 'replace') {
+      const out = roleOf.get(advice.replace);
+      if (out) why.push(`${moveName(advice.replace)} é o que menos faz falta: ${out.bestAgainst ? `era o melhor golpe contra só ${out.bestAgainst} adversários` : 'nunca era o melhor golpe do conjunto'}.`);
+      if (advice.worsens) why.push(`Piora um pouco contra ${advice.worsens} adversários.`);
+      if (advice.hm) why.push('HM: depois, só o Move Deleter apaga.');
+    }
+  }
+
+  const next = !learn
+    ? upgrade?.kind === 'level'
+      ? `No Nv ${upgrade.level}, ${moveName(upgrade.move)} vale entrar no lugar de ${moveName(upgrade.replaces)} (${pct(upgrade.gain)} de dano esperado).`
+      : upgrade?.kind === 'tm'
+        ? `Com o ${upgrade.source} da bolsa: ensinar ${moveName(upgrade.move)}${upgrade.replaces ? ` no lugar de ${moveName(upgrade.replaces)}` : ''}.`
+        : breakdown.weakest
+          ? `${moveName(breakdown.weakest)} é o elo mais fraco: troque quando surgir um golpe mais forte (por nível ou TM).`
+          : null
+    : null;
+
+  const verb = learn ? (byLevel || advice.kind === 'free-slot' ? 'aprender' : 'ensinar') : byLevel ? 'recusar' : 'não ensinar';
+  const decision = `${verb[0]!.toUpperCase()}${verb.slice(1)} ${name} e ${learn ? 'ficar' : 'continuar'} com ${list(final.map(moveName))}.`;
 
   return (
     <section className="card copilot" aria-label="Copiloto de golpes">
       <p className="label">Copiloto</p>
-      <p className={`advice ${tone}`}>
-        <strong>{title}</strong>
-        {how && <span className="fine"> · {member.name} {how}</span>}
-        <br />
-        {body}
+      <p className={`advice ${learn ? 'stay' : 'switch'}`}>
+        <strong>{headline}</strong>
+        {how && (
+          <>
+            <br />
+            <span className="fine">{how}.</span>
+          </>
+        )}
       </p>
-      {tip && <p className="fine">{tip}</p>}
+
+      <table className="movetable analysis">
+        <thead>
+          <tr>
+            <th>Golpe</th>
+            <th>Recomendação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr key={r.key} className={r.tone}>
+              <td>{moveName(r.key)}</td>
+              <td>
+                <strong>{r.verdict}</strong> — {r.reason}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p className="label">{learn ? 'Por que aprender?' : byLevel ? 'Por que recusar?' : 'Por que não ensinar?'}</p>
+      <ul className="why">
+        {why.map((w) => (
+          <li key={w}>{w}</li>
+        ))}
+      </ul>
+
+      {next && (
+        <>
+          <p className="label">Próxima melhoria</p>
+          <p className="fine">{next}</p>
+        </>
+      )}
+
+      <p className="decision">
+        <strong>Decisão:</strong> {decision}
+      </p>
+      {byLevel && !learn && (
+        <p className="fine">
+          Na tela do jogo: “Make it forget another move?” → NO, depois “Stop learning {name.toUpperCase()}?” → YES. Se mudar de ideia, o Move Reminder
+          da Two Island ensina de novo.
+        </p>
+      )}
+      {byLevel && forget && <p className="fine">Na tela do jogo: “Make it forget another move?” → YES e escolha {moveName(forget)}.</p>}
     </section>
   );
 }

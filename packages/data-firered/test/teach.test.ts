@@ -1,5 +1,5 @@
 // Vale ensinar o TM? Golden cases com a equipe de meio de jogo (6 insígnias).
-import { canLearnMove, createTypeChart, secondaryBonus, type TeamMember, teachAdvice, teamCoverage } from '@pokeguide/domain';
+import { canLearnMove, createTypeChart, movesetBreakdown, secondaryBonus, type TeamMember, teachAdvice, teamCoverage } from '@pokeguide/domain';
 import { describe, expect, it } from 'vitest';
 import { lookup, rules, typeChart, upcomingOpponents } from '../src/index.ts';
 
@@ -120,5 +120,19 @@ describe('Twister por nível no Gyarados (aba Golpes)', () => {
     });
     expect(a).toMatchObject({ kind: 'keep', reason: 'low-gain', protectedMove: 'surf', hm: false });
     if (a.kind === 'keep') expect(a.gain).toBeLessThan(0.05);
+  });
+  it('explica a recusa golpe a golpe: Surf principal, Dragon Rage fixo, Ice Beam cobre Dragon, Twister usa o Sp. Atk baixo', () => {
+    const b = movesetBreakdown(chart, gyarados, twister, OPP, BADGES, rules.hmMoves, {
+      teamBest: teamCoverage(chart, TEAM, OPP, BADGES).get(gyarados.id),
+    });
+    const role = (k: string) => b.current.find((r) => r.move === k)!;
+    expect(role('surf')).toMatchObject({ main: true, stab: true, hm: true });
+    expect(role('dragon_rage').fixedDamage).toBe(40);
+    expect(role('ice_beam').superEffective).toEqual(expect.arrayContaining(['dragon', 'grass', 'flying', 'ground']));
+    expect(role('bite').superEffective).toEqual(['ghost', 'psychic']);
+    expect(b.candidate).toMatchObject({ stab: false, attackStat: 'spa', attackValue: 56, otherValue: 96 });
+    expect(b.candidate!.coveredBy).toContainEqual({ type: 'dragon', move: 'ice_beam' });
+    expect(b.candidate!.weakerThan).toEqual(expect.arrayContaining(['surf', 'dragon_rage', 'ice_beam', 'bite']));
+    expect(b.weakest).toBe('bite');
   });
 });

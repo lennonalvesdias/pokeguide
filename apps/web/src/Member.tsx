@@ -20,7 +20,7 @@ import {
   type TeamMember,
   teamCoverage,
   trainingSpots,
-  type TypeName,
+  ATTACK_TYPES,
 } from '@pokeguide/domain';
 import { isFlagSet, type SaveImportPreview } from '@pokeguide/save-parser';
 import { useMemo } from 'react';
@@ -28,10 +28,6 @@ import { chart, mapLabel, TypeTag } from './App.tsx';
 import { displayName } from './state.ts';
 import { rivalStarterFor } from './TrainerBattle.tsx';
 
-const ATTACK_TYPES: TypeName[] = [
-  'normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel',
-  'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark',
-];
 const STAT_LABEL = { atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Vel' } as const;
 const METHOD_LABEL: Record<string, string> = {
   land: 'na grama ou caverna',

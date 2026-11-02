@@ -321,3 +321,11 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .mm-key.statue { background: #8e3d8e; }
 .wt-options summary { font-weight: 600; cursor: pointer; min-height: 32px; }
 .save-age.stale { color: var(--warn); font-weight: 600; }
+.movetable.analysis { margin: 10px 0 4px; }
+.movetable.analysis td:first-child { white-space: nowrap; font-weight: 600; padding-right: 10px; vertical-align: top; }
+.movetable.analysis td { vertical-align: top; }
+.movetable.analysis tr.out td { background: color-mix(in srgb, var(--warn) 10%, var(--card)); }
+.movetable.analysis tr.in td { background: color-mix(in srgb, var(--good) 10%, var(--card)); }
+.why { margin: 4px 0 8px; padding-left: 18px; font-size: 14px; }
+.why li { margin: 4px 0; }
+.decision { margin: 10px 0 6px; padding: 10px 12px; border-radius: 10px; background: var(--bg); font-size: 14px; }
