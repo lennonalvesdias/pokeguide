@@ -9,3 +9,4 @@ export * from './journey.ts';
 export * from './teach.ts';
 export * from './copilot.ts';
 export * from './training.ts';
+export * from './navigation/index.ts';

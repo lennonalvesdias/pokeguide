@@ -62,14 +62,14 @@ describe('melhor combinação de golpes', () => {
     expect(a.moves).toContain('cut');
     expect(a.locked).toEqual(['cut']);
   });
-  it('Snorlax: Rest, Sleep Talk e Strength travados; Surf (HM) não entra', () => {
+  it('Snorlax: Body Slam (ataque principal com STAB), Rest, Sleep Talk e Strength travados; Surf (HM) não entra', () => {
     const a = bestMoveset(chart, snorlax!, [tm('HM03'), tm('TM34')], OPP, BADGES, rules.hmMoves);
-    expect(a.locked.sort()).toEqual(['rest', 'sleep_talk', 'strength']);
+    expect(a.locked.sort()).toEqual(['body_slam', 'rest', 'sleep_talk', 'strength']);
     expect(a.learn).toEqual([]);
   });
-  it('Kadabra: Reflect e Recover (status útil) e Flash (HM) ficam', () => {
+  it('Kadabra: Psychic (ataque principal com STAB), Reflect e Recover (status útil) e Flash (HM) ficam', () => {
     const a = bestMoveset(chart, kadabra!, [tm('TM29'), tm('TM04')], OPP, BADGES, rules.hmMoves);
-    expect(a.locked.sort()).toEqual(['flash', 'recover', 'reflect']);
+    expect(a.locked.sort()).toEqual(['flash', 'psychic', 'recover', 'reflect']);
   });
 });
 

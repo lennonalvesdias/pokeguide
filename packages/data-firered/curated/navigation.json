@@ -1,0 +1,33 @@
+{
+  "$comment": "Áreas com guia passo a passo. Só a escolha dos mapas e os textos são editoriais: colisão, escadas, buracos, estátuas, itens e treinadores vêm do decomp (tools/data-pipeline/build.mjs).",
+  "areas": [
+    {
+      "id": "pokemon_mansion",
+      "name": "Pokémon Mansion",
+      "mapPrefix": "PokemonMansion",
+      "switchFlag": "POKEMON_MANSION_SWITCH_STATE",
+      "switchScript": "data/scripts/pokemon_mansion.inc",
+      "entrance": { "from": "CinnabarIsland" },
+      "floors": [
+        { "map": "PokemonMansion_1F", "label": "1F" },
+        { "map": "PokemonMansion_2F", "label": "2F" },
+        { "map": "PokemonMansion_3F", "label": "3F" },
+        { "map": "PokemonMansion_B1F", "label": "B1F" }
+      ],
+      "objectives": [
+        {
+          "id": "secret_key",
+          "title": "Pegar a Secret Key",
+          "item": "secret_key",
+          "doneText": "Você tem a Secret Key. Ela abre a porta do Ginásio de Cinnabar: saia da mansão e enfrente o Blaine."
+        },
+        {
+          "id": "exit",
+          "title": "Sair da mansão",
+          "doneText": "Você saiu da Pokémon Mansion para a Cinnabar Island."
+        }
+      ],
+      "notes": "Todas as estátuas acionam o mesmo interruptor: cada vez que você aperta uma, todas as grades da mansão (em todos os andares) trocam de estado. Olhos vermelhos = ligado; olhos pretos = desligado."
+    }
+  ]
+}

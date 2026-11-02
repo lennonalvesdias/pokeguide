@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const DATASET_VERSION = '0.6.0';
+const DATASET_VERSION = '0.7.0';
 const ROOT = resolve(import.meta.dirname, '../..');
 const DECOMP = resolve(process.argv[2] ?? join(ROOT, '.decomp'));
 const OUT = join(ROOT, 'packages/data-firered/data');
@@ -501,6 +501,209 @@ for (const e of encounterSrc.encounters) {
 encounters.sort((a, b) => a.map.localeCompare(b.map));
 if (!encounters.find((e) => e.map === 'Route1')?.slots.some((s) => s.species === 'pidgey' && s.rate === 50)) fail('encontros: Route1 deveria ter Pidgey 50%');
 
+// ---------- navegação (walkthrough verificável) ----------
+// Fonte: layout (colisão por tile), atributos de metatile (comportamento das escadas e buracos),
+// eventos do mapa (warps, estátuas, itens, treinadores) e o script compartilhado do interruptor.
+// Nada aqui é editorial: rótulos e textos ficam em curated/navigation.json.
+const fieldmap = read('include/fieldmap.h');
+const NUM_PRIMARY = Number(fieldmap.match(/#define NUM_METATILES_IN_PRIMARY (\d+)/)?.[1] ?? fail('NUM_METATILES_IN_PRIMARY'));
+const behaviorNames = new Map([...read('include/constants/metatile_behaviors.h').matchAll(/#define (MB_\w+) (0x[0-9A-Fa-f]+)/g)].map((m) => [Number(m[2]), m[1]]));
+const metatileIds = constants('include/constants/metatile_labels.h', 'METATILE_');
+const layoutsJson = JSON.parse(read('data/layouts/layouts.json')).layouts;
+const TILESET_DIR = { gTileset_Building: 'primary/building', gTileset_PokemonMansion: 'secondary/pokemon_mansion' };
+const readU32s = (p) => {
+  const b = readFileSync(join(DECOMP, p));
+  return Array.from({ length: b.length / 4 }, (_, i) => b.readUInt32LE(i * 4));
+};
+const readU16s = (p) => {
+  const b = readFileSync(join(DECOMP, p));
+  return Array.from({ length: b.length / 2 }, (_, i) => b.readUInt16LE(i * 2));
+};
+// Em FRLG cada atributo de metatile tem 4 bytes; o comportamento fica nos bits 0–8.
+const behaviorOf = (layout, metatile) => {
+  const prim = readU32s(`data/tilesets/${TILESET_DIR[layout.primary_tileset] ?? fail(`tileset ${layout.primary_tileset}`)}/metatile_attributes.bin`);
+  const sec = readU32s(`data/tilesets/${TILESET_DIR[layout.secondary_tileset] ?? fail(`tileset ${layout.secondary_tileset}`)}/metatile_attributes.bin`);
+  const attr = metatile < NUM_PRIMARY ? prim[metatile] : sec[metatile - NUM_PRIMARY];
+  return behaviorNames.get(attr & 0x1ff) ?? fail(`comportamento ${attr & 0x1ff}`);
+};
+// setmetatile x, y, METATILE_X, impassable — por rótulo de script.
+function setMetatiles(src) {
+  const out = new Map();
+  let label = null;
+  for (const line of src.split('\n')) {
+    const l = line.match(/^(\w+)::/);
+    if (l) {
+      label = l[1];
+      out.set(label, []);
+      continue;
+    }
+    const m = line.match(/setmetatile\s+(\d+),\s*(\d+),\s*(METATILE_\w+),\s*(\d)/);
+    if (m && label) out.get(label).push({ x: Number(m[1]), y: Number(m[2]), metatile: metatileIds.get(m[3]) ?? fail(m[3]), impassable: m[4] === '1' });
+  }
+  return out;
+}
+const STAIRS = new Set(['MB_UP_RIGHT_STAIR_WARP', 'MB_UP_LEFT_STAIR_WARP', 'MB_DOWN_RIGHT_STAIR_WARP', 'MB_DOWN_LEFT_STAIR_WARP']);
+const ARROW = { MB_SOUTH_ARROW_WARP: 'down', MB_NORTH_ARROW_WARP: 'up', MB_EAST_ARROW_WARP: 'right', MB_WEST_ARROW_WARP: 'left' };
+const FACING = { BG_EVENT_PLAYER_FACING_NORTH: 'up', BG_EVENT_PLAYER_FACING_SOUTH: 'down', BG_EVENT_PLAYER_FACING_EAST: 'right', BG_EVENT_PLAYER_FACING_WEST: 'left' };
+const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+const MOVEMENT_FACING = { MOVEMENT_TYPE_FACE_LEFT: ['left'], MOVEMENT_TYPE_FACE_RIGHT: ['right'], MOVEMENT_TYPE_FACE_UP: ['up'], MOVEMENT_TYPE_FACE_DOWN: ['down'] };
+
+const itemBallScripts = read('data/scripts/item_ball_scripts.inc');
+const curatedNav = JSON.parse(readFileSync(join(ROOT, 'packages/data-firered/curated/navigation.json'), 'utf8'));
+const navigation = curatedNav.areas.map((area) => {
+  const flagId = flagConsts.get(`FLAG_${area.switchFlag}`) ?? fail(`navegação/${area.id}: flag ${area.switchFlag}`);
+  const scripts = setMetatiles(read(area.switchScript));
+  const mapJsonByKey = new Map(area.floors.map((f) => [f.map, JSON.parse(read(`data/maps/${f.map}/map.json`))]));
+  const keyByConst = new Map(area.floors.map((f) => [mapJsonByKey.get(f.map).id, f.map]));
+  const pois = [];
+  const floors = area.floors.map((f) => {
+    const mj = mapJsonByKey.get(f.map);
+    const layout = layoutsJson.find((l) => l.id === mj.layout) ?? fail(`layout ${mj.layout}`);
+    const { width, height } = layout;
+    const blocks = readU16s(layout.blockdata_filepath);
+    if (blocks.length !== width * height) fail(`navegação/${f.map}: layout com tamanho inesperado`);
+    const at = (x, y) => blocks[y * width + x];
+    // Estado do layout = interruptor desligado (OnLoad só reaplica o "Press" com a flag ligada).
+    const pass = { off: blocks.map((b) => ((b >> 10) & 3) === 0), on: blocks.map((b) => ((b >> 10) & 3) === 0) };
+    // O próprio mapa diz qual script reaplica o interruptor ao carregar com a flag ligada.
+    const mapScripts = read(`data/maps/${f.map}/scripts.inc`);
+    const pressLabel = mapScripts.match(new RegExp(`call_if_set FLAG_${area.switchFlag}, (\\w+)`))?.[1] ?? fail(`navegação/${f.map}: OnLoad sem interruptor`);
+    const press = scripts.get(pressLabel) ?? fail(`navegação/${f.map}: ${pressLabel}`);
+    const reset = scripts.get(pressLabel.replace('PressSwitch', 'ResetSwitch')) ?? fail(`navegação/${f.map}: script Reset`);
+    // Sinal visível do estado: a estátua fica com olhos vermelhos ligada e pretos desligada.
+    const label = (id) => [...metatileIds.entries()].find(([k, v]) => v === id && k.includes('Statue'))?.[0] ?? '';
+    if (!press.some((t) => label(t.metatile).includes('RedEyes')) || !reset.some((t) => label(t.metatile).includes('BlackEyes'))) fail(`navegação/${f.map}: olhos da estátua`);
+    for (const t of reset) {
+      // O layout precisa já estar no estado desligado: senão o modelo de "off" não é o do jogo.
+      if ((at(t.x, t.y) & 0x3ff) !== t.metatile) fail(`navegação/${f.map}: (${t.x},${t.y}) no layout difere do Reset`);
+      pass.off[t.y * width + t.x] = !t.impassable;
+    }
+    for (const t of press) pass.on[t.y * width + t.x] = !t.impassable;
+    const objects = (mj.object_events ?? []).map((o) => ({ x: o.x, y: o.y }));
+    const grid = [];
+    for (let y = 0; y < height; y++) {
+      let row = '';
+      for (let x = 0; x < width; x++) {
+        const i = y * width + x;
+        row += pass.off[i] && pass.on[i] ? '.' : pass.on[i] ? '1' : pass.off[i] ? '0' : '#';
+      }
+      grid.push(row);
+    }
+    const src = `data/maps/${f.map}/map.json`;
+    // Warps que disparam (escadas, buracos, setas de saída). Os de comportamento comum só recebem quem chega.
+    const falls = new Map();
+    (mj.warp_events ?? []).forEach((w, i) => {
+      const beh = behaviorOf(layout, at(w.x, w.y) & 0x3ff);
+      const passable = ((at(w.x, w.y) >> 10) & 3) === 0;
+      const destKey = keyByConst.get(w.dest_map);
+      const destWarp = destKey ? mapJsonByKey.get(destKey).warp_events[Number(w.dest_warp_id)] : null;
+      const to = destKey ? { floor: destKey, x: destWarp.x, y: destWarp.y } : { map: w.dest_map.replace('MAP_', '') };
+      const source = `${src}#warp_events[${i}]`;
+      if (STAIRS.has(beh) && passable) {
+        if (!destKey) fail(`navegação/${f.map}: escada para fora da área`);
+        pois.push({ id: `${f.map}:stairs:${i}`, kind: 'stairs', floor: f.map, x: w.x, y: w.y, direction: beh.startsWith('MB_UP') ? 'up' : 'down', to, source });
+      } else if (beh === 'MB_FALL_WARP' && passable) {
+        // Um buraco = os tiles que caem no mesmo andar; cada tile guarda onde exatamente você cai.
+        if (!destKey) fail(`navegação/${f.map}: buraco para fora da área`);
+        if (!falls.has(destKey)) falls.set(destKey, { tiles: [], sources: [] });
+        falls.get(destKey).tiles.push({ x: w.x, y: w.y, to });
+        falls.get(destKey).sources.push(source);
+      } else if (ARROW[beh] && passable && !destKey) {
+        pois.push({ id: `${f.map}:exit:${i}`, kind: 'exit', floor: f.map, x: w.x, y: w.y, press: ARROW[beh], to, source });
+      }
+    });
+    for (const [, fl] of [...falls.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+      fl.tiles.sort((a, b) => a.y - b.y || a.x - b.x);
+      const to = { floor: fl.tiles[0].to.floor, x: fl.tiles[0].to.x, y: fl.tiles[0].to.y };
+      pois.push({ id: `${f.map}:fall:${fl.tiles[0].x}-${fl.tiles[0].y}`, kind: 'fall', floor: f.map, x: fl.tiles[0].x, y: fl.tiles[0].y, tiles: fl.tiles, to, source: fl.sources.join(' ') });
+    }
+    (mj.bg_events ?? []).forEach((b, i) => {
+      if (b.type !== 'sign' || b.script !== `${f.map}_EventScript_Statue`) return;
+      const facing = FACING[b.player_facing_dir] ?? fail(`navegação/${f.map}: estátua sem direção`);
+      const [dx, dy] = STEP[facing];
+      const stand = { x: b.x - dx, y: b.y - dy };
+      pois.push({ id: `${f.map}:switch:${i}`, kind: 'switch', floor: f.map, x: b.x, y: b.y, stand, facing, source: `${src}#bg_events[${i}] ${area.switchScript}` });
+    });
+    (mj.object_events ?? []).forEach((o, i) => {
+      const source = `${src}#object_events[${i}]`;
+      const item = o.script.match(/_EventScript_Item(\w+)$/);
+      if (item) {
+        const itemConst = itemBallScripts.match(new RegExp(`^${o.script}::\\s+finditem\\s+(ITEM_\\w+)`, 'm'))?.[1] ?? fail(`navegação/${o.script}: item`);
+        const key = itemKey(itemConst);
+        if (!itemKeys.has(key)) fail(`navegação/${o.script}: item ${key}`);
+        pois.push({ id: `${f.map}:item:${i}`, kind: 'item', floor: f.map, x: o.x, y: o.y, item: key, hideFlag: flagConsts.get(o.flag) ?? fail(`navegação/${o.flag}`), source });
+        return;
+      }
+      const ts = [...(scriptTrainers(read(`data/maps/${f.map}/scripts.inc`)).get(o.script) ?? [])];
+      if (o.trainer_type === 'TRAINER_TYPE_NORMAL' && ts.length === 1) {
+        const key = ts[0].replace('TRAINER_', '').toLowerCase();
+        if (!trainerKeys.has(key)) fail(`navegação/${o.script}: treinador ${key}`);
+        pois.push({ id: `${f.map}:trainer:${i}`, kind: 'trainer', floor: f.map, x: o.x, y: o.y, trainer: key, sight: Number(o.trainer_sight_or_berry_tree_id), facing: MOVEMENT_FACING[o.movement_type] ?? ['up', 'down', 'left', 'right'], source });
+      }
+    });
+    return { map: f.map, label: f.label, allowEscaping: mj.allow_escaping === true, group: maps.find((m) => m.key === f.map).group, num: maps.find((m) => m.key === f.map).num, width, height, grid, objects, source: `${layout.blockdata_filepath} ${src}` };
+  });
+  const entranceMap = JSON.parse(read(`data/maps/${area.entrance.from}/map.json`));
+  const ew = entranceMap.warp_events.find((w) => keyByConst.has(w.dest_map)) ?? fail(`navegação/${area.id}: entrada`);
+  const entranceFloor = keyByConst.get(ew.dest_map);
+  const ewDest = mapJsonByKey.get(entranceFloor).warp_events[Number(ew.dest_warp_id)];
+  const entrance = { floor: entranceFloor, x: ewDest.x, y: ewDest.y };
+  const objectives = area.objectives.map((o) => {
+    if (o.item && !pois.some((p) => p.kind === 'item' && p.item === o.item)) fail(`navegação/${area.id}: objetivo ${o.id} sem item ${o.item}`);
+    return o;
+  });
+  const result = { id: area.id, name: area.name, mapPrefix: area.mapPrefix, switchFlag: { key: area.switchFlag, id: flagId }, entrance, floors, pois, objectives, notes: area.notes };
+  validateNavigation(result);
+  return result;
+});
+
+/** Alcançabilidade: dos objetivos a partir da entrada, com o interruptor partindo de qualquer estado. */
+function validateNavigation(area) {
+  const floorOf = new Map(area.floors.map((f) => [f.map, f]));
+  const blocked = (f, x, y, on) => {
+    const fl = floorOf.get(f);
+    if (x < 0 || y < 0 || x >= fl.width || y >= fl.height) return true;
+    if (fl.objects.some((o) => o.x === x && o.y === y)) return true;
+    const c = fl.grid[y][x];
+    return c === '#' || (c === '1' && !on) || (c === '0' && on);
+  };
+  const warpAt = new Map();
+  for (const p of area.pois) {
+    if (p.kind === 'stairs') warpAt.set(`${p.floor}:${p.x}:${p.y}`, p.to);
+    if (p.kind === 'fall') for (const t of p.tiles) warpAt.set(`${p.floor}:${t.x}:${t.y}`, t.to);
+  }
+  const reach = (startOn) => {
+    const seen = new Set();
+    const q = [[area.entrance.floor, area.entrance.x, area.entrance.y, startOn]];
+    while (q.length) {
+      const [f, x, y, on] = q.pop();
+      const k = `${f}:${x}:${y}:${on}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      for (const p of area.pois) if (p.kind === 'switch' && p.floor === f && p.stand.x === x && p.stand.y === y) q.push([f, x, y, !on]);
+      for (const [dx, dy] of Object.values(STEP)) {
+        const nx = x + dx;
+        const ny = y + dy;
+        if (blocked(f, nx, ny, on)) continue;
+        const to = warpAt.get(`${f}:${nx}:${ny}`);
+        if (to) q.push([to.floor, to.x, to.y, on]);
+        else q.push([f, nx, ny, on]);
+      }
+    }
+    return seen;
+  };
+  for (const startOn of [false, true]) {
+    const seen = reach(startOn);
+    const has = (f, x, y) => seen.has(`${f}:${x}:${y}:true`) || seen.has(`${f}:${x}:${y}:false`);
+    for (const p of area.pois) {
+      if (p.kind === 'switch' && !has(p.floor, p.stand.x, p.stand.y)) fail(`navegação/${area.id}: estátua ${p.id} inalcançável`);
+      if (p.kind === 'item' && !Object.values(STEP).some(([dx, dy]) => has(p.floor, p.x + dx, p.y + dy))) fail(`navegação/${area.id}: item ${p.id} inalcançável`);
+      if (p.kind === 'stairs' && !area.floors.some((fl) => fl.map === p.to.floor)) fail(`navegação/${area.id}: escada ${p.id} sem destino`);
+    }
+    if (!area.pois.some((p) => p.kind === 'exit' && has(p.floor, p.x, p.y))) fail(`navegação/${area.id}: saída inalcançável`);
+  }
+}
+
 // ---------- invariantes ----------
 const typeNames = new Set(types.map((t) => t.name));
 for (const mv of moves) if (!typeNames.has(mv.type)) fail(`golpe ${mv.key} com tipo inválido`);
@@ -509,7 +712,7 @@ if (typeChart.length < 100) fail('tabela de tipos incompleta');
 
 // ---------- escrita ----------
 mkdirSync(OUT, { recursive: true });
-const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers, walkthrough, machines, encounters };
+const files = { types, typeChart, abilities, moves, species, items, maps, rules, trainers, walkthrough, machines, encounters, navigation };
 const hashes = {};
 for (const [name, value] of Object.entries(files)) {
   const json = `${JSON.stringify(value, null, 1)}\n`;

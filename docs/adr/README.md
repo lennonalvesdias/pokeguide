@@ -4,6 +4,8 @@
 | --- | --- |
 | [0000 — Arquitetura v1.0](0000-arquitetura-v1.0.md) | Proposta original |
 | [Revisão e plano de implementação](https://claude.ai/artifact/Xqf2ctaRMyHgXCDYh7Et5d) | Base da v1.1 |
+| [Navegação contextual e walkthrough verificável](ADR-contextual-walkthrough.md) | Aceita; fase 1 (Pokémon Mansion) implementada |
+| [Auditoria de UX 2026-11](../UX-AUDIT-2026-11.md) | P0 de golpes e mansão implementados |
 
 ## Mudanças da v1.1 já refletidas no código
 

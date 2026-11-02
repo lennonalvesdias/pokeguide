@@ -1,12 +1,13 @@
 // Dataset firered-gen3 gerado por tools/data-pipeline a partir do decomp pret/pokefirered.
 // Não editar os JSON à mão: rode `pnpm data:fetch && pnpm data:build`.
-import { type AreaOpponent, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
+import { type AreaOpponent, type NavArea, type JourneyStep, type TrainingSpotInput, type MoveDefinition, type Opponent, type SpeciesDefinition, type TeachOpponent, type TypeChartEntry, type Versions, wildMoveset } from '@pokeguide/domain';
 import abilitiesJson from '../data/abilities.json' with { type: 'json' };
 import encountersJson from '../data/encounters.json' with { type: 'json' };
 import itemsJson from '../data/items.json' with { type: 'json' };
 import machinesJson from '../data/machines.json' with { type: 'json' };
 import manifestJson from '../data/manifest.json' with { type: 'json' };
 import mapsJson from '../data/maps.json' with { type: 'json' };
+import navigationJson from '../data/navigation.json' with { type: 'json' };
 import movesJson from '../data/moves.json' with { type: 'json' };
 import rulesJson from '../data/rules.json' with { type: 'json' };
 import speciesJson from '../data/species.json' with { type: 'json' };
@@ -99,6 +100,10 @@ export const walkthrough = walkthroughJson as unknown as JourneyStep[];
 /** Pokémon selvagens por mapa (versão FireRed). */
 export const encounters = encountersJson as MapEncounters[];
 export const manifest = manifestJson;
+/** Áreas com guia passo a passo (grafo de tiles, escadas, buracos e interruptores do decomp). */
+export const navigation = navigationJson as unknown as NavArea[];
+/** Área de navegação que contém o mapa (ex.: 'PokemonMansion_2F'), se houver. */
+export const navigationAreaOf = (mapKey: string) => navigation.find((a) => a.floors.some((f) => f.map === mapKey)) ?? null;
 
 export const versions: Versions = {
   rulesetId: 'firered-gen3',

@@ -101,3 +101,28 @@ Metas são objetivos de produto, não resultados medidos.
 ## Limites desta auditoria
 
 Revisão estática de componentes e documentação; não foram executados testes, Lighthouse, auditoria de contraste, nem inspeção visual de build. Conclusões sobre usabilidade visual são hipóteses a validar. Esta entrega é documentação, não implementação.
+
+## Revisão e estado de implementação (2026-11)
+
+### Correção do diagnóstico de UX-02
+
+O app **não** recomendava ensinar Surf ao Snorlax: o golden case `HM03 Surf no Snorlax (equipe real)` já
+garantia o veredito "não compensa". O problema era a **frase** do veredito negativo, que citava a melhor
+troca com percentual: "não compensa: no melhor caso (no lugar de Body Slam) +7% de dano esperado". Lida
+rapidamente, ela soa como "troque Body Slam por Surf, +7%". Isso confirma o achado de UX (precisão aparente
+e decisão escondida no texto), mas a causa é de apresentação, mais uma lacuna de regra: nada impedia que
+o ataque principal com STAB fosse o candidato a sair.
+
+### O que foi feito
+
+| ID | Situação | O que mudou |
+|---|---|---|
+| UX-01 | **Feito (Pokémon Mansion)** | Guia passo a passo verificável, ver [ADR de navegação contextual](adr/ADR-contextual-walkthrough.md). Aparece na Jornada quando o próximo passo passa pela mansão ou o save está nela |
+| UX-02 | **Feito** | `mainStabMove`: o ataque principal com STAB não sai para um golpe sem STAB, nem em `teachAdvice` nem em `bestMoveset`. Veredito negativo nunca cita a "melhor troca"; diz o motivo ("só caberia no lugar de Body Slam, o ataque principal com STAB"). Regressão em `golden.test.ts` |
+| UX-08 | **Parcial** | Vereditos agora são **Ensinar / Não ensinar / Depende**; o percentual diz contra quantos adversários foi calculado e que é uma média, não o dano contra um adversário. Distribuição por matchup ainda não |
+| UX-07 | **Parcial** | O guia da mansão funciona sem flags do save (modo manual, com pontos de referência e perguntas). O roteiro da Jornada ainda depende das flags |
+| UX-04 | **Parcial** | No guia, posição e interruptor vindos do save aparecem como "Provável (pelo save, pode estar desatualizado)" e pedem confirmação; divergência com o que o jogador confirmou vira aviso, nunca sobrescrita silenciosa. O cabeçalho geral ainda não mostra a idade do save |
+| UX-03, 05, 06, 09, 10 | Pendente | Reorganização em "Agora", batalha expressa, separação de análise avançada, onboarding e feedback contextual |
+
+Roadmap P0 após esta entrega: (1) feito; (2) feito para a mansão; (3) feito dentro do guia, falta no
+restante do app.
