@@ -339,3 +339,10 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .report-text { white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow: auto; font-size: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 8px; margin: 8px 0; }
 .diag-list { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
 .diag-list li { margin: 4px 0; }
+
+/* UX-09: onboarding e demonstração */
+.onboarding .steps { list-style: none; margin: 0; padding: 0; }
+.onboarding .steps li { display: flex; gap: 12px; align-items: flex-start; }
+.onboarding .step-n { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; margin: 0; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 14px; }
+.demo-banner { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 10px; padding: 8px 12px; border-radius: 12px; border: 1px dashed var(--primary-line); background: var(--primary-bg); font-size: 14px; }
+.demo-banner .btn { flex: 0 0 auto; }
