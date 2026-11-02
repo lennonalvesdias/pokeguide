@@ -276,6 +276,21 @@ describe('ensinar golpe: o ataque principal com STAB não sai por média agregad
   });
 });
 
+// UX-08: além da média, o efeito por adversário (antes → depois, em fração do HP dele).
+describe('ensinar golpe: efeito por adversário (UX-08)', () => {
+  const gyarados: TeamMember = {
+    id: 'gyarados', name: 'Gyarados', species: lookup.species('gyarados'), level: 32,
+    stats: { atk: 91, def: 58, spe: 63, spa: 53, spd: 74 }, hp: { current: 105, max: 105 }, status: null,
+    moves: ['ice_beam', 'dragon_rage', 'bite', 'surf'].map((m) => ({ move: lookup.move(m) })),
+  };
+  const badges = ['boulder', 'cascade', 'thunder', 'rainbow', 'soul', 'marsh'];
+  it('Thunderbolt no lugar de Bite: contra Cloyster Nv 31 passa de 53% do HP por golpe para derrubar com um', () => {
+    const a = teachAdvice(chart, gyarados, lookup.move('thunderbolt'), upcomingOpponents(new Set(), 32), badges, rules.hmMoves);
+    const c = a.kind === 'replace' ? a.scenarios.find((s) => s.species === 'cloyster' && s.level === 31) : undefined;
+    expect([a.kind === 'replace' && a.replace, c && Math.round(c.before * 100), c && Math.round(c.after * 100)]).toEqual(['bite', 53, 100]);
+  });
+});
+
 // Validação em campo (2026-11): Magneton selvagem Nv 33 na Power Plant derrubou o Gyarados, mas o app
 // mostrava "Surf 139–210%, nocaute garantido" porque calculava com o nível da luta anterior (Nv 15).
 describe('nível do selvagem acompanha a espécie (Magneton x Gyarados)', () => {
@@ -456,20 +471,5 @@ describe('fase 4b: Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands, Vict
       if (p.hole) expect(fell, `${p.map}: a pedra cai num buraco`).toBe(true);
       else expect(at.has(`${p.end!.x},${p.end!.y}`), `${p.map}: a pedra para no botão`).toBe(true);
     }
-  });
-});
-
-// UX-08: além da média, o efeito por adversário (antes → depois, em fração do HP dele).
-describe('ensinar golpe: efeito por adversário (UX-08)', () => {
-  const gyarados: TeamMember = {
-    id: 'gyarados', name: 'Gyarados', species: lookup.species('gyarados'), level: 32,
-    stats: { atk: 91, def: 58, spe: 63, spa: 53, spd: 74 }, hp: { current: 105, max: 105 }, status: null,
-    moves: ['ice_beam', 'dragon_rage', 'bite', 'surf'].map((m) => ({ move: lookup.move(m) })),
-  };
-  const badges = ['boulder', 'cascade', 'thunder', 'rainbow', 'soul', 'marsh'];
-  it('Thunderbolt no lugar de Bite: contra Cloyster Nv 31 passa de 53% do HP por golpe para derrubar com um', () => {
-    const a = teachAdvice(chart, gyarados, lookup.move('thunderbolt'), upcomingOpponents(new Set(), 32), badges, rules.hmMoves);
-    const c = a.kind === 'replace' ? a.scenarios.find((s) => s.species === 'cloyster' && s.level === 31) : undefined;
-    expect([a.kind === 'replace' && a.replace, c && Math.round(c.before * 100), c && Math.round(c.after * 100)]).toEqual(['bite', 53, 100]);
   });
 });
