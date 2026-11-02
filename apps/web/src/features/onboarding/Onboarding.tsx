@@ -28,6 +28,9 @@ export function Onboarding({
           </p>
         )}
         {connect}
+        <button type="button" className="btn ghost wide" onClick={onImportFile}>
+          Importar arquivo de save manualmente
+        </button>
         <button type="button" className="linkish center-block" onClick={onDemo}>
           Enquanto isso, ver uma demonstração
         </button>

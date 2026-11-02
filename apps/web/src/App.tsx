@@ -78,10 +78,12 @@ export function App() {
   const [journeyNonce, setJourneyNonce] = useState(0);
   function setTab(t: Tab) {
     setTabRaw(t);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
   function setMore(m: MoreSection) {
     setMoreRaw(m);
     writePref('moreSection', m);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
   function go(g: NowGoto) {
     if (g.tab === 'more') setMore(g.section);
@@ -90,7 +92,6 @@ export function App() {
       setJourneyNonce((n) => n + 1);
     }
     setTab(g.tab);
-    window.scrollTo({ top: 0 });
   }
   const [battleNonce, setBattleNonce] = useState(0);
   /** Da Jornada para a Batalha: abre o modo Treinador já com o treinador escolhido. */
@@ -99,7 +100,6 @@ export function App() {
     writePref('pendingTrainer', key);
     setBattleNonce((n) => n + 1);
     setTab('battle');
-    window.scrollTo({ top: 0 });
   }
   const [dropbox, setDropbox] = useState(false);
   const [lastSync, setLastSync] = useState<string | null>(null);
@@ -258,7 +258,7 @@ export function App() {
         <input ref={fileRef} type="file" hidden onChange={onFile} aria-label="Arquivo de save" />
       </header>
 
-      {error && <div className="alert">{error}</div>}
+      {error && <div className="alert" role="alert">{error}</div>}
       {pending && (
         <div className="alert confirm" role="alertdialog">
           <p>{pending.message}</p>
@@ -287,7 +287,7 @@ export function App() {
       )}
 
       <main>
-        {loading ? null : !p ? (
+        {loading ? <p className="hint" role="status">Carregando seu save…</p> : !p ? (
           <Onboarding
             dropboxAvailable={dropboxAvailable}
             dropboxConnected={dropbox}
@@ -297,7 +297,6 @@ export function App() {
             onDemo={() => {
               setSave(demoSave());
               setTab('now');
-              window.scrollTo({ top: 0 });
             }}
           />
         ) : tab === 'now' ? (
@@ -319,7 +318,7 @@ export function App() {
                   ['diagnostics', 'Diagnóstico'],
                 ] as const
               ).map(([id, label]) => (
-                <button key={id} type="button" className={more === id ? 'on' : ''} onClick={() => setMore(id)}>
+                <button key={id} type="button" aria-current={more === id ? 'page' : undefined} className={more === id ? 'on' : ''} onClick={() => setMore(id)}>
                   {label}
                 </button>
               ))}
@@ -353,7 +352,7 @@ export function App() {
               ['more', 'Mais'],
             ] as const
           ).map(([id, label]) => (
-            <button key={id} type="button" className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
+            <button key={id} type="button" aria-current={tab === id ? 'page' : undefined} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
               {label}
             </button>
           ))}
