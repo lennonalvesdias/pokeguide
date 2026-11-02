@@ -19,6 +19,8 @@ export interface StoredSave {
   fileName: string;
   /** content_hash do arquivo no Dropbox, para não baixar de novo o que não mudou. */
   sourceHash?: string;
+  /** Demonstração com dados de exemplo: só na memória, nunca gravada. */
+  demo?: true;
 }
 
 const KEY = 'save:v1';

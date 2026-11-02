@@ -18,6 +18,8 @@ import { Diagnostics } from './features/diagnostics/Diagnostics.tsx';
 import { track } from './features/diagnostics/metrics.ts';
 import { ReportButton } from './features/feedback/Report.tsx';
 import { Now, type NowGoto } from './features/now/Now.tsx';
+import { demoSave } from './features/onboarding/demo.ts';
+import { Onboarding } from './features/onboarding/Onboarding.tsx';
 import type { GuideTarget } from './features/walkthrough/Walkthrough.tsx';
 import { Journey } from './Journey.tsx';
 import { MemberDetail } from './Member.tsx';
@@ -122,7 +124,7 @@ export function App() {
     setError(null);
     setInfo(null);
     setPending(null);
-    handleOutcome(await importSaveFiles(files, save?.preview ?? null));
+    handleOutcome(await importSaveFiles(files, save?.demo ? null : (save?.preview ?? null)));
   }
 
   const saveRef = useRef(save);
@@ -140,7 +142,7 @@ export function App() {
     }
     setSyncing(true);
     try {
-      const r = await importFromDropbox(saveRef.current);
+      const r = await importFromDropbox(saveRef.current?.demo ? null : saveRef.current);
       setLastSync(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
       if (r.kind === 'unchanged' || (r.kind === 'imported' && r.message.startsWith('Já está'))) {
         if (!opts.silent) setInfo(r.message);
@@ -226,7 +228,9 @@ export function App() {
               {mapLabel(lookup.map(p.location.mapGroup, p.location.mapNum)?.key ?? '')}
             </p>
           ) : null}
-          {p && age ? (
+          {save?.demo ? (
+            <p className="sub save-age">Jogo de exemplo</p>
+          ) : p && age ? (
             <p className={`sub save-age ${age.stale ? 'stale' : ''}`}>
               {save?.savedAt ? 'Save' : 'Importado'} {age.text}
               {age.stale ? ' · local e progresso podem ter mudado: salve no jogo' : ''}
@@ -268,6 +272,14 @@ export function App() {
           </div>
         </div>
       )}
+      {save?.demo && (
+        <div className="demo-banner">
+          <span>Demonstração: dados de exemplo, não é o seu jogo.</span>
+          <button type="button" className="btn ghost" onClick={() => setSave(null)}>
+            Usar meu save
+          </button>
+        </div>
+      )}
       {info && (
         <button type="button" className="notice" onClick={() => setInfo(null)} aria-label="Fechar aviso">
           {info}
@@ -276,13 +288,18 @@ export function App() {
 
       <main>
         {loading ? null : !p ? (
-          <>
-            {dropbox && <Onboarding syncing={syncing} />}
-            <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
-            <button type="button" className="linkish center-block" onClick={() => fileRef.current?.click()}>
-              Sem Dropbox? Importar um arquivo de save exportado do Delta
-            </button>
-          </>
+          <Onboarding
+            dropboxAvailable={dropboxAvailable}
+            dropboxConnected={dropbox}
+            syncing={syncing}
+            connect={<DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />}
+            onImportFile={() => fileRef.current?.click()}
+            onDemo={() => {
+              setSave(demoSave());
+              setTab('now');
+              window.scrollTo({ top: 0 });
+            }}
+          />
         ) : tab === 'now' ? (
           <Now stored={save!} team={team} onGo={go} />
         ) : tab === 'battle' ? (
@@ -346,18 +363,6 @@ export function App() {
   );
 }
 
-function Onboarding({ syncing }: { syncing: boolean }) {
-  return (
-    <section className="card onboarding">
-      <h2>{syncing ? 'Buscando seu save no Dropbox…' : 'Nenhum save encontrado ainda'}</h2>
-      {!syncing && (
-        <p className="fine">
-          Confira se o Delta Sync está ativo com este Dropbox e se você já salvou no jogo. Depois toque em Atualizar.
-        </p>
-      )}
-    </section>
-  );
-}
 
 // ---------------- Batalha ----------------
 
