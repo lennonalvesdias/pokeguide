@@ -43,6 +43,7 @@ export function startNavSession(area: NavArea, objectiveId: string, datasetVersi
     positionExact: false,
     switchOn: null,
     needLook: false,
+    collected: [],
     done: false,
     recent: [],
     past: [],
@@ -61,6 +62,7 @@ const core = (s: NavSession): NavSessionCore => ({
   positionExact: s.positionExact,
   switchOn: s.switchOn,
   needLook: s.needLook,
+  collected: s.collected,
   done: s.done,
   recent: s.recent,
 });
@@ -72,6 +74,11 @@ function change(s: NavSession, kind: NavLogKind, text: string, now: string, patc
 }
 
 const fact = <T>(value: T, confidence: NavFact<T>['confidence'], source: NavFact<T>['source'], at: string): NavFact<T> => ({ value, confidence, source, at });
+
+/** Itens opcionais da área (não o do objetivo) que ainda não foram pegos. */
+export function remainingOptionalItems(area: NavArea, s: NavSession, objective: NavObjective): string[] {
+  return area.pois.filter((p) => p.kind === 'item' && p.item !== objective.item && !s.collected.includes(p.id)).map((p) => p.id);
+}
 
 const goalOf = (o: NavObjective): PlanGoal => (o.item ? { kind: 'item', item: o.item } : { kind: 'exit' });
 
@@ -112,7 +119,9 @@ export function nextGuidance(area: NavArea, s: NavSession, opts: GuidanceOptions
   const names = opts.names ?? defaultNames;
   const sight = trainerSight(area, opts.defeatedTrainers ?? new Set());
   const planOpts = { mode: s.mode, ...(opts.defeatedTrainers ? { defeatedTrainers: opts.defeatedTrainers } : {}) };
-  const goal = goalOf(objective);
+  // Rota completa: primeiro o item opcional mais perto que ainda está no chão, depois o objetivo.
+  const optional = s.mode === 'complete' ? remainingOptionalItems(area, s, objective) : [];
+  const goal: PlanGoal = optional.length ? { kind: 'items', poiIds: optional } : goalOf(objective);
   const stepsOf = (plan: Plan | null, switchConfirmed: boolean) =>
     plan ? planSteps(area, plan, { names, sight, startExact: s.positionExact, switchConfirmed }) : null;
 
@@ -192,11 +201,13 @@ export function applyOutcome(area: NavArea, s: NavSession, step: GuidanceStep, o
           ? fact(step.assumesSwitchOn, 'confirmed', 'manual', now) // passou pela grade: o estado está provado
           : s.switchOn;
     const done = (!!objective.item && step.effect.collected === objective.item) || (!objective.item && !!step.effect.exited);
+    const collected = step.effect.collectedPoi && !s.collected.includes(step.effect.collectedPoi) ? [...s.collected, step.effect.collectedPoi] : s.collected;
     const session = change(s, 'outcome', `Consegui: ${step.instruction}`, now, {
       position: fact(step.effect.position, 'confirmed', 'manual', now),
       positionExact: step.action !== 'cross-gate' && step.action !== 'exit',
       switchOn,
       recent,
+      collected,
       done,
     }, step.id);
     return { session, correction: null };
@@ -246,6 +257,8 @@ export interface SaveFacts {
   /** null = o save não traz as flags (leitor antigo): fica desconhecido, nunca "desligado". */
   switchOn: boolean | null;
   hasItem: (item: string) => boolean;
+  /** Flags de evento do save (a flag "hide" de uma Poké Ball fica ligada depois que ela é pega). */
+  isFlagSet?: (flag: number) => boolean;
 }
 
 /**
@@ -277,6 +290,10 @@ export function reconcileSave(area: NavArea, s: NavSession, save: SaveFacts, now
     }
   }
   if (objective.item && save.hasItem(objective.item)) patch.done = true;
+  if (save.isFlagSet) {
+    const taken = area.pois.filter((p) => p.kind === 'item' && save.isFlagSet!(p.hideFlag) && !s.collected.includes(p.id)).map((p) => p.id);
+    if (taken.length) patch.collected = [...s.collected, ...taken];
+  }
   if (!Object.keys(patch).length && !conflicts.length) return { session: s, conflicts };
   let session = change(s, 'save', 'Save importado: posição e interruptor como prováveis.', now, patch);
   for (const c of conflicts) session = { ...session, log: [...session.log, { at: now, kind: 'conflict' as const, text: c }].slice(-MAX_LOG) };

@@ -13,7 +13,10 @@ const key = (fingerprint: string, areaId: string) => `nav:v1:${fingerprint}:${ar
 export async function loadNav(fingerprint: string, areaId: string): Promise<StoredNav | null> {
   try {
     const v = await get<StoredNav>(key(fingerprint, areaId));
-    return v?.session?.schemaVersion === 1 ? v : null;
+    if (v?.session?.schemaVersion !== 1) return null;
+    // Sessões gravadas antes da rota completa não têm `collected`.
+    const fix = <T extends { collected?: string[] }>(c: T) => ({ ...c, collected: c.collected ?? [] });
+    return { ...v, session: { ...fix(v.session), past: v.session.past.map(fix) } };
   } catch {
     return null;
   }

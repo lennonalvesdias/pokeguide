@@ -317,3 +317,4 @@ input[aria-invalid='true'] { border-color: var(--warn); }
 .mm-key.stairs { background: #4772c9; }
 .mm-key.statue { background: #8e3d8e; }
 .wt-options summary { font-weight: 600; cursor: pointer; min-height: 32px; }
+.save-age.stale { color: var(--warn); font-weight: 600; }

@@ -1,6 +1,6 @@
 # ADR — Navegação contextual e walkthrough verificável (FireRed)
 
-Status: **Aceita: fase 1 implementada, fase 2 parcial** (ver [Revisão e implementação](#revisão-e-implementação-2026-11))  
+Status: **Aceita: fases 1 e 2 implementadas para a Pokémon Mansion; fases 3 e 4 pendentes** (ver [Revisão e implementação](#revisão-e-implementação-2026-11))  
 Escopo: PokéGuide PWA, Pokémon FireRed (Gen III), Delta/iPhone  
 Branch: `feature/contextual-walkthrough-spec`  
 Relacionadas: ADR-010 (navegação em grafo) em [0000](0000-arquitetura-v1.0.md), [auditoria de UX](../UX-AUDIT-2026-11.md) (UX-01, UX-07)
@@ -184,11 +184,21 @@ e registram o que mudou na implementação.
 | 8 | Retorno, reinício, saída | Desfazer (até 3 passos), Reiniciar, objetivo "Sair". Escape Rope/Dig só sugeridos se estão na bolsa/equipe (a mansão permite: `allow_escaping`) |
 | 9 | Persistir progresso, versão e checkpoints | IndexedDB por partida e área, com `datasetVersion`; o save é conciliado quando o contador muda |
 | 10 | Validada × inferida × não confirmada | Passo marcado "Validada" ou "Inferida pelo save: confira"; posição só do save sempre pede confirmação |
-| 11 | Rotas rápida/segura/completa/acessível | Mais curta, Menos treinadores (penaliza linha de visão de quem não foi vencido), Menos escadas. **Completa (itens opcionais) fica para depois** |
+| 11 | Rotas rápida/segura/completa/acessível | Mais curta, Menos treinadores (penaliza linha de visão de quem não foi vencido), Menos escadas, Completa (pega antes o item opcional mais próximo ainda no chão; os já pegos saem pelas flags `FLAG_HIDE_*` do save) |
 | 12 | pt-BR com nomes do jogo em inglês | Sim |
 
-Não implementado nesta entrega: envio e reconhecimento de screenshot (fase 3), demais locais (fase 4),
+Não implementado: envio e reconhecimento de screenshot (fase 3), demais locais (fase 4) e
 diagnóstico enviado para fora do aparelho (o registro auditável fica só local).
+
+- **Fase 3 está bloqueada por decisão pendente:** reconhecer screenshot exige um provedor de visão/LLM, e a
+  "ADR de uso de LLM" (provedor, comportamento offline, validação de saída) ainda está em aberto no
+  [índice](README.md). Até lá, a pergunta objetiva (cor dos olhos da estátua, "a grade está aberta?")
+  cobre o papel da imagem sem rede.
+- **Fase 4 precisa de mecânicas novas, uma por área:** portas de Card Key e teletransportes (Silph Co.),
+  conexões entre mapas sem warp e limite de passos (Safari Zone), pedras de Strength e correntezas
+  (Seafoam Islands, Victory Road). O formato `navigation.json` (grade + transições tipadas) comporta
+  essas extensões, mas cada uma precisa ser extraída do decomp e ganhar golden cases antes de liberar a
+  área, como fizemos com a mansão.
 
 ### Casos de aceitação → testes
 
@@ -201,6 +211,7 @@ diagnóstico enviado para fora do aparelho (o registro auditável fica só local
 | Secret Key adquirida → Ginásio | "com a Secret Key: objetivo concluído…" |
 | Bloqueante: nenhuma aresta com condição falsa/desconhecida | `navigation.test.ts` › "nenhuma rota pisa em tile fechado…" (varre a mansão inteira nos dois estados) |
 | Bloqueante: posição inferida nunca como confirmada | "posição só do save é provável: pede confirmação…" |
+| Rota completa | "rota completa: pega os 11 itens opcionais antes da Secret Key…" |
 | Contrato `expectedResult` + `verificationQuestion` | `navigation.test.ts` › "todo passo tem resultado esperado e pergunta de verificação" |
 | DoD: entrada → Secret Key, inclusive errando | "da entrada até a Secret Key…" (os dois estados iniciais) + "grade fechada quando o save dizia aberta" + "olhos da outra cor" |
 

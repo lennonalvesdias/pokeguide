@@ -95,7 +95,8 @@ export interface NavLogEntry {
   stepId?: string;
 }
 
-export type RouteMode = 'fast' | 'safe' | 'fewer-floors';
+/** 'complete': pega antes os itens opcionais da área que ainda estão no chão. */
+export type RouteMode = 'fast' | 'safe' | 'fewer-floors' | 'complete';
 
 export interface NavSessionCore {
   position: NavFact<NavPlace> | null;
@@ -105,6 +106,8 @@ export interface NavSessionCore {
   switchOn: NavFact<boolean> | null;
   /** O jogador disse que não consegue ver a estátua: guiar até uma para olhar. */
   needLook: boolean;
+  /** Itens da área já pegos (ids dos pontos), pelo jogador ou pelas flags do save. */
+  collected: string[];
   done: boolean;
   /** Último passo mostrado e o que aconteceu (histórico curto). */
   recent: Array<{ stepId: string; instruction: string; outcome: StepOutcome; at: string }>;
@@ -147,7 +150,7 @@ export interface GuidanceStep {
   assumesSwitchOn?: boolean;
   basis: StepBasis;
   /** O que passa a ser verdade se o jogador confirmar. */
-  effect: { position: NavPlace; switchOn?: boolean; collected?: string; exited?: boolean };
+  effect: { position: NavPlace; switchOn?: boolean; collected?: string; collectedPoi?: string; exited?: boolean };
   /** Treinadores ainda não vencidos cuja linha de visão o caminho cruza. */
   trainers: string[];
   /** Passos restantes no plano, contando este. */

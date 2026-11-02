@@ -2,6 +2,7 @@
 // Cada caso traz entrada completa e uma única saída esperada.
 import {
   answerSwitch,
+  assessTeam,
   applyOutcome,
   createTypeChart,
   forgetRule,
@@ -16,9 +17,10 @@ import {
   startNavSession,
   type TeamMember,
   teachAdvice,
+  wildMoveset,
 } from '@pokeguide/domain';
 import { describe, expect, it } from 'vitest';
-import { lookup, manifest, moves, navigationAreaOf, rules, species, typeChart, upcomingOpponents } from '../src/index.ts';
+import { lookup, manifest, moves, navigationAreaOf, rules, species, typeChart, upcomingOpponents, wildLevelHint } from '../src/index.ts';
 
 const chart = createTypeChart(typeChart);
 const vs = (moveKey: string, speciesKey: string, opts: Parameters<typeof matchup>[3] = {}) =>
@@ -205,6 +207,18 @@ describe('Pokémon Mansion: walkthrough verificável', () => {
       exitHint: 'Para sair na hora: use uma Escape Rope (funciona na Pokémon Mansion).',
     });
   });
+  it('rota completa: pega os 11 itens opcionais antes da Secret Key, menos o que o save diz que já foi pego', () => {
+    const carbos = area.pois.find((p) => p.kind === 'item' && p.item === 'carbos')!;
+    let s: NavSession = { ...session(area.entrance, false), mode: 'complete' };
+    s = reconcileSave(area, s, { mapKey: null, x: 0, y: 0, switchOn: false, hasItem: () => false, isFlagSet: (f) => carbos.kind === 'item' && f === carbos.hideFlag }, T).session;
+    const order: string[] = [];
+    for (let g = nextGuidance(area, s); g.kind === 'step'; g = nextGuidance(area, s)) {
+      if (g.step.effect.collected) order.push(g.step.effect.collected);
+      s = applyOutcome(area, s, g.step, 'done', T).session;
+      if (order.length > 20) throw new Error('rota não termina');
+    }
+    expect([s.done, order.length, order.at(-1), order.includes('carbos')]).toEqual([true, 11, 'secret_key', false]);
+  });
   it('da entrada até a Secret Key seguindo só "Consegui", começando com o interruptor em qualquer estado', () => {
     for (const start of [false, true]) {
       let s = session(area.entrance, start);
@@ -238,5 +252,32 @@ describe('ensinar golpe: o ataque principal com STAB não sai por média agregad
       protectedMove: 'body_slam',
       hm: true,
     });
+  });
+});
+
+// Validação em campo (2026-11): Magneton selvagem Nv 33 na Power Plant derrubou o Gyarados, mas o app
+// mostrava "Surf 139–210%, nocaute garantido" porque calculava com o nível da luta anterior (Nv 15).
+describe('nível do selvagem acompanha a espécie (Magneton x Gyarados)', () => {
+  const badges = ['boulder', 'cascade', 'thunder', 'rainbow', 'soul', 'marsh'];
+  const real = (key: string, level: number, stats: TeamMember['stats'], hp: number, moves: string[]): TeamMember => ({
+    id: key, name: key, species: lookup.species(key), level, stats, hp: { current: hp, max: hp }, status: null,
+    moves: moves.map((m) => ({ move: lookup.move(m) })),
+  });
+  const team = [
+    real('gyarados', 32, { atk: 91, def: 58, spe: 63, spa: 53, spd: 74 }, 105, ['ice_beam', 'dragon_rage', 'bite', 'surf']),
+    real('charizard', 40, { atk: 75, def: 73, spe: 99, spa: 101, spd: 79 }, 125, ['wing_attack', 'flamethrower', 'fly', 'brick_break']),
+  ];
+  const magneton = (level: number) => ({ species: lookup.species('magneton'), level, moves: wildMoveset(lookup.species('magneton'), level).map((m) => lookup.move(m)) });
+
+  it('sem nível informado, o Magneton vem da Power Plant (Nv 31–34), não da luta anterior', () => {
+    expect(wildLevelHint('magneton', 'PokemonMansion_1F', 40)).toEqual({ level: 34, min: 31, max: 34, source: 'game', map: 'PowerPlant' });
+  });
+  it('quem aparece no mapa do save usa a faixa local', () => {
+    expect(wildLevelHint('growlithe', 'PokemonMansion_2F', 40)).toMatchObject({ level: 32, source: 'local' });
+  });
+  it('Nv 33: Spark (4×) derruba o Gyarados de uma vez e o Surf não nocauteia; Charizard é a escolha', () => {
+    const r = assessTeam(chart, team, magneton(33), badges);
+    const gyarados = r.find((a) => a.memberId === 'gyarados')!;
+    expect([r[0]!.memberId, gyarados.threat?.moveKey, gyarados.threat?.ko, gyarados.best?.ko, Math.round(gyarados.duel.winProb * 100)]).toEqual(['charizard', 'spark', 'guaranteed', 'none', 0]);
   });
 });

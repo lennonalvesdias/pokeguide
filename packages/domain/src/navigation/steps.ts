@@ -170,12 +170,12 @@ export function planSteps(area: NavArea, plan: Plan, ctx: StepContext): Guidance
         { x: g.x, y: g.y },
         {
           landmark: `a Poké Ball no chão ${zone(area, g.floor, g)}`,
-          instruction: `Vá até a Poké Ball no chão ${zone(area, g.floor, g)}, fique de frente para ela e aperte A: é a ${name}.`,
-          expectedResult: `Aparece a mensagem de que você encontrou a ${name}.`,
-          verificationQuestion: `Pegou a ${name}?`,
+          instruction: `Vá até a Poké Ball no chão ${zone(area, g.floor, g)}, fique de frente para ela e aperte A. Dentro: ${name}.`,
+          expectedResult: `Aparece a mensagem de que você encontrou ${name}.`,
+          verificationQuestion: `Pegou ${name}?`,
           alternativeOnFailure: 'Se a Poké Ball não estiver lá, você já pode ter pegado: confira na Bolsa (Itens-chave).',
         },
-        { position: pos, collected: g.item },
+        { position: pos, collected: g.item, collectedPoi: g.id },
         true,
       );
     } else if (g.kind === 'exit') {

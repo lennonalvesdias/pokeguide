@@ -239,3 +239,29 @@ export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlyS
     slots: [...g.slots.values()].map((x) => ({ opponent: wildOpponent(x.species, x.level), rate: x.rate / g.maps.size })),
   }));
 }
+
+export interface WildLevelHint {
+  level: number;
+  min: number;
+  max: number;
+  /** 'local': aparece no mapa do save; 'game': aparece em outro lugar do jogo; 'estimate': não aparece selvagem. */
+  source: 'local' | 'game' | 'estimate';
+  /** Mapa de onde veio a faixa (ausente na estimativa). */
+  map?: string;
+}
+
+/**
+ * Nível provável de um selvagem quando o jogador não informou: a faixa do encontro no mapa do save,
+ * senão a faixa do jogo mais próxima do nível da equipe, senão o nível da equipe. Usa o máximo da faixa
+ * (a ameaça maior), e a interface sempre pede para conferir o "Lv" na tela.
+ */
+export function wildLevelHint(speciesKey: string, mapKey: string, teamLevel: number): WildLevelHint {
+  const slots = encounters.flatMap((e) => e.slots.filter((s) => s.species === speciesKey).map((s) => ({ map: e.map, ...s })));
+  const prefix = areaOf(mapKey);
+  const local = slots.filter((s) => s.map === mapKey || areaOf(s.map) === prefix);
+  const pool = local.length ? local : slots;
+  if (!pool.length) return { level: teamLevel, min: teamLevel, max: teamLevel, source: 'estimate' };
+  const dist = (s: { minLevel: number; maxLevel: number }) => (teamLevel < s.minLevel ? s.minLevel - teamLevel : teamLevel > s.maxLevel ? teamLevel - s.maxLevel : 0);
+  const best = [...pool].sort((a, b) => dist(a) - dist(b) || a.map.localeCompare(b.map))[0]!;
+  return { level: best.maxLevel, min: best.minLevel, max: best.maxLevel, source: local.length ? 'local' : 'game', map: best.map };
+}

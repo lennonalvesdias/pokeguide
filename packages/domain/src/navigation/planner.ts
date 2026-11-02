@@ -12,7 +12,8 @@ export const DIRS: ReadonlyArray<readonly [NavDirection, number, number]> = [
 /** `true`/`false`: estado assumido do interruptor. `'both'`: só tiles livres nos dois estados, sem apertar estátuas. */
 export type SwitchAssumption = boolean | 'both';
 
-export type PlanGoal = { kind: 'item'; item: string } | { kind: 'exit' } | { kind: 'any-switch' };
+/** `items`: o mais perto dentre esses pontos de item (rota completa). */
+export type PlanGoal = { kind: 'item'; item: string } | { kind: 'items'; poiIds: readonly string[] } | { kind: 'exit' } | { kind: 'any-switch' };
 
 export type PlanAction =
   | { type: 'move'; floor: string; to: NavTile }
@@ -224,6 +225,7 @@ export function planRoute(area: NavArea, start: NavPlace, switchOn: SwitchAssump
     if (goal.kind === 'any-switch' && p.kind === 'switch') mark(p.floor, p.stand.x, p.stand.y, p);
     if (goal.kind === 'exit' && p.kind === 'exit') mark(p.floor, p.x, p.y, p);
     if (goal.kind === 'item' && p.kind === 'item' && p.item === goal.item) for (const [, dx, dy] of DIRS) mark(p.floor, p.x + dx, p.y + dy, p);
+    if (goal.kind === 'items' && p.kind === 'item' && goal.poiIds.includes(p.id)) for (const [, dx, dy] of DIRS) mark(p.floor, p.x + dx, p.y + dy, p);
   }
 
   while (heap.size) {

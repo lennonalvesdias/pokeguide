@@ -121,8 +121,30 @@ o ataque principal com STAB fosse o candidato a sair.
 | UX-02 | **Feito** | `mainStabMove`: o ataque principal com STAB não sai para um golpe sem STAB, nem em `teachAdvice` nem em `bestMoveset`. Veredito negativo nunca cita a "melhor troca"; diz o motivo ("só caberia no lugar de Body Slam, o ataque principal com STAB"). Regressão em `golden.test.ts` |
 | UX-08 | **Parcial** | Vereditos agora são **Ensinar / Não ensinar / Depende**; o percentual diz contra quantos adversários foi calculado e que é uma média, não o dano contra um adversário. Distribuição por matchup ainda não |
 | UX-07 | **Parcial** | O guia da mansão funciona sem flags do save (modo manual, com pontos de referência e perguntas). O roteiro da Jornada ainda depende das flags |
-| UX-04 | **Parcial** | No guia, posição e interruptor vindos do save aparecem como "Provável (pelo save, pode estar desatualizado)" e pedem confirmação; divergência com o que o jogador confirmou vira aviso, nunca sobrescrita silenciosa. O cabeçalho geral ainda não mostra a idade do save |
-| UX-03, 05, 06, 09, 10 | Pendente | Reorganização em "Agora", batalha expressa, separação de análise avançada, onboarding e feedback contextual |
+| UX-04 | **Feito** | O cabeçalho mostra a idade do save (horário de chegada ao Dropbox ou data do arquivo importado) e, depois de 15 min, avisa que local e progresso podem ter mudado. No guia, posição e interruptor vindos do save aparecem como "Provável" e pedem confirmação; divergência com o que o jogador confirmou vira aviso, nunca sobrescrita silenciosa |
+| UX-11 (novo) | **Feito** | Ver "Validação em campo: Magneton" abaixo |
+| UX-03, 05, 06, 09, 10 | Pendente (P1/P2) | Reorganização em "Agora", batalha expressa, separação de análise avançada, onboarding e feedback contextual |
 
-Roadmap P0 após esta entrega: (1) feito; (2) feito para a mansão; (3) feito dentro do guia, falta no
-restante do app.
+Roadmap P0 após esta entrega: os três itens estão feitos (o 2 para a mansão; outras áreas dependem da
+fase 4 do ADR de navegação).
+
+### Validação em campo: Magneton (UX-11)
+
+Na batalha selvagem, o app mostrou "Fique com Gyarados e use Surf (vence 100%) · Surf 139–210%, nocaute
+garantido · ameaça: Thundershock 21–26%", e o Gyarados desmaiou com o Magneton pela metade.
+
+- **Causa:** o nível do adversário é um campo separado, guardado entre lutas. Escolhendo o Pokémon pelo
+  nome ou por sugestão, o nível da luta anterior (Nv 15) continuava valendo, e o campo ficava fora da tela.
+  Com Nv 15 o motor reproduz exatamente os números exibidos. No nível real (Nv 33, Power Plant) o motor
+  estava certo: o Magneton tem Spark (4×, 116–149% do HP do Gyarados), o Surf tira 36–57% e o Gyarados
+  perde.
+- **Correção:**
+  - O nível agora pertence à espécie escolhida. Sem nível digitado, ele vem da faixa do encontro (o mapa do
+    save; senão o lugar do jogo com a faixa mais próxima do nível da equipe; senão o nível da equipe).
+  - Usa-se o máximo da faixa, que é a ameaça maior.
+  - O card do adversário mostra "Nv 34 · nível a confirmar", com o pedido para conferir o "Lv" na tela de
+    batalha.
+  - Golden cases em `golden.test.ts`.
+
+O mesmo print mostrou outro caso de UX-04: o cabeçalho dizia "Pokémon Mansion" com o jogador na Power
+Plant, porque o save era anterior. A idade do save no cabeçalho agora deixa isso visível.

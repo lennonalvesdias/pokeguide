@@ -14,6 +14,8 @@ import { get, set } from 'idb-keyval';
 export interface StoredSave {
   preview: SaveImportPreview;
   importedAt: string;
+  /** Quando o save foi gravado/enviado (Dropbox: chegada do arquivo; importação manual: data do arquivo). */
+  savedAt?: string;
   fileName: string;
   /** content_hash do arquivo no Dropbox, para não baixar de novo o que não mudou. */
   sourceHash?: string;
@@ -58,7 +60,13 @@ export async function importSaveFiles(
   const failNote = failures.length ? ` Ignorados: ${failures.join('; ')}.` : '';
   const r = pickLatestSave(candidates, current);
   if (r.kind === 'none') return { kind: 'rejected', message: `Nenhum save válido.${failNote}` };
-  const stored: StoredSave = { preview: r.chosen.preview, importedAt: new Date().toISOString(), fileName: r.chosen.name };
+  const file = files.find((f) => f.name === r.chosen.name);
+  const stored: StoredSave = {
+    preview: r.chosen.preview,
+    importedAt: new Date().toISOString(),
+    fileName: r.chosen.name,
+    ...(file?.lastModified ? { savedAt: new Date(file.lastModified).toISOString() } : {}),
+  };
   const pt = r.chosen.preview.playTime;
   const desc = `${r.chosen.name} (${pt.hours}h${String(pt.minutes).padStart(2, '0')}, save nº ${r.chosen.preview.saveCounter})`;
   if (r.kind === 'older-than-current') {
@@ -142,7 +150,7 @@ export async function importFromDropbox(current: StoredSave | null): Promise<Dro
   const sameParser = current?.preview.parserVersion === SAVE_PARSER_VERSION;
   if (sameParser && current?.sourceHash && saves.length === 1 && saves[0]!.contentHash === current.sourceHash) return upToDate;
   const files: File[] = [];
-  for (const s of saves) files.push(new File([await downloadFile(s.path)], 'Dropbox'));
+  for (const s of saves) files.push(new File([await downloadFile(s.path)], 'Dropbox', s.modifiedAt ? { lastModified: Date.parse(s.modifiedAt) } : {}));
   const outcome = await importSaveFiles(files, current?.preview ?? null, { persist: false });
   if (outcome.kind === 'rejected') return outcome;
   const chosen = saves.length === 1 ? saves[0] : undefined;
@@ -160,4 +168,15 @@ export async function importFromDropbox(current: StoredSave | null): Promise<Dro
     stored,
     message: `Save atualizado do Dropbox: ${pt.hours}h${String(pt.minutes).padStart(2, '0')}, save nº ${stored.preview.saveCounter}.`,
   };
+}
+
+/** "há 5 min", "há 2 h", "em 03/11": idade do save para o jogador saber se ele reflete o jogo aberto. */
+export function saveAge(iso: string | undefined, now = Date.now()): { text: string; stale: boolean } | null {
+  if (!iso) return null;
+  const t = Date.parse(iso);
+  if (!Number.isFinite(t)) return null;
+  const min = Math.max(0, Math.round((now - t) / 60000));
+  const text = min < 1 ? 'agora' : min < 60 ? `há ${min} min` : min < 24 * 60 ? `há ${Math.round(min / 60)} h` : `em ${new Date(t).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}`;
+  // Mais de 15 min: o jogo aberto no Delta provavelmente já andou.
+  return { text, stale: min > 15 };
 }

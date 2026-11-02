@@ -14,6 +14,7 @@ import {
   type NavFact,
   nextGuidance,
   reconcileSave,
+  remainingOptionalItems,
   type RouteMode,
   setPosition,
   startNavSession,
@@ -40,6 +41,7 @@ const MODES: Array<[RouteMode, string]> = [
   ['fast', 'Mais curta'],
   ['safe', 'Menos treinadores'],
   ['fewer-floors', 'Menos escadas'],
+  ['complete', 'Completa (pega os itens no caminho)'],
 ];
 const now = () => new Date().toISOString();
 
@@ -57,6 +59,7 @@ function saveFacts(area: NavArea, preview: SaveImportPreview) {
     y: preview.location.y,
     switchOn: preview.flagsHex ? isFlagSet(preview.flagsHex, area.switchFlag.id) : null,
     hasItem: (k: string) => preview.bag.keyItems.some((s) => lookup.item(s.itemId)?.key === k),
+    ...(preview.flagsHex ? { isFlagSet: (f: number) => isFlagSet(preview.flagsHex, f) } : {}),
   };
 }
 
@@ -131,6 +134,12 @@ export function Walkthrough({ area, preview, team, onClose }: { area: NavArea; p
           <dd>
             {pos ? describePlace(area, pos.value) : 'Não sei ainda'} <span className={`conf ${posLabel.cls}`}>{posLabel.text}</span>
           </dd>
+          {session.mode === 'complete' && (
+            <>
+              <dt>Itens opcionais</dt>
+              <dd>{remainingOptionalItems(area, session, objective).length} ainda no chão</dd>
+            </>
+          )}
           <dt>Interruptor</dt>
           <dd>
             {session.switchOn ? `${session.switchOn.value ? 'Ligado (olhos vermelhos)' : 'Desligado (olhos pretos)'}` : 'Desconhecido'}{' '}

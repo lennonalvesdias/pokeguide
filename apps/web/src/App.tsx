@@ -1,4 +1,4 @@
-import { encounters, type EncounterMethod, type EncounterSlot, lookup, moves as allMoves, rules, species as allSpecies, typeChart } from '@pokeguide/data-firered';
+import { encounters, type EncounterMethod, type EncounterSlot, lookup, moves as allMoves, rules, species as allSpecies, typeChart, wildLevelHint } from '@pokeguide/data-firered';
 import {
   adviseActive,
   assessTeam,
@@ -35,6 +35,7 @@ import {
   loadStoredSave,
   persist,
   readPref,
+  saveAge,
   type StoredSave,
   toTeam,
   writePref,
@@ -171,6 +172,13 @@ export function App() {
   }
 
   const p = save?.preview;
+  // Reavalia a idade do save a cada minuto.
+  const [, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick((n) => n + 1), 60_000);
+    return () => clearInterval(id);
+  }, []);
+  const age = save ? saveAge(save.savedAt ?? save.importedAt) : null;
   return (
     <div className="app">
       <header className="top">
@@ -181,9 +189,15 @@ export function App() {
               {p.playTime.hours}h{String(p.playTime.minutes).padStart(2, '0')} · {p.badges.length} insígnias ·{' '}
               {mapLabel(lookup.map(p.location.mapGroup, p.location.mapNum)?.key ?? '')}
             </p>
-          ) : (
+          ) : null}
+          {p && age ? (
+            <p className={`sub save-age ${age.stale ? 'stale' : ''}`}>
+              {save?.savedAt ? 'Save' : 'Importado'} {age.text}
+              {age.stale ? ' · local e progresso podem ter mudado: salve no jogo' : ''}
+            </p>
+          ) : !p ? (
             <p className="sub">Copiloto de FireRed</p>
-          )}
+          ) : null}
         </div>
         {dropbox ? (
           <button
@@ -362,14 +376,21 @@ function WildBattle({
 }) {
   const maxLevel = Math.max(...team.map((m) => m.level), 5);
   const [oppText, setOppText] = useState(() => readPref('opp') ?? '');
-  const [levelText, setLevelText] = useState(() => readPref('oppLevel') || String(maxLevel));
+  // O nível pertence a uma espécie: trocar de adversário nunca herda o nível da luta anterior.
+  const [levelText, setLevelText] = useState(() => readPref('oppLevel') ?? '');
+  const [levelFor, setLevelFor] = useState<string | null>(() => readPref('oppLevelFor'));
   useEffect(() => writePref('opp', oppText), [oppText]);
   useEffect(() => writePref('oppLevel', levelText), [levelText]);
+  useEffect(() => writePref('oppLevelFor', levelFor ?? ''), [levelFor]);
 
-  const level = /^\d+$/.test(levelText.trim()) ? Number(levelText) : NaN;
-  const levelOk = level >= 1 && level <= 100;
   const search = useMemo(() => findOption(speciesOptions, oppText), [oppText]);
   const opt = search.match;
+  const mapKey = lookup.map(preview.location.mapGroup, preview.location.mapNum)?.key ?? '';
+  const hint = useMemo(() => (opt ? wildLevelHint(opt.key, mapKey, maxLevel) : null), [opt, mapKey, maxLevel]);
+  const userLevel = !!opt && levelFor === opt.key;
+  const shownLevel = userLevel || !hint ? levelText : String(hint.level);
+  const level = /^\d+$/.test(shownLevel.trim()) ? Number(shownLevel) : NaN;
+  const levelOk = level >= 1 && level <= 100;
   const opponent = useMemo(() => {
     if (!opt || !levelOk) return null;
     const species = lookup.species(opt.key);
@@ -378,13 +399,18 @@ function WildBattle({
   const ranking = useMemo(() => (opponent ? assessTeam(chart, team, opponent, badges) : []), [opponent, team, badges]);
   const byId = new Map(team.map((m) => [m.id, m]));
   const top = ranking[0];
-  const mapKey = lookup.map(preview.location.mapGroup, preview.location.mapNum)?.key ?? '';
   const keyItems = useMemo(() => new Set(preview.bag.keyItems.map((i) => lookup.item(i.itemId)?.key ?? '')), [preview]);
   const local = useMemo(() => localEncounters(mapKey, keyItems), [mapKey, keyItems]);
-  const pick = (speciesKey: string, lvl?: number) => {
-    setOppText(displayName(lookup.species(speciesKey).name));
-    if (lvl) setLevelText(String(lvl));
-  };
+  const pick = (speciesKey: string) => setOppText(displayName(lookup.species(speciesKey).name));
+  const range = hint && hint.min !== hint.max ? `Nv ${hint.min}–${hint.max}` : `Nv ${hint?.max}`;
+  const levelNote = !opt || userLevel || !hint
+    ? null
+    : hint.source === 'local'
+      ? `Nível ${hint.level}: aqui ele aparece com ${range}.`
+      : hint.source === 'game'
+        ? `Nível ${hint.level}: ${displayName(opt.label)} aparece em ${mapLabel(hint.map ?? '')} com ${range}.`
+        : `Nível ${hint.level}, estimado pelo da sua equipe: ${opt.label} não aparece selvagem no FireRed.`;
+  const caveat = levelNote ? `Calculado com Nv ${level}: confira o “Lv” na tela de batalha e corrija se for outro.` : null;
 
   return (
     <section>
@@ -402,7 +428,7 @@ function WildBattle({
                       key={sl.species}
                       type="button"
                       className={`mon-pick ${opt?.key === sl.species ? 'on' : ''}`}
-                      onClick={() => pick(sl.species, sl.maxLevel)}
+                      onClick={() => pick(sl.species)}
                       aria-pressed={opt?.key === sl.species}
                     >
                       <Sprite species={sp} size={56} />
@@ -437,8 +463,11 @@ function WildBattle({
             inputMode="numeric"
             min={1}
             max={100}
-            value={levelText}
-            onChange={(e) => setLevelText(e.target.value)}
+            value={shownLevel}
+            onChange={(e) => {
+              setLevelText(e.target.value);
+              setLevelFor(opt?.key ?? null);
+            }}
             aria-invalid={!levelOk}
           />
         </label>
@@ -449,6 +478,11 @@ function WildBattle({
         </datalist>
       </div>
 
+      {levelNote && levelOk && (
+        <p className="hint warn">
+          {levelNote} Confira o “Lv” na tela de batalha e corrija se for outro.
+        </p>
+      )}
       {opponent && <ActivePicker team={team} activeId={activeId} onChange={onActiveChange} />}
       {!levelOk && <p className="hint warn">O nível precisa ser um número de 1 a 100.</p>}
       {levelOk && !oppText.trim() && (
@@ -474,7 +508,7 @@ function WildBattle({
 
       {opponent && top && (
         <>
-          <OpponentSummary species={opponent.species} moves={opponent.moves} />
+          <OpponentSummary species={opponent.species} moves={opponent.moves} level={level} levelCaveat={caveat} />
           <ActiveAdviceLine team={team} activeId={activeId} opponent={opponent} badges={badges} />
           <NoSafeWinner best={top} member={byId.get(top.memberId)!} />
           <Recommendation a={top} member={byId.get(top.memberId)!} primary />
@@ -483,7 +517,7 @@ function WildBattle({
             <Recommendation key={a.memberId} a={a} member={byId.get(a.memberId)!} />
           ))}
           <ReportLink
-            title={`Recomendação: ${displayName(opponent.species.name)} Nv ${level}`}
+            title={`Recomendação: ${displayName(opponent.species.name)} Nv ${level}${userLevel ? '' : ' (nível sugerido)'}`}
             context={{
               opponent: { species: opponent.species.key, level, moves: opponent.moves.map((m) => m.key) },
               badges,
@@ -497,13 +531,26 @@ function WildBattle({
   );
 }
 
-export function OpponentSummary({ species, moves }: { species: TeamMember['species']; moves: MoveDefinition[] }) {
+export function OpponentSummary({
+  species,
+  moves,
+  level,
+  levelCaveat = null,
+}: {
+  species: TeamMember['species'];
+  moves: MoveDefinition[];
+  level?: number;
+  /** Nível não informado pelo jogador: avisar junto do adversário, que é o que fica visível ao rolar. */
+  levelCaveat?: string | null;
+}) {
   return (
     <div className="card opp">
       <div className="row">
         <strong className="with-sprite">
           <Sprite species={species} size={48} />
           {displayName(species.name)}
+          {level !== undefined && <span className="lvl-tag"> Nv {level}</span>}
+          {levelCaveat && <span className="tag lock">nível a confirmar</span>}
         </strong>
         <span className="types">
           {species.types.map((t) => (
@@ -515,6 +562,7 @@ export function OpponentSummary({ species, moves }: { species: TeamMember['speci
         Habilidade: {species.abilities.map((a) => displayName(a.replace(/_/g, ' '))).join(' ou ')} · Golpes prováveis (selvagem):{' '}
         {moves.map((m) => displayName(m.name)).join(', ') || '—'}
       </p>
+      {levelCaveat && <p className="notes">{levelCaveat}</p>}
     </div>
   );
 }

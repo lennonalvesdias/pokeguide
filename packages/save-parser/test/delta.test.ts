@@ -33,4 +33,9 @@ describe('pasta do Delta Sync', () => {
   it('ignora entradas sem tamanho', () => {
     expect(deltaSaveFiles([{ name: 'GameSave-41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc-gameSave', path: '/x' }])).toEqual([]);
   });
+
+  it('preserva quando o save chegou ao Dropbox, para mostrar a idade do save', () => {
+    const name = 'GameSave-41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc-gameSave';
+    expect(deltaSaveFiles([{ name, path: '/x', size: 0x20000, modifiedAt: '2026-11-01T20:31:00Z' }])[0]?.modifiedAt).toBe('2026-11-01T20:31:00Z');
+  });
 });
