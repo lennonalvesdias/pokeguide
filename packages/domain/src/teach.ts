@@ -36,6 +36,18 @@ export interface TeachGain {
   worsens: number;
   /** Golpe de HM: só o Move Deleter apaga depois. */
   hm: boolean;
+  /**
+   * Por adversário (espécie + nível, sem repetir): dano esperado do melhor golpe antes e depois, em fração
+   * do HP dele (1 = derruba com um golpe, contando precisão). Mostra onde ganha e onde perde, não só a média.
+   */
+  scenarios: TeachScenario[];
+}
+
+export interface TeachScenario {
+  species: string;
+  level: number;
+  before: number;
+  after: number;
 }
 
 /** Ganho mínimo (relativo) para valer gastar o TM. */
@@ -214,12 +226,21 @@ export function teachAdvice(
     const value = weighted(row, weights);
     const diffs = row.map((v, i) => ({ d: (v - nowRow[i]!) * weights[i]!, sp: opponents[i]!.species.name }));
     const improves = [...new Set(diffs.filter((x) => x.d > 0.05).sort((a, b) => b.d - a.d).map((x) => x.sp))].slice(0, 3);
+    const seen = new Set<string>();
+    const scenarios: TeachScenario[] = [];
+    opponents.forEach((o, i) => {
+      const k = `${o.species.key}:${o.level}`;
+      if (seen.has(k)) return;
+      seen.add(k);
+      scenarios.push({ species: o.species.key, level: o.level, before: nowRow[i]!, after: row[i]! });
+    });
     return {
       gain: now > 0 ? (value - now) / now : value > 0 ? 1 : 0,
       opponents: opponents.length,
       improves,
       worsens: row.filter((v, i) => v < nowRow[i]! - 0.01).length,
       hm,
+      scenarios,
     };
   };
 
@@ -237,7 +258,7 @@ export function teachAdvice(
     const value = weighted(bestPerRow(matrix, [...idx.filter((j) => j !== i), current.length]), weights);
     if (!best || value > best.value + 1e-9 || (Math.abs(value - best.value) <= 1e-9 && tieBetter(m, current[best.i]!) < 0)) best = { i, value };
   }
-  if (!best) return { kind: 'keep', bestReplace: null, reason: 'only-locked', protectedMove, gain: 0, opponents: opponents.length, improves: [], worsens: 0, hm };
+  if (!best) return { kind: 'keep', bestReplace: null, reason: 'only-locked', protectedMove, gain: 0, opponents: opponents.length, improves: [], worsens: 0, hm, scenarios: [] };
   const replace = current[best.i]!;
   const g = explain([...idx.filter((j) => j !== best.i), current.length]);
   if (g.gain < (hm ? TEACH_MIN_GAIN_HM : TEACH_MIN_GAIN)) return { kind: 'keep', bestReplace: replace.key, reason: 'low-gain', protectedMove, ...g };
