@@ -376,3 +376,85 @@ describe('fase 4a: áreas e rota pelo mundo', async () => {
     expect(plan).toBeNull();
   });
 });
+
+// ---------- Navegação (fase 4b): áreas com mecânicas especiais ----------
+// Mesma forma da 4a: entrada da área + fatos → ações de decisão até o objetivo. "push" (empurrar pedra)
+// é contado à parte. Os itens que destravam caminho (Card Key, Lift Key) não estão na bolsa: o guia busca.
+describe('fase 4b: Rocket Hideout, Silph Co., Safari Zone, Seafoam Islands, Victory Road', async () => {
+  const world = await loadWorld();
+  const T = '2026-11-01T00:00:00Z';
+  const F = facts({ badges: ['boulder', 'cascade', 'thunder', 'rainbow', 'soul', 'marsh', 'volcano', 'earth'], moves: ['surf', 'strength'] });
+  const run = (areaId: string, objectiveId: string) => {
+    const area = navigation.areas.find((a) => a.id === areaId)!;
+    let s = setPosition(startNavSession(area, objectiveId, manifest.datasetVersion, T), area.entrance, T);
+    const decisions: string[] = [];
+    let pushes = 0;
+    for (let i = 0; i < 300; i++) {
+      const g = nextGuidance(world, area, F, s);
+      if (g.kind !== 'step') return { end: g.kind, pushes, decisions };
+      if (g.step.action === 'push') pushes++;
+      else if (g.step.action !== 'walk') decisions.push(g.step.action);
+      s = applyOutcome(world, area, s, g.step, 'done', T).session;
+    }
+    throw new Error('rota não termina');
+  };
+
+  it('Rocket Hideout: busca o Lift Key no B4F, vence o Rocket da barreira e usa o elevador até o Giovanni', () => {
+    expect(run('rocket_hideout', 'giovanni')).toEqual({ end: 'done', pushes: 0, decisions: ['warp', 'warp', 'warp', 'talk', 'warp', 'warp', 'warp', 'open', 'warp', 'warp', 'talk'] });
+  });
+  it('Silph Co.: pega o Card Key no 5F, abre as portas e chega ao Giovanni no 11F', () => {
+    expect(run('silph_co', 'giovanni')).toEqual({ end: 'done', pushes: 0, decisions: ['warp', 'warp', 'warp', 'warp', 'collect', 'warp', 'warp', 'warp', 'open', 'warp', 'warp', 'open', 'talk'] });
+  });
+  it('Safari Zone: até o homem do Surf na casa secreta e até os Gold Teeth', () => {
+    expect(run('safari_zone', 'surf')).toEqual({ end: 'done', pushes: 0, decisions: ['surf', 'land', 'warp', 'surf', 'land', 'warp', 'talk'] });
+    expect(run('safari_zone', 'gold_teeth')).toEqual({ end: 'done', pushes: 0, decisions: ['surf', 'land', 'warp', 'surf', 'land', 'warp', 'collect'] });
+  });
+  it('Seafoam Islands: 8 pedras em cadeia param as correntezas e o caminho até o Articuno abre', () => {
+    const r = run('seafoam_islands', 'articuno');
+    expect([r.end, r.pushes, r.decisions.slice(-3)]).toEqual(['done', 22, ['surf', 'land', 'talk']]);
+  });
+  it('Victory Road: os quatro botões de Strength abrem as barreiras', () => {
+    expect(run('victory_road', 'cross')).toEqual({
+      end: 'done',
+      pushes: 0,
+      decisions: ['open', 'open', 'open', 'open', 'open', 'open', 'open', 'open', 'open', 'open', 'warp', 'open', 'open', 'open', 'open', 'open', 'open', 'open', 'warp', 'warp', 'warp'],
+    });
+  });
+  it('as soluções de pedra, refeitas empurrão a empurrão sobre o mapa, terminam no botão ou no buraco', () => {
+    const LEDGE = new Set(['v', '^', '{', '}']);
+    const WATER = new Set(['~', 'F', 'W', '8', '2', '4', '6']);
+    const D = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] } as const;
+    const puzzles = [
+      ...navigation.openers.filter((o) => o.puzzle).map((o) => ({ map: o.map, start: o.puzzle!.boulder, end: o.puzzle!.target, pushes: o.puzzle!.pushes, hole: false })),
+      ...navigation.areas.flatMap((a) => a.tasks ?? []).map((t) => ({ map: t.map, start: t.boulder, end: null, pushes: t.pushes, hole: true })),
+    ];
+    expect(puzzles.length).toBe(12);
+    for (const p of puzzles) {
+      const m = world.maps.find((x) => x.key === p.map)!;
+      const holes = new Set(m.warps.filter((w) => w.kind === 'fall').map((w) => `${w.x},${w.y}`));
+      // Pedras em jogo (as que esta solução move); cada uma começa onde o primeiro empurrão a encontra.
+      const at = new Map<string, { x: number; y: number }>();
+      let fell = false;
+      for (const g of p.pushes) {
+        const key = `${g.from.x},${g.from.y}`;
+        let b = at.get(key) ?? { ...g.from };
+        at.delete(key);
+        for (let i = 0; i < g.times; i++) {
+          const nx = b.x + D[g.dir][0];
+          const ny = b.y + D[g.dir][1];
+          if (holes.has(`${nx},${ny}`)) {
+            fell = true;
+            b = { x: nx, y: ny };
+            break;
+          }
+          const c = m.tiles[ny * m.width + nx]!;
+          expect(c !== '#' && !LEDGE.has(c) && !WATER.has(c), `${p.map}: a pedra bateria em (${nx},${ny})`).toBe(true);
+          b = { x: nx, y: ny };
+        }
+        at.set(`${b.x},${b.y}`, b);
+      }
+      if (p.hole) expect(fell, `${p.map}: a pedra cai num buraco`).toBe(true);
+      else expect(at.has(`${p.end!.x},${p.end!.y}`), `${p.map}: a pedra para no botão`).toBe(true);
+    }
+  });
+});

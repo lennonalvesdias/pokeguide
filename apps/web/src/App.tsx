@@ -14,6 +14,11 @@ import {
 } from '@pokeguide/domain';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Bag } from './Bag.tsx';
+import { Diagnostics } from './features/diagnostics/Diagnostics.tsx';
+import { track } from './features/diagnostics/metrics.ts';
+import { ReportButton } from './features/feedback/Report.tsx';
+import { Now, type NowGoto } from './features/now/Now.tsx';
+import type { GuideTarget } from './features/walkthrough/Walkthrough.tsx';
 import { Journey } from './Journey.tsx';
 import { MemberDetail } from './Member.tsx';
 import { Sprite } from './Sprite.tsx';
@@ -27,7 +32,6 @@ import {
   startAuthorization,
 } from './dropbox.ts';
 import {
-  appVersions,
   displayName,
   importFromDropbox,
   type ImportOutcome,
@@ -42,8 +46,17 @@ import {
 } from './state.ts';
 
 export const chart = createTypeChart(typeChart);
-const REPO_ISSUES = 'https://github.com/lennonalvesdias/pokeguide/issues/new';
-type Tab = 'battle' | 'journey' | 'team' | 'bag' | 'moves';
+type Tab = 'now' | 'battle' | 'journey' | 'team' | 'more';
+type MoreSection = 'bag' | 'moves' | 'save' | 'diagnostics';
+const TABS: readonly Tab[] = ['now', 'battle', 'journey', 'team', 'more'];
+
+/** Aba salva; as antigas Bolsa e Golpes agora ficam dentro de Mais. */
+function initialTab(): { tab: Tab; more: MoreSection } {
+  const saved = readPref('tab');
+  if (saved === 'bag' || saved === 'moves') return { tab: 'more', more: saved };
+  const more = readPref('moreSection') as MoreSection | null;
+  return { tab: TABS.includes(saved as Tab) ? (saved as Tab) : 'now', more: more && ['bag', 'moves', 'save', 'diagnostics'].includes(more) ? more : 'bag' };
+}
 
 const speciesOptions = allSpecies.filter((s) => s.name !== '?').map((s) => ({ key: s.key, label: displayName(s.name) }));
 const moveOptions = allMoves.map((m) => ({ key: m.key, label: displayName(m.name) }));
@@ -55,7 +68,28 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [pending, setPending] = useState<{ stored: StoredSave; message: string } | null>(null);
-  const [tab, setTab] = useState<Tab>(() => (readPref('tab') as Tab) || 'battle');
+  const [initial] = useState(initialTab);
+  const [tab, setTabRaw] = useState<Tab>(initial.tab);
+  const [more, setMoreRaw] = useState<MoreSection>(initial.more);
+  /** Guia aberto na Jornada: a tela Agora abre um, e voltar à aba reabre o último (ou nenhum, se foi fechado). */
+  const [openGuide, setOpenGuide] = useState<GuideTarget | null>(null);
+  const [journeyNonce, setJourneyNonce] = useState(0);
+  function setTab(t: Tab) {
+    setTabRaw(t);
+  }
+  function setMore(m: MoreSection) {
+    setMoreRaw(m);
+    writePref('moreSection', m);
+  }
+  function go(g: NowGoto) {
+    if (g.tab === 'more') setMore(g.section);
+    if ('guide' in g) {
+      setOpenGuide(g.guide);
+      setJourneyNonce((n) => n + 1);
+    }
+    setTab(g.tab);
+    window.scrollTo({ top: 0 });
+  }
   const [battleNonce, setBattleNonce] = useState(0);
   /** Da Jornada para a Batalha: abre o modo Treinador já com o treinador escolhido. */
   function prepareTrainer(key: string) {
@@ -148,12 +182,14 @@ export function App() {
   }, [dropbox, loading]);
 
   function goConnect() {
-    setTab('team');
+    setMore('save');
+    setTab('more');
     requestAnimationFrame(() => document.querySelector('.dropbox')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
   }
 
   function handleOutcome(r: ImportOutcome) {
     if (r.kind === 'imported') {
+      track({ kind: 'save-import' });
       setSave(r.stored);
       setInfo(r.message);
     } else if (r.kind === 'needs-confirmation') {
@@ -247,22 +283,45 @@ export function App() {
               Sem Dropbox? Importar um arquivo de save exportado do Delta
             </button>
           </>
+        ) : tab === 'now' ? (
+          <Now stored={save!} team={team} onGo={go} />
         ) : tab === 'battle' ? (
           <BattleTab key={battleNonce} team={team} badges={p.badges} preview={p} />
         ) : tab === 'journey' ? (
-          <Journey preview={p} team={team} onPrepare={prepareTrainer} />
-        ) : tab === 'bag' ? (
-          <Bag preview={p} team={team} />
+          <Journey key={journeyNonce} preview={p} team={team} onPrepare={prepareTrainer} initialGuide={openGuide} onGuideChange={setOpenGuide} />
         ) : tab === 'team' ? (
-          <>
-            <TeamTab team={team} stored={save!} />
-            <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
-            <button type="button" className="btn ghost wide" onClick={() => fileRef.current?.click()}>
-              Importar arquivo de save manualmente
-            </button>
-          </>
+          <TeamTab team={team} stored={save!} />
         ) : (
-          <MovesTab team={team} />
+          <>
+            <nav className="subtabs" aria-label="Mais">
+              {(
+                [
+                  ['bag', 'Bolsa'],
+                  ['moves', 'Golpes'],
+                  ['save', 'Save'],
+                  ['diagnostics', 'Diagnóstico'],
+                ] as const
+              ).map(([id, label]) => (
+                <button key={id} type="button" className={more === id ? 'on' : ''} onClick={() => setMore(id)}>
+                  {label}
+                </button>
+              ))}
+            </nav>
+            {more === 'bag' ? (
+              <Bag preview={p} team={team} />
+            ) : more === 'moves' ? (
+              <MovesTab team={team} />
+            ) : more === 'save' ? (
+              <>
+                <DropboxCard connected={dropbox} onChange={setDropbox} onSync={() => syncDropbox()} syncing={syncing} />
+                <button type="button" className="btn ghost wide" onClick={() => fileRef.current?.click()}>
+                  Importar arquivo de save manualmente
+                </button>
+              </>
+            ) : (
+              <Diagnostics stored={save!} />
+            )}
+          </>
         )}
       </main>
 
@@ -270,11 +329,11 @@ export function App() {
         <nav className="tabs" aria-label="Seções">
           {(
             [
+              ['now', 'Agora'],
               ['battle', 'Batalha'],
               ['journey', 'Jornada'],
               ['team', 'Equipe'],
-              ['bag', 'Bolsa'],
-              ['moves', 'Golpes'],
+              ['more', 'Mais'],
             ] as const
           ).map(([id, label]) => (
             <button key={id} type="button" className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
@@ -886,24 +945,10 @@ export function TypeTag({ type }: { type: string }) {
   return <span className={`type t-${type === '???' ? 'mystery' : type}`}>{type === '???' ? '???' : displayName(type)}</span>;
 }
 
+/** Botão de relatório das recomendações de batalha. Também conta a recomendação mostrada (métrica local). */
 export function ReportLink({ title, context }: { title: string; context: unknown }) {
-  const body = [
-    '**O que estava errado?**',
-    '',
-    '<!-- ex.: recomendou X, mas o certo era Y porque... -->',
-    '',
-    '**Contexto (gerado pelo app)**',
-    '',
-    '```json',
-    JSON.stringify({ versions: appVersions, ...(context as object) }, null, 1),
-    '```',
-  ].join('\n');
-  const href = `${REPO_ISSUES}?${new URLSearchParams({ title, body, labels: 'golden-case' })}`;
-  return (
-    <a className="btn ghost report" href={href} target="_blank" rel="noreferrer">
-      Reportar recomendação errada
-    </a>
-  );
+  useEffect(() => track({ kind: 'battle-recommendation' }), [title]);
+  return <ReportButton title={title} context={context} label="Recomendação errada? Gerar relatório" />;
 }
 
 // ---------------- Dropbox ----------------

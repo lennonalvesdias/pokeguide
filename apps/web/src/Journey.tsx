@@ -8,7 +8,21 @@ import { type GuideTarget, Walkthrough } from './features/walkthrough/Walkthroug
 
 const trainerKeyById = new Map(trainers.map((t) => [t.id, t.key]));
 
-export function Journey({ preview, team, onPrepare }: { preview: SaveImportPreview; team: TeamMember[]; onPrepare: (trainerKey: string) => void }) {
+export function Journey({
+  preview,
+  team,
+  onPrepare,
+  initialGuide = null,
+  onGuideChange,
+}: {
+  preview: SaveImportPreview;
+  team: TeamMember[];
+  onPrepare: (trainerKey: string) => void;
+  /** Guia aberto direto (vindo da tela Agora). */
+  initialGuide?: GuideTarget | null;
+  /** Avisa qual guia está aberto, para a volta à aba reabrir o mesmo (ou nenhum, se foi fechado). */
+  onGuideChange?: (g: GuideTarget | null) => void;
+}) {
   const state = useMemo(
     () =>
       evaluateJourney(walkthrough, {
@@ -20,7 +34,11 @@ export function Journey({ preview, team, onPrepare }: { preview: SaveImportPrevi
     [preview],
   );
   const [showAll, setShowAll] = useState(false);
-  const [guide, setGuide] = useState<GuideTarget | null>(null);
+  const [guide, setGuideRaw] = useState<GuideTarget | null>(initialGuide);
+  const setGuide = (g: GuideTarget | null) => {
+    setGuideRaw(g);
+    onGuideChange?.(g);
+  };
   // Guia passo a passo: área com guia onde você está ou por onde o próximo passo passa.
   const here = lookup.map(preview.location.mapGroup, preview.location.mapNum)?.key ?? '';
   const stepAreas = state.current?.areas ?? [];

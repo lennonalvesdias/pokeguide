@@ -29,7 +29,7 @@ pode mudar os mapas sob uma sessão antiga.
    - O dataset vai junto com o app: não há download de dataset separado do código, então código e dados
      nunca ficam de versões diferentes.
 4. **Versão do dataset em tudo que depende dele.**
-   - `manifest.datasetVersion` (hoje 0.8.0) entra em cada sessão do guia (`NavSession.datasetVersion`).
+   - `manifest.datasetVersion` (hoje 0.9.0) entra em cada sessão do guia (`NavSession.datasetVersion`).
    - O manifesto guarda o SHA-256 de cada arquivo, e o CI confere que os arquivos versionados são
      exatamente o que o pipeline gera do decomp fixado.
 5. **Regra de migração das sessões do guia.**

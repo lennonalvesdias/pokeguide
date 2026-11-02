@@ -12,8 +12,11 @@ import type {
   NavWorld,
   RouteMode,
   SwitchStatue,
+  NavCondition,
+  NavOpener,
   ObjectMove,
   WorldMap,
+  WorldOverlay,
   WorldObject,
   WorldWarp,
 } from './types.ts';
@@ -62,7 +65,13 @@ export type PlanGoal =
   | { kind: 'any-switch' };
 
 /** O que falta para passar por uma aresta (no modo que explica o bloqueio). */
-export type Requirement = { kind: 'field-move'; move: FieldMove } | { kind: 'blocker'; id: string } | { kind: 'object'; place: NavPlace; flag: number | null };
+export type Requirement =
+  | { kind: 'field-move'; move: FieldMove }
+  | { kind: 'blocker'; id: string }
+  | { kind: 'object'; place: NavPlace; flag: number | null }
+  | { kind: 'opener'; id: string }
+  | { kind: 'overlay'; map: string; label: string }
+  | { kind: 'elevator'; map: string };
 
 export type PlanAction =
   | { type: 'move'; map: string; to: NavTile; dir: NavDirection; gate?: boolean; event?: string }
@@ -70,10 +79,12 @@ export type PlanAction =
   | { type: 'surf'; map: string; to: NavTile; dir: NavDirection }
   | { type: 'land'; map: string; to: NavTile; dir: NavDirection }
   | { type: 'remove'; map: string; at: NavTile; to: NavTile; dir: NavDirection; move: 'cut' | 'rock_smash' | 'interact'; objectId: string; gfx?: string }
+  | { type: 'open'; map: string; at: NavTile; to: NavTile; dir: NavDirection; opener: NavOpener }
   | { type: 'waterfall'; map: string; to: NavTile }
   | { type: 'slide'; map: string; to: NavTile; cause: 'current' | 'spin' | 'ice' | 'waterfall' }
   | { type: 'warp'; map: string; via: NavTile; warp: WorldWarp; press: NavDirection | null; to: NavPlace }
   | { type: 'connect'; map: string; via: NavTile; dir: NavDirection; to: NavPlace }
+  | { type: 'elevator'; map: string; via: NavTile; to: NavPlace }
   | { type: 'press'; map: string; statue: SwitchStatue; switchOnAfter: boolean }
   | { type: 'goal'; map: string; at: NavTile; goal: GoalHit };
 
@@ -102,13 +113,17 @@ export interface PlanOptions {
   relaxed?: boolean;
 }
 
+export const openerId = (o: { map: string; label: string }) => `open:${o.map}:${o.label}`;
+/** Quantos passos a abertura tem (no quebra-cabeça: usar Strength + um por grupo de empurrões). */
+export const openerSteps = (o: NavOpener) => (o.puzzle ? o.puzzle.pushes.length + 1 : o.steps.length);
+
 interface MapIndex {
   map: WorldMap;
   inRegion: boolean;
   /** Por tile: objeto presente (índice) ou -1. */
   objectAt: Int32Array;
   warpAt: Map<number, WorldWarp>;
-  gateAt: Map<number, { flag: number; passWhenSet: boolean }>;
+  overlayAt: Map<number, Array<{ ov: WorldOverlay; c: string; trigger?: string }>>;
   blockerAt: Map<number, { blocker: NavBlocker; var: number; value: number }>;
   statueAt: Map<number, SwitchStatue>;
 }
@@ -137,11 +152,17 @@ export function navContext(world: NavWorld, area: NavArea): Ctx {
       if (o.x >= 0 && o.y >= 0 && o.x < map.width && o.y < map.height) objectAt[o.y * map.width + o.x] = i;
     });
     const warpAt = new Map(map.warps.map((w) => [w.y * map.width + w.x, w]));
-    const gateAt = new Map(map.gates.map((g) => [g.y * map.width + g.x, { flag: g.flag, passWhenSet: g.passWhenSet }]));
+    const overlayAt = new Map<number, Array<{ ov: WorldOverlay; c: string; trigger?: string }>>();
+    for (const ov of map.overlays) {
+      for (const t of ov.tiles) {
+        const i = t.y * map.width + t.x;
+        overlayAt.set(i, [...(overlayAt.get(i) ?? []), { ov, c: t.c, ...(t.trigger ? { trigger: t.trigger } : {}) }]);
+      }
+    }
     const blockerAt = new Map<number, { blocker: NavBlocker; var: number; value: number }>();
     for (const b of blockersByMap.get(map.key) ?? []) for (const t of b.tiles) blockerAt.set(t.y * map.width + t.x, { blocker: b, var: t.var, value: t.value });
     const statueAt = new Map((area.switch?.statues ?? []).filter((s) => s.map === map.key).map((s) => [s.stand.y * map.width + s.stand.x, s]));
-    return { map, inRegion: region.has(map.key), objectAt, warpAt, gateAt, blockerAt, statueAt };
+    return { map, inRegion: region.has(map.key), objectAt, warpAt, overlayAt, blockerAt, statueAt };
   });
   const ctx = { maps, idx, area };
   byArea.set(area.id, ctx);
@@ -169,17 +190,18 @@ export const newGameFlags = (world: NavWorld): ReadonlySet<number> => {
   return s;
 };
 
-/** A condição de uma posição alternativa vale? null = desconhecida. */
-export function moveApplies(mv: ObjectMove, facts: NavFacts): boolean | null {
-  if ('always' in mv) return true;
-  if ('flag' in mv) {
-    const f = facts.flag(mv.flag);
-    return f === null ? null : f === mv.set;
+/** A condição de script vale? null = desconhecida. */
+export function conditionHolds(c: NavCondition, facts: NavFacts): boolean | null {
+  if ('always' in c) return true;
+  if ('flag' in c) {
+    const f = facts.flag(c.flag);
+    return f === null ? null : f === c.set;
   }
-  const v = facts.variable(mv.var);
+  const v = facts.variable(c.var);
   if (v === null) return null;
-  return { eq: v === mv.value, ne: v !== mv.value, lt: v < mv.value, ge: v >= mv.value, le: v <= mv.value, gt: v > mv.value }[mv.cmp];
+  return { eq: v === c.value, ne: v !== c.value, lt: v < c.value, ge: v >= c.value, le: v <= c.value, gt: v > c.value }[c.cmp];
 }
+export const moveApplies = (mv: ObjectMove, facts: NavFacts) => conditionHolds(mv, facts);
 
 /**
  * Onde o objeto pode estar, segundo o save: a posição alternativa que vale, senão a original.
@@ -392,19 +414,67 @@ export function planRoute(
   heap.push(0, id0);
   let goalHit: { id: number; action: PlanAction } | null = null;
 
-  const passWall = (mi: number, x: number, y: number, on: boolean): boolean => {
-    const m = ctx.maps[mi]!;
-    const c = tileAt(m.map, x, y);
-    // Ledges têm colisão no jogo: só passam pulando na direção delas (tratado antes).
-    if (c === '#' || LEDGE[c]) return false;
-    if (c === 'g') {
-      const g = m.gateAt.get(y * m.map.width + x)!;
-      if (both) return false;
-      const isSwitchFlag = area.switch?.flag.id === g.flag;
-      const set = isSwitchFlag ? on : facts.flag(g.flag);
-      return set === null ? false : set === g.passWhenSet;
+  // Sobreposições: o interruptor da área muda dentro do plano; as demais valem pelo save (ou pela abertura feita).
+  const switchFlag = area.switch?.flag.id;
+  const isSwitch = (ov: WorldOverlay) => switchFlag !== undefined && 'flag' in ov.when && ov.when.flag === switchFlag;
+  const openersByOverlay = new Map(world.openers.map((o) => [`${o.map}:${o.label}`, o]));
+  const staticHolds = new Map<WorldOverlay, boolean | null>();
+  const holds = (mapKey: string, ov: WorldOverlay): boolean | null => {
+    let v = staticHolds.get(ov);
+    if (v === undefined) {
+      const op = openersByOverlay.get(`${mapKey}:${ov.label}`);
+      v = op && collected.has(openerId(op)) ? op.effect === 'apply' : conditionHolds(ov.when, facts);
+      staticHolds.set(ov, v);
     }
-    return true;
+    return v;
+  };
+  /** Caractere do tile no estado (interruptor `on`); desconhecido = a variante mais restritiva. */
+  const charAt = (mi: number, x: number, y: number, on: boolean): string => {
+    const m = ctx.maps[mi]!;
+    const base = tileAt(m.map, x, y);
+    const list = m.overlayAt.get(y * m.map.width + x);
+    if (!list) return base;
+    let c = base;
+    for (const { ov, c: alt } of list) {
+      const v = isSwitch(ov) ? (both ? null : on === (ov.when as { set: boolean }).set) : holds(m.map.key, ov);
+      if (v === true) c = alt;
+      else if (v === null && (alt === '#' || base === '#')) c = '#';
+    }
+    return c;
+  };
+  /** A sobreposição que fecha o tile e a abertura que o resolve, se houver. */
+  const closer = (mi: number, x: number, y: number): { ov: WorldOverlay; opener: NavOpener } | null => {
+    const m = ctx.maps[mi]!;
+    for (const { ov, c: alt } of m.overlayAt.get(y * m.map.width + x) ?? []) {
+      if (isSwitch(ov)) continue;
+      const op = openersByOverlay.get(`${m.map.key}:${ov.label}`);
+      if (!op || collected.has(openerId(op))) continue;
+      const v = holds(m.map.key, ov);
+      // 'remove': a sobreposição fecha (aplicada ou incerta); 'apply': ela abriria um tile hoje fechado.
+      if (op.effect === 'remove' && alt === '#' && v !== false) return { ov, opener: op };
+      if (op.effect === 'apply' && alt !== '#' && v !== true) return { ov, opener: op };
+    }
+    return null;
+  };
+  const warpTrigger = (mi: number, x: number, y: number, on: boolean, w: WorldWarp): string => {
+    const m = ctx.maps[mi]!;
+    let t: string = w.trigger;
+    for (const e of m.overlayAt.get(y * m.map.width + x) ?? []) {
+      if (!e.trigger) continue;
+      const v = isSwitch(e.ov) ? on === (e.ov.when as { set: boolean }).set : holds(m.map.key, e.ov);
+      if (v === true || (v === null && e.trigger === 'none')) t = e.trigger;
+    }
+    return t;
+  };
+  const passWall = (mi: number, x: number, y: number, on: boolean): boolean => {
+    const c = charAt(mi, x, y, on);
+    // Ledges têm colisão no jogo: só passam pulando na direção delas (tratado antes).
+    return c !== '#' && !LEDGE[c];
+  };
+  const canOpen = (op: NavOpener) => (!op.needsItem || facts.items.has(op.needsItem)) && (!op.needsMove || canUse(facts, op.needsMove));
+  const switchTile = (mi: number, x: number, y: number) => {
+    const m = ctx.maps[mi]!;
+    return (m.overlayAt.get(y * m.map.width + x) ?? []).some((e) => isSwitch(e.ov));
   };
 
   while (heap.size) {
@@ -419,7 +489,7 @@ export function planRoute(
       goalHit = { id, action: { type: 'goal', map: m.key, at: { x: s.x, y: s.y }, goal: hit } };
       break;
     }
-    const here = tileAt(m, s.x, s.y);
+    const here = charAt(s.mi, s.x, s.y, s.on);
     const hereElev = elevAt(m, s.x, s.y);
     const relax = (n: State, cost: number, actions: PlanAction[], need: Requirement[] = []) => {
       const nid = enc(n);
@@ -440,7 +510,7 @@ export function planRoute(
       let dir = dirIn;
       for (let guard = 0; guard < 256; guard++) {
         const cm = ctx.maps[cur.mi]!.map;
-        const c = tileAt(cm, cur.x, cur.y);
+        const c = charAt(cur.mi, cur.x, cur.y, cur.on);
         const forced = CURRENT[c] ?? SPIN[c] ?? (c === 'I' ? dir : null);
         if (!forced || c === 'X') break;
         dir = forced;
@@ -455,7 +525,7 @@ export function planRoute(
       }
       const cm = ctx.maps[cur.mi]!;
       const w = cm.warpAt.get(cur.y * cm.map.width + cur.x);
-      if (w && w.trigger === 'step' && w.to) {
+      if (w && warpTrigger(cur.mi, cur.x, cur.y, cur.on, w) === 'step' && w.to) {
         const tmi = ctx.idx.get(w.to.map);
         if (tmi === undefined) return;
         const action: PlanAction = { type: 'warp', map: cm.map.key, via: { x: cur.x, y: cur.y }, warp: w, press: null, to: w.to };
@@ -482,8 +552,9 @@ export function planRoute(
 
     // Warps de apertar direção em cima do tile (tapete de saída, escada lateral).
     const wHere = mIdx.warpAt.get(s.y * m.width + s.x);
-    if (wHere && wHere.trigger.startsWith('press-') && wHere.to) {
-      const press = wHere.trigger.slice(6) as NavDirection;
+    const hereTrigger = wHere ? warpTrigger(s.mi, s.x, s.y, s.on, wHere) : 'none';
+    if (wHere && hereTrigger.startsWith('press-') && wHere.to) {
+      const press = hereTrigger.slice(6) as NavDirection;
       const tmi = ctx.idx.get(wHere.to.map);
       if (tmi !== undefined) {
         const action: PlanAction = { type: 'warp', map: m.key, via: { x: s.x, y: s.y }, warp: wHere, press, to: wHere.to };
@@ -500,6 +571,41 @@ export function planRoute(
           const tm = ctx.maps[tmi]!.map;
           const extra = mode === 'fewer-floors' ? COST.floor : 0;
           relax({ mi: tmi, x: wHere.to.x, y: wHere.to.y, elev: elevAt(tm, wHere.to.x, wHere.to.y), surf: false, on: s.on }, COST.warp + extra, [action]);
+        }
+      }
+    }
+
+    // Porta: do tile logo abaixo, andando para cima (field_control_avatar.c: TryDoorWarp).
+    const door = s.y > 0 ? mIdx.warpAt.get((s.y - 1) * m.width + s.x) : undefined;
+    if (door && door.to && warpTrigger(s.mi, s.x, s.y - 1, s.on, door) === 'door') {
+      const tmi = ctx.idx.get(door.to.map);
+      if (tmi !== undefined) {
+        const action: PlanAction = { type: 'warp', map: m.key, via: { x: s.x, y: s.y - 1 }, warp: door, press: 'up', to: door.to };
+        if (!inRegion(tmi)) {
+          if (goal.kind === 'exit' && (!goalHit || d < (dist.get(goalHit.id) ?? Infinity))) {
+            const nid = enc({ mi: tmi, x: door.to.x, y: door.to.y, elev: 0, surf: false, on: s.on });
+            dist.set(nid, d + COST.warp);
+            prev.set(nid, id);
+            how.set(nid, [action]);
+            reqs.set(nid, []);
+            goalHit = { id: nid, action: { type: 'goal', map: door.to.map, at: { x: door.to.x, y: door.to.y }, goal: { kind: 'exit' } } };
+          }
+        } else {
+          const tm = ctx.maps[tmi]!.map;
+          relax({ mi: tmi, x: door.to.x, y: door.to.y, elev: elevAt(tm, door.to.x, door.to.y), surf: false, on: s.on }, COST.warp, [action]);
+        }
+      }
+    }
+
+    // Elevador: na saída da cabine, o painel leva a qualquer andar.
+    if (wHere && !wHere.to && m.elevator && hereTrigger !== 'none') {
+      const ok = m.elevator.needsFlag === undefined || facts.flag(m.elevator.needsFlag) === true || facts.items.has('lift_key');
+      if (ok || relaxed) {
+        for (const fl of m.elevator.floors) {
+          const fmi = ctx.idx.get(fl.map);
+          if (fmi === undefined || !inRegion(fmi)) continue;
+          const fm = ctx.maps[fmi]!.map;
+          relax({ mi: fmi, x: fl.x, y: fl.y, elev: elevAt(fm, fl.x, fl.y), surf: false, on: s.on }, COST.warp + 6, [{ type: 'elevator', map: m.key, via: { x: s.x, y: s.y }, to: fl }], ok ? [] : [{ kind: 'elevator', map: m.key }]);
         }
       }
     }
@@ -539,7 +645,7 @@ export function planRoute(
       }
       const T = ctx.maps[tmi]!;
       const tm = T.map;
-      const tc = tileAt(tm, tx, ty);
+      const tc = charAt(tmi, tx, ty, s.on);
       const pre: PlanAction[] = connect ? [connect] : [];
       const penalty = sight.size && sight.has(`${tm.key}:${tx}:${ty}`) ? COST.sight : 0;
 
@@ -552,7 +658,16 @@ export function planRoute(
         arrive(tmi, lx, ly, le === 15 ? s.elev : le, false, s.on, [...pre, { type: 'jump', map: tm.key, to: { x: lx, y: ly }, dir }], COST.jump + penalty, [], dir);
         continue;
       }
-      if (!passWall(tmi, tx, ty, s.on)) continue;
+      let opening: NavOpener | null = null;
+      if (!passWall(tmi, tx, ty, s.on)) {
+        // Fechado por script: dá para abrir (Card Key, vencer o treinador...)?
+        const cl = closer(tmi, tx, ty);
+        if (!cl) continue;
+        if (!canOpen(cl.opener)) {
+          if (!relaxed) continue;
+        }
+        opening = cl.opener;
+      }
       if (EDGE[here]?.includes(dir) || EDGE[tc]?.includes(OPPOSITE[dir])) continue;
 
       // Gatilho de script que empurra de volta.
@@ -623,7 +738,7 @@ export function planRoute(
             need.push({ kind: 'field-move', move: 'waterfall' });
           }
           let y = ty;
-          while (tileAt(tm, tx, y - 1) === 'W') y--;
+          while (charAt(tmi, tx, y - 1, s.on) === 'W') y--;
           y--;
           if (!passWall(tmi, tx, y, s.on)) continue;
           arrive(tmi, tx, y, elevAt(tm, tx, y), true, s.on, [...pre, { type: 'waterfall', map: tm.key, to: { x: tx, y } }], COST.waterfall, need, dir);
@@ -632,13 +747,15 @@ export function planRoute(
         if (dir !== 'down') continue;
       }
 
+      if (opening && !canOpen(opening)) need.push({ kind: 'opener', id: opening.id });
       const newElev = te === 15 || hereElev === 15 ? s.elev : te;
       const acts: PlanAction[] = [...pre];
-      if (remove) acts.push({ type: 'remove', map: tm.key, at: { x: tx, y: ty }, to: { x: tx, y: ty }, dir, move: remove, objectId: `${tm.key}#${oi}`, ...(removeGfx ? { gfx: removeGfx } : {}) });
+      if (opening) acts.push({ type: 'open', map: tm.key, at: { x: tx, y: ty }, to: { x: tx, y: ty }, dir, opener: opening });
+      else if (remove) acts.push({ type: 'remove', map: tm.key, at: { x: tx, y: ty }, to: { x: tx, y: ty }, dir, move: remove, objectId: `${tm.key}#${oi}`, ...(removeGfx ? { gfx: removeGfx } : {}) });
       else if (kind === 'surf') acts.push({ type: 'surf', map: tm.key, to: { x: tx, y: ty }, dir });
       else if (kind === 'land') acts.push({ type: 'land', map: tm.key, to: { x: tx, y: ty }, dir });
-      else acts.push({ type: 'move', map: tm.key, to: { x: tx, y: ty }, dir, ...(tc === 'g' ? { gate: true } : {}), ...(event ? { event } : {}) });
-      const cost = (remove ? COST.remove : kind === 'surf' ? COST.surf : connect ? COST.connect : COST.move) + penalty;
+      else acts.push({ type: 'move', map: tm.key, to: { x: tx, y: ty }, dir, ...(switchTile(tmi, tx, ty) ? { gate: true } : {}), ...(event ? { event } : {}) });
+      const cost = (opening ? COST.remove + 4 * openerSteps(opening) : remove ? COST.remove : kind === 'surf' ? COST.surf : connect ? COST.connect : COST.move) + penalty;
       arrive(tmi, tx, ty, newElev, surf, s.on, acts, cost, need, dir);
     }
   }

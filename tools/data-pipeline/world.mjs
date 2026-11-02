@@ -35,22 +35,21 @@ export const TILE = {
   ice: 'I',
   strengthButton: 'B',
   cyclingPull: 'P',
-  /** Tile cuja passagem depende de uma flag (grade da Pokémon Mansion etc.): ver `gates`. */
-  gate: 'g',
 };
 
 const TERRAIN_WATER = 2;
-const STEP_WARP = new Set(['MB_WARP_DOOR', 'MB_LADDER', 'MB_UP_ESCALATOR', 'MB_DOWN_ESCALATOR', 'MB_CAVE_DOOR', 'MB_WARP_PAD', 'MB_FALL_WARP']);
+// MB_REGULAR_WARP = teletransportador (metatile_behavior.c: MetatileBehavior_IsWarpPad).
+const STEP_WARP = new Set(['MB_REGULAR_WARP', 'MB_LADDER', 'MB_UP_ESCALATOR', 'MB_DOWN_ESCALATOR', 'MB_CAVE_DOOR', 'MB_FALL_WARP']);
 const WARP_KIND = {
   MB_WARP_DOOR: 'door', MB_LADDER: 'ladder', MB_UP_ESCALATOR: 'escalator', MB_DOWN_ESCALATOR: 'escalator',
-  MB_CAVE_DOOR: 'cave', MB_WARP_PAD: 'pad', MB_FALL_WARP: 'fall',
+  MB_CAVE_DOOR: 'cave', MB_REGULAR_WARP: 'pad', MB_FALL_WARP: 'fall',
 };
 const ARROW = { MB_SOUTH_ARROW_WARP: 'down', MB_NORTH_ARROW_WARP: 'up', MB_WEST_ARROW_WARP: 'left', MB_EAST_ARROW_WARP: 'right' };
 const STAIR = { MB_UP_RIGHT_STAIR_WARP: 'right', MB_DOWN_RIGHT_STAIR_WARP: 'right', MB_UP_LEFT_STAIR_WARP: 'left', MB_DOWN_LEFT_STAIR_WARP: 'left' };
 const FACING = { MOVEMENT_TYPE_FACE_LEFT: ['left'], MOVEMENT_TYPE_FACE_RIGHT: ['right'], MOVEMENT_TYPE_FACE_UP: ['up'], MOVEMENT_TYPE_FACE_DOWN: ['down'] };
 
 export function buildWorld(ctx) {
-  const { DECOMP, read, fail, flagConsts, varConsts, itemKeys, trainerKeys, scriptTrainers, itemKey, mapsIndex, gateSources } = ctx;
+  const { DECOMP, read, fail, flagConsts, varConsts, trainerConsts, itemKeys, trainerKeys, scriptTrainers, itemKey, mapsIndex, sharedScripts } = ctx;
   const buf = (p) => readFileSync(join(DECOMP, p));
   const behaviorNames = new Map([...read('include/constants/metatile_behaviors.h').matchAll(/#define (MB_\w+) (0x[0-9A-Fa-f]+)/g)].map((m) => [Number(m[2]), m[1]]));
   const NUM_PRIMARY = Number(read('include/fieldmap.h').match(/#define NUM_METATILES_IN_PRIMARY (\d+)/)?.[1] ?? fail('NUM_METATILES_IN_PRIMARY'));
@@ -68,6 +67,21 @@ export function buildWorld(ctx) {
     return attrs;
   };
   const itemBallScripts = read('data/scripts/item_ball_scripts.inc');
+  const parseLabels = (src) => {
+    const out = new Map();
+    let cur = null;
+    for (const line of src.split('\n')) {
+      const l = line.match(/^(\w+)::/);
+      if (l) {
+        cur = l[1];
+        out.set(cur, []);
+      } else if (cur) out.get(cur).push(line.trim());
+    }
+    return out;
+  };
+  // Rótulos de scripts compartilhados que os mapas chamam ao carregar (interruptor da mansão, portas da Silph Co.).
+  const sharedLabels = new Map(sharedScripts.flatMap((p) => [...parseLabels(read(p)).entries()]));
+  const metatileIds = new Map([...read('include/constants/metatile_labels.h').matchAll(/#define (METATILE_\w+)\s+(0x[0-9A-Fa-f]+|\d+)/g)].map((m) => [m[1], Number(m[2])]));
   const sharedTrainerScripts = scriptTrainers(read('data/scripts/trainers.inc'));
 
   const mapJson = new Map();
@@ -95,36 +109,36 @@ export function buildWorld(ctx) {
       return mt < NUM_PRIMARY ? (prim[mt] ?? 0) : (sec[mt - NUM_PRIMARY] ?? 0);
     };
     const behaviorAt = (x, y) => behaviorNames.get(attrOf(blocks[y * width + x]) & 0x1ff) ?? 'MB_NORMAL';
-    let tiles = '';
-    let elev = '';
-    for (let i = 0; i < blocks.length; i++) {
-      const b = blocks[i];
-      const attr = attrOf(b);
+    /** Caractere do tile para um bloco (metatile + colisão), com os tilesets de `lay`. */
+    const charOf = (b, lay = layout) => {
+      const p = tilesetAttrs(lay.primary_tileset);
+      const q = tilesetAttrs(lay.secondary_tileset);
+      const mt = b & 0x3ff;
+      const attr = mt < NUM_PRIMARY ? (p[mt] ?? 0) : (q[mt - NUM_PRIMARY] ?? 0);
       const beh = behaviorNames.get(attr & 0x1ff) ?? 'MB_NORMAL';
       const terrain = (attr >> 9) & 0x1f;
-      const collision = (b >> 10) & 3;
-      let c;
-      if (TILE.ledge[beh]) c = TILE.ledge[beh];
-      else if (collision) c = TILE.wall;
-      else if (TILE.edge[beh]) c = TILE.edge[beh];
-      else if (TILE.current[beh]) c = TILE.current[beh];
-      else if (TILE.spin[beh]) c = TILE.spin[beh];
-      else if (beh === 'MB_STOP_SPINNING') c = TILE.stopSpin;
-      else if (beh === 'MB_ICE') c = TILE.ice;
-      else if (beh === 'MB_WATERFALL') c = TILE.waterfall;
-      else if (beh === 'MB_FAST_WATER') c = TILE.fastWater;
-      else if (beh === 'MB_STRENGTH_BUTTON') c = TILE.strengthButton;
-      else if (beh === 'MB_CYCLING_ROAD_PULL_DOWN' || beh === 'MB_CYCLING_ROAD_PULL_DOWN_GRASS') c = TILE.cyclingPull;
-      else if (terrain === TERRAIN_WATER) c = TILE.water;
-      else c = TILE.floor;
-      tiles += c;
-      elev += (b >> 12).toString(16);
-    }
+      if (TILE.ledge[beh]) return TILE.ledge[beh];
+      if ((b >> 10) & 3) return TILE.wall;
+      if (TILE.edge[beh]) return TILE.edge[beh];
+      if (TILE.current[beh]) return TILE.current[beh];
+      if (TILE.spin[beh]) return TILE.spin[beh];
+      if (beh === 'MB_STOP_SPINNING') return TILE.stopSpin;
+      if (beh === 'MB_ICE') return TILE.ice;
+      if (beh === 'MB_WATERFALL') return TILE.waterfall;
+      if (beh === 'MB_FAST_WATER') return TILE.fastWater;
+      if (beh === 'MB_STRENGTH_BUTTON') return TILE.strengthButton;
+      if (beh === 'MB_CYCLING_ROAD_PULL_DOWN' || beh === 'MB_CYCLING_ROAD_PULL_DOWN_GRASS') return TILE.cyclingPull;
+      if (terrain === TERRAIN_WATER) return TILE.water;
+      return TILE.floor;
+    };
+    const tiles = blocks.map((b) => charOf(b)).join('');
+    const elev = blocks.map((b) => (b >> 12).toString(16)).join('');
 
     // Warps: o comportamento do tile diz como disparam; tile comum = só ponto de chegada.
     const warps = (j.warp_events ?? []).map((w, i) => {
       const beh = behaviorAt(w.x, w.y);
-      const trigger = STEP_WARP.has(beh) ? 'step' : ARROW[beh] ? `press-${ARROW[beh]}` : STAIR[beh] ? `press-${STAIR[beh]}` : 'none';
+      // Porta: o tile tem colisão; o warp dispara com o jogador logo abaixo, andando para cima (TryDoorWarp).
+      const trigger = beh === 'MB_WARP_DOOR' ? 'door' : STEP_WARP.has(beh) ? 'step' : ARROW[beh] ? `press-${ARROW[beh]}` : STAIR[beh] ? `press-${STAIR[beh]}` : 'none';
       const kind = WARP_KIND[beh] ?? (ARROW[beh] ? 'exit-mat' : STAIR[beh] ? 'stairs' : 'arrival');
       let to = null;
       if (w.dest_map !== 'MAP_DYNAMIC') {
@@ -201,7 +215,12 @@ export function buildWorld(ctx) {
       }
       if (o.graphics_id === 'OBJ_EVENT_GFX_CUT_TREE') return [{ ...base, kind: 'cut-tree' }];
       if (o.graphics_id === 'OBJ_EVENT_GFX_ROCK_SMASH_ROCK') return [{ ...base, kind: 'smash-rock' }];
-      if (o.graphics_id === 'OBJ_EVENT_GFX_PUSHABLE_BOULDER') return [{ ...base, kind: 'boulder' }];
+      if (o.graphics_id === 'OBJ_EVENT_GFX_PUSHABLE_BOULDER') {
+        // A pedra guarda no trainer_type a flag que revela a pedra do andar de baixo quando ela cai
+        // (event_object_movement.c: GetBoulderRevealFlagByLocalIdAndMap).
+        const reveal = o.trainer_type?.startsWith('FLAG_') ? (flagConsts.get(o.trainer_type) ?? fail(`mundo/${m.key}: ${o.trainer_type}`)) : null;
+        return [{ ...base, kind: 'boulder', ...(reveal !== null ? { revealFlag: reveal } : {}) }];
+      }
       const ts = [...(localTrainers.get(o.script) ?? sharedTrainerScripts.get(o.script) ?? [])];
       if ((o.trainer_type === 'TRAINER_TYPE_NORMAL' || o.trainer_type === 'TRAINER_TYPE_BURIED') && ts.length >= 1) {
         const key = ts[0].replace('TRAINER_', '').toLowerCase();
@@ -224,14 +243,77 @@ export function buildWorld(ctx) {
       .filter((c) => c.type === 'trigger')
       .map((c) => ({ x: c.x, y: c.y, var: c.var, value: Number(c.var_value), script: c.script }));
 
-    const gates = [];
-    for (const g of gateSources.filter((s) => s.map === m.key)) {
-      for (const t of g.tiles) {
-        tiles = tiles.slice(0, t.y * width + t.x) + TILE.gate + tiles.slice(t.y * width + t.x + 1);
-        gates.push({ x: t.x, y: t.y, flag: g.flag, passWhenSet: t.passWhenSet });
+    // Sobreposições: o que o script de carga do mapa troca (setmetatile, setmaplayoutindex) sob uma condição.
+    const overlays = [];
+    const onLoad = scripts.match(/map_script MAP_SCRIPT_ON_LOAD, (\w+)/)?.[1];
+    const labelBody = (l) => labels.get(l) ?? sharedLabels.get(l) ?? [];
+    const triggerOf = (b, lay) => {
+      const q = tilesetAttrs(lay.primary_tileset);
+      const r = tilesetAttrs(lay.secondary_tileset);
+      const mt = b & 0x3ff;
+      const beh = behaviorNames.get((mt < NUM_PRIMARY ? (q[mt] ?? 0) : (r[mt - NUM_PRIMARY] ?? 0)) & 0x1ff) ?? 'MB_NORMAL';
+      return beh === 'MB_WARP_DOOR' ? 'door' : STEP_WARP.has(beh) ? 'step' : ARROW[beh] ? `press-${ARROW[beh]}` : STAIR[beh] ? `press-${STAIR[beh]}` : 'none';
+    };
+    const overlayFrom = (label, when) => {
+      const changed = new Map();
+      const altBlock = new Map();
+      for (const line of labelBody(label)) {
+        let mm;
+        if ((mm = line.match(/^setmetatile\s+(\d+),\s*(\d+),\s*(METATILE_\w+),\s*(\d)/))) {
+          const x = Number(mm[1]);
+          const y = Number(mm[2]);
+          const metatile = metatileIds.get(mm[3]) ?? fail(`mundo/${m.key}: ${mm[3]}`);
+          if (x >= width || y >= height) continue;
+          const b = (blocks[y * width + x] & 0xf000) | metatile | (mm[4] === '1' ? 0x400 : 0);
+          changed.set(y * width + x, charOf(b));
+          altBlock.set(y * width + x, { b, lay: layout });
+        } else if ((mm = line.match(/^setmaplayoutindex (LAYOUT_\w+)/))) {
+          const alt = layouts.get(mm[1]) ?? fail(`mundo/${m.key}: ${mm[1]}`);
+          if (alt.width !== width || alt.height !== height) fail(`mundo/${m.key}: layout alternativo com outro tamanho`);
+          const ab = buf(alt.blockdata_filepath);
+          for (let i = 0; i < blocks.length; i++) {
+            changed.set(i, charOf(ab.readUInt16LE(i * 2), alt));
+            altBlock.set(i, { b: ab.readUInt16LE(i * 2), lay: alt });
+          }
+        } else if (/^(return|end)$/.test(line)) break;
+      }
+      // Em tile de warp, a troca também muda se o warp dispara (a escada escondida do Game Corner não leva a lugar nenhum).
+      const warpAt = new Map(warps.map((w) => [w.y * width + w.x, w]));
+      const list = [...changed.entries()]
+        .map(([i, c]) => {
+          const w = warpAt.get(i);
+          const t = w ? triggerOf(altBlock.get(i).b, altBlock.get(i).lay) : null;
+          return { x: i % width, y: Math.floor(i / width), c, ...(w && t !== w.trigger ? { trigger: t } : {}) };
+        })
+        .filter((t) => t.c !== tiles[t.y * width + t.x] || 'trigger' in t);
+      if (list.length) overlays.push({ when, tiles: list, label });
+    };
+    for (const entry of [onLoad, onTransition]) {
+      for (const line of (entry ? labels.get(entry) : null) ?? []) {
+        let mm;
+        if ((mm = line.match(/^call_if_(set|unset) (FLAG_\w+), (\w+)/))) {
+          overlayFrom(mm[3], { flag: flagConsts.get(mm[2]) ?? fail(`mundo/${m.key}: flag ${mm[2]}`), set: mm[1] === 'set' });
+        } else if ((mm = line.match(/^call_if_(eq|ne|lt|ge|le|gt) (VAR_\w+), (\d+), (\w+)/))) {
+          overlayFrom(mm[4], { var: varConsts.get(mm[2]) ?? fail(`mundo/${m.key}: var ${mm[2]}`), cmp: mm[1], value: Number(mm[3]) });
+        } else if ((mm = line.match(/^call_if_(not_defeated|defeated) (TRAINER_\w+),? (\w+)/))) {
+          // Treinador vencido = flag 0x500 + id (TRAINER_FLAGS_START).
+          const id = trainerConsts.get(mm[2]) ?? fail(`mundo/${m.key}: ${mm[2]}`);
+          overlayFrom(mm[3], { flag: 0x500 + id, set: mm[1] === 'defeated', trainer: mm[2].replace('TRAINER_', '').toLowerCase() });
+        } else if (/^(end|return)$/.test(line)) break;
       }
     }
+    // Elevador: o painel escolhe o andar (setdynamicwarp MAP_X, 255, x, y); alguns exigem uma flag (Lift Key).
+    const elevatorFloors = [...scripts.matchAll(/setdynamicwarp (MAP_\w+), 255, (\d+), (\d+)/g)].map((e) => ({
+      map: keyByConst.get(e[1]) ?? fail(`mundo/${m.key}: elevador para ${e[1]}`),
+      x: Number(e[2]),
+      y: Number(e[3]),
+    }));
+    const needKey = scripts.match(/_EventScript_FloorSelect::[^:]*?goto_if_unset (FLAG_\w+), \w+NeedKey/)?.[1];
+    const elevator = elevatorFloors.length
+      ? { floors: elevatorFloors, ...(needKey ? { needsFlag: flagConsts.get(needKey) ?? fail(`mundo/${m.key}: ${needKey}`) } : {}) }
+      : null;
     return {
+      ...(elevator ? { elevator } : {}),
       key: m.key,
       group: m.group,
       num: m.num,
@@ -249,7 +331,7 @@ export function buildWorld(ctx) {
       objects,
       hidden,
       triggers,
-      gates,
+      overlays,
       source: `${layout.blockdata_filepath} data/maps/${m.key}/map.json`,
     };
   });

@@ -227,7 +227,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/ViridianForest/map.bin data/maps/ViridianForest/map.json"
  },
  {
@@ -451,7 +451,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/MtMoon_1F/map.bin data/maps/MtMoon_1F/map.json"
  },
  {
@@ -618,7 +618,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/MtMoon_B1F/map.bin data/maps/MtMoon_B1F/map.json"
  },
  {
@@ -833,7 +833,7 @@
     "script": "MtMoon_B2F_EventScript_MiguelTrigger"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/MtMoon_B2F/map.bin data/maps/MtMoon_B2F/map.json"
  },
  {
@@ -937,7 +937,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Exterior/map.bin data/maps/SSAnne_Exterior/map.json"
  },
  {
@@ -983,7 +983,7 @@
    {
     "x": 19,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_Exterior",
@@ -1142,7 +1142,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_1F_Corridor/map.bin data/maps/SSAnne_1F_Corridor/map.json"
  },
  {
@@ -1202,7 +1202,7 @@
    {
     "x": 6,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_2F_Room1",
@@ -1214,7 +1214,7 @@
    {
     "x": 10,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_2F_Room2",
@@ -1226,7 +1226,7 @@
    {
     "x": 14,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_2F_Room3",
@@ -1238,7 +1238,7 @@
    {
     "x": 18,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_2F_Room4",
@@ -1250,7 +1250,7 @@
    {
     "x": 22,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_2F_Room5",
@@ -1262,7 +1262,7 @@
    {
     "x": 26,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_2F_Room6",
@@ -1322,7 +1322,7 @@
     "script": "SSAnne_2F_Corridor_EventScript_RivalTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_2F_Corridor/map.bin data/maps/SSAnne_2F_Corridor/map.json"
  },
  {
@@ -1394,7 +1394,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_3F_Corridor/map.bin data/maps/SSAnne_3F_Corridor/map.json"
  },
  {
@@ -1428,7 +1428,7 @@
    {
     "x": 2,
     "y": 2,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_B1F_Room1",
@@ -1440,7 +1440,7 @@
    {
     "x": 6,
     "y": 2,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_B1F_Room2",
@@ -1452,7 +1452,7 @@
    {
     "x": 10,
     "y": 2,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_B1F_Room3",
@@ -1464,7 +1464,7 @@
    {
     "x": 14,
     "y": 2,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_B1F_Room4",
@@ -1476,7 +1476,7 @@
    {
     "x": 18,
     "y": 2,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_B1F_Room5",
@@ -1498,7 +1498,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_B1F_Corridor/map.bin data/maps/SSAnne_B1F_Corridor/map.json"
  },
  {
@@ -1608,7 +1608,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Deck/map.bin data/maps/SSAnne_Deck/map.json"
  },
  {
@@ -1629,7 +1629,7 @@
    {
     "x": 7,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -1760,7 +1760,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Kitchen/map.bin data/maps/SSAnne_Kitchen/map.json"
  },
  {
@@ -1808,7 +1808,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_CaptainsOffice/map.bin data/maps/SSAnne_CaptainsOffice/map.json"
  },
  {
@@ -1829,7 +1829,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -1855,7 +1855,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room1/map.json"
  },
  {
@@ -1876,7 +1876,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -1937,7 +1937,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room2/map.json"
  },
  {
@@ -1958,7 +1958,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -2008,7 +2008,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room3/map.json"
  },
  {
@@ -2029,7 +2029,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -2055,7 +2055,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room4/map.json"
  },
  {
@@ -2076,7 +2076,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -2102,7 +2102,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room5/map.json"
  },
  {
@@ -2123,7 +2123,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -2149,7 +2149,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room7/map.json"
  },
  {
@@ -2196,7 +2196,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_2F_Room1/map.json"
  },
  {
@@ -2263,7 +2263,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_2F_Room2/map.json"
  },
  {
@@ -2322,7 +2322,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_2F_Room3/map.json"
  },
  {
@@ -2389,7 +2389,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_2F_Room4/map.json"
  },
  {
@@ -2448,7 +2448,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_2F_Room5/map.json"
  },
  {
@@ -2507,7 +2507,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_2F_Room6/map.json"
  },
  {
@@ -2566,7 +2566,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_B1F_Room1/map.json"
  },
  {
@@ -2624,7 +2624,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_B1F_Room2/map.json"
  },
  {
@@ -2679,7 +2679,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_B1F_Room3/map.json"
  },
  {
@@ -2741,7 +2741,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_B1F_Room4/map.json"
  },
  {
@@ -2808,7 +2808,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room2/map.bin data/maps/SSAnne_B1F_Room5/map.json"
  },
  {
@@ -2829,7 +2829,7 @@
    {
     "x": 2,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SSAnne_1F_Corridor",
@@ -2855,7 +2855,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SSAnne_Room1/map.bin data/maps/SSAnne_1F_Room6/map.json"
  },
  {
@@ -2939,7 +2939,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/UndergroundPath_Entrance/map.bin data/maps/UndergroundPath_NorthEntrance/map.json"
  },
  {
@@ -3044,7 +3044,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/UndergroundPath_NorthSouthTunnel/map.bin data/maps/UndergroundPath_NorthSouthTunnel/map.json"
  },
  {
@@ -3128,7 +3128,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/UndergroundPath_Entrance/map.bin data/maps/UndergroundPath_SouthEntrance/map.json"
  },
  {
@@ -3212,7 +3212,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/UndergroundPath_Entrance/map.bin data/maps/UndergroundPath_WestEntrance/map.json"
  },
  {
@@ -3317,7 +3317,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/UndergroundPath_EastWestTunnel/map.bin data/maps/UndergroundPath_EastWestTunnel/map.json"
  },
  {
@@ -3401,7 +3401,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/UndergroundPath_Entrance/map.bin data/maps/UndergroundPath_EastEntrance/map.json"
  },
  {
@@ -3460,7 +3460,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/DiglettsCave_NorthEntrance/map.bin data/maps/DiglettsCave_NorthEntrance/map.json"
  },
  {
@@ -3506,7 +3506,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/DiglettsCave_B1F/map.bin data/maps/DiglettsCave_B1F/map.json"
  },
  {
@@ -3565,7 +3565,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/DiglettsCave_SouthEntrance/map.bin data/maps/DiglettsCave_SouthEntrance/map.json"
  },
  {
@@ -3698,7 +3698,28 @@
     "script": "VictoryRoad_1F_EventScript_FloorSwitch"
    }
   ],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "var": 16484,
+     "cmp": "ne",
+     "value": 100
+    },
+    "tiles": [
+     {
+      "x": 12,
+      "y": 14,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 15,
+      "c": "#"
+     }
+    ],
+    "label": "VictoryRoad_1F_EventScript_SetRockBarrier"
+   }
+  ],
   "source": "data/layouts/VictoryRoad_1F/map.bin data/maps/VictoryRoad_1F/map.json"
  },
  {
@@ -3975,7 +3996,48 @@
     "script": "VictoryRoad_2F_EventScript_FloorSwitch2"
    }
   ],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "var": 16485,
+     "cmp": "ne",
+     "value": 100
+    },
+    "tiles": [
+     {
+      "x": 13,
+      "y": 10,
+      "c": "#"
+     },
+     {
+      "x": 13,
+      "y": 11,
+      "c": "#"
+     }
+    ],
+    "label": "VictoryRoad_2F_EventScript_SetRockBarrier1"
+   },
+   {
+    "when": {
+     "var": 16486,
+     "cmp": "ne",
+     "value": 100
+    },
+    "tiles": [
+     {
+      "x": 33,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 33,
+      "y": 17,
+      "c": "#"
+     }
+    ],
+    "label": "VictoryRoad_2F_EventScript_SetRockBarrier2"
+   }
+  ],
   "source": "data/layouts/VictoryRoad_2F/map.bin data/maps/VictoryRoad_2F/map.json"
  },
  {
@@ -4131,7 +4193,8 @@
     "y": 18,
     "hideFlag": 89,
     "source": "data/maps/VictoryRoad_3F/map.json#object_events[7]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 88
    },
    {
     "x": 35,
@@ -4182,7 +4245,28 @@
     "script": "VictoryRoad_3F_EventScript_FloorSwitch"
    }
   ],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "var": 16487,
+     "cmp": "ne",
+     "value": 100
+    },
+    "tiles": [
+     {
+      "x": 12,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 13,
+      "c": "#"
+     }
+    ],
+    "label": "VictoryRoad_3F_EventScript_SetRockBarrier"
+   }
+  ],
   "source": "data/layouts/VictoryRoad_3F/map.bin data/maps/VictoryRoad_3F/map.json"
  },
  {
@@ -4254,7 +4338,7 @@
    {
     "x": 24,
     "y": 25,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "RocketHideout_Elevator",
@@ -4368,7 +4452,38 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 1642,
+     "set": false,
+     "trainer": "team_rocket_grunt_12"
+    },
+    "tiles": [
+     {
+      "x": 20,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 20,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 20,
+      "c": "#"
+     }
+    ],
+    "label": "RocketHideout_B1F_EventScript_SetBarrier"
+   }
+  ],
   "source": "data/layouts/RocketHideout_B1F/map.bin data/maps/RocketHideout_B1F/map.json"
  },
  {
@@ -4428,7 +4543,7 @@
    {
     "x": 28,
     "y": 16,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "RocketHideout_Elevator",
@@ -4501,7 +4616,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/RocketHideout_B2F/map.bin data/maps/RocketHideout_B2F/map.json"
  },
  {
@@ -4607,7 +4722,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/RocketHideout_B3F/map.bin data/maps/RocketHideout_B3F/map.json"
  },
  {
@@ -4641,7 +4756,7 @@
    {
     "x": 20,
     "y": 23,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "RocketHideout_Elevator",
@@ -4780,10 +4895,30 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/RocketHideout_B4F/map.bin data/maps/RocketHideout_B4F/map.json"
  },
  {
+  "elevator": {
+   "floors": [
+    {
+     "map": "RocketHideout_B1F",
+     "x": 24,
+     "y": 25
+    },
+    {
+     "map": "RocketHideout_B2F",
+     "x": 28,
+     "y": 16
+    },
+    {
+     "map": "RocketHideout_B4F",
+     "x": 20,
+     "y": 23
+    }
+   ],
+   "needsFlag": 677
+  },
   "key": "RocketHideout_Elevator",
   "group": 1,
   "num": 46,
@@ -4818,7 +4953,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/RocketHideout_Elevator/map.bin data/maps/RocketHideout_Elevator/map.json"
  },
  {
@@ -4888,7 +5023,7 @@
    {
     "x": 22,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -4914,7 +5049,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SilphCo_1F/map.bin data/maps/SilphCo_1F/map.json"
  },
  {
@@ -4948,8 +5083,8 @@
    {
     "x": 2,
     "y": 6,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 33,
@@ -4960,8 +5095,8 @@
    {
     "x": 15,
     "y": 6,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_8F",
      "x": 2,
@@ -4985,8 +5120,8 @@
    {
     "x": 7,
     "y": 19,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_6F",
      "x": 29,
@@ -4997,8 +5132,8 @@
    {
     "x": 33,
     "y": 19,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_8F",
      "x": 10,
@@ -5009,7 +5144,7 @@
    {
     "x": 22,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -5101,7 +5236,66 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 634,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 5,
+      "y": 8,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 8,
+      "c": "#"
+     },
+     {
+      "x": 5,
+      "y": 9,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 9,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close2FDoor1"
+   },
+   {
+    "when": {
+     "flag": 635,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 5,
+      "y": 15,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 15,
+      "c": "#"
+     },
+     {
+      "x": 5,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 16,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close2FDoor2"
+   }
+  ],
   "source": "data/layouts/SilphCo_2F/map.bin data/maps/SilphCo_2F/map.json"
  },
  {
@@ -5135,8 +5329,8 @@
    {
     "x": 4,
     "y": 6,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_5F",
      "x": 15,
@@ -5147,8 +5341,8 @@
    {
     "x": 13,
     "y": 14,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_7F",
      "x": 5,
@@ -5172,8 +5366,8 @@
    {
     "x": 2,
     "y": 14,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_9F",
      "x": 9,
@@ -5184,8 +5378,8 @@
    {
     "x": 3,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_5F",
      "x": 2,
@@ -5196,8 +5390,8 @@
    {
     "x": 29,
     "y": 14,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 32,
@@ -5208,8 +5402,8 @@
    {
     "x": 32,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 29,
@@ -5220,8 +5414,8 @@
    {
     "x": 33,
     "y": 5,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_2F",
      "x": 2,
@@ -5232,7 +5426,7 @@
    {
     "x": 22,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -5302,7 +5496,66 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 636,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 9,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 10,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 9,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 10,
+      "y": 13,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close3FDoor1"
+   },
+   {
+    "when": {
+     "flag": 637,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 20,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 20,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 13,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close3FDoor2"
+   }
+  ],
   "source": "data/layouts/SilphCo_3F/map.bin data/maps/SilphCo_3F/map.json"
  },
  {
@@ -5336,8 +5589,8 @@
    {
     "x": 18,
     "y": 6,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_6F",
      "x": 2,
@@ -5361,8 +5614,8 @@
    {
     "x": 12,
     "y": 9,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_10F",
      "x": 10,
@@ -5373,8 +5626,8 @@
    {
     "x": 2,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_10F",
      "x": 14,
@@ -5385,8 +5638,8 @@
    {
     "x": 18,
     "y": 14,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_10F",
      "x": 14,
@@ -5397,7 +5650,7 @@
    {
     "x": 22,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -5506,7 +5759,66 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 638,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 3,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 4,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 3,
+      "y": 17,
+      "c": "#"
+     },
+     {
+      "x": 4,
+      "y": 17,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close4FDoor1"
+   },
+   {
+    "when": {
+     "flag": 639,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 14,
+      "y": 11,
+      "c": "#"
+     },
+     {
+      "x": 15,
+      "y": 11,
+      "c": "#"
+     },
+     {
+      "x": 14,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 15,
+      "y": 12,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close4FDoor2"
+   }
+  ],
   "source": "data/layouts/SilphCo_4F/map.bin data/maps/SilphCo_4F/map.json"
  },
  {
@@ -5540,8 +5852,8 @@
    {
     "x": 15,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 4,
@@ -5565,8 +5877,8 @@
    {
     "x": 10,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_9F",
      "x": 22,
@@ -5577,8 +5889,8 @@
    {
     "x": 2,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 3,
@@ -5589,8 +5901,8 @@
    {
     "x": 33,
     "y": 5,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_7F",
      "x": 25,
@@ -5601,7 +5913,7 @@
    {
     "x": 22,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -5737,7 +6049,95 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 640,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 7,
+      "y": 9,
+      "c": "#"
+     },
+     {
+      "x": 8,
+      "y": 9,
+      "c": "#"
+     },
+     {
+      "x": 7,
+      "y": 10,
+      "c": "#"
+     },
+     {
+      "x": 8,
+      "y": 10,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close5FDoor1"
+   },
+   {
+    "when": {
+     "flag": 641,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 7,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 8,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 7,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 8,
+      "y": 19,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close5FDoor2"
+   },
+   {
+    "when": {
+     "flag": 642,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 18,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 19,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 18,
+      "y": 14,
+      "c": "#"
+     },
+     {
+      "x": 19,
+      "y": 14,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close5FDoor3"
+   }
+  ],
   "source": "data/layouts/SilphCo_5F/map.bin data/maps/SilphCo_5F/map.json"
  },
  {
@@ -5771,8 +6171,8 @@
    {
     "x": 29,
     "y": 5,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_2F",
      "x": 7,
@@ -5796,8 +6196,8 @@
    {
     "x": 2,
     "y": 6,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_4F",
      "x": 18,
@@ -5808,7 +6208,7 @@
    {
     "x": 20,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -5943,7 +6343,37 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 643,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 5,
+      "y": 15,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 15,
+      "c": "#"
+     },
+     {
+      "x": 5,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 16,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close6FDoor"
+   }
+  ],
   "source": "data/layouts/SilphCo_6F/map.bin data/maps/SilphCo_6F/map.json"
  },
  {
@@ -5977,8 +6407,8 @@
    {
     "x": 5,
     "y": 8,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_11F",
      "x": 2,
@@ -5989,8 +6419,8 @@
    {
     "x": 25,
     "y": 17,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_5F",
      "x": 33,
@@ -6014,8 +6444,8 @@
    {
     "x": 5,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 13,
@@ -6026,7 +6456,7 @@
    {
     "x": 23,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -6191,7 +6621,95 @@
     "script": "SilphCo_7F_EventScript_RivalTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 644,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 11,
+      "y": 8,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 8,
+      "c": "#"
+     },
+     {
+      "x": 11,
+      "y": 9,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 9,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close7FDoor1"
+   },
+   {
+    "when": {
+     "flag": 645,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 24,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 24,
+      "y": 8,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 8,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close7FDoor2"
+   },
+   {
+    "when": {
+     "flag": 646,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 25,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 14,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 14,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close7FDoor3"
+   }
+  ],
   "source": "data/layouts/SilphCo_7F/map.bin data/maps/SilphCo_7F/map.json"
  },
  {
@@ -6225,8 +6743,8 @@
    {
     "x": 11,
     "y": 10,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_8F",
      "x": 2,
@@ -6237,8 +6755,8 @@
    {
     "x": 10,
     "y": 6,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_2F",
      "x": 33,
@@ -6262,8 +6780,8 @@
    {
     "x": 2,
     "y": 12,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_8F",
      "x": 11,
@@ -6274,8 +6792,8 @@
    {
     "x": 2,
     "y": 17,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_2F",
      "x": 15,
@@ -6286,7 +6804,7 @@
    {
     "x": 22,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -6377,7 +6895,37 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 647,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 5,
+      "y": 10,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 10,
+      "c": "#"
+     },
+     {
+      "x": 5,
+      "y": 11,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 11,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close8FDoor"
+   }
+  ],
   "source": "data/layouts/SilphCo_8F/map.bin data/maps/SilphCo_8F/map.json"
  },
  {
@@ -6411,8 +6959,8 @@
    {
     "x": 22,
     "y": 18,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_5F",
      "x": 10,
@@ -6423,8 +6971,8 @@
    {
     "x": 9,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_3F",
      "x": 2,
@@ -6448,7 +6996,7 @@
    {
     "x": 24,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -6530,7 +7078,124 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 648,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 2,
+      "y": 10,
+      "c": "#"
+     },
+     {
+      "x": 3,
+      "y": 10,
+      "c": "#"
+     },
+     {
+      "x": 2,
+      "y": 11,
+      "c": "#"
+     },
+     {
+      "x": 3,
+      "y": 11,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close9FDoor1"
+   },
+   {
+    "when": {
+     "flag": 649,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 12,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 13,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 17,
+      "c": "#"
+     },
+     {
+      "x": 13,
+      "y": 17,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close9FDoor2"
+   },
+   {
+    "when": {
+     "flag": 650,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 21,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 22,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 22,
+      "y": 7,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close9FDoor3"
+   },
+   {
+    "when": {
+     "flag": 651,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 21,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 22,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 13,
+      "c": "#"
+     },
+     {
+      "x": 22,
+      "y": 13,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close9FDoor4"
+   }
+  ],
   "source": "data/layouts/SilphCo_9F/map.bin data/maps/SilphCo_9F/map.json"
  },
  {
@@ -6564,8 +7229,8 @@
    {
     "x": 10,
     "y": 14,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_4F",
      "x": 12,
@@ -6576,8 +7241,8 @@
    {
     "x": 14,
     "y": 9,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_4F",
      "x": 18,
@@ -6601,8 +7266,8 @@
    {
     "x": 14,
     "y": 17,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_4F",
      "x": 2,
@@ -6613,7 +7278,7 @@
    {
     "x": 13,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -6699,7 +7364,37 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 652,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 12,
+      "y": 11,
+      "c": "#"
+     },
+     {
+      "x": 13,
+      "y": 11,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 12,
+      "c": "#"
+     },
+     {
+      "x": 13,
+      "y": 12,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close10FDoor"
+   }
+  ],
   "source": "data/layouts/SilphCo_10F/map.bin data/maps/SilphCo_10F/map.json"
  },
  {
@@ -6733,8 +7428,8 @@
    {
     "x": 2,
     "y": 5,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SilphCo_7F",
      "x": 5,
@@ -6745,7 +7440,7 @@
    {
     "x": 13,
     "y": 3,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_Elevator",
@@ -6851,10 +7546,99 @@
     "script": "SilphCo_11F_EventScript_GiovanniTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 653,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 5,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 16,
+      "c": "#"
+     },
+     {
+      "x": 5,
+      "y": 17,
+      "c": "#"
+     },
+     {
+      "x": 6,
+      "y": 17,
+      "c": "#"
+     }
+    ],
+    "label": "EventScript_Close11FDoor"
+   }
+  ],
   "source": "data/layouts/SilphCo_11F/map.bin data/maps/SilphCo_11F/map.json"
  },
  {
+  "elevator": {
+   "floors": [
+    {
+     "map": "SilphCo_1F",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_2F",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_3F",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_4F",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_5F",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_6F",
+     "x": 20,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_7F",
+     "x": 23,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_8F",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_9F",
+     "x": 24,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_10F",
+     "x": 13,
+     "y": 3
+    },
+    {
+     "map": "SilphCo_11F",
+     "x": 13,
+     "y": 3
+    }
+   ]
+  },
   "key": "SilphCo_Elevator",
   "group": 1,
   "num": 58,
@@ -6881,7 +7665,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SilphCo_Elevator/map.bin data/maps/SilphCo_Elevator/map.json"
  },
  {
@@ -6895,7 +7679,7 @@
   "allowCycling": false,
   "width": 38,
   "height": 35,
-  "tiles": "###################################################################################################################....................................##....................................##..#.#.###...#.....#.#.#.#..#####....##..#...###...#.....#.#.#.#..#####...###............#..............#####...###............#..............#........##............##...####...####........#################..####ggg####...###..#################..####ggg####...###..###############....#.......####.......##..........###....#........###.......##..........###....#.........##.......##.................#.........##.......##.................#.........##.......##...............###############...#####...............###############ggg######..............###############ggg#######..#.....#...##..#####.............####..#.....#...##......#.............####..#.....#...##......#.............####.............#......#.............##...............#......####...##...####....#.....#....#......####ggg##ggg####....#.....#....#..########ggg##ggg####....#.....#....#......##......#.....##...............#......##......#.....##...............#..............#.....##....#.....#....#..............#.....##....#.....#....#..............#.....##....#.....#....#..######......#.....##...............#..............#.....#######################################",
+  "tiles": "###################################################################################################################....................................##....................................##..#.#.###...#.....#.#.#.#..#####....##..#...###...#.....#.#.#.#..#####...###............#..............#####...###............#..............#........##............##...####...####........#################..###########...###..#################..###########...###..###############....#.......####.......##..........###....#........###.......##..........###....#.........##.......##.................#.........##.......##.................#.........##.......##...............###############...#####...............###############...######..............###############...#######..#.....#...##..#####.............####..#.....#...##......#.............####..#.....#...##......#.............####.............#......#.............##...............#......####...##...####....#.....#....#......################....#.....#....#..####################....#.....#....#......##......#.....##...............#......##......#.....##...............#..............#.....##....#.....#....#..............#.....##....#.....#....#..............#.....##....#.....#....#..######......#.....##...............#..............#.....#######################################",
   "elev": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000333333333333333333333333333333333333003333333333333333333333333333333333330033030300033303333303030303300000333300330333000333033333030303033000003330003333333333330333333333333330000033300033333333333303333333333333303333333300333333333333003330000333000033333333000000000000000003300000000000333000330000000000000000033000000000003330003300000000000000033330333333300003333333003333333333000333303333333300033333330033333333330003333033333333300333333300333333333333333330333333333003333333003333333333333333303333333330033333330033333333333333300000000000000033300000333333333333333000000000000000333000000333333333333330000000000000003330000000330333330333003300000333333333333300003303333303330033333303333333333333000033033333033300333333033333333333330000333333333333303333330333333333333300333333333333333033333300003330033300003333033333033330333333000000000000000033330333330333303300000000000000000000333303333303333033333300333333033333003333333333333330333333003333330333330033333333333333303333333333333303333300333303333303333033333333333333033333003333033333033330333333333333330333330033330333330333303300000033333303333300333333333333333033333333333333033333000000000000000000000000000000000000000",
   "connections": [],
   "warps": [
@@ -7086,150 +7870,135 @@
    }
   ],
   "triggers": [],
-  "gates": [
+  "overlays": [
    {
-    "x": 22,
-    "y": 10,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 23,
-    "y": 10,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 24,
-    "y": 10,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 22,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 23,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 24,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 31,
-    "y": 18,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 32,
-    "y": 18,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 33,
-    "y": 18,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 31,
-    "y": 19,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 32,
-    "y": 19,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 33,
-    "y": 19,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 27,
-    "y": 25,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 28,
-    "y": 25,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 29,
-    "y": 25,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 32,
-    "y": 25,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 33,
-    "y": 25,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 34,
-    "y": 25,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 27,
-    "y": 26,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 28,
-    "y": 26,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 29,
-    "y": 26,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 32,
-    "y": 26,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 33,
-    "y": 26,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 34,
-    "y": 26,
-    "flag": 620,
-    "passWhenSet": true
+    "when": {
+     "flag": 620,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 22,
+      "y": 10,
+      "c": "."
+     },
+     {
+      "x": 23,
+      "y": 10,
+      "c": "."
+     },
+     {
+      "x": 24,
+      "y": 10,
+      "c": "."
+     },
+     {
+      "x": 22,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 23,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 24,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 27,
+      "y": 25,
+      "c": "."
+     },
+     {
+      "x": 28,
+      "y": 25,
+      "c": "."
+     },
+     {
+      "x": 29,
+      "y": 25,
+      "c": "."
+     },
+     {
+      "x": 27,
+      "y": 26,
+      "c": "."
+     },
+     {
+      "x": 28,
+      "y": 26,
+      "c": "."
+     },
+     {
+      "x": 29,
+      "y": 26,
+      "c": "."
+     },
+     {
+      "x": 32,
+      "y": 25,
+      "c": "."
+     },
+     {
+      "x": 33,
+      "y": 25,
+      "c": "."
+     },
+     {
+      "x": 34,
+      "y": 25,
+      "c": "."
+     },
+     {
+      "x": 32,
+      "y": 26,
+      "c": "."
+     },
+     {
+      "x": 33,
+      "y": 26,
+      "c": "."
+     },
+     {
+      "x": 34,
+      "y": 26,
+      "c": "."
+     },
+     {
+      "x": 31,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 32,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 33,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 31,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 32,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 33,
+      "y": 19,
+      "c": "#"
+     }
+    ],
+    "label": "PokemonMansion_EventScript_PressSwitch_1F"
    }
   ],
   "source": "data/layouts/PokemonMansion_1F/map.bin data/maps/PokemonMansion_1F/map.json"
@@ -7245,7 +8014,7 @@
   "allowCycling": false,
   "width": 38,
   "height": 38,
-  "tiles": "###################################################################################################################..##.....###........#...............##..##.....###........#...###.........##.#.........#........#...###.........###..........g........#...............##...........g........#..........###..##...........g........###...####.###..##...........#........###...########..##...........###......###...##########################......................############.##.......................##############.....######...############...##....###.....######ggg############...##....###.....######ggg############.#.........#.....#..........##......##.................#..........##......##.................#..........#.......########.........##########.###...############...#.....#############....###.########..##.....##########.......######........####...#..######..........####.........###...#..######..........####.........###...#..####################.........##....#..##############################.....#..##############################.....#..##############################.....#..####################.........#.....#..####################.........g........####################.######..g........####################.######..g........####################.........#.....#######################.........#.....########################################################################################################################################",
+  "tiles": "###################################################################################################################..##.....###........#...............##..##.....###........#...###.........##.#.........#........#...###.........###...................#...............##....................#..........###..##....................###...####.###..##...........#........###...########..##...........###......###...##########################......................############.##.......................##############.....######...############...##....###.....#####################...##....###.....#####################.#.........#.....#..........##......##.................#..........##......##.................#..........#.......########.........##########.###...############...#.....#############....###.########..##.....##########.......######........####...#..######..........####.........###...#..######..........####.........###...#..####################.........##....#..##############################.....#..##############################.....#..##############################.....#..####################.........#.....#..####################.........#........####################.######..#........####################.######..#........####################.........#.....#######################.........#.....########################################################################################################################################",
   "elev": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000330033333000333333330333333333333333003300333330003333333303330003333333330030333333333033333333033300033333333300033333333333333333330333333333333333003333333333333333333303333333333000330033333333333333333333000333000030003300333333333330333333330003330000000033003333333333300033333300033300000000000000000000000000333333333333333333333300000000000000033333333333333333333333000000000000003333300000033300000000000033300333300033333000000000000000000000333003333000333330000000000000000000003033333333303333303333333333003333330033333333333333333033333333330033333300333333333333333330333333333303333333000000003333333330000000000300033300000000000033303333300000000000003333000000000000330033333000000000033333330000003333333300003330330000003333333333000033333333300033303300000033333333330000333333333000333033000000000000000000003333333330033330330000000000000000000000000000003333303300000000000000000000000000000033333033000000000000000000000000000000333330330000000000000000000033333333303333303300000000000000000000333333333033333333000000000000000000003000000330333333330000000000000000000030000003303333333300000000000000000000333333333033333000000000000000000000003333333330333330000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "connections": [],
   "warps": [
@@ -7357,78 +8126,75 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [
+  "overlays": [
    {
-    "x": 12,
-    "y": 6,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 12,
-    "y": 7,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 12,
-    "y": 8,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 24,
-    "y": 14,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 25,
-    "y": 14,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 26,
-    "y": 14,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 24,
-    "y": 15,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 25,
-    "y": 15,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 26,
-    "y": 15,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 10,
-    "y": 30,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 10,
-    "y": 31,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 10,
-    "y": 32,
-    "flag": 620,
-    "passWhenSet": true
+    "when": {
+     "flag": 620,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 24,
+      "y": 14,
+      "c": "."
+     },
+     {
+      "x": 25,
+      "y": 14,
+      "c": "."
+     },
+     {
+      "x": 26,
+      "y": 14,
+      "c": "."
+     },
+     {
+      "x": 24,
+      "y": 15,
+      "c": "."
+     },
+     {
+      "x": 25,
+      "y": 15,
+      "c": "."
+     },
+     {
+      "x": 26,
+      "y": 15,
+      "c": "."
+     },
+     {
+      "x": 10,
+      "y": 30,
+      "c": "."
+     },
+     {
+      "x": 10,
+      "y": 31,
+      "c": "."
+     },
+     {
+      "x": 10,
+      "y": 32,
+      "c": "."
+     },
+     {
+      "x": 12,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 8,
+      "c": "#"
+     }
+    ],
+    "label": "PokemonMansion_EventScript_PressSwitch_2F"
    }
   ],
   "source": "data/layouts/PokemonMansion_2F/map.bin data/maps/PokemonMansion_2F/map.json"
@@ -7444,7 +8210,7 @@
   "allowCycling": false,
   "width": 38,
   "height": 35,
-  "tiles": "###################################################################################################################.....##........###..#.......#...#...##.....##.........##..#.......#....#..###..........#....##..#..###..#....##.####..................g..###........######..................g...............#########.######......g...............################......#...............#########.########...######.###.########.###....##...###ggg###################..##....##...###ggg######.....########..#..........##.....................##.............#......................##.............####...##..##..##########.....###.....####...##..##..#############..###....#####...##..##..#############........######...##..##.....##...##..........################.....##...##.............#############..........##.............#############..........###############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################",
+  "tiles": "###################################################################################################################.....##........###..#.......#...#...##.....##.........##..#.......#....#..###..........#....##..#..###..#....##.####.....................###........######..................................#########.######......................################......#...............#########.########...######.###.########.###....##...#########################..##....##...############.....########..#..........##.....................##.............#......................##.............####...##..##..##########.....###.....####...##..##..#############..###....#####...##..##..#############........######...##..##.....##...##..........################.....##...##.............#############..........##.............#############..........###############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################",
   "elev": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000333330033333333000330333333303330333003333300333333333003303333333033330330003333333333033330033033000330333300300003333333333333333333330003333333300000033333333333333333333333333333333330000000003000000333333333333333333333300000000000000003333330333333333333333000000000300000000333000000300030000000030003333003330000000000000000000000000330033330033300000000000033333000000003303333333333003333333333333333333330033333333333330333333333333333333333300333333333333300003330033003300000000003333300033333000033300330033000000000000033000333300000333003300330000000000000333333330000003330033003333300333003333333333000000000000000033333003330033333333333330000000000000333333333300333333333333300000000000003333333333000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "connections": [],
   "warps": [
@@ -7604,60 +8370,60 @@
    }
   ],
   "triggers": [],
-  "gates": [
+  "overlays": [
    {
-    "x": 21,
-    "y": 6,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 21,
-    "y": 7,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 21,
-    "y": 8,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 17,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 18,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 19,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 17,
-    "y": 12,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 18,
-    "y": 12,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 19,
-    "y": 12,
-    "flag": 620,
-    "passWhenSet": true
+    "when": {
+     "flag": 620,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 17,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 18,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 19,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 17,
+      "y": 12,
+      "c": "."
+     },
+     {
+      "x": 18,
+      "y": 12,
+      "c": "."
+     },
+     {
+      "x": 19,
+      "y": 12,
+      "c": "."
+     },
+     {
+      "x": 21,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 8,
+      "c": "#"
+     }
+    ],
+    "label": "PokemonMansion_EventScript_PressSwitch_3F"
    }
   ],
   "source": "data/layouts/PokemonMansion_3F/map.bin data/maps/PokemonMansion_3F/map.json"
@@ -7673,7 +8439,7 @@
   "allowCycling": false,
   "width": 38,
   "height": 35,
-  "tiles": "###################################################################################################################...........#............#...........##...........#............#...........##...........#............#.#.........##...........#####...######...........##....###....#####...##########....#####....###....#####...##########....#####...........#............#####....#####...........g........................##...........g........................##...........g........................##...........#........................######...#######################......######...#######################......######...#######################......##...........#.................#......##.###...###.#.................#......##...........#.................###...###...........#.................###ggg###.###...###.#...####...####...###ggg###...........#...####ggg####..........##############...####ggg####..........##############...#.........#..........##############...#.........#..........##...............#.........#......######...............#...###...#......###.##...............g...###...#......######...............g.......#.#........####...............g.........#........####...............#.........#..........###################################################################################################################",
+  "tiles": "###################################################################################################################...........#............#...........##...........#............#...........##...........#............#.#.........##...........#####...######...........##....###....#####...##########....#####....###....#####...##########....#####...........#............#####....#####...........#........................##...........#........................##...........#........................##...........#........................######...#######################......######...#######################......######...#######################......##...........#.................#......##.###...###.#.................#......##...........#.................###...###...........#.................###...###.###...###.#...####...####...###...###...........#...###########..........##############...###########..........##############...#.........#..........##############...#.........#..........##...............#.........#......######...............#...###...#......###.##...................###...#......######.......................#.#........####.........................#........####...............#.........#..........###################################################################################################################",
   "elev": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000333333333330333333333333033333333333003333333333303333333333330333333333330033333333333033333333333303033333333300333333333330000033300000033333333333003333000333300000333000000000033330000033330003333000003330000000000333300000333333333330333333333333000003333000003333333333303333333333333333333333330033333333333033333333333333333333333300333333333330333333333333333333333333003333333333303333333333333333333333330000003330000000000000000000000033333300000033300000000000000000000000333333000000333000000000000000000000003333330033333333333033333333333333333033333300300033300030333333333333333330333333003333333333303333333333333333300033300033333333333033333333333333333000333000300033300030333000033300003330003330003333333333303330000000000033333333330000000000000033300000000000333333333300000000000000333033333333303333333333000000000000003330333333333033333333330033333333333333303333333330333333000000333333333333333033300033303333330000003333333333333333333000333033333300000033333333333333333333333030333333330000333333333333333333333333303333333300003333333333333330333333333033333333330000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   "connections": [],
   "warps": [
@@ -7763,114 +8529,105 @@
    }
   ],
   "triggers": [],
-  "gates": [
+  "overlays": [
    {
-    "x": 12,
-    "y": 10,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 12,
-    "y": 11,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 12,
-    "y": 12,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 33,
-    "y": 20,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 34,
-    "y": 20,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 35,
-    "y": 20,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 33,
-    "y": 21,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 34,
-    "y": 21,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 35,
-    "y": 21,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 20,
-    "y": 22,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 21,
-    "y": 22,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 22,
-    "y": 22,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 20,
-    "y": 23,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 21,
-    "y": 23,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 22,
-    "y": 23,
-    "flag": 620,
-    "passWhenSet": true
-   },
-   {
-    "x": 16,
-    "y": 28,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 16,
-    "y": 29,
-    "flag": 620,
-    "passWhenSet": false
-   },
-   {
-    "x": 16,
-    "y": 30,
-    "flag": 620,
-    "passWhenSet": false
+    "when": {
+     "flag": 620,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 33,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 34,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 35,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 33,
+      "y": 21,
+      "c": "#"
+     },
+     {
+      "x": 34,
+      "y": 21,
+      "c": "#"
+     },
+     {
+      "x": 35,
+      "y": 21,
+      "c": "#"
+     },
+     {
+      "x": 16,
+      "y": 28,
+      "c": "#"
+     },
+     {
+      "x": 16,
+      "y": 29,
+      "c": "#"
+     },
+     {
+      "x": 16,
+      "y": 30,
+      "c": "#"
+     },
+     {
+      "x": 12,
+      "y": 10,
+      "c": "."
+     },
+     {
+      "x": 12,
+      "y": 11,
+      "c": "."
+     },
+     {
+      "x": 12,
+      "y": 12,
+      "c": "."
+     },
+     {
+      "x": 20,
+      "y": 22,
+      "c": "."
+     },
+     {
+      "x": 21,
+      "y": 22,
+      "c": "."
+     },
+     {
+      "x": 22,
+      "y": 22,
+      "c": "."
+     },
+     {
+      "x": 20,
+      "y": 23,
+      "c": "."
+     },
+     {
+      "x": 21,
+      "y": 23,
+      "c": "."
+     },
+     {
+      "x": 22,
+      "y": 23,
+      "c": "."
+     }
+    ],
+    "label": "PokemonMansion_EventScript_PressSwitch_B1F"
    }
   ],
   "source": "data/layouts/PokemonMansion_B1F/map.bin data/maps/PokemonMansion_B1F/map.json"
@@ -8037,7 +8794,7 @@
    {
     "x": 29,
     "y": 25,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SafariZone_Center_RestHouse",
@@ -8068,7 +8825,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_Center/map.bin data/maps/SafariZone_Center/map.json"
  },
  {
@@ -8161,7 +8918,7 @@
    {
     "x": 40,
     "y": 14,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SafariZone_East_RestHouse",
@@ -8207,7 +8964,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_East/map.bin data/maps/SafariZone_East/map.json"
  },
  {
@@ -8372,7 +9129,7 @@
    {
     "x": 43,
     "y": 8,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SafariZone_North_RestHouse",
@@ -8410,7 +9167,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_North/map.bin data/maps/SafariZone_North/map.json"
  },
  {
@@ -8539,7 +9296,7 @@
    {
     "x": 12,
     "y": 7,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SafariZone_SecretHouse",
@@ -8551,7 +9308,7 @@
    {
     "x": 19,
     "y": 18,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SafariZone_West_RestHouse",
@@ -8606,7 +9363,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_West/map.bin data/maps/SafariZone_West/map.json"
  },
  {
@@ -8689,7 +9446,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_RestHouse/map.bin data/maps/SafariZone_Center_RestHouse/map.json"
  },
  {
@@ -8784,7 +9541,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_RestHouse/map.bin data/maps/SafariZone_East_RestHouse/map.json"
  },
  {
@@ -8891,7 +9648,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_RestHouse/map.bin data/maps/SafariZone_North_RestHouse/map.json"
  },
  {
@@ -8986,7 +9743,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_RestHouse/map.bin data/maps/SafariZone_West_RestHouse/map.json"
  },
  {
@@ -9057,7 +9814,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SafariZone_SecretHouse/map.bin data/maps/SafariZone_SecretHouse/map.json"
  },
  {
@@ -9257,7 +10014,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCave_1F/map.bin data/maps/CeruleanCave_1F/map.json"
  },
  {
@@ -9456,7 +10213,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCave_2F/map.bin data/maps/CeruleanCave_2F/map.json"
  },
  {
@@ -9591,7 +10348,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCave_B1F/map.bin data/maps/CeruleanCave_B1F/map.json"
  },
  {
@@ -9650,7 +10407,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonLeague_LoreleisRoom/map.bin data/maps/PokemonLeague_LoreleisRoom/map.json"
  },
  {
@@ -9709,7 +10466,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonLeague_BrunosRoom/map.bin data/maps/PokemonLeague_BrunosRoom/map.json"
  },
  {
@@ -9768,7 +10525,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonLeague_AgathasRoom/map.bin data/maps/PokemonLeague_AgathasRoom/map.json"
  },
  {
@@ -9827,7 +10584,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonLeague_LancesRoom/map.bin data/maps/PokemonLeague_LancesRoom/map.json"
  },
  {
@@ -9898,7 +10655,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonLeague_ChampionsRoom/map.bin data/maps/PokemonLeague_ChampionsRoom/map.json"
  },
  {
@@ -9945,7 +10702,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonLeague_HallOfFame/map.bin data/maps/PokemonLeague_HallOfFame/map.json"
  },
  {
@@ -10148,7 +10905,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/RockTunnel_1F/map.bin data/maps/RockTunnel_1F/map.json"
  },
  {
@@ -10466,7 +11223,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/RockTunnel_B1F/map.bin data/maps/RockTunnel_B1F/map.json"
  },
  {
@@ -10575,14 +11332,16 @@
     "y": 12,
     "hideFlag": 64,
     "source": "data/maps/SeafoamIslands_1F/map.json#object_events[0]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 66
    },
    {
     "x": 32,
     "y": 9,
     "hideFlag": 65,
     "source": "data/maps/SeafoamIslands_1F/map.json#object_events[1]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 67
    },
    {
     "x": 11,
@@ -10595,7 +11354,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SeafoamIslands_1F/map.bin data/maps/SeafoamIslands_1F/map.json"
  },
  {
@@ -10752,14 +11511,16 @@
     "y": 8,
     "hideFlag": 66,
     "source": "data/maps/SeafoamIslands_B1F/map.json#object_events[0]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 68
    },
    {
     "x": 30,
     "y": 8,
     "hideFlag": 67,
     "source": "data/maps/SeafoamIslands_B1F/map.json#object_events[1]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 69
    },
    {
     "x": 19,
@@ -10780,7 +11541,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SeafoamIslands_B1F/map.bin data/maps/SeafoamIslands_B1F/map.json"
  },
  {
@@ -10937,14 +11698,16 @@
     "y": 8,
     "hideFlag": 68,
     "source": "data/maps/SeafoamIslands_B2F/map.json#object_events[0]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 70
    },
    {
     "x": 30,
     "y": 8,
     "hideFlag": 69,
     "source": "data/maps/SeafoamIslands_B2F/map.json#object_events[1]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 71
    },
    {
     "x": 18,
@@ -10957,7 +11720,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SeafoamIslands_B2F/map.bin data/maps/SeafoamIslands_B2F/map.json"
  },
  {
@@ -11104,7 +11867,8 @@
     "y": 16,
     "hideFlag": 74,
     "source": "data/maps/SeafoamIslands_B3F/map.json#object_events[2]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 77
    },
    {
     "x": 13,
@@ -11125,7 +11889,8 @@
     "y": 17,
     "hideFlag": 72,
     "source": "data/maps/SeafoamIslands_B3F/map.json#object_events[5]",
-    "kind": "boulder"
+    "kind": "boulder",
+    "revealFlag": 76
    }
   ],
   "hidden": [
@@ -11139,7 +11904,367 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 722,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 15,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 16,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 17,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 18,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 19,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 20,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 22,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 23,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 24,
+      "y": 5,
+      "c": "#"
+     },
+     {
+      "x": 15,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 16,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 17,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 18,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 19,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 20,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 21,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 22,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 23,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 24,
+      "y": 6,
+      "c": "#"
+     },
+     {
+      "x": 23,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 24,
+      "y": 7,
+      "c": "#"
+     },
+     {
+      "x": 23,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 24,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 23,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 24,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 20,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 21,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 22,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 23,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 24,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 20,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 21,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 22,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 23,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 24,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 25,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 26,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 27,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 28,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 20,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 21,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 22,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 23,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 24,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 25,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 26,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 27,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 28,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 25,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 26,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 25,
+      "y": 15,
+      "c": "."
+     },
+     {
+      "x": 26,
+      "y": 15,
+      "c": "."
+     },
+     {
+      "x": 25,
+      "y": 16,
+      "c": "."
+     },
+     {
+      "x": 26,
+      "y": 16,
+      "c": "."
+     },
+     {
+      "x": 25,
+      "y": 17,
+      "c": "."
+     },
+     {
+      "x": 26,
+      "y": 17,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 18,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 21,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 21,
+      "c": "#"
+     },
+     {
+      "x": 25,
+      "y": 22,
+      "c": "#"
+     },
+     {
+      "x": 26,
+      "y": 22,
+      "c": "#"
+     }
+    ],
+    "label": "SeafoamIslands_B3F_EventScript_SetNoCurrentLayout"
+   }
+  ],
   "source": "data/layouts/SeafoamIslands_B3F/map.bin data/maps/SeafoamIslands_B3F/map.json"
  },
  {
@@ -11275,7 +12400,857 @@
     "script": "SeafoamIslands_B4F_EventScript_UpwardCurrent"
    }
   ],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 723,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 3,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 17,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 18,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 1,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 17,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 18,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 2,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 17,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 18,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 3,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 17,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 18,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 4,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 10,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 11,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 12,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 13,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 14,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 15,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 17,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 18,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 5,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 10,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 11,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 12,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 13,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 14,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 15,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 17,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 18,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 19,
+      "y": 6,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 7,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 8,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 9,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 10,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 11,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 12,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 10,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 11,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 12,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 13,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 14,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 15,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 13,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 10,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 11,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 12,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 13,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 14,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 15,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 14,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 10,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 11,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 12,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 13,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 14,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 15,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 15,
+      "c": "~"
+     },
+     {
+      "x": 3,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 4,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 5,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 6,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 7,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 10,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 11,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 12,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 13,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 14,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 15,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 16,
+      "y": 16,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 17,
+      "c": "~"
+     },
+     {
+      "x": 9,
+      "y": 17,
+      "c": "~"
+     },
+     {
+      "x": 8,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 9,
+      "y": 19,
+      "c": "#"
+     },
+     {
+      "x": 35,
+      "y": 19,
+      "c": "."
+     },
+     {
+      "x": 8,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 9,
+      "y": 20,
+      "c": "#"
+     },
+     {
+      "x": 8,
+      "y": 21,
+      "c": "#"
+     },
+     {
+      "x": 9,
+      "y": 21,
+      "c": "#"
+     }
+    ],
+    "label": "SeafoamIslands_B4F_EventScript_SetNoCurrentLayout"
+   }
+  ],
   "source": "data/layouts/SeafoamIslands_B4F/map.bin data/maps/SeafoamIslands_B4F/map.json"
  },
  {
@@ -11407,7 +13382,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_1F/map.bin data/maps/PokemonTower_1F/map.json"
  },
  {
@@ -11495,7 +13470,7 @@
     "script": "PokemonTower_2F_EventScript_RivalTriggerDown"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_2F/map.bin data/maps/PokemonTower_2F/map.json"
  },
  {
@@ -11591,7 +13566,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_3F/map.bin data/maps/PokemonTower_3F/map.json"
  },
  {
@@ -11700,7 +13675,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_4F/map.bin data/maps/PokemonTower_4F/map.json"
  },
  {
@@ -11960,7 +13935,7 @@
     "script": "PokemonTower_5F_EventScript_ExitPurifiedZone"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_5F/map.bin data/maps/PokemonTower_5F/map.json"
  },
  {
@@ -12076,7 +14051,7 @@
     "script": "PokemonTower_6F_EventScript_MarowakGhost"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_6F/map.bin data/maps/PokemonTower_6F/map.json"
  },
  {
@@ -12169,7 +14144,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonTower_7F/map.bin data/maps/PokemonTower_7F/map.json"
  },
  {
@@ -12345,7 +14320,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PowerPlant/map.bin data/maps/PowerPlant/map.json"
  },
  {
@@ -12377,7 +14352,7 @@
    {
     "x": 6,
     "y": 7,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PalletTown_PlayersHouse_1F",
@@ -12389,7 +14364,7 @@
    {
     "x": 15,
     "y": 7,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PalletTown_RivalsHouse",
@@ -12401,7 +14376,7 @@
    {
     "x": 16,
     "y": 13,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PalletTown_ProfessorOaksLab",
@@ -12482,7 +14457,7 @@
     "script": "PalletTown_EventScript_SignLadyTrigger"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PalletTown/map.bin data/maps/PalletTown/map.json"
  },
  {
@@ -12519,7 +14494,7 @@
    {
     "x": 26,
     "y": 26,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "ViridianCity_PokemonCenter_1F",
@@ -12531,7 +14506,7 @@
    {
     "x": 25,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "ViridianCity_House",
@@ -12543,7 +14518,7 @@
    {
     "x": 36,
     "y": 10,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "ViridianCity_Gym",
@@ -12555,7 +14530,7 @@
    {
     "x": 25,
     "y": 18,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "ViridianCity_School",
@@ -12567,7 +14542,7 @@
    {
     "x": 36,
     "y": 19,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "ViridianCity_Mart",
@@ -12722,7 +14697,7 @@
     "script": "ViridianCity_EventScript_TutorialTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/ViridianCity/map.bin data/maps/ViridianCity/map.json"
  },
  {
@@ -12766,7 +14741,7 @@
    {
     "x": 25,
     "y": 4,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PewterCity_Museum_1F",
@@ -12778,7 +14753,7 @@
    {
     "x": 15,
     "y": 16,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PewterCity_Gym",
@@ -12790,7 +14765,7 @@
    {
     "x": 28,
     "y": 18,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PewterCity_Mart",
@@ -12802,7 +14777,7 @@
    {
     "x": 33,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PewterCity_House1",
@@ -12814,7 +14789,7 @@
    {
     "x": 17,
     "y": 25,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PewterCity_PokemonCenter_1F",
@@ -12826,7 +14801,7 @@
    {
     "x": 9,
     "y": 30,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "PewterCity_House2",
@@ -12979,7 +14954,7 @@
     "script": "PewterCity_EventScript_RunningShoesAideTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PewterCity/map.bin data/maps/PewterCity/map.json"
  },
  {
@@ -13021,7 +14996,7 @@
    {
     "x": 10,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_House1",
@@ -13033,7 +15008,7 @@
    {
     "x": 30,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_House2",
@@ -13045,7 +15020,7 @@
    {
     "x": 15,
     "y": 17,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_House3",
@@ -13057,7 +15032,7 @@
    {
     "x": 22,
     "y": 19,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_PokemonCenter_1F",
@@ -13069,7 +15044,7 @@
    {
     "x": 31,
     "y": 21,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_Gym",
@@ -13093,7 +15068,7 @@
    {
     "x": 29,
     "y": 28,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_Mart",
@@ -13165,7 +15140,7 @@
    {
     "x": 23,
     "y": 28,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_House4",
@@ -13177,7 +15152,7 @@
    {
     "x": 17,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeruleanCity_House5",
@@ -13388,7 +15363,7 @@
     "script": "CeruleanCity_EventScript_GruntTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCity/map.bin data/maps/CeruleanCity/map.json"
  },
  {
@@ -13437,7 +15412,7 @@
    {
     "x": 6,
     "y": 5,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "LavenderTown_PokemonCenter_1F",
@@ -13449,7 +15424,7 @@
    {
     "x": 10,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "LavenderTown_VolunteerPokemonHouse",
@@ -13461,7 +15436,7 @@
    {
     "x": 5,
     "y": 16,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "LavenderTown_House1",
@@ -13473,7 +15448,7 @@
    {
     "x": 10,
     "y": 16,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "LavenderTown_House2",
@@ -13485,7 +15460,7 @@
    {
     "x": 20,
     "y": 15,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "LavenderTown_Mart",
@@ -13535,7 +15510,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/LavenderTown/map.bin data/maps/LavenderTown/map.json"
  },
  {
@@ -13603,7 +15578,7 @@
    {
     "x": 9,
     "y": 6,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_House1",
@@ -13615,7 +15590,7 @@
    {
     "x": 15,
     "y": 6,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_PokemonCenter_1F",
@@ -13627,7 +15602,7 @@
    {
     "x": 12,
     "y": 17,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_PokemonFanClub",
@@ -13639,7 +15614,7 @@
    {
     "x": 19,
     "y": 17,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_House2",
@@ -13651,7 +15626,7 @@
    {
     "x": 29,
     "y": 17,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_Mart",
@@ -13663,7 +15638,7 @@
    {
     "x": 28,
     "y": 24,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_House3",
@@ -13675,7 +15650,7 @@
    {
     "x": 14,
     "y": 25,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "VermilionCity_Gym",
@@ -13819,7 +15794,7 @@
     "script": "VermilionCity_EventScript_ExitedTicketCheck"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/VermilionCity/map.bin data/maps/VermilionCity/map.json"
  },
  {
@@ -13851,7 +15826,7 @@
    {
     "x": 34,
     "y": 21,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_GameCorner",
@@ -13863,7 +15838,7 @@
    {
     "x": 11,
     "y": 14,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_1F",
@@ -13875,7 +15850,7 @@
    {
     "x": 15,
     "y": 14,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_1F",
@@ -13887,7 +15862,7 @@
    {
     "x": 30,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_Condominiums_1F",
@@ -13899,7 +15874,7 @@
    {
     "x": 48,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_PokemonCenter_1F",
@@ -13911,7 +15886,7 @@
    {
     "x": 39,
     "y": 20,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_GameCorner_PrizeRoom",
@@ -13923,7 +15898,7 @@
    {
     "x": 11,
     "y": 30,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_Gym",
@@ -13935,7 +15910,7 @@
    {
     "x": 37,
     "y": 29,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_Restaurant",
@@ -13947,7 +15922,7 @@
    {
     "x": 41,
     "y": 29,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_House1",
@@ -13959,7 +15934,7 @@
    {
     "x": 49,
     "y": 29,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_Hotel",
@@ -14174,7 +16149,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity/map.bin data/maps/CeladonCity/map.json"
  },
  {
@@ -14211,7 +16186,7 @@
    {
     "x": 24,
     "y": 5,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_SafariZone_Entrance",
@@ -14223,7 +16198,7 @@
    {
     "x": 33,
     "y": 31,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_WardensHouse",
@@ -14235,7 +16210,7 @@
    {
     "x": 11,
     "y": 15,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_Mart",
@@ -14247,7 +16222,7 @@
    {
     "x": 28,
     "y": 16,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_SafariZone_Office",
@@ -14259,7 +16234,7 @@
    {
     "x": 9,
     "y": 32,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_Gym",
@@ -14271,7 +16246,7 @@
    {
     "x": 14,
     "y": 31,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_House1",
@@ -14283,7 +16258,7 @@
    {
     "x": 25,
     "y": 31,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_PokemonCenter_1F",
@@ -14295,7 +16270,7 @@
    {
     "x": 38,
     "y": 31,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_House2",
@@ -14331,7 +16306,7 @@
    {
     "x": 19,
     "y": 31,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "FuchsiaCity_House3",
@@ -14530,7 +16505,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/FuchsiaCity/map.bin data/maps/FuchsiaCity/map.json"
  },
  {
@@ -14574,7 +16549,7 @@
    {
     "x": 20,
     "y": 4,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CinnabarIsland_Gym",
@@ -14586,7 +16561,7 @@
    {
     "x": 8,
     "y": 9,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CinnabarIsland_PokemonLab_Entrance",
@@ -14598,7 +16573,7 @@
    {
     "x": 14,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CinnabarIsland_PokemonCenter_1F",
@@ -14610,7 +16585,7 @@
    {
     "x": 19,
     "y": 11,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CinnabarIsland_Mart",
@@ -14719,7 +16694,7 @@
     "script": "CinnabarIsland_EventScript_GymDoorLocked"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CinnabarIsland/map.bin data/maps/CinnabarIsland/map.json"
  },
  {
@@ -14746,7 +16721,7 @@
    {
     "x": 11,
     "y": 6,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "IndigoPlateau_PokemonCenter_1F",
@@ -14784,7 +16759,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/IndigoPlateau_Exterior/map.bin data/maps/IndigoPlateau_Exterior/map.json"
  },
  {
@@ -14826,7 +16801,7 @@
    {
     "x": 33,
     "y": 30,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SilphCo_1F",
@@ -14838,7 +16813,7 @@
    {
     "x": 22,
     "y": 14,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_CopycatsHouse_1F",
@@ -14862,7 +16837,7 @@
    {
     "x": 46,
     "y": 12,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_Gym",
@@ -14874,7 +16849,7 @@
    {
     "x": 27,
     "y": 21,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_House",
@@ -14886,7 +16861,7 @@
    {
     "x": 40,
     "y": 21,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_Mart",
@@ -14898,7 +16873,7 @@
    {
     "x": 24,
     "y": 38,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_PokemonCenter_1F",
@@ -14910,7 +16885,7 @@
    {
     "x": 43,
     "y": 38,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_MrPsychicsHouse",
@@ -14994,7 +16969,7 @@
    {
     "x": 47,
     "y": 21,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "SaffronCity_PokemonTrainerFanClub",
@@ -15196,7 +17171,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity/map.bin data/maps/SaffronCity/map.json"
  },
  {
@@ -15238,7 +17213,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_Connection/map.bin data/maps/SaffronCity_Connection/map.json"
  },
  {
@@ -15295,7 +17270,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route1/map.bin data/maps/Route1/map.json"
  },
  {
@@ -15375,7 +17350,7 @@
    {
     "x": 17,
     "y": 22,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route2_House",
@@ -15497,7 +17472,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route2/map.bin data/maps/Route2/map.json"
  },
  {
@@ -15650,7 +17625,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route3/map.bin data/maps/Route3/map.json"
  },
  {
@@ -15706,7 +17681,7 @@
    {
     "x": 12,
     "y": 5,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route4_PokemonCenter_1F",
@@ -15813,7 +17788,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route4/map.bin data/maps/Route4/map.json"
  },
  {
@@ -15845,7 +17820,7 @@
    {
     "x": 31,
     "y": 31,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UndergroundPath_NorthEntrance",
@@ -15857,7 +17832,7 @@
    {
     "x": 23,
     "y": 25,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route5_PokemonDayCare",
@@ -15894,7 +17869,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route5/map.bin data/maps/Route5/map.json"
  },
  {
@@ -15926,7 +17901,7 @@
    {
     "x": 19,
     "y": 13,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UndergroundPath_SouthEntrance",
@@ -16053,7 +18028,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route6/map.bin data/maps/Route6/map.json"
  },
  {
@@ -16085,7 +18060,7 @@
    {
     "x": 7,
     "y": 14,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UndergroundPath_WestEntrance",
@@ -16119,7 +18094,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route7/map.bin data/maps/Route7/map.json"
  },
  {
@@ -16151,7 +18126,7 @@
    {
     "x": 13,
     "y": 4,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UndergroundPath_EastEntrance",
@@ -16386,7 +18361,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route8/map.bin data/maps/Route8/map.json"
  },
  {
@@ -16585,7 +18560,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route9/map.bin data/maps/Route9/map.json"
  },
  {
@@ -16653,7 +18628,7 @@
    {
     "x": 13,
     "y": 20,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route10_PokemonCenter_1F",
@@ -16833,7 +18808,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route10/map.bin data/maps/Route10/map.json"
  },
  {
@@ -17086,7 +19061,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route11/map.bin data/maps/Route11/map.json"
  },
  {
@@ -17123,7 +19098,7 @@
    {
     "x": 12,
     "y": 86,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route12_FishingHouse",
@@ -17368,7 +19343,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route12/map.bin data/maps/Route12/map.json"
  },
  {
@@ -17550,7 +19525,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route13/map.bin data/maps/Route13/map.json"
  },
  {
@@ -17780,7 +19755,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route14/map.bin data/maps/Route14/map.json"
  },
  {
@@ -18008,7 +19983,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route15/map.bin data/maps/Route15/map.json"
  },
  {
@@ -18040,7 +20015,7 @@
    {
     "x": 10,
     "y": 5,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route16_House",
@@ -18245,7 +20220,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route16/map.bin data/maps/Route16/map.json"
  },
  {
@@ -18463,7 +20438,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route17/map.bin data/maps/Route17/map.json"
  },
  {
@@ -18560,7 +20535,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route18/map.bin data/maps/Route18/map.json"
  },
  {
@@ -18761,7 +20736,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route19/map.bin data/maps/Route19/map.json"
  },
  {
@@ -18981,7 +20956,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route20/map.bin data/maps/Route20/map.json"
  },
  {
@@ -19086,7 +21061,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route21_North/map.bin data/maps/Route21_North/map.json"
  },
  {
@@ -19185,7 +21160,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route21_South/map.bin data/maps/Route21_South/map.json"
  },
  {
@@ -19217,7 +21192,7 @@
    {
     "x": 8,
     "y": 5,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route22_NorthEntrance",
@@ -19298,7 +21273,7 @@
     "script": "Route22_EventScript_LateRivalTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route22/map.bin data/maps/Route22/map.json"
  },
  {
@@ -19824,7 +21799,7 @@
     "script": "Route23_EventScript_CascadeBadgeGuardTrigger"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route23/map.bin data/maps/Route23/map.json"
  },
  {
@@ -19973,7 +21948,7 @@
     "script": "Route24_EventScript_RocketTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route24/map.bin data/maps/Route24/map.json"
  },
  {
@@ -20000,7 +21975,7 @@
    {
     "x": 51,
     "y": 4,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "Route25_SeaCottage",
@@ -20201,7 +22176,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route25/map.bin data/maps/Route25/map.json"
  },
  {
@@ -20285,7 +22260,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PalletTown_PlayersHouse_1F/map.bin data/maps/PalletTown_PlayersHouse_1F/map.json"
  },
  {
@@ -20320,7 +22295,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PalletTown_PlayersHouse_2F/map.bin data/maps/PalletTown_PlayersHouse_2F/map.json"
  },
  {
@@ -20412,7 +22387,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PalletTown_RivalsHouse/map.bin data/maps/PalletTown_RivalsHouse/map.json"
  },
  {
@@ -20650,7 +22625,7 @@
     "script": "PalletTown_ProfessorOaksLab_EventScript_RivalBattleTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PalletTown_ProfessorOaksLab/map.bin data/maps/PalletTown_ProfessorOaksLab/map.json"
  },
  {
@@ -20745,7 +22720,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/ViridianCity_House/map.bin data/maps/ViridianCity_House/map.json"
  },
  {
@@ -20933,7 +22908,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/ViridianCity_Gym/map.bin data/maps/ViridianCity_Gym/map.json"
  },
  {
@@ -21016,7 +22991,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/ViridianCity_School/map.bin data/maps/ViridianCity_School/map.json"
  },
  {
@@ -21111,7 +23086,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/ViridianCity_Mart/map.json"
  },
  {
@@ -21231,7 +23206,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/ViridianCity_PokemonCenter_1F/map.json"
  },
  {
@@ -21265,7 +23240,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -21277,7 +23252,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -21339,7 +23314,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/ViridianCity_PokemonCenter_2F/map.json"
  },
  {
@@ -21529,7 +23504,7 @@
     "script": "PewterCity_Museum_1F_EventScript_EntranceTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PewterCity_Museum_1F/map.bin data/maps/PewterCity_Museum_1F/map.json"
  },
  {
@@ -21625,7 +23600,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PewterCity_Museum_2F/map.bin data/maps/PewterCity_Museum_2F/map.json"
  },
  {
@@ -21720,7 +23695,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PewterCity_Gym/map.bin data/maps/PewterCity_Gym/map.json"
  },
  {
@@ -21815,7 +23790,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/PewterCity_Mart/map.json"
  },
  {
@@ -21910,7 +23885,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House2/map.bin data/maps/PewterCity_House1/map.json"
  },
  {
@@ -22066,7 +24041,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/PewterCity_PokemonCenter_1F/map.json"
  },
  {
@@ -22100,7 +24075,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -22112,7 +24087,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -22174,7 +24149,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/PewterCity_PokemonCenter_2F/map.json"
  },
  {
@@ -22257,7 +24232,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House2/map.bin data/maps/PewterCity_House2/map.json"
  },
  {
@@ -22340,7 +24315,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCity_House1/map.bin data/maps/CeruleanCity_House1/map.json"
  },
  {
@@ -22435,7 +24410,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCity_House2/map.bin data/maps/CeruleanCity_House2/map.json"
  },
  {
@@ -22518,7 +24493,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/CeruleanCity_House3/map.json"
  },
  {
@@ -22674,7 +24649,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/CeruleanCity_PokemonCenter_1F/map.json"
  },
  {
@@ -22708,7 +24683,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -22720,7 +24695,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -22782,7 +24757,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/CeruleanCity_PokemonCenter_2F/map.json"
  },
  {
@@ -22889,7 +24864,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCity_Gym/map.bin data/maps/CeruleanCity_Gym/map.json"
  },
  {
@@ -22984,7 +24959,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCity_BikeShop/map.bin data/maps/CeruleanCity_BikeShop/map.json"
  },
  {
@@ -23079,7 +25054,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/CeruleanCity_Mart/map.json"
  },
  {
@@ -23126,7 +25101,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/CeruleanCity_House4/map.json"
  },
  {
@@ -23173,7 +25148,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeruleanCity_House5/map.bin data/maps/CeruleanCity_House5/map.json"
  },
  {
@@ -23305,7 +25280,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/LavenderTown_PokemonCenter_1F/map.json"
  },
  {
@@ -23339,7 +25314,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -23351,7 +25326,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -23413,7 +25388,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/LavenderTown_PokemonCenter_2F/map.json"
  },
  {
@@ -23544,7 +25519,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/LavenderTown_VolunteerPokemonHouse/map.bin data/maps/LavenderTown_VolunteerPokemonHouse/map.json"
  },
  {
@@ -23627,7 +25602,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House5/map.bin data/maps/LavenderTown_House1/map.json"
  },
  {
@@ -23698,7 +25673,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House5/map.bin data/maps/LavenderTown_House2/map.json"
  },
  {
@@ -23805,7 +25780,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/LavenderTown_Mart/map.json"
  },
  {
@@ -23876,7 +25851,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/VermilionCity_House1/map.json"
  },
  {
@@ -24032,7 +26007,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/VermilionCity_PokemonCenter_1F/map.json"
  },
  {
@@ -24066,7 +26041,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -24078,7 +26053,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -24140,7 +26115,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/VermilionCity_PokemonCenter_2F/map.json"
  },
  {
@@ -24271,7 +26246,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/VermilionCity_PokemonFanClub/map.bin data/maps/VermilionCity_PokemonFanClub/map.json"
  },
  {
@@ -24342,7 +26317,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/VermilionCity_House2/map.json"
  },
  {
@@ -24437,7 +26412,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/VermilionCity_Mart/map.json"
  },
  {
@@ -24562,7 +26537,47 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 612,
+     "set": true
+    },
+    "tiles": [
+     {
+      "x": 4,
+      "y": 6,
+      "c": "."
+     },
+     {
+      "x": 5,
+      "y": 6,
+      "c": "."
+     },
+     {
+      "x": 6,
+      "y": 6,
+      "c": "."
+     },
+     {
+      "x": 4,
+      "y": 7,
+      "c": "."
+     },
+     {
+      "x": 5,
+      "y": 7,
+      "c": "."
+     },
+     {
+      "x": 6,
+      "y": 7,
+      "c": "."
+     }
+    ],
+    "label": "VermilionCity_Gym_EventScript_SetBeamsOff"
+   }
+  ],
   "source": "data/layouts/VermilionCity_Gym/map.bin data/maps/VermilionCity_Gym/map.json"
  },
  {
@@ -24669,7 +26684,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/VermilionCity_House3/map.json"
  },
  {
@@ -24762,7 +26777,7 @@
    {
     "x": 6,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_Elevator",
@@ -24801,7 +26816,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_1F/map.bin data/maps/CeladonCity_DepartmentStore_1F/map.json"
  },
  {
@@ -24822,7 +26837,7 @@
    {
     "x": 6,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_Elevator",
@@ -24910,7 +26925,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_2F/map.bin data/maps/CeladonCity_DepartmentStore_2F/map.json"
  },
  {
@@ -24931,7 +26946,7 @@
    {
     "x": 6,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_Elevator",
@@ -25031,7 +27046,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_3F/map.bin data/maps/CeladonCity_DepartmentStore_3F/map.json"
  },
  {
@@ -25052,7 +27067,7 @@
    {
     "x": 6,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_Elevator",
@@ -25128,7 +27143,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_4F/map.bin data/maps/CeladonCity_DepartmentStore_4F/map.json"
  },
  {
@@ -25149,7 +27164,7 @@
    {
     "x": 6,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "CeladonCity_DepartmentStore_Elevator",
@@ -25237,7 +27252,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_5F/map.bin data/maps/CeladonCity_DepartmentStore_5F/map.json"
  },
  {
@@ -25296,10 +27311,39 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_Roof/map.bin data/maps/CeladonCity_DepartmentStore_Roof/map.json"
  },
  {
+  "elevator": {
+   "floors": [
+    {
+     "map": "CeladonCity_DepartmentStore_1F",
+     "x": 6,
+     "y": 1
+    },
+    {
+     "map": "CeladonCity_DepartmentStore_2F",
+     "x": 6,
+     "y": 1
+    },
+    {
+     "map": "CeladonCity_DepartmentStore_3F",
+     "x": 6,
+     "y": 1
+    },
+    {
+     "map": "CeladonCity_DepartmentStore_4F",
+     "x": 6,
+     "y": 1
+    },
+    {
+     "map": "CeladonCity_DepartmentStore_5F",
+     "x": 6,
+     "y": 1
+    }
+   ]
+  },
   "key": "CeladonCity_DepartmentStore_Elevator",
   "group": 10,
   "num": 6,
@@ -25334,7 +27378,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_DepartmentStore_Elevator/map.bin data/maps/CeladonCity_DepartmentStore_Elevator/map.json"
  },
  {
@@ -25479,7 +27523,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Condominiums_1F/map.bin data/maps/CeladonCity_Condominiums_1F/map.json"
  },
  {
@@ -25578,7 +27622,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Condominiums_2F/map.bin data/maps/CeladonCity_Condominiums_2F/map.json"
  },
  {
@@ -25701,7 +27745,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Condominiums_3F/map.bin data/maps/CeladonCity_Condominiums_3F/map.json"
  },
  {
@@ -25761,7 +27805,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Condominiums_Roof/map.bin data/maps/CeladonCity_Condominiums_Roof/map.json"
  },
  {
@@ -25844,7 +27888,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Condominiums_RoofRoom/map.bin data/maps/CeladonCity_Condominiums_RoofRoom/map.json"
  },
  {
@@ -25964,7 +28008,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/CeladonCity_PokemonCenter_1F/map.json"
  },
  {
@@ -25998,7 +28042,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -26010,7 +28054,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -26072,7 +28116,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/CeladonCity_PokemonCenter_2F/map.json"
  },
  {
@@ -26373,7 +28417,33 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [
+   {
+    "when": {
+     "flag": 621,
+     "set": false
+    },
+    "tiles": [
+     {
+      "x": 15,
+      "y": 2,
+      "c": ".",
+      "trigger": "none"
+     },
+     {
+      "x": 16,
+      "y": 2,
+      "c": "."
+     },
+     {
+      "x": 17,
+      "y": 2,
+      "c": "."
+     }
+    ],
+    "label": "CeladonCity_GameCorner_EventScript_HideRocketHideout"
+   }
+  ],
   "source": "data/layouts/CeladonCity_GameCorner/map.bin data/maps/CeladonCity_GameCorner/map.json"
  },
  {
@@ -26492,7 +28562,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_GameCorner_PrizeRoom/map.bin data/maps/CeladonCity_GameCorner_PrizeRoom/map.json"
  },
  {
@@ -26671,7 +28741,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Gym/map.bin data/maps/CeladonCity_Gym/map.json"
  },
  {
@@ -26790,7 +28860,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Restaurant/map.bin data/maps/CeladonCity_Restaurant/map.json"
  },
  {
@@ -26885,7 +28955,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House5/map.bin data/maps/CeladonCity_House1/map.json"
  },
  {
@@ -26992,7 +29062,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CeladonCity_Hotel/map.bin data/maps/CeladonCity_Hotel/map.json"
  },
  {
@@ -27109,7 +29179,7 @@
     "script": "FuchsiaCity_SafariZone_Entrance_EventScript_EntryTriggerLeft"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/FuchsiaCity_SafariZone_Entrance/map.bin data/maps/FuchsiaCity_SafariZone_Entrance/map.json"
  },
  {
@@ -27204,7 +29274,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/FuchsiaCity_Mart/map.json"
  },
  {
@@ -27311,7 +29381,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/FuchsiaCity_SafariZone_Office/map.bin data/maps/FuchsiaCity_SafariZone_Office/map.json"
  },
  {
@@ -27475,7 +29545,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/FuchsiaCity_Gym/map.bin data/maps/FuchsiaCity_Gym/map.json"
  },
  {
@@ -27570,7 +29640,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/FuchsiaCity_House1/map.json"
  },
  {
@@ -27690,7 +29760,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/FuchsiaCity_PokemonCenter_1F/map.json"
  },
  {
@@ -27724,7 +29794,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -27736,7 +29806,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -27798,7 +29868,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/FuchsiaCity_PokemonCenter_2F/map.json"
  },
  {
@@ -27896,7 +29966,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/FuchsiaCity_WardensHouse/map.bin data/maps/FuchsiaCity_WardensHouse/map.json"
  },
  {
@@ -27979,7 +30049,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/FuchsiaCity_House2/map.bin data/maps/FuchsiaCity_House2/map.json"
  },
  {
@@ -28026,7 +30096,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/FuchsiaCity_House3/map.json"
  },
  {
@@ -28193,7 +30263,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CinnabarIsland_Gym/map.bin data/maps/CinnabarIsland_Gym/map.json"
  },
  {
@@ -28300,7 +30370,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CinnabarIsland_PokemonLab_Entrance/map.bin data/maps/CinnabarIsland_PokemonLab_Entrance/map.json"
  },
  {
@@ -28371,7 +30441,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CinnabarIsland_PokemonLab_Lounge/map.bin data/maps/CinnabarIsland_PokemonLab_Lounge/map.json"
  },
  {
@@ -28430,7 +30500,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CinnabarIsland_PokemonLab_ResearchRoom/map.bin data/maps/CinnabarIsland_PokemonLab_ResearchRoom/map.json"
  },
  {
@@ -28489,7 +30559,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/CinnabarIsland_PokemonLab_ExperimentRoom/map.bin data/maps/CinnabarIsland_PokemonLab_ExperimentRoom/map.json"
  },
  {
@@ -28645,7 +30715,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/CinnabarIsland_PokemonCenter_1F/map.json"
  },
  {
@@ -28679,7 +30749,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -28691,7 +30761,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -28753,7 +30823,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/CinnabarIsland_PokemonCenter_2F/map.json"
  },
  {
@@ -28848,7 +30918,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/CinnabarIsland_Mart/map.json"
  },
  {
@@ -29004,7 +31074,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/IndigoPlateau_PokemonCenter_1F/map.bin data/maps/IndigoPlateau_PokemonCenter_1F/map.json"
  },
  {
@@ -29038,7 +31108,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -29050,7 +31120,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -29112,7 +31182,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/IndigoPlateau_PokemonCenter_2F/map.json"
  },
  {
@@ -29220,7 +31290,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_CopycatsHouse_1F/map.bin data/maps/SaffronCity_CopycatsHouse_1F/map.json"
  },
  {
@@ -29313,7 +31383,7 @@
    }
   ],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_CopycatsHouse_2F/map.bin data/maps/SaffronCity_CopycatsHouse_2F/map.json"
  },
  {
@@ -29471,7 +31541,7 @@
     "script": "SaffronCity_Dojo_EventScript_TriggerMasterBattleRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_Dojo/map.bin data/maps/SaffronCity_Dojo/map.json"
  },
  {
@@ -29528,8 +31598,8 @@
    {
     "x": 18,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 28,
@@ -29540,8 +31610,8 @@
    {
     "x": 0,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 20,
@@ -29552,8 +31622,8 @@
    {
     "x": 0,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 18,
@@ -29564,8 +31634,8 @@
    {
     "x": 0,
     "y": 12,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 28,
@@ -29576,8 +31646,8 @@
    {
     "x": 0,
     "y": 15,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 8,
@@ -29588,8 +31658,8 @@
    {
     "x": 0,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 28,
@@ -29600,8 +31670,8 @@
    {
     "x": 0,
     "y": 23,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 16,
@@ -29612,8 +31682,8 @@
    {
     "x": 8,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 16,
@@ -29624,8 +31694,8 @@
    {
     "x": 8,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 0,
@@ -29636,8 +31706,8 @@
    {
     "x": 8,
     "y": 12,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 12,
@@ -29648,8 +31718,8 @@
    {
     "x": 8,
     "y": 15,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 8,
@@ -29660,8 +31730,8 @@
    {
     "x": 8,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 20,
@@ -29672,8 +31742,8 @@
    {
     "x": 8,
     "y": 23,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 8,
@@ -29684,8 +31754,8 @@
    {
     "x": 12,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 20,
@@ -29696,8 +31766,8 @@
    {
     "x": 12,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 8,
@@ -29708,8 +31778,8 @@
    {
     "x": 16,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 8,
@@ -29720,8 +31790,8 @@
    {
     "x": 16,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 0,
@@ -29732,8 +31802,8 @@
    {
     "x": 18,
     "y": 15,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 0,
@@ -29744,8 +31814,8 @@
    {
     "x": 20,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 20,
@@ -29756,8 +31826,8 @@
    {
     "x": 20,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 0,
@@ -29768,8 +31838,8 @@
    {
     "x": 20,
     "y": 12,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 20,
@@ -29780,8 +31850,8 @@
    {
     "x": 20,
     "y": 15,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 12,
@@ -29792,8 +31862,8 @@
    {
     "x": 20,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 28,
@@ -29804,8 +31874,8 @@
    {
     "x": 20,
     "y": 23,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 8,
@@ -29816,8 +31886,8 @@
    {
     "x": 28,
     "y": 4,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 20,
@@ -29828,8 +31898,8 @@
    {
     "x": 28,
     "y": 7,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 0,
@@ -29840,8 +31910,8 @@
    {
     "x": 28,
     "y": 12,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 28,
@@ -29852,8 +31922,8 @@
    {
     "x": 28,
     "y": 15,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 0,
@@ -29864,8 +31934,8 @@
    {
     "x": 28,
     "y": 20,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 28,
@@ -29876,8 +31946,8 @@
    {
     "x": 28,
     "y": 23,
-    "trigger": "none",
-    "kind": "arrival",
+    "trigger": "step",
+    "kind": "pad",
     "to": {
      "map": "SaffronCity_Gym",
      "x": 18,
@@ -29998,7 +32068,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_Gym/map.bin data/maps/SaffronCity_Gym/map.json"
  },
  {
@@ -30105,7 +32175,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House5/map.bin data/maps/SaffronCity_House/map.json"
  },
  {
@@ -30200,7 +32270,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Mart/map.bin data/maps/SaffronCity_Mart/map.json"
  },
  {
@@ -30344,7 +32414,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/SaffronCity_PokemonCenter_1F/map.json"
  },
  {
@@ -30378,7 +32448,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -30390,7 +32460,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -30452,7 +32522,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/SaffronCity_PokemonCenter_2F/map.json"
  },
  {
@@ -30523,7 +32593,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House5/map.bin data/maps/SaffronCity_MrPsychicsHouse/map.json"
  },
  {
@@ -30678,7 +32748,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_PokemonTrainerFanClub/map.bin data/maps/SaffronCity_PokemonTrainerFanClub/map.json"
  },
  {
@@ -30773,7 +32843,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route2_Entrance/map.bin data/maps/Route2_ViridianForest_SouthEntrance/map.json"
  },
  {
@@ -30856,7 +32926,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House2/map.bin data/maps/Route2_House/map.json"
  },
  {
@@ -30951,7 +33021,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route2_Entrance/map.bin data/maps/Route2_EastBuilding/map.json"
  },
  {
@@ -31058,7 +33128,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route2_Entrance/map.bin data/maps/Route2_ViridianForest_NorthEntrance/map.json"
  },
  {
@@ -31202,7 +33272,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/Route4_PokemonCenter_1F/map.json"
  },
  {
@@ -31236,7 +33306,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -31248,7 +33318,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -31310,7 +33380,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/Route4_PokemonCenter_2F/map.json"
  },
  {
@@ -31381,7 +33451,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route5_PokemonDayCare/map.bin data/maps/Route5_PokemonDayCare/map.json"
  },
  {
@@ -31486,7 +33556,7 @@
     "script": "Route5_SouthEntrance_EventScript_GuardTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_NorthSouthEntrance/map.bin data/maps/Route5_SouthEntrance/map.json"
  },
  {
@@ -31591,7 +33661,7 @@
     "script": "Route6_NorthEntrance_EventScript_GuardTriggerRight"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_NorthSouthEntrance/map.bin data/maps/Route6_NorthEntrance/map.json"
  },
  {
@@ -31612,7 +33682,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House2/map.bin data/maps/Route6_UnusedHouse/map.json"
  },
  {
@@ -31717,7 +33787,7 @@
     "script": "Route7_EastEntrance_EventScript_GuardTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_EastWestEntrance/map.bin data/maps/Route7_EastEntrance/map.json"
  },
  {
@@ -31822,7 +33892,7 @@
     "script": "Route8_WestEntrance_EventScript_GuardTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/SaffronCity_EastWestEntrance/map.bin data/maps/Route8_WestEntrance/map.json"
  },
  {
@@ -31954,7 +34024,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_1F/map.bin data/maps/Route10_PokemonCenter_1F/map.json"
  },
  {
@@ -31988,7 +34058,7 @@
    {
     "x": 5,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "UnionRoom",
@@ -32000,7 +34070,7 @@
    {
     "x": 9,
     "y": 1,
-    "trigger": "step",
+    "trigger": "door",
     "kind": "door",
     "to": {
      "map": "TradeCenter",
@@ -32062,7 +34132,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/PokemonCenter_2F/map.bin data/maps/Route10_PokemonCenter_2F/map.json"
  },
  {
@@ -32170,7 +34240,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_1F/map.bin data/maps/Route11_EastEntrance_1F/map.json"
  },
  {
@@ -32230,7 +34300,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_2F/map.bin data/maps/Route11_EastEntrance_2F/map.json"
  },
  {
@@ -32326,7 +34396,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route12_NorthEntrance_1F/map.bin data/maps/Route12_NorthEntrance_1F/map.json"
  },
  {
@@ -32374,7 +34444,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_2F/map.bin data/maps/Route12_NorthEntrance_2F/map.json"
  },
  {
@@ -32445,7 +34515,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House4/map.bin data/maps/Route12_FishingHouse/map.json"
  },
  {
@@ -32541,7 +34611,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_1F/map.bin data/maps/Route15_WestEntrance_1F/map.json"
  },
  {
@@ -32589,7 +34659,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_2F/map.bin data/maps/Route15_WestEntrance_2F/map.json"
  },
  {
@@ -32672,7 +34742,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House1/map.bin data/maps/Route16_House/map.json"
  },
  {
@@ -32858,7 +34928,7 @@
     "script": "Route16_NorthEntrance_1F_EventScript_NeedBikeTriggerBottom"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route16_NorthEntrance_1F/map.bin data/maps/Route16_NorthEntrance_1F/map.json"
  },
  {
@@ -32930,7 +35000,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_2F/map.bin data/maps/Route16_NorthEntrance_2F/map.json"
  },
  {
@@ -33080,7 +35150,7 @@
     "script": "EventScript_SetEnteringCyclingRoad"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_1F/map.bin data/maps/Route18_EastEntrance_1F/map.json"
  },
  {
@@ -33128,7 +35198,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Entrance_2F/map.bin data/maps/Route18_EastEntrance_2F/map.json"
  },
  {
@@ -33149,7 +35219,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House2/map.bin data/maps/Route19_UnusedHouse/map.json"
  },
  {
@@ -33240,7 +35310,7 @@
     "script": "Route22_NorthEntrance_EventScript_BoulderBadgeGuardTrigger"
    }
   ],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route22_NorthEntrance/map.bin data/maps/Route22_NorthEntrance/map.json"
  },
  {
@@ -33261,7 +35331,7 @@
   "objects": [],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/House2/map.bin data/maps/Route23_UnusedHouse/map.json"
  },
  {
@@ -33352,7 +35422,7 @@
   ],
   "hidden": [],
   "triggers": [],
-  "gates": [],
+  "overlays": [],
   "source": "data/layouts/Route25_SeaCottage/map.bin data/maps/Route25_SeaCottage/map.json"
  }
 ]

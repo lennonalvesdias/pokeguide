@@ -49,12 +49,12 @@ function map(key: string, rows: string[], extra: Partial<WorldMap> = {}): WorldM
     objects: [],
     hidden: [],
     triggers: [],
-    gates: [],
+    overlays: [],
     source: 'teste',
     ...extra,
   };
 }
-const world = (maps: WorldMap[], more: Partial<NavWorld> = {}): NavWorld => ({ maps, areas: [], blockers: [], newGameFlags: [], obstacles: {}, ...more });
+const world = (maps: WorldMap[], more: Partial<NavWorld> = {}): NavWorld => ({ maps, areas: [], blockers: [], newGameFlags: [], obstacles: {}, openers: [], elevatorKeys: [], ...more });
 const area = (maps: string[], more: Partial<NavArea> = {}): NavArea => ({
   id: 'test',
   name: 'Teste',
@@ -131,10 +131,10 @@ describe('regras de movimento', () => {
 
 describe('sessão (interruptor e grade)', () => {
   // #########
-  // #S.@g...#   S = estátua (em cima), @ = início, g = grade (livre só ligada), item em (7,1)
+  // #S.@#...#   S = estátua (em cima), @ = início, grade em (4,1): parede no layout, livre com a flag ligada
   // #########
-  const m = map('M', ['#########', '#...g...#', '#########'], {
-    gates: [{ x: 4, y: 1, flag: 1, passWhenSet: true }],
+  const m = map('M', ['#########', '#...#...#', '#########'], {
+    overlays: [{ when: { flag: 1, set: true }, label: 'press', tiles: [{ x: 4, y: 1, c: '.' }] }],
     objects: [{ x: 7, y: 1, hideFlag: 2, source: 't', kind: 'item', item: 'key' }],
   });
   const w = world([m]);
@@ -212,5 +212,36 @@ describe('treinadores', () => {
     const w = world([m]);
     expect([...trainerSight(w, new Set(['V']), new Set()).keys()]).toEqual(['V:5:1', 'V:4:1', 'V:3:1', 'V:2:1']);
     expect(trainerSight(w, new Set(['V']), new Set(['bob'])).size).toBe(0);
+  });
+});
+
+describe('sobreposições e aberturas', () => {
+  // Porta fechada enquanto a flag 9 está desligada; o Card Key abre (uma ação, depois passa).
+  const door = map('D', ['#######', '#.....#', '#######'], { overlays: [{ when: { flag: 9, set: false }, label: 'close', tiles: [{ x: 3, y: 1, c: '#' }] }] });
+  const opener = { id: 'card', map: 'D', label: 'close', effect: 'remove' as const, needsItem: 'card_key', why: 'Precisa do Card Key.', steps: [{ instruction: 'Use o Card Key.', expected: 'Abre.', question: 'Abriu?' }] };
+  const w = world([door], { openers: [opener] });
+  const a = area(['D'], { objectives: [{ id: 'go', title: 'Passar', doneText: 'ok', reach: { map: 'D', x: 5, y: 1 } }] });
+  const go = (f: NavFacts) => planRoute(w, a, f, { map: 'D', x: 1, y: 1 }, false, { kind: 'reach', map: 'D', x: 5, y: 1 });
+  it('flag desconhecida e sem Card Key: fechada', () => {
+    expect(go(facts())).toBeNull();
+  });
+  it('flag ligada (porta já aberta no save): passa direto', () => {
+    expect(go(facts({ flags: { 9: true } }))?.actions.map((x) => x.type)).toEqual(['move', 'move', 'move', 'move', 'goal']);
+  });
+  it('com o Card Key: abre a porta no caminho e, confirmado, não pede de novo', () => {
+    expect(go(facts({ items: ['card_key'] }))?.actions.map((x) => x.type)).toEqual(['move', 'open', 'move', 'move', 'goal']);
+    const s = setPosition(startNavSession(a, 'go', 't', T), { map: 'D', x: 1, y: 1 }, T);
+    const F = facts({ items: ['card_key'] });
+    const g = nextGuidance(w, a, F, s);
+    if (g.kind !== 'step') throw new Error(g.kind);
+    expect(g.step.action).toBe('open');
+    const after = applyOutcome(w, a, s, g.step, 'done', T).session;
+    expect(after.collected).toContain('open:D:close');
+    const next = nextGuidance(w, a, F, after);
+    expect(next.kind === 'step' && next.step.action).not.toBe('open');
+  });
+  it('sem rota: explica a abertura que falta', () => {
+    const g = nextGuidance(w, a, facts(), setPosition(startNavSession(a, 'go', 't', T), { map: 'D', x: 1, y: 1 }, T));
+    expect(g.kind === 'stuck' && g.missing).toEqual(['Precisa do Card Key. (precisa do item card key)']);
   });
 });

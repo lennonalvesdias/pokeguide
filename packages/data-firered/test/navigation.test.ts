@@ -10,9 +10,12 @@ describe('Pokémon Mansion: invariantes', async () => {
   const world = await loadWorld();
   const area = navigation.areas.find((a) => a.id === 'pokemon_mansion')!;
   const F = facts();
+  /** O tile é livre com o interruptor nesse estado? (sobreposições da flag da mansão) */
   const gateOpen = (map: string, x: number, y: number, on: boolean) => {
-    const g = world.maps.find((m) => m.key === map)!.gates.find((t) => t.x === x && t.y === y);
-    return g ? g.passWhenSet === on : true;
+    const m = world.maps.find((mm) => mm.key === map)!;
+    let c = m.tiles[y * m.width + x];
+    for (const ov of m.overlays) if ('flag' in ov.when && ov.when.flag === area.switch!.flag.id && ov.when.set === on) c = ov.tiles.find((t) => t.x === x && t.y === y)?.c ?? c;
+    return c !== '#';
   };
   // Amostra de tiles livres de todos os andares (1 a cada 3 em x e y).
   const starts = world.maps

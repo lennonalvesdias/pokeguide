@@ -4,7 +4,7 @@
 | --- | --- |
 | [0000 — Arquitetura v1.0](0000-arquitetura-v1.0.md) | Proposta original |
 | [Revisão e plano de implementação](https://claude.ai/artifact/Xqf2ctaRMyHgXCDYh7Et5d) | Base da v1.1 |
-| [Navegação contextual e walkthrough verificável](ADR-contextual-walkthrough.md) | Aceita; fases 1–2 feitas, fase 4 em andamento (4a: mundo de Kanto + 9 áreas) |
+| [Navegação contextual e walkthrough verificável](ADR-contextual-walkthrough.md) | Aceita; fases 1–2 feitas, fase 4: 4a e 4b feitas (Kanto + 14 áreas), 4c pendente |
 | [Distribuição de dados](ADR-distribuicao-de-dados.md) | Aceita |
 | [Auditoria de UX 2026-11](../UX-AUDIT-2026-11.md) | P0 implementados; P1/P2 pendentes |
 

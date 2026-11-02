@@ -15,8 +15,11 @@ export interface NavPlace extends NavTile {
 
 // ---------- mundo ----------
 
-/** Como o warp dispara: ao pisar, ao apertar uma direção em cima dele, ou nunca (só ponto de chegada). */
-export type WarpTrigger = 'step' | 'press-up' | 'press-down' | 'press-left' | 'press-right' | 'none';
+/**
+ * Como o warp dispara: ao pisar, ao apertar uma direção em cima dele, pela porta (tile com colisão: do tile
+ * de baixo, andando para cima) ou nunca (só ponto de chegada).
+ */
+export type WarpTrigger = 'step' | 'press-up' | 'press-down' | 'press-left' | 'press-right' | 'door' | 'none';
 export type WarpKind = 'door' | 'ladder' | 'escalator' | 'cave' | 'pad' | 'fall' | 'exit-mat' | 'stairs' | 'arrival';
 
 export interface WorldWarp extends NavTile {
@@ -45,8 +48,7 @@ interface WorldObjectBase extends NavTile {
   source: string;
 }
 
-export type ObjectMove = NavTile &
-  ({ var: number; cmp: 'eq' | 'ne' | 'lt' | 'ge' | 'le' | 'gt'; value: number } | { flag: number; set: boolean } | { always: true });
+export type ObjectMove = NavTile & NavCondition;
 
 export type WorldObject = WorldObjectBase &
   (
@@ -71,10 +73,22 @@ export interface WorldTrigger extends NavTile {
   script: string;
 }
 
-export interface WorldGate extends NavTile {
-  flag: number;
-  /** Livre quando a flag está ligada (senão, livre quando desligada). */
-  passWhenSet: boolean;
+/** Condição de script: variável comparada, flag (ou treinador vencido = flag 0x500 + id) ou sempre. */
+export type NavCondition =
+  | { var: number; cmp: 'eq' | 'ne' | 'lt' | 'ge' | 'le' | 'gt'; value: number }
+  | { flag: number; set: boolean; trainer?: string }
+  | { always: true };
+
+/**
+ * O que o script de carga do mapa troca sob uma condição (setmetatile, setmaplayoutindex): portas da
+ * Silph Co., barreiras da Victory Road, grades da Pokémon Mansion, correntezas do Seafoam...
+ */
+export interface WorldOverlay {
+  when: NavCondition;
+  /** Rótulo do script no decomp (identifica a sobreposição). */
+  label: string;
+  /** Tile como fica com a sobreposição aplicada; `trigger` quando o warp do tile passa a disparar diferente. */
+  tiles: Array<NavTile & { c: string; trigger?: WarpTrigger }>;
 }
 
 /**
@@ -82,10 +96,13 @@ export interface WorldGate extends NavTile {
  * '#' parede; '.' chão; '~' água; 'F' água rápida; 'W' cachoeira; 'v' '^' '{' '}' ledge (pula para baixo,
  * cima, esquerda, direita); 'n' 'e' 's' 'w' borda bloqueada (N/E/S/W) e 'N' 'M' 'S' 'Z' cantos
  * (NE, NW, SE, SW); '8' '2' '4' '6' correnteza (cima, baixo, esquerda, direita); 'U' 'D' 'L' 'R' girador;
- * 'X' fim do giro; 'I' gelo; 'B' botão de Strength; 'P' ladeira da Cycling Road; 'g' grade (ver `gates`).
+ * 'X' fim do giro; 'I' gelo; 'B' botão de Strength; 'P' ladeira da Cycling Road. O que muda por script
+ * fica em `overlays`.
  * `elev` é a elevação do tile em hexadecimal (0–f).
  */
 export interface WorldMap {
+  /** Elevador: andares do painel (destino exato) e a flag que ele exige, se houver (Lift Key). */
+  elevator?: { floors: NavPlace[]; needsFlag?: number };
   key: string;
   group: number;
   num: number;
@@ -103,7 +120,7 @@ export interface WorldMap {
   objects: WorldObject[];
   hidden: WorldHidden[];
   triggers: WorldTrigger[];
-  gates: WorldGate[];
+  overlays: WorldOverlay[];
   source: string;
 }
 
@@ -131,6 +148,8 @@ export interface NavObjective {
   who?: string;
   /** Sair da área. */
   exit?: boolean;
+  /** Só dá para chegar depois das tarefas da área (pedras do Seafoam). */
+  needsTasks?: boolean;
 }
 
 export interface NavArea {
@@ -146,6 +165,25 @@ export interface NavArea {
   notes: string;
   /** 'beta' até alguém atravessar a área no jogo seguindo só o guia. */
   status?: 'beta' | 'validated';
+  /** Pré-requisitos calculados (pedras do Seafoam), em ordem. */
+  tasks?: NavTask[];
+}
+
+/**
+ * Derrubar uma pedra num buraco (Strength). A pedra some (`hideFlag` liga) e revela a de baixo
+ * (`reveals` desliga). A última da cadeia faz o jogo ligar `setsFlag` (correnteza parada).
+ */
+export interface NavTask {
+  id: string;
+  map: string;
+  boulder: NavTile;
+  hideFlag: number | null;
+  reveals: number;
+  pushes: Array<{ stand: NavTile; from: NavTile; dir: NavDirection; times: number }>;
+  why: string;
+  /** A flag que a cadeia toda liga (com ela ligada, a tarefa já não importa). */
+  stops: number;
+  setsFlag?: number;
 }
 
 export type BlockerCondition = { flag: number; name: string } | { badges: string[] } | { item: string };
@@ -170,6 +208,29 @@ export interface NavWorld {
   newGameFlags: number[];
   /** Obstáculos conhecidos, pelo gráfico (ex.: 'SNORLAX'): explicação e, se der, como tirar do caminho. */
   obstacles: Record<string, NavObstacle>;
+  /** Como o jogador desfaz (ou aplica) uma sobreposição: Card Key, vencer um treinador, interruptor... */
+  openers: NavOpener[];
+  /** Onde buscar o que destrava um elevador (o Lift Key do Rocket Hideout). */
+  elevatorKeys: Array<{ elevator: string; fetch: NavPlace; who: string; why: string; gives: string }>;
+}
+
+/**
+ * Ação do jogador que resolve uma sobreposição. `effect: 'remove'` = ela deixa de valer (porta abre,
+ * barreira some); `'apply'` = passa a valer. Os passos saem um a um, cada um com sua verificação.
+ */
+export interface NavOpener {
+  id: string;
+  map: string;
+  label: string;
+  effect: 'remove' | 'apply';
+  needsItem?: string;
+  needsMove?: FieldMove;
+  /** Treinador a vencer (vem da condição do script). */
+  trainer?: string;
+  why: string;
+  steps: Array<{ instruction: string; expected: string; question: string }>;
+  /** Quebra-cabeça de Strength: empurrões calculados (fique em `stand` e empurre `dir` `times` vezes). */
+  puzzle?: { boulder: NavTile; target: NavTile; pushes: Array<{ stand: NavTile; from: NavTile; dir: NavDirection; times: number }> };
 }
 
 export interface NavObstacle {
@@ -252,6 +313,8 @@ export type StepAction =
   | 'cut'
   | 'smash'
   | 'interact'
+  | 'open'
+  | 'push'
   | 'press-switch'
   | 'look-switch'
   | 'cross-gate'
@@ -284,6 +347,12 @@ export interface GuidanceStep {
     collectedId?: string;
     /** Obstáculo tirado do caminho; `removedTemp`: volta ao sair do mapa (Cut, Rock Smash). */
     removedId?: string;
+    /** Abertura concluída (id `open:<mapa>:<rótulo>`), quando é o último passo dela. */
+    openedId?: string;
+    /** Passo k de uma abertura com vários passos (`open:<mapa>:<rótulo>#k`). */
+    openerProgress?: string;
+    /** Marcas de sessão a gravar (tarefa concluída, flags que o jogo liga ou desliga). */
+    marks?: string[];
     removedTemp?: boolean;
     exited?: boolean;
     reached?: boolean;
