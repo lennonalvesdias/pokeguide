@@ -126,8 +126,7 @@ o ataque principal com STAB fosse o candidato a sair.
 | UX-03 | **Feito** | Abas **Agora · Batalha · Jornada · Equipe · Mais**. "Agora" abre o app: objetivo do momento com "Como chegar" e o guia da área, onde você está (com a idade do save), atalhos (Estou em batalha, Aprender golpe, Equipe, Golpes) e quem precisa de cura. Bolsa, Golpes, Save/Dropbox e Diagnóstico ficam em "Mais"; a aba salva antiga (Bolsa/Golpes) migra sozinha |
 | UX-10 | **Feito** | "Gerar relatório" nas recomendações de batalha (selvagem e treinador) e em cada passo do guia: o jogador descreve o problema e copia, compartilha ou abre uma issue. Nada é enviado sozinho; o relatório tira nome, IDs do treinador, flags e variáveis do save |
 | Métricas | **Feito (local)** | Tela "Mais › Diagnóstico": versões, dados do save, aberturas, importações, recomendações, p75 do tempo até a primeira recomendação, passos do guia e resultados (feito/bloqueado/não achou). Fica só no aparelho (`localStorage`), com copiar e zerar |
-| UX-09 | **Feito** | Sem save, a abertura explica o caminho em 3 passos (Delta Sync com Dropbox → conectar o mesmo Dropbox aqui → salvar e voltar), com a importação de arquivo como alternativa. "Ver uma demonstração" abre um jogo de exemplo (3 insígnias, Route 10), com stats pelas fórmulas do jogo e golpes do learnset: batalha, equipe, bolsa, jornada e guia funcionam de verdade. A demonstração fica só na memória, tem aviso fixo e "Usar meu save", e nunca é comparada com o save real na importação |
-| UX-05, 06 | Pendente (P2) | Batalha expressa e separação de análise avançada |
+| UX-05, 06, 09 | Pendente (P2) | Batalha expressa, separação de análise avançada e onboarding |
 
 Roadmap P0 após esta entrega: os três itens estão feitos (o 2 para a mansão; outras áreas dependem da
 fase 4 do ADR de navegação).
