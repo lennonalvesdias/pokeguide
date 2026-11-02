@@ -38,7 +38,7 @@ export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMemb
   return (
     <section className="now">
       <article className="card rec primary">
-        <p className="label">Objetivo agora</p>
+        <p className="label px">Objetivo agora</p>
         {current ? (
           <>
             <h2 className="card-title">{current.title}</h2>
@@ -65,7 +65,7 @@ export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMemb
       </article>
 
       <div className="card">
-        <p className="label">Onde você está</p>
+        <p className="label px">Onde você está</p>
         <p className="wt-action">{mapLabel(here)}</p>
         <p className={`fine ${age?.stale ? 'stale-note' : ''}`}>
           Pelo save{age ? ` (${stored.savedAt ? 'salvo' : 'importado'} ${age.text})` : ''}.{age?.stale ? ' Se você andou desde então, salve no jogo para o app acompanhar.' : ''}
@@ -94,7 +94,7 @@ export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMemb
 
       {hurt.length > 0 && (
         <div className="card">
-          <p className="label">Precisa de cura</p>
+          <p className="label px">Precisa de cura</p>
           <ul className="diag-list">
             {hurt.map((m) => (
               <li key={m.id}>

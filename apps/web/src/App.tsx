@@ -26,6 +26,7 @@ import { MemberDetail } from './Member.tsx';
 import { MovesTab } from './Moves.tsx';
 import { Sprite } from './Sprite.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
+import { BrandMark, NavIcon } from './icons.tsx';
 import { NAV_ITEMS, restoreTab, type Tab } from './navigation.ts';
 import {
   connectDropbox,
@@ -201,7 +202,10 @@ export function App() {
     <div className="app">
       <header className="top">
         <div>
-          <h1>PokéGuide</h1>
+          <h1 className="brand">
+            <BrandMark />
+            PokéGuide
+          </h1>
           {p ? (
             <p className="sub">
               {p.playTime.hours}h{String(p.playTime.minutes).padStart(2, '0')} · {p.badges.length} insígnias ·{' '}
@@ -307,7 +311,8 @@ export function App() {
         <nav className="tabs" aria-label="Seções">
           {NAV_ITEMS.map(([id, label]) => (
             <button key={id} type="button" aria-current={tab === id ? 'page' : undefined} className={tab === id ? 'on' : ''} onClick={() => setTab(id)}>
-              {label}
+              <NavIcon tab={id} />
+              <span>{label}</span>
             </button>
           ))}
         </nav>

@@ -29,7 +29,7 @@ export default defineConfig({
       },
       workbox: {
         // Todo .js (inclusive o pedaço do mundo) fica em cache para funcionar offline.
-        globPatterns: ['**/*.{js,css,html,svg,png}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         // Imagens dos Pokémon: baixadas do PokeAPI/sprites na primeira vez e guardadas para uso offline.
         runtimeCaching: [
