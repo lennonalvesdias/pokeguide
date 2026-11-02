@@ -6,6 +6,7 @@ import {
   machines,
   rules,
   trainers,
+  canSurf,
   trainingSpotInputs,
   upcomingOpponents,
   walkthrough,
@@ -65,8 +66,8 @@ export function MemberDetail({ member, team, preview }: { member: TeamMember; te
   const traded = !!saved && saved.otId >>> 0 !== ((preview.trainer.secretId << 16) | preview.trainer.publicId) >>> 0;
   const luckyEgg = !!saved?.heldItemId && itemById.get(saved.heldItemId)?.key === 'lucky_egg';
   const spots = useMemo(
-    () => trainingSpots(chart, ready, trainingSpotInputs(areas, keyItems), preview.badges, { boost: traded || luckyEgg }).slice(0, 3),
-    [ready, areas, keyItems, preview, traded, luckyEgg],
+    () => trainingSpots(chart, ready, trainingSpotInputs(areas, keyItems, { canSurf: canSurf(preview.badges, team) }), preview.badges, { boost: traded || luckyEgg }).slice(0, 3),
+    [ready, areas, keyItems, preview, team, traded, luckyEgg],
   );
 
   const moveset = useMemo(() => {

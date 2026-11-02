@@ -234,13 +234,24 @@ export function areaTrainers(
 }
 
 /** Lugares de treino: um por área + método (grama/caverna, surfando, cada vara), com os encontros no nível médio. */
-export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlySet<string>): TrainingSpotInput[] {
+/**
+ * Para surfar no FireRed é preciso a insígnia Soul e um Pokémon da equipe que saiba Surf
+ * (field_control_avatar.c: GetInteractedWaterScript → FLAG_BADGE05_GET && PartyHasMonWithSurf).
+ * Ter o HM03 na bolsa não basta.
+ */
+export function canSurf(badges: readonly string[], team: ReadonlyArray<{ moves: ReadonlyArray<{ move: { key: string } }> }>): boolean {
+  return badges.includes('soul') && team.some((m) => m.moves.some((x) => x.move.key === 'surf'));
+}
+
+export function trainingSpotInputs(areas: readonly string[], keyItems: ReadonlySet<string>, opts: { canSurf: boolean }): TrainingSpotInput[] {
   const groups = new Map<string, { maps: Set<string>; slots: Map<string, { species: string; level: number; rate: number }> }>();
   for (const e of encounters) {
     const area = areaOf(e.map);
     if (!areas.includes(area)) continue;
     for (const s of e.slots) {
       if (s.method === 'rock_smash' || (s.method.endsWith('_rod') && !keyItems.has(s.method))) continue;
+      // Selvagens na água pedem Surf (as varas pescam da margem, sem surfar).
+      if (s.method === 'water' && !opts.canSurf) continue;
       const key = `${area}|${s.method}`;
       const g = groups.get(key) ?? { maps: new Set(), slots: new Map() };
       g.maps.add(e.map);
