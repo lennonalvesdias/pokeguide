@@ -38,7 +38,7 @@ Você descreve o problema e copia, compartilha ou abre uma issue (rótulo `golde
 IDs do treinador nem flags do save. Cada relatório vira um teste em `packages/data-firered/test/` antes
 da correção.
 
-Em **Mais › Diagnóstico** ficam números de uso guardados só no aparelho: tempo até a primeira
+Em **Diagnóstico**, direto no menu inferior, ficam números de uso guardados só no aparelho: tempo até a primeira
 recomendação (p75) e quantos passos do guia deram certo, ficaram bloqueados ou não foram achados.
 É por eles que uma área sai de beta.
 
