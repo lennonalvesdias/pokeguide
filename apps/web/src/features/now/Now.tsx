@@ -4,7 +4,8 @@ import { lookup, navigation, trainers, walkthrough } from '@pokeguide/data-firer
 import { evaluateJourney, type TeamMember } from '@pokeguide/domain';
 import { isFlagSet } from '@pokeguide/save-parser';
 import { useMemo } from 'react';
-import { mapLabel } from '../../App.tsx';
+import { hpClass, mapLabel } from '../../App.tsx';
+import { Sprite } from '../../Sprite.tsx';
 import { saveAge, type StoredSave } from '../../state.ts';
 import type { GuideTarget } from '../walkthrough/Walkthrough.tsx';
 
@@ -91,6 +92,21 @@ export function Now({ stored, team, onGo }: { stored: StoredSave; team: TeamMemb
           <span className="fine">Comparar e ver o que esquecer</span>
         </button>
       </div>
+
+      {team.length > 0 && (
+        // A equipe num olhar: sprite, nível e HP. O detalhe fica na aba Equipe.
+        <button type="button" className="card team-strip" onClick={() => onGo({ tab: 'team' })} aria-label={`Equipe: ${team.map((m) => `${m.name} nível ${m.level}, ${m.hp.current} de ${m.hp.max} HP`).join('; ')}`}>
+          {team.map((m) => (
+            <span key={m.id} className="team-slot">
+              <Sprite species={m.species} size={40} />
+              <span className="px lv">Lv {m.level}</span>
+              <span className={`hpbar ${hpClass(m.hp)}`}>
+                <span style={{ width: `${Math.round((100 * m.hp.current) / Math.max(1, m.hp.max))}%` }} />
+              </span>
+            </span>
+          ))}
+        </button>
+      )}
 
       {hurt.length > 0 && (
         <div className="card">

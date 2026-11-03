@@ -26,7 +26,7 @@ import { MemberDetail } from './Member.tsx';
 import { MovesTab } from './Moves.tsx';
 import { Sprite } from './Sprite.tsx';
 import { TrainerBattle } from './TrainerBattle.tsx';
-import { BrandMark, NavIcon } from './icons.tsx';
+import { BadgePips, BrandMark, NavIcon } from './icons.tsx';
 import { NAV_ITEMS, restoreTab, type Tab } from './navigation.ts';
 import {
   connectDropbox,
@@ -208,7 +208,7 @@ export function App() {
           </h1>
           {p ? (
             <p className="sub">
-              {p.playTime.hours}h{String(p.playTime.minutes).padStart(2, '0')} · {p.badges.length} insígnias ·{' '}
+              <BadgePips count={p.badges.length} /> {p.playTime.hours}h{String(p.playTime.minutes).padStart(2, '0')} ·{' '}
               {mapLabel(lookup.map(p.location.mapGroup, p.location.mapNum)?.key ?? '')}
             </p>
           ) : null}
@@ -781,7 +781,7 @@ function TeamTab({ team, stored }: { team: TeamMember[]; stored: StoredSave }) {
   );
 }
 
-const hpClass = (hp: { current: number; max: number }) => {
+export const hpClass = (hp: { current: number; max: number }) => {
   const r = hp.current / Math.max(hp.max, 1);
   return r <= 0.2 ? 'low' : r <= 0.5 ? 'mid' : '';
 };

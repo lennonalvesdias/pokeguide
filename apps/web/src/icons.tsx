@@ -54,3 +54,14 @@ export function BrandMark({ size = 28 }: { size?: number }) {
     </svg>
   );
 }
+
+/** Insígnias como pips dourados (conquistadas) e vazios, com a contagem escrita para leitores de tela. */
+export function BadgePips({ count, total = 8 }: { count: number; total?: number }) {
+  return (
+    <span className="pips" role="img" aria-label={`${count} de ${total} insígnias`}>
+      {Array.from({ length: total }, (_, i) => (
+        <span key={i} className={i < count ? 'on' : ''} />
+      ))}
+    </span>
+  );
+}
