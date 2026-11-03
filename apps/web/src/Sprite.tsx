@@ -9,10 +9,17 @@ export function spriteUrl(species: Pick<SpeciesDefinition, 'dex'>): string | nul
   return species.dex ? `${BASE}${species.dex}.png` : null;
 }
 
-/** Decorativa: o nome sempre aparece ao lado, então o texto alternativo fica vazio. */
+/** Decorativa: o nome sempre aparece ao lado, então o texto alternativo fica vazio (também no espaço reservado). */
 export function Sprite({ species, size = 40 }: { species: Pick<SpeciesDefinition, 'dex'>; size?: number }) {
   const [failed, setFailed] = useState(false);
   const src = spriteUrl(species);
-  if (!src || failed) return <span className="sprite missing" style={{ width: size, height: size, display: 'inline-block' }} aria-hidden />;
+  // Sem imagem (sem rede na primeira vez, ou sem número): quadro xadrez com o número da Pokédex, para o
+  // espaço não sumir e o Pokémon ainda ser reconhecível.
+  if (!src || failed)
+    return (
+      <span className="sprite placeholder" style={{ width: size, height: size }} aria-hidden>
+        {species.dex && size >= 28 ? <span className="dex">#{String(species.dex).padStart(3, '0')}</span> : null}
+      </span>
+    );
   return <img className="sprite" src={src} width={size} height={size} alt="" loading="lazy" decoding="async" onError={() => setFailed(true)} />;
 }

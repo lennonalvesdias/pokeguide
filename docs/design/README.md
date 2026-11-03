@@ -1,6 +1,7 @@
 # PokéGuide — Identidade visual “Caderno de campo de Kanto”
 
-Status: aplicada no `apps/web` (tokens, fontes, ícones, caixa de diálogo, tipos, HP, confiança e abas).
+Status: aplicada no `apps/web` (tokens, fontes, ícones, caixa de diálogo, tipos, HP, confiança, abas,
+veredito de TM/HM, insígnias em pips, equipe no Agora e espaço reservado de sprite).
 Data: 2026-11. Base: [`UX-AUDIT-2026-11`](../UX-AUDIT-2026-11.md), seção “Direção visual”.
 
 Este documento é a referência de design do app. Quando um componente novo surgir, ele usa estes
@@ -82,8 +83,12 @@ segue o tamanho do sistema e cresce com o Texto Ampliado do iOS.
 - **Caixa de diálogo** (`.rec.primary`): a recomendação principal. Borda de 3px em `--frame`, filete
   interno de ouro, sombra sólida e o ▼ piscando no canto. É a única peça com esse tratamento: ela diz
   “faça isto”. Com Reduzir Movimento, o ▼ fica parado.
-- **Veredito de golpe**: Ensinar (`--good`), Não ensinar (tinta), Depende (contorno `--warn`), sempre
-  seguido de “no lugar de qual” e do motivo.
+- **Veredito de golpe** (`.verdict` em `Bag.tsx`): pílula em pixel Ensinar (`--good`), Não ensinar
+  (tinta) ou Depende (contorno `--warn`). Na linha fechada da Bolsa, pílula + decisão; na linha aberta,
+  a mesma decisão em caixa de diálogo (`.verdict-box`), com quem e “no lugar de qual” no título e o
+  porquê embaixo.
+- **Insígnias** (`BadgePips`): 8 pips, ouro para as conquistadas; o leitor de tela ouve “3 de 8 insígnias”.
+- **Equipe num olhar** (`.team-strip` no Agora): sprite, nível e HP de cada membro; toca e abre a Equipe.
 - **Confiança** (`.conf`): pílula com texto; cor só reforça.
 - **HP** (`.hpbar`): trilho de 7px; o número fica sempre ao lado em quem mostra HP.
 - **Botões**: principal em tinta, 48–56px de altura; secundário com contorno de 1.5px em tinta;
@@ -91,7 +96,8 @@ segue o tamanho do sistema e cresce com o Texto Ampliado do iOS.
 - **Abas** (`.tabs`): ícone de traço + rótulo; a ativa ganha o ícone preenchido em vermelho Kanto.
 - **Marca** (`BrandMark` em `src/icons.tsx`, `public/icon.svg`): um caminho de pixels dourados até um
   quadrado vermelho, o “próximo passo”.
-- **Sprite**: `image-rendering: pixelated`; sem imagem, um quadro xadrez com o número da Pokédex.
+- **Sprite**: `image-rendering: pixelated`; sem imagem (offline na primeira vez), um quadro xadrez com o
+  número da Pokédex (`.sprite.placeholder`).
 
 ## Forma e movimento
 
@@ -115,6 +121,5 @@ destacado no topo da Bolsa), elas são direção, não especificação fechada.
 
 ## Próximos passos de design
 
-- Levar a caixa de diálogo e o veredito destacado para o fluxo de TM/HM da Bolsa.
-- Cabeçalho com insígnias em pips (`5/8`) no lugar do texto.
-- Espaço reservado em xadrez com número da Pokédex para sprites ainda não baixados.
+- Testar no iPhone com o Delta aberto em paralelo (tempo até a decisão, alternância entre apps).
+- Batalha: título “Troque e use” com o rótulo de confiança dentro da caixa de diálogo.

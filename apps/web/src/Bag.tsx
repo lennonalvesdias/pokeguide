@@ -136,7 +136,12 @@ function BagRow({
       </button>
       {machine && !open && (
         <>
-          {verdict && <p className={`teach ${verdict.kind}`}>{verdict.text}</p>}
+          {verdict && (
+            <p className={`teach ${verdict.kind}`}>
+              <VerdictPill kind={verdict.kind} /> {verdict.title}
+              {verdict.detail ? ` · ${verdict.detail}` : ''}
+            </p>
+          )}
           <p className="fine learners">
             {learners.length ? `Pode aprender: ${learners.map((l) => l.name).join(', ')}` : knowers.length ? 'Ninguém mais da equipe aprende' : 'Ninguém da equipe aprende'}
             {knowers.length > 0 && ` · já conhece: ${knowers.map((l) => l.name).join(', ')}`}
@@ -145,6 +150,14 @@ function BagRow({
       )}
       {open && (
         <div className="bag-detail">
+          {verdict && (
+            // A decisão em destaque (caixa de diálogo): veredito, para quem e no lugar de qual; o porquê vem embaixo.
+            <div className="rec primary verdict-box">
+              <VerdictPill kind={verdict.kind} />
+              <p className="verdict-title">{verdict.title}</p>
+              {verdict.detail && <p className="fine">{verdict.detail}</p>}
+            </div>
+          )}
           {move && (
             <p className="fine">
               {move.power && move.power > 1 ? `Poder ${move.power}` : 'Sem dano direto'} · {move.accuracy ? `precisão ${move.accuracy}%` : 'não erra'} ·{' '}
@@ -235,8 +248,16 @@ function memberLine(a: TeachAdvice, stab: boolean): string {
   }
 }
 
-/** Resumo da linha fechada: quem mais ganha com o TM, ou que não compensa agora. */
-function bestVerdict(team: TeamMember[], advice: Map<string, TeachAdvice>): { kind: 'yes' | 'no' | 'status'; text: string } | null {
+type VerdictKind = 'yes' | 'no' | 'status';
+const VERDICT_LABEL: Record<VerdictKind, string> = { yes: 'Ensinar', no: 'Não ensinar', status: 'Depende' };
+
+/** Rótulo do veredito em pílula: Ensinar / Não ensinar / Depende, sempre escrito. */
+function VerdictPill({ kind }: { kind: VerdictKind }) {
+  return <span className={`verdict ${kind}`}>{VERDICT_LABEL[kind]}</span>;
+}
+
+/** Resumo do TM/HM: quem mais ganha com ele, ou que não compensa agora. O título é a decisão; o detalhe, o porquê. */
+function bestVerdict(team: TeamMember[], advice: Map<string, TeachAdvice>): { kind: VerdictKind; title: string; detail: string } | null {
   let best: { t: TeamMember; a: Extract<TeachAdvice, { kind: 'replace' | 'free-slot' }> } | null = null;
   let anyLearner = false;
   let status: 'status' | 'variable-power' | null = null;
@@ -250,9 +271,14 @@ function bestVerdict(team: TeamMember[], advice: Map<string, TeachAdvice>): { ki
   if (best) {
     const slot = best.a.kind === 'replace' ? ` no lugar de ${moveName(best.a.replace)}` : ' (espaço livre)';
     const vs = best.a.improves.length ? ` · melhora contra ${best.a.improves.slice(0, 2).map(displayName).join(', ')}` : '';
-    return { kind: 'yes', text: `Ensinar a ${best.t.name}${slot} · ${pctGain(best.a.gain)} de dano esperado${vs}` };
+    return { kind: 'yes', title: `${best.t.name}${slot}`, detail: `${pctGain(best.a.gain)} de dano esperado${vs}` };
   }
-  if (status) return { kind: 'status', text: status === 'status' ? 'Depende: golpe de status, não dá para comparar por dano' : 'Depende: poder variável (amizade, HP etc.), não dá para comparar por dano' };
-  if (anyLearner) return { kind: 'no', text: 'Não ensinar agora: os golpes atuais e a equipe já cobrem' };
+  if (status)
+    return {
+      kind: 'status',
+      title: status === 'status' ? 'Golpe de status' : 'Poder variável',
+      detail: status === 'status' ? 'não dá para comparar por dano: decida pelo seu estilo de jogo' : 'depende de amizade, HP etc.: não dá para comparar por dano',
+    };
+  if (anyLearner) return { kind: 'no', title: 'Agora não', detail: 'os golpes atuais e a equipe já cobrem' };
   return null;
 }
